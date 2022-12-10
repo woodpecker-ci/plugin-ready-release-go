@@ -1,0 +1,23 @@
+{
+  "name": "plugin-release",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Woodpecker Maintainers",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsx src/index.ts --out-dir dist"
+  },
+  "dependencies": {
+    "@octokit/rest": "^19.0.5",
+    "execa": "^6.1.0",
+    "picocolors": "^1.0.0",
+    "shelljs": "^0.8.5",
+    "tsx": "^3.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.12",
+    "@types/shelljs": "^0.8.11"
+  }
+}
