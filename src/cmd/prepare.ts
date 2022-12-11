@@ -25,11 +25,24 @@ export async function prepare({ config, forge, git, exec }: CommandContext) {
   try {
     await git.fetch(pullRequestBranch);
   } catch (e) {
-    console.log(c.red(`Error fetching "${pullRequestBranch}" branch`), e);
+    console.log(
+      c.yellow(
+        `Error fetching "${pullRequestBranch}" branch. Maybe it does not exist yet?`
+      )
+    );
   }
 
   await git.checkout(pullRequestBranch);
-  await git.pull(pullRequestBranch);
+
+  try {
+    await git.pull(pullRequestBranch);
+  } catch (e) {
+    console.log(
+      c.yellow(
+        `Error pulling "${pullRequestBranch}" branch. Maybe it does not exist yet?`
+      )
+    );
+  }
 
   await git.fetch(releaseBranch);
   await git.merge(`origin/${releaseBranch}`);

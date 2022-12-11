@@ -25,6 +25,15 @@ export class Git {
     return stdout;
   }
 
+  async doesBranchExist(branch: string, remote = false) {
+    const { stdout } = await execa("git", [
+      "branch",
+      "--list",
+      remote ? `origin/${branch}` : `${branch}`,
+    ]);
+    return stdout.length > 0;
+  }
+
   async setup() {
     await execa("git", ["config", "pull.rebase", "false"]);
   }
@@ -58,12 +67,18 @@ export class Git {
 
   async fetch(branch: string) {
     console.log("# Fetching branch:", c.green(`origin/${branch}`));
-    await execa("git", ["fetch", "origin", `${branch}`]);
+    await execa("git", ["fetch", "origin", branch]);
   }
 
   async checkout(branch: string) {
+    if (!(await this.doesBranchExist(branch))) {
+      console.log("# Creating and checking out branch:", c.green(branch));
+      await execa("git", ["checkout", "-B", branch]);
+      return;
+    }
+
     console.log("# Checking out branch:", c.green(branch));
-    await execa("git", ["checkout", "-B", `${branch}`]);
+    await execa("git", ["checkout", branch]);
   }
 
   async commitChanges({ message }: { message: string }) {
@@ -76,7 +91,7 @@ export class Git {
     await execa("git", ["add", "."]);
 
     console.log("# Creating new commit with message:", c.green(message));
-    await execa("git", ["commit", "-m", `"${message}"`]);
+    await execa("git", ["commit", "-m", message]);
   }
 
   async merge(branch: string) {
@@ -90,7 +105,7 @@ export class Git {
     );
     const { stdout } = await execa("git", [
       "merge",
-      `${branch}`,
+      branch,
       "-m",
       `"Merge ${branch}"`,
       "--no-edit",
