@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`change > should generate a changelog 1`] = `
+"## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2023-07-10
+
+### 💥 Breaking changes
+
+- Break everything [#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339) ([789](https://github.com/woodpecker-ci/woodpecker/commit/789))
+
+### ✨ Features
+
+- Add new feature [#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338) ([456](https://github.com/woodpecker-ci/woodpecker/commit/456))
+
+### 🐛 Bug Fixes
+
+- Fix random UI bug [#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337) ([123](https://github.com/woodpecker-ci/woodpecker/commit/123))
+- Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
+
+### Misc
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))"
+`;

@@ -17,19 +17,52 @@ const ciConfig = {
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
 
-const defaultUserConfig: UserConfig = {
-  getNextVersion: async () => "0.0.0", // TODO,
-  getReleaseBranch: () => "main",
-  getReleaseDescription: ({ nextVersion }) => `Release of ${nextVersion}`,
-  getPullRequestBranch: ({ version }) => `next-release/${version}`,
-  beforePrepare: async () => true,
-  afterPrepare: async () => true,
-  beforeRelease: async () => true,
-  afterRelease: async () => true,
+export const defaultUserConfig: UserConfig = {
+  changeTypes: [
+    {
+      title: "💥 Breaking changes",
+      labels: ["breaking"],
+      bump: "major",
+      weight: 3,
+    },
+    {
+      title: "🔒 Security",
+      labels: ["security"],
+      bump: "patch",
+      weight: 2,
+    },
+    {
+      title: "✨ Features",
+      labels: ["feature"],
+      bump: "minor",
+      weight: 1,
+    },
+    {
+      title: "📈 Enhancement",
+      labels: ["enhancement", "refactor"],
+      bump: "patch",
+    },
+    {
+      title: "🐛 Bug Fixes",
+      labels: ["bug"],
+      bump: "patch",
+    },
+    {
+      title: "📚 Documentation",
+      labels: ["docs", "documentation"],
+      bump: "patch",
+    },
+    {
+      title: "Misc",
+      labels: ["misc"],
+      bump: "patch",
+      default: true,
+    },
+  ],
 };
 
 export async function getConfig(): Promise<Config> {
-  const userConfig: Partial<UserConfig> = {};
+  const userConfig: UserConfig = {};
 
   const configFilePath =
     ciConfig.configFile || path.join(process.cwd(), "release-config.ts");

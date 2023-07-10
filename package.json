@@ -7,17 +7,23 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "tsx src/index.ts",
-    "build": "tsx src/index.ts --out-dir dist"
+    "build": "tsx src/index.ts --out-dir dist",
+    "test": "vitest --ui"
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
     "execa": "^6.1.0",
     "picocolors": "^1.0.0",
+    "semver": "^7.5.3",
     "shelljs": "^0.8.5",
+    "simple-git": "^3.19.1",
     "tsx": "^3.12.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.12",
-    "@types/shelljs": "^0.8.11"
+    "@types/semver": "^7.5.0",
+    "@types/shelljs": "^0.8.11",
+    "@vitest/ui": "^0.32.2",
+    "vitest": "^0.32.2"
   }
 }

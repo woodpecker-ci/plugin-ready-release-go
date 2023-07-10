@@ -7,7 +7,9 @@ export abstract class Forge {
     repo: string;
     sourceBranch: string;
     targetBranch: string;
-  }): Promise<void>;
+  }): Promise<{
+    pullRequestLink: string;
+  }>;
 
   abstract createRelease(options: {
     owner: string;
@@ -16,11 +18,26 @@ export abstract class Forge {
     name: string;
     description: string;
     prerelease: boolean;
-  }): Promise<void>;
+  }): Promise<{
+    releaseLink: string;
+  }>;
 
   abstract getGitCredentials(): Promise<{
     email: string;
     username: string;
     password: string;
   }>;
+
+  abstract getPullRequestFromCommit(options: {
+    owner: string;
+    repo: string;
+    commit: string;
+  }): Promise<
+    | {
+        title: string;
+        number: number;
+        labels: string[];
+      }
+    | undefined
+  >;
 }

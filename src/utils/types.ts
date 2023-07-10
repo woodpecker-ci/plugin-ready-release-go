@@ -1,7 +1,7 @@
 import { ExecFunction } from "shelljs";
 import { Forge } from "../forges/forge";
 import { Config } from "./config";
-import { Git } from "./git";
+import type { SimpleGit } from "simple-git";
 
 export type PromiseOrValue<T> = Promise<T> | T;
 
@@ -11,17 +11,29 @@ export type CommandContext = {
   exec: Exec;
   config: Config;
   forge: Forge;
-  git: Git;
+  git: SimpleGit;
+  latestVersion: string;
+  nextVersion: string;
+  changes: Change[];
+};
+
+export type Change = {
+  title: string;
+  commit: string;
+  pullRequestNumber?: number;
+  labels: string[];
 };
 
 export type HookContext = {
   exec: Exec;
-  nextVersion: string;
+  latestVersion?: string;
+  nextVersion?: string;
+  changes?: Change[];
 };
 
-export type UserConfig = {
+export type UserConfig = Partial<{
   /**
-   * Get the next version to release.
+   * Get the next version to release. By default pull-request labels will be used.
    */
   getNextVersion: (ctx: HookContext) => PromiseOrValue<string>;
 
@@ -43,9 +55,9 @@ export type UserConfig = {
   /**
    * Get the branch used for the release pull request
    *
-   * By default it's `next-release/${version}`
+   * By default it's `next-release/${latest-version}`
    */
-  getPullRequestBranch: (o: { version: string }) => PromiseOrValue<string>;
+  getPullRequestBranch: (ctx: HookContext) => PromiseOrValue<string>;
 
   /**
    * Run before the release pull request is created.
@@ -74,6 +86,14 @@ export type UserConfig = {
    * Could be used to notify maintainers about release, publish release artifacts, etc
    */
   afterRelease: (ctx: HookContext) => PromiseOrValue<boolean | void>;
-};
 
-export const defineConfig = (config: Partial<UserConfig>) => config;
+  changeTypes: {
+    title: string;
+    labels: string[];
+    bump: "major" | "minor" | "patch";
+    default?: boolean;
+    weight?: number;
+  }[];
+}>;
+
+export const defineConfig = (config: UserConfig) => config;
