@@ -10,6 +10,7 @@ export async function prepare({
   git,
   exec,
   changes,
+  latestVersion,
   nextVersion,
 }: CommandContext) {
   console.log(
@@ -19,16 +20,17 @@ export async function prepare({
   );
 
   const hookCtx: HookContext = {
-    exec(...args) {
-      console.log(c.gray("$"), c.cyan(args[0]));
-      return exec.apply(null, args);
-    },
+    // exec(...args) {
+    //   console.log(c.gray("$"), c.cyan(args[0]));
+    //   return exec.apply(null, args);
+    // }
+    exec,
     nextVersion,
   };
 
   const pullRequestBranch = config.user.getPullRequestBranch
     ? await config.user.getPullRequestBranch(hookCtx)
-    : `next-release/${nextVersion}`;
+    : `next-release/${latestVersion}`;
 
   const releaseBranch = config.user.getReleaseBranch
     ? await config.user.getReleaseBranch(hookCtx)

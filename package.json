@@ -8,7 +8,9 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "build": "tsx src/index.ts --out-dir dist",
-    "test": "vitest --ui"
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
@@ -24,6 +26,7 @@
     "@types/semver": "^7.5.0",
     "@types/shelljs": "^0.8.11",
     "@vitest/ui": "^0.32.2",
-    "vitest": "^0.32.2"
+    "vitest": "^0.32.2",
+    "typescript": "^5.1.6"
   }
 }

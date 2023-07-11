@@ -1,0 +1,20 @@
+pipeline:
+  install:
+    image: node:18-alpine
+    commands:
+      - pnpm i
+
+  unit-test:
+    image: node:18-alpine
+    commands:
+      - pnpm test
+
+  typecheck:
+    image: node:18-alpine
+    commands:
+      - pnpm typecheck
+
+when:
+  - event: pull_request
+  - event: push
+    branch: main
