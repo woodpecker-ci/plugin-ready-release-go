@@ -2,6 +2,7 @@ pipeline:
   install:
     image: node:18-alpine
     commands:
+      - corepack enable
       - pnpm i
 
   unit-test:
