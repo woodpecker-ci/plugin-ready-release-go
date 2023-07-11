@@ -106,4 +106,32 @@ export class GithubForge extends Forge {
       labels: pr.data[0].labels.map((label) => label.name),
     };
   }
+
+  getRepoUrl(owner: string, repo: string): string {
+    return `https://github.com/${owner}/${repo}`;
+  }
+
+  getCommitUrl(owner: string, repo: string, commitHash: string): string {
+    return `https://github.com/${owner}/${repo}/commit/${commitHash}`;
+  }
+
+  getIssueUrl(
+    owner: string,
+    repo: string,
+    issueNumber: string | number
+  ): string {
+    return `https://github.com/${owner}/${repo}/issues/${issueNumber}`;
+  }
+
+  getPullRequestUrl(
+    owner: string,
+    repo: string,
+    pullRequestNumber: string | number
+  ): string {
+    return `https://github.com/${owner}/${repo}/pull/${pullRequestNumber}`;
+  }
+
+  getReleaseUrl(owner: string, repo: string, release: string): string {
+    return `https://github.com/${owner}/${repo}/releases/tag/${release}`;
+  }
 }

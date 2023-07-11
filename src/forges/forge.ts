@@ -41,4 +41,22 @@ export abstract class Forge {
       }
     | undefined
   >;
+
+  abstract getRepoUrl(owner: string, repo: string): string;
+  abstract getCommitUrl(
+    owner: string,
+    repo: string,
+    commitHash: string
+  ): string;
+  abstract getIssueUrl(
+    owner: string,
+    repo: string,
+    issueNumber: string | number
+  ): string;
+  abstract getPullRequestUrl(
+    owner: string,
+    repo: string,
+    pullRequestNumber: string | number
+  ): string;
+  abstract getReleaseUrl(owner: string, repo: string, release: string): string;
 }

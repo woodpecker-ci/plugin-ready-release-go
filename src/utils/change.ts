@@ -1,5 +1,7 @@
 import semver from "semver";
 import { Change, UserConfig } from "./types";
+import { Config } from "./config";
+import { Forge } from "../forges/forge";
 
 export function getNextVersionFromLabels(
   lastVersion: string,
@@ -36,16 +38,15 @@ export function getNextVersionFromLabels(
 
 export function getChangeLogSection(
   nextVersion: string,
-  config: UserConfig,
-  changes: Change[]
+  config: Config,
+  changes: Change[],
+  forge: Forge
 ) {
-  const repo = `woodpecker-ci/woodpecker`; // TODO: get repo from config / forge
-
-  const defaultChangeType = config.changeTypes!.find((c) => c.default);
+  const defaultChangeType = config.user.changeTypes!.find((c) => c.default);
 
   const changeSections = changes.reduce((acc, change) => {
     const changeType =
-      config.changeTypes!.find((c) =>
+      config.user.changeTypes!.find((c) =>
         c.labels.some((l) => change.labels.includes(l))
       ) || defaultChangeType;
 
@@ -57,13 +58,24 @@ export function getChangeLogSection(
       acc.set(changeType.title, { default: false, ...changeType, changes: [] });
     }
 
-    const commitLink = `https://github.com/${repo}/commit/${change.commitHash}`;
+    const commitLink = forge.getCommitUrl(
+      config.ci.repoOwner!,
+      config.ci.repoName!,
+      change.commitHash
+    );
     if (change.pullRequestNumber) {
-      const prLink = `https://github.com/${repo}/pull/${change.pullRequestNumber}`;
-      const entry = `- ${change.title} [#${change.pullRequestNumber}](${prLink}) ([${change.commitHash}](${commitLink}))`;
+      const prLink = forge.getPullRequestUrl(
+        config.ci.repoOwner!,
+        config.ci.repoName!,
+        change.pullRequestNumber
+      );
+      const entry = `- ${change.title} [[#${change.pullRequestNumber}](${prLink})]`;
       acc.get(changeType.title)?.changes.push(entry);
     } else {
-      const entry = `- ${change.title} ([${change.commitHash}](${commitLink}))`;
+      const entry = `- ${change.title} ([${change.commitHash.substring(
+        0,
+        7
+      )}](${commitLink}))`;
       acc.get(changeType.title)?.changes.push(entry);
     }
 
@@ -83,8 +95,11 @@ export function getChangeLogSection(
     })
     .join("\n\n");
 
-  // TODO: get release link from config / forge
-  const releaseLink = `https://github.com/${repo}/releases/tag/${nextVersion}`;
+  const releaseLink = forge.getReleaseUrl(
+    config.ci.repoOwner!,
+    config.ci.repoName!,
+    nextVersion
+  );
 
   return `## [${nextVersion}](${releaseLink}) - ${
     new Date().toISOString().split("T")[0]

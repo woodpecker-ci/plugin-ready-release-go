@@ -4,9 +4,9 @@ import {
   getNextVersionFromLabels,
   updateChangelogSection,
 } from "./change";
-import { UserConfig } from "./types";
 import { Change } from "./types";
-import { defaultUserConfig } from "./config";
+import { Config, defaultUserConfig } from "./config";
+import { GithubForge } from "../forges/github";
 
 const changes: Change[] = [
   {
@@ -49,18 +49,32 @@ const changes: Change[] = [
     title: "Update README",
   },
 ];
-const config: UserConfig = defaultUserConfig;
+const config: Config = {
+  ci: {
+    branch: "main",
+    commitMessage: "chore(release): 1.0.0 [skip ci]",
+    configFile: "ready-go-release.config.ts",
+    eventType: "push",
+    gitEmail: "ci@woodpecker-ci.org",
+    repoOwner: "woodpecker-ci",
+    repoName: "woodpecker",
+    forgeType: "github",
+    githubToken: "123",
+    isCI: true,
+  },
+  user: defaultUserConfig,
+};
 
 describe("change", () => {
   it("should get the correct major bump", () => {
-    const nextVersion = getNextVersionFromLabels("1.0.0", config, changes);
+    const nextVersion = getNextVersionFromLabels("1.0.0", config.user, changes);
     expect(nextVersion).toBe("2.0.0");
   });
 
   it("should get the correct minor bump", () => {
     const nextVersion = getNextVersionFromLabels(
       "1.0.0",
-      config,
+      config.user,
       changes.filter((change) => !change.labels.includes("breaking"))
     );
 
@@ -70,7 +84,7 @@ describe("change", () => {
   it("should get the correct patch bump", () => {
     const nextVersion = getNextVersionFromLabels(
       "1.0.0",
-      config,
+      config.user,
       changes
         .filter((change) => !change.labels.includes("breaking"))
         .filter((change) => !change.labels.includes("feature"))
@@ -80,9 +94,8 @@ describe("change", () => {
   });
 
   it("should generate a changelog", () => {
-    const changelog = getChangeLogSection("1.0.0", config, changes);
-
-    console.log(changelog);
+    const forge = new GithubForge("", "");
+    const changelog = getChangeLogSection("1.0.0", config, changes, forge);
 
     expect(changelog).toMatchSnapshot();
   });
@@ -109,9 +122,9 @@ describe("change", () => {
 
 - Add new feature (#1338) @Alice Wonderland
     `;
-
+    const forge = new GithubForge("", "");
     const nextVersion = "1.0.0";
-    const newSection = getChangeLogSection(nextVersion, config, changes);
+    const newSection = getChangeLogSection(nextVersion, config, changes, forge);
     const changelog = updateChangelogSection(
       nextVersion,
       oldChangelog,

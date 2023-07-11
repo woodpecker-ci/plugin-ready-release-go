@@ -84,8 +84,9 @@ export async function prepare({
   }
   const newChangelogSection = getChangeLogSection(
     nextVersion,
-    config.user,
-    changes
+    config,
+    changes,
+    forge
   );
   const changelog = updateChangelogSection(
     nextVersion,
