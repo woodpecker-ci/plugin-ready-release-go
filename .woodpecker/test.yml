@@ -1,4 +1,4 @@
-pipeline:
+steps:
   install:
     image: node:18-alpine
     commands:

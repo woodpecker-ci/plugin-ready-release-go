@@ -1,4 +1,4 @@
-pipeline:
+steps:
   dryrun:
     image: woodpeckerci/plugin-docker-buildx
     settings:
@@ -32,3 +32,6 @@ pipeline:
     secrets: [docker_username, docker_password]
     when:
       event: tag
+
+depends_on:
+  - test
