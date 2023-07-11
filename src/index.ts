@@ -18,7 +18,7 @@ async function run() {
   };
 
   if (config.ci.isCI) {
-    console.log("# CI detected");
+    console.log("# CI detected 🤖");
   }
 
   console.log("# Event type:", c.green(config.ci.eventType));
@@ -38,7 +38,8 @@ async function run() {
   const releaseBranch = config.user.getReleaseBranch
     ? await config.user.getReleaseBranch(hookCtx)
     : "main";
-  await git.checkoutBranch(releaseBranch, `origin/${releaseBranch}`);
+
+  await git.checkout(releaseBranch);
   const tags = await git.tags();
 
   if (!tags.latest) {
