@@ -2,6 +2,7 @@ import c from "picocolors";
 
 import { CommandContext, HookContext } from "../utils/types";
 import { getChangeLog } from "../utils/change";
+import { promises as fs } from "fs";
 
 export async function prepare({
   config,
@@ -11,7 +12,11 @@ export async function prepare({
   changes,
   nextVersion,
 }: CommandContext) {
-  console.log("# Preparing release pull-request ...");
+  console.log(
+    "# Preparing release pull-request for version:",
+    c.green(nextVersion),
+    "..."
+  );
 
   const hookCtx: HookContext = {
     exec(...args) {
@@ -21,9 +26,6 @@ export async function prepare({
     nextVersion,
   };
 
-  hookCtx.nextVersion = nextVersion;
-  console.log("# Next version will be:", c.green(nextVersion));
-
   const pullRequestBranch = config.user.getPullRequestBranch
     ? await config.user.getPullRequestBranch(hookCtx)
     : `next-release/${nextVersion}`;
@@ -32,32 +34,38 @@ export async function prepare({
     ? await config.user.getReleaseBranch(hookCtx)
     : "main";
 
-  try {
-    await git.fetch(pullRequestBranch);
-  } catch (e) {
+  const branches = await git.branch();
+  if (branches.all.includes(`remotes/origin/${pullRequestBranch}`)) {
     console.log(
-      c.yellow(
-        `Error fetching "${pullRequestBranch}" branch. Maybe it does not exist yet?`
-      ),
-      e
+      c.yellow(`Branch "${pullRequestBranch}" already exists, checking it out.`)
     );
-  }
 
-  await git.checkout(pullRequestBranch);
+    await git.checkout([pullRequestBranch]);
 
-  try {
-    await git.pull(pullRequestBranch);
-  } catch (e) {
+    try {
+      await git.pull(pullRequestBranch);
+    } catch (e) {
+      console.log(
+        c.yellow(
+          `Error pulling "${pullRequestBranch}" branch. Maybe it does not exist yet?`
+        ),
+        e
+      );
+    }
+
+    await git.merge([
+      `origin/${releaseBranch}`,
+      "-m",
+      `Merge branch 'origin/${releaseBranch}' into '${pullRequestBranch}'`,
+      "--no-edit",
+    ]);
+  } else {
     console.log(
-      c.yellow(
-        `Error pulling "${pullRequestBranch}" branch. Maybe it does not exist yet?`
-      ),
-      e
+      c.yellow(`Branch "${pullRequestBranch}" does not exist yet, creating it.`)
     );
-  }
 
-  await git.fetch(`origin/${releaseBranch}`);
-  await git.mergeFromTo(`origin/${releaseBranch}`, pullRequestBranch);
+    await git.checkout(["-B", pullRequestBranch, "--track"]);
+  }
 
   if (config.user.beforePrepare) {
     console.log("# Running beforePrepare hook");
@@ -68,9 +76,23 @@ export async function prepare({
     }
   }
 
-  await git.commit(`Release ${nextVersion}`);
+  const oldChangelog = await fs.readFile("CHANGELOG.md", "utf-8");
+  const changelog = `# Changelog\n\n${getChangeLog(
+    nextVersion,
+    config.user,
+    changes
+  )}\n\n${oldChangelog}`;
 
-  await git.push(pullRequestBranch);
+  console.log("# Updating CHANGELOG.md");
+
+  await fs.writeFile("CHANGELOG.md", changelog);
+
+  const hasChanges = await git.diffSummary(["--cached"]);
+  if (hasChanges.files.length > 0) {
+    await git.add(".");
+    await git.commit(`🎉 Release ${nextVersion}`);
+    await git.push(["-u", "origin", pullRequestBranch]);
+  }
 
   if (!config.ci.repoOwner || !config.ci.repoName) {
     throw new Error("Missing repoOwner or repoName");
@@ -78,7 +100,7 @@ export async function prepare({
 
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
-    : getChangeLog(nextVersion, config.user, changes);
+    : changelog;
 
   console.log("# Creating release pull-request");
   const pullRequestLink = await forge.createOrUpdatePullRequest({

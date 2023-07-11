@@ -84,12 +84,15 @@ export class GithubForge extends Forge {
   async getPullRequestFromCommit(options: {
     owner: string;
     repo: string;
-    commit: string;
-  }): Promise<{ title: string; number: number; labels: string[] } | undefined> {
+    commitHash: string;
+  }): Promise<
+    | { title: string; author?: string; number: number; labels: string[] }
+    | undefined
+  > {
     const pr = await this.octokit.repos.listPullRequestsAssociatedWithCommit({
       owner: options.owner,
       repo: options.repo,
-      commit_sha: options.commit,
+      commit_sha: options.commitHash,
     });
 
     if (pr.data.length === 0) {
@@ -98,6 +101,7 @@ export class GithubForge extends Forge {
 
     return {
       title: pr.data[0].title,
+      author: pr.data[0].user?.login,
       number: pr.data[0].number,
       labels: pr.data[0].labels.map((label) => label.name),
     };

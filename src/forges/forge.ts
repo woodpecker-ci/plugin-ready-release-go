@@ -31,10 +31,11 @@ export abstract class Forge {
   abstract getPullRequestFromCommit(options: {
     owner: string;
     repo: string;
-    commit: string;
+    commitHash: string;
   }): Promise<
     | {
         title: string;
+        author?: string;
         number: number;
         labels: string[];
       }

@@ -6,14 +6,14 @@ import { prepare } from "./cmd/prepare";
 import { release } from "./cmd/release";
 import { getForge } from "./forges";
 import { getConfig } from "./utils/config";
-import { Change, CommandContext } from "./utils/types";
+import { Change, CommandContext, HookContext } from "./utils/types";
 import { getNextVersionFromLabels } from "./utils/change";
 
 async function run() {
   const config = await getConfig();
   const forge = await getForge(config);
   const git = simpleGit();
-  const hookCtx = {
+  const hookCtx: HookContext = {
     exec: shelljs.exec,
   };
 
@@ -35,11 +35,27 @@ async function run() {
   await git.addConfig("user.name", credentials.username);
   await git.addConfig("user.email", credentials.email);
 
+  const remotes = await git.getRemotes(true);
+  if (remotes.length < 1) {
+    console.log(c.yellow("# No remotes found, skipping."));
+    return;
+  }
+
+  if (!remotes[0].refs.push.includes("@")) {
+    const remote = remotes[0].refs.push.replace(
+      "://",
+      `://${credentials.username}:${credentials.password}@`
+    );
+    await git.removeRemote(remotes[0].name);
+    await git.addRemote(remotes[0].name, remote);
+  }
+
   const releaseBranch = config.user.getReleaseBranch
     ? await config.user.getReleaseBranch(hookCtx)
     : "main";
 
-  await git.checkout(releaseBranch);
+  await git.fetch();
+  await git.branch(["--set-upstream-to", `origin/${releaseBranch}`]);
   const tags = await git.tags();
 
   if (!tags.latest) {
@@ -63,22 +79,30 @@ async function run() {
   console.log("# Found", c.green(unTaggedCommits.total), "untagged commits");
 
   const latestVersion = lastestTag.replace("v", "");
-  const changes = await Promise.all(
-    unTaggedCommits.all.map(async (commit) => {
-      const pr = await forge.getPullRequestFromCommit({
-        owner: config.ci.repoOwner!,
-        repo: config.ci.repoName!,
-        commit: commit.refs,
-      });
+  const changes: Change[] = [];
 
-      return <Change>{
-        commit: commit.refs,
-        title: pr?.title || commit.message,
-        labels: pr?.labels || [],
-        pullRequestNumber: pr?.number,
-      };
-    })
-  );
+  for await (const commit of unTaggedCommits.all) {
+    const pr = await forge.getPullRequestFromCommit({
+      owner: config.ci.repoOwner!,
+      repo: config.ci.repoName!,
+      commitHash: commit.hash,
+    });
+
+    if (!pr) {
+      console.log(
+        c.yellow("# No pull-request found for commit, skipping."),
+        `${commit.hash}: "${commit.message}"`
+      );
+    }
+
+    changes.push({
+      commitHash: commit.hash,
+      author: pr?.author || commit.author_name,
+      title: pr?.title || commit.message,
+      labels: pr?.labels || [],
+      pullRequestNumber: pr?.number,
+    });
+  }
 
   const nextVersion = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
@@ -115,10 +139,6 @@ async function run() {
 
   // is "normal" push to release branch
   console.log("# Push to release branch detected.");
-  console.log(
-    "# Now preparing release pull-request for version:",
-    c.green(nextVersion)
-  );
   await prepare(commandCtx);
 }
 

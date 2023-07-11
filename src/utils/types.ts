@@ -19,7 +19,8 @@ export type CommandContext = {
 
 export type Change = {
   title: string;
-  commit: string;
+  author: string;
+  commitHash: string;
   pullRequestNumber?: number;
   labels: string[];
 };
