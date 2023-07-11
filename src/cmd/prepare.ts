@@ -1,7 +1,7 @@
 import c from "picocolors";
 
 import { CommandContext, HookContext } from "../utils/types";
-import { getChangeLog } from "../utils/change";
+import { updateChangelogSection, getChangeLogSection } from "../utils/change";
 import { promises as fs } from "fs";
 
 export async function prepare({
@@ -76,19 +76,26 @@ export async function prepare({
     }
   }
 
-  const oldChangelog = await fs.readFile("CHANGELOG.md", "utf-8");
-  const changelog = `# Changelog\n\n${getChangeLog(
+  let oldChangelog = "";
+  if (await fs.stat("CHANGELOG.md").catch(() => false)) {
+    oldChangelog = await fs.readFile("CHANGELOG.md", "utf-8");
+  }
+  const newChangelogSection = getChangeLogSection(
     nextVersion,
     config.user,
     changes
-  )}\n\n${oldChangelog}`;
+  );
+  const changelog = updateChangelogSection(
+    nextVersion,
+    oldChangelog,
+    newChangelogSection
+  );
 
   console.log("# Updating CHANGELOG.md");
-
   await fs.writeFile("CHANGELOG.md", changelog);
 
-  const hasChanges = await git.diffSummary(["--cached"]);
-  if (hasChanges.files.length > 0) {
+  const { isClean } = await git.status();
+  if (!isClean()) {
     await git.add(".");
     await git.commit(`🎉 Release ${nextVersion}`);
     await git.push(["-u", "origin", pullRequestBranch]);
@@ -100,7 +107,7 @@ export async function prepare({
 
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
-    : changelog;
+    : newChangelogSection;
 
   console.log("# Creating release pull-request");
   const pullRequestLink = await forge.createOrUpdatePullRequest({

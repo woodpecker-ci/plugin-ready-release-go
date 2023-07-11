@@ -54,8 +54,11 @@ async function run() {
     ? await config.user.getReleaseBranch(hookCtx)
     : "main";
 
-  await git.fetch();
+  await git.fetch(["--unshallow", "--tags"]);
+  await git.checkout(releaseBranch);
   await git.branch(["--set-upstream-to", `origin/${releaseBranch}`]);
+  await git.pull();
+
   const tags = await git.tags();
 
   if (!tags.latest) {
