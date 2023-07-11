@@ -8,11 +8,13 @@ pipeline:
   unit-test:
     image: node:18-alpine
     commands:
+      - corepack enable
       - pnpm test
 
   typecheck:
     image: node:18-alpine
     commands:
+      - corepack enable
       - pnpm typecheck
 
 when:
