@@ -40,7 +40,8 @@ export function getChangeLogSection(
   nextVersion: string,
   config: Config,
   changes: Change[],
-  forge: Forge
+  forge: Forge,
+  includeContributors: boolean
 ) {
   const defaultChangeType = config.user.changeTypes!.find((c) => c.default);
 
@@ -106,9 +107,17 @@ export function getChangeLogSection(
     .filter((v, i, a) => a.indexOf(v) === i)
     .join(", ")}`;
 
-  return `## [${nextVersion}](${releaseLink}) - ${
-    new Date().toISOString().split("T")[0]
-  }\n\n${contributors}\n\n${changeLog}`;
+  const releaseDate = new Date().toISOString().split("T")[0];
+
+  let section = `## [${nextVersion}](${releaseLink}) - ${releaseDate}\n\n`;
+
+  if (includeContributors) {
+    section += `${contributors}\n\n`;
+  }
+
+  section += `${changeLog}`;
+
+  return section;
 }
 
 export function updateChangelogSection(

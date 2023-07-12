@@ -86,7 +86,8 @@ export async function prepare({
     nextVersion,
     config,
     changes,
-    forge
+    forge,
+    true
   );
   const changelog = updateChangelogSection(
     nextVersion,
@@ -110,7 +111,7 @@ export async function prepare({
 
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
-    : newChangelogSection;
+    : getChangeLogSection(nextVersion, config, changes, forge, false);
 
   console.log("# Creating release pull-request");
   const pullRequestLink = await forge.createOrUpdatePullRequest({

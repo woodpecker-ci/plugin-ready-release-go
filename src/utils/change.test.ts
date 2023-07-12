@@ -101,7 +101,13 @@ describe("change", () => {
 
   it("should generate a changelog", () => {
     const forge = new GithubForge("", "");
-    const changelog = getChangeLogSection("1.0.0", config, changes, forge);
+    const changelog = getChangeLogSection(
+      "1.0.0",
+      config,
+      changes,
+      forge,
+      true
+    );
 
     expect(changelog).toMatchSnapshot();
   });
@@ -130,7 +136,13 @@ describe("change", () => {
     `;
     const forge = new GithubForge("", "");
     const nextVersion = "1.0.0";
-    const newSection = getChangeLogSection(nextVersion, config, changes, forge);
+    const newSection = getChangeLogSection(
+      nextVersion,
+      config,
+      changes,
+      forge,
+      true
+    );
     const changelog = updateChangelogSection(
       nextVersion,
       oldChangelog,
