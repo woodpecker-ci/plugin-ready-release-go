@@ -95,6 +95,8 @@ export type UserConfig = Partial<{
     default?: boolean;
     weight?: number;
   }[];
+
+  skipLabels: string[];
 }>;
 
 export const defineConfig = (config: UserConfig) => config;

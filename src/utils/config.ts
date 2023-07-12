@@ -1,5 +1,6 @@
 import path from "path";
 import { UserConfig } from "./types";
+import { promises as fs } from "fs";
 
 const ciConfig = {
   configFile: process.env.PLUGIN_CONFIG_FILE,
@@ -13,6 +14,7 @@ const ciConfig = {
   gitEmail: process.env.PLUGIN_GIT_EMAIL,
   repoOwner: process.env.PLUGIN_REPO_OWNER || process.env.CI_REPO_OWNER,
   repoName: process.env.PLUGIN_REPO_NAME || process.env.CI_REPO_NAME,
+  releasePrefix: "🎉 Release",
 };
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
@@ -59,6 +61,7 @@ export const defaultUserConfig: UserConfig = {
       default: true,
     },
   ],
+  skipLabels: ["skip-release", "skip-changelog"],
 };
 
 export async function getConfig(): Promise<Config> {
@@ -66,7 +69,12 @@ export async function getConfig(): Promise<Config> {
 
   const configFilePath =
     ciConfig.configFile || path.join(process.cwd(), "release-config.ts");
-  if (configFilePath) {
+  if (
+    await fs
+      .stat(configFilePath)
+      .then(() => true)
+      .catch(() => false)
+  ) {
     console.log("# Loading config from", configFilePath, "...");
     const _userConfig = await import(configFilePath);
     Object.assign(userConfig, _userConfig.default);

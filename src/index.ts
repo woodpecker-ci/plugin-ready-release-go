@@ -85,6 +85,10 @@ async function run() {
   const changes: Change[] = [];
 
   for await (const commit of unTaggedCommits.all) {
+    if (commit.message.startsWith(config.ci.releasePrefix)) {
+      continue;
+    }
+
     const pr = await forge.getPullRequestFromCommit({
       owner: config.ci.repoOwner!,
       repo: config.ci.repoName!,
@@ -93,9 +97,17 @@ async function run() {
 
     if (!pr) {
       console.log(
-        c.yellow("# No pull-request found for commit, skipping."),
+        c.yellow("# No pull-request found for commit."),
         `${commit.hash}: "${commit.message}"`
       );
+    }
+
+    if (pr?.labels.some((l) => config.user.skipLabels?.includes(l))) {
+      console.log(
+        c.yellow("# Skipping commit / PR by label:"),
+        `${commit.hash}: "${commit.message}"`
+      );
+      continue;
     }
 
     changes.push({
@@ -129,7 +141,7 @@ async function run() {
   };
 
   // is "release" commit
-  if (config.ci.commitMessage?.startsWith("🎉 Release")) {
+  if (config.ci.commitMessage?.startsWith(config.ci.releasePrefix)) {
     console.log(c.green("# Release commit detected."));
     console.log("# Now releasing version:", c.green(nextVersion));
 

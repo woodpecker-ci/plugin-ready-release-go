@@ -17,10 +17,17 @@ export abstract class Forge {
     tag: string;
     name: string;
     description: string;
-    prerelease: boolean;
+    prerelease?: boolean;
   }): Promise<{
     releaseLink: string;
   }>;
+
+  abstract addCommentToPullRequest(options: {
+    owner: string;
+    repo: string;
+    pullRequestNumber: number;
+    comment: string;
+  }): Promise<void>;
 
   abstract getGitCredentials(): Promise<{
     email: string;

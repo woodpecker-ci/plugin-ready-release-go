@@ -58,15 +58,24 @@ export class GithubForge extends Forge {
     return { pullRequestLink: pr.data._links.html.href };
   }
 
-  async createRelease(options?: {
+  async createRelease(options: {
     owner: string;
     repo: string;
     tag: string;
     name: string;
     description: string;
-    prerelease: boolean;
+    prerelease?: boolean;
   }): Promise<{ releaseLink: string }> {
-    throw new Error("Method not implemented.");
+    const release = await this.octokit.repos.createRelease({
+      owner: options.owner,
+      repo: options.repo,
+      tag_name: options.tag,
+      name: options.name,
+      body: options.description,
+      prerelease: options.prerelease,
+    });
+
+    return { releaseLink: release.data.html_url };
   }
 
   async getGitCredentials(): Promise<{
@@ -105,6 +114,20 @@ export class GithubForge extends Forge {
       number: pr.data[0].number,
       labels: pr.data[0].labels.map((label) => label.name),
     };
+  }
+
+  async addCommentToPullRequest(options: {
+    owner: string;
+    repo: string;
+    pullRequestNumber: number;
+    comment: string;
+  }): Promise<void> {
+    await this.octokit.issues.createComment({
+      owner: options.owner,
+      repo: options.repo,
+      issue_number: options.pullRequestNumber,
+      body: options.comment,
+    });
   }
 
   getRepoUrl(owner: string, repo: string): string {

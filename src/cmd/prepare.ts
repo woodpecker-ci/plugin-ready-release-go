@@ -100,7 +100,7 @@ export async function prepare({
   const { isClean } = await git.status();
   if (!isClean()) {
     await git.add(".");
-    await git.commit(`🎉 Release ${nextVersion}`);
+    await git.commit(`${config.ci.releasePrefix} ${nextVersion}`);
     await git.push(["-u", "origin", pullRequestBranch]);
   }
 
@@ -116,7 +116,7 @@ export async function prepare({
   const pullRequestLink = await forge.createOrUpdatePullRequest({
     owner: config.ci.repoOwner,
     repo: config.ci.repoName,
-    title: `🎉 Release ${nextVersion}`,
+    title: `${config.ci.releasePrefix} ${nextVersion}`,
     description: releaseDescription,
     draft: true,
     sourceBranch: pullRequestBranch,
@@ -134,5 +134,4 @@ export async function prepare({
   );
 
   console.log("# Pull-request created");
-  return;
 }
