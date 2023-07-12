@@ -21,3 +21,4 @@ when:
   - event: pull_request
   - event: push
     branch: main
+  - event: tag
