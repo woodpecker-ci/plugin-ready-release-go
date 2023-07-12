@@ -101,9 +101,14 @@ export function getChangeLogSection(
     nextVersion
   );
 
+  const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${changes
+    .map((change) => `@${change.author}`)
+    .filter((v, i, a) => a.indexOf(v) === i)
+    .join(", ")}`;
+
   return `## [${nextVersion}](${releaseLink}) - ${
     new Date().toISOString().split("T")[0]
-  }\n\n${changeLog}`;
+  }\n\n${contributors}\n\n${changeLog}`;
 }
 
 export function updateChangelogSection(

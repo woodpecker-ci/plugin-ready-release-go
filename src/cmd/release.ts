@@ -32,13 +32,9 @@ export async function release({
     forge
   );
 
-  const contributors = `# :heart: Thanks to all the people who contributed! :heart:\n\n${changes
-    .map((change) => `@${change.author}`)
-    .join(", ")}`;
-
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
-    : `${contributors}\n\n${newChangelogSection}`;
+    : newChangelogSection;
 
   console.log("# Creating release");
   const releaseLink = await forge.createRelease({
@@ -57,11 +53,11 @@ export async function release({
       continue;
     }
 
-    const comment = `:tada: This PR is included in version ${nextVersion} :tada:
+    const comment = `🎉 This PR is included in version ${nextVersion} 🎉
 
 The release is now available [here](${releaseLink})
 
-Thank you for your contribution. :heart::package::rocket:`;
+Thank you for your contribution. ❤️📦🚀`;
 
     await forge.addCommentToPullRequest({
       owner: config.ci.repoOwner,

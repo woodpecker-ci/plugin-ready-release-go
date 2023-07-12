@@ -3,6 +3,10 @@
 exports[`change > should generate a changelog 1`] = `
 "## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2000-02-01
 
+### ❤️ Thanks to all contributors! ❤️
+
+@John Doe, @Alice Wonderland
+
 ### 💥 Breaking changes
 
 - Break everything [[#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339)]
@@ -28,20 +32,11 @@ exports[`change > should generate a changelog 1`] = `
 exports[`change > should update changelog section 1`] = `
 "# Changelog
 
-## [0.0.1](https://github.com/woodpecker-ci/woodpecker/releases/tag/0.0.1) - 2020-01-01
-
-### ✨ Features
-
-- Add new feature (#1338) @Alice Wonderland
-
-## [0.0.2](https://github.com/woodpecker-ci/woodpecker/releases/tag/0.0.1) - 2020-01-01
-
-### 🐛 Bug Fixes
-
-- Fix random UI bug [#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337) ([123](https://github.com/woodpecker-ci/woodpecker/commit/123))
-- Fix another bug [#43](https://github.com/woodpecker-ci/woodpecker/pull/43) ([456](https://github.com/woodpecker-ci/woodpecker/commit/456))
-
 ## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2000-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@John Doe, @Alice Wonderland
 
 ### 💥 Breaking changes
 
@@ -62,5 +57,18 @@ exports[`change > should update changelog section 1`] = `
 
 ### Misc
 
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))"
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+## [0.0.2](https://github.com/woodpecker-ci/woodpecker/releases/tag/0.0.1) - 2020-01-01
+
+### 🐛 Bug Fixes
+
+- Fix random UI bug [#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337) ([123](https://github.com/woodpecker-ci/woodpecker/commit/123))
+- Fix another bug [#43](https://github.com/woodpecker-ci/woodpecker/pull/43) ([456](https://github.com/woodpecker-ci/woodpecker/commit/456))
+
+## [0.0.1](https://github.com/woodpecker-ci/woodpecker/releases/tag/0.0.1) - 2020-01-01
+
+### ✨ Features
+
+- Add new feature (#1338) @Alice Wonderland"
 `;
