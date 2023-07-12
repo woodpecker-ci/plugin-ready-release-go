@@ -61,6 +61,7 @@ const config: Config = {
     forgeType: "github",
     githubToken: "123",
     isCI: true,
+    releasePrefix: "🎉 Release",
   },
   user: defaultUserConfig,
 };
