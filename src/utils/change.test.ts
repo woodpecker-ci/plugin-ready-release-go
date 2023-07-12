@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, beforeAll } from "vitest";
 import {
   getChangeLogSection,
   getNextVersionFromLabels,
@@ -66,6 +66,11 @@ const config: Config = {
 };
 
 describe("change", () => {
+  beforeAll(() => {
+    const date = new Date(2000, 1, 1, 13);
+    vi.setSystemTime(date);
+  });
+
   it("should get the correct major bump", () => {
     const nextVersion = getNextVersionFromLabels("1.0.0", config.user, changes);
     expect(nextVersion).toBe("2.0.0");
