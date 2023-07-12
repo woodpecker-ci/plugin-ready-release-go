@@ -134,7 +134,7 @@ export function updateChangelogSection(
   sections = sections.filter((s) => s.version !== nextVersion);
   sections.push({ version: nextVersion, section: newSection });
 
-  sections = sections.sort((a, b) => semver.compare(a.version, b.version));
+  sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
   return `# Changelog\n\n${sections.map((s) => s.section).join("\n\n")}`;
 }
