@@ -102,6 +102,10 @@ async function run() {
       );
     }
 
+    if (config.user.skipCommitsWithoutPullRequest && !pr) {
+      continue;
+    }
+
     if (pr?.labels.some((l) => config.user.skipLabels?.includes(l))) {
       console.log(
         c.yellow("# Skipping commit / PR by label:"),

@@ -62,6 +62,7 @@ export const defaultUserConfig: UserConfig = {
     },
   ],
   skipLabels: ["skip-release", "skip-changelog"],
+  skipCommitsWithoutPullRequest: true,
 };
 
 export async function getConfig(): Promise<Config> {

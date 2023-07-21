@@ -97,6 +97,8 @@ export type UserConfig = Partial<{
   }[];
 
   skipLabels: string[];
+
+  skipCommitsWithoutPullRequest: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
