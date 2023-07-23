@@ -65,7 +65,7 @@ async function run() {
     return;
   }
 
-  const lastestTag = tags.latest || "0.1.0";
+  const lastestTag = tags.latest || "0.0.0";
   if (tags.latest) {
     console.log("# Lastest tag is:", c.green(lastestTag));
   } else {
@@ -74,10 +74,14 @@ async function run() {
     );
   }
 
-  const unTaggedCommits = await git.log({
-    from: lastestTag,
-    to: releaseBranch,
-  });
+  const unTaggedCommits = await git.log(
+    lastestTag === "0.0.0"
+      ? [releaseBranch] // use all commits of release branch if first release
+      : {
+          from: lastestTag,
+          to: releaseBranch,
+        }
+  );
 
   if (unTaggedCommits.total === 0) {
     console.log(c.yellow("# No untagged commits found, skipping."));
