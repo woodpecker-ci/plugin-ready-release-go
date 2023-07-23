@@ -134,7 +134,7 @@ export function updateChangelogSection(
     const start = oldChangelog.indexOf(sectionBegin);
     let end = oldChangelog.indexOf(sectionBegin, start + 1);
     if (end === -1) {
-      end = oldChangelog.length + 1;
+      end = oldChangelog.length;
     }
 
     const section = oldChangelog.slice(start, end).trim();
@@ -152,5 +152,5 @@ export function updateChangelogSection(
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
-  return `# Changelog\n\n${sections.map((s) => s.section).join("\n\n")}`;
+  return `# Changelog\n\n${sections.map((s) => s.section).join("\n\n")}\n`;
 }

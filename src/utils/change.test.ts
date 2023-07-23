@@ -7,6 +7,8 @@ import {
 import { Change } from "./types";
 import { Config, defaultUserConfig } from "./config";
 import { GithubForge } from "../forges/github";
+import { promises as fs } from "fs";
+import path from "path";
 
 const changes: Change[] = [
   {
@@ -113,43 +115,33 @@ describe("change", () => {
     expect(changelog).toMatchSnapshot();
   });
 
-  it("should update changelog section", () => {
-    const oldChangelog = `# Changelog
+  const changelogFiles = [
+    { file: "__fixtures__/CHANGELOG_1.md", nextVersion: "1.0.0" },
+    { file: "__fixtures__/CHANGELOG_2.md", nextVersion: "2.0.4" },
+  ];
+  it.each(changelogFiles)(
+    "should update changelog section:",
+    async ({ file, nextVersion }) => {
+      const oldChangelog = await fs.readFile(
+        path.join(__dirname, file),
+        "utf8"
+      );
 
-## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2023-07-11
+      const forge = new GithubForge("", "");
+      const newSection = getChangeLogSection(
+        nextVersion,
+        config,
+        changes,
+        forge,
+        true
+      );
+      const changelog = updateChangelogSection(
+        nextVersion,
+        oldChangelog,
+        newSection
+      );
 
-### ✨ Features
-
-- Add new feature [#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338) ([456](https://github.com/woodpecker-ci/woodpecker/commit/456))
-
-## [0.0.2](https://github.com/woodpecker-ci/woodpecker/releases/tag/0.0.1) - 2020-01-01
-
-### 🐛 Bug Fixes
-
-- Fix random UI bug [#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337) ([123](https://github.com/woodpecker-ci/woodpecker/commit/123))
-- Fix another bug [#43](https://github.com/woodpecker-ci/woodpecker/pull/43) ([456](https://github.com/woodpecker-ci/woodpecker/commit/456))
-
-## [0.0.1](https://github.com/woodpecker-ci/woodpecker/releases/tag/0.0.1) - 2020-01-01
-
-### ✨ Features
-
-- Add new feature (#1338) @Alice Wonderland
-`;
-    const forge = new GithubForge("", "");
-    const nextVersion = "1.0.0";
-    const newSection = getChangeLogSection(
-      nextVersion,
-      config,
-      changes,
-      forge,
-      true
-    );
-    const changelog = updateChangelogSection(
-      nextVersion,
-      oldChangelog,
-      newSection
-    );
-
-    expect(changelog).toMatchSnapshot();
-  });
+      expect(changelog).toMatchSnapshot();
+    }
+  );
 });
