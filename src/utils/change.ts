@@ -132,8 +132,10 @@ export function updateChangelogSection(
   const sectionBegin = `## [`;
   while (oldChangelog.includes(sectionBegin)) {
     const start = oldChangelog.indexOf(sectionBegin);
-    const end =
-      oldChangelog.indexOf(sectionBegin, start + 1) || oldChangelog.length;
+    let end = oldChangelog.indexOf(sectionBegin, start + 1);
+    if (end === -1) {
+      end = oldChangelog.length + 1;
+    }
 
     const section = oldChangelog.slice(start, end).trim();
     const version = section.match(/\[(.*?)\]/)?.[1];

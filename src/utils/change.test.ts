@@ -51,7 +51,7 @@ const changes: Change[] = [
 ];
 const config: Config = {
   ci: {
-    branch: "main",
+    releaseBranch: "main",
     commitMessage: "chore(release): 1.0.0 [skip ci]",
     configFile: "ready-go-release.config.ts",
     eventType: "push",
@@ -94,6 +94,7 @@ describe("change", () => {
       changes
         .filter((change) => !change.labels.includes("breaking"))
         .filter((change) => !change.labels.includes("feature"))
+        .filter((change) => !change.labels.includes("enhancement"))
     );
 
     expect(nextVersion).toBe("1.0.1");
@@ -133,7 +134,7 @@ describe("change", () => {
 ### ✨ Features
 
 - Add new feature (#1338) @Alice Wonderland
-    `;
+`;
     const forge = new GithubForge("", "");
     const nextVersion = "1.0.0";
     const newSection = getChangeLogSection(
