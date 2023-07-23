@@ -38,7 +38,7 @@ export async function release({
     : newChangelogSection;
 
   console.log("# Creating release");
-  const releaseLink = await forge.createRelease({
+  const { releaseLink } = await forge.createRelease({
     owner: config.ci.repoOwner,
     repo: config.ci.repoName,
     tag: nextVersion,
