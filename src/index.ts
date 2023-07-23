@@ -60,13 +60,19 @@ async function run() {
 
   const tags = await git.tags();
 
-  if (!tags.latest) {
-    console.log(c.yellow("# Latest tag not found, skipping."));
+  if (!tags.latest && tags.all.length > 0) {
+    console.log(c.yellow("# Latest tag not found, but tags exist, skipping."));
     return;
   }
 
-  const lastestTag = tags.latest;
-  console.log("# Lastest tag is:", c.green(lastestTag));
+  const lastestTag = tags.latest || "0.1.0";
+  if (tags.latest) {
+    console.log("# Lastest tag is:", c.green(lastestTag));
+  } else {
+    console.log(
+      c.green(`# No tags found. Starting with first tag: ${lastestTag}`)
+    );
+  }
 
   const unTaggedCommits = await git.log({
     from: lastestTag,
