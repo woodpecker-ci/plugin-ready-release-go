@@ -6,10 +6,13 @@ const ciConfig = {
   configFile: process.env.PLUGIN_CONFIG_FILE,
   isCI: process.env.CI === "woodpecker",
   eventType: process.env.PLUGIN_EVENT_TYPE || process.env.CI_PIPELINE_EVENT,
-  branch: process.env.PLUGIN_BRANCH || process.env.CI_COMMIT_BRANCH,
+  releaseBranch:
+    process.env.PLUGIN_RELEASE_BRANCH ||
+    process.env.CI_REPO_DEFAULT_BRANCH ||
+    "main",
   commitMessage:
     process.env.PLUGIN_COMMIT_MESSAGE || process.env.CI_COMMIT_MESSAGE,
-  forgeType: process.env.PLUGIN_FORGE_TYPE || process.env.CI_REPO_FORGE_TYPE,
+  forgeType: process.env.PLUGIN_FORGE_TYPE || process.env.CI_FORGE_TYPE,
   githubToken: process.env.PLUGIN_GITHUB_TOKEN,
   gitEmail: process.env.PLUGIN_GIT_EMAIL,
   repoOwner: process.env.PLUGIN_REPO_OWNER || process.env.CI_REPO_OWNER,
@@ -42,7 +45,7 @@ export const defaultUserConfig: UserConfig = {
     {
       title: "📈 Enhancement",
       labels: ["enhancement", "refactor"],
-      bump: "patch",
+      bump: "minor",
     },
     {
       title: "🐛 Bug Fixes",

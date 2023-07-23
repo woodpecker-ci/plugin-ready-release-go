@@ -22,7 +22,6 @@ async function run() {
   }
 
   console.log("# Event type:", c.green(config.ci.eventType));
-  console.log("# Running on branch:", c.green(config.ci.branch));
   console.log("# Commit message was:", c.green(config.ci.commitMessage));
 
   // check if event is push
@@ -52,7 +51,7 @@ async function run() {
 
   const releaseBranch = config.user.getReleaseBranch
     ? await config.user.getReleaseBranch(hookCtx)
-    : "main";
+    : config.ci.releaseBranch;
 
   await git.fetch(["--unshallow", "--tags"]);
   await git.checkout(releaseBranch);
@@ -95,14 +94,11 @@ async function run() {
       commitHash: commit.hash,
     });
 
-    if (!pr) {
+    if (config.user.skipCommitsWithoutPullRequest && !pr) {
       console.log(
-        c.yellow("# No pull-request found for commit."),
+        c.yellow("# No pull-request found for commit, skipping."),
         `${commit.hash}: "${commit.message}"`
       );
-    }
-
-    if (config.user.skipCommitsWithoutPullRequest && !pr) {
       continue;
     }
 
