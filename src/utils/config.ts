@@ -38,28 +38,28 @@ export const defaultUserConfig: UserConfig = {
     },
     {
       title: "✨ Features",
-      labels: ["feature"],
+      labels: ["feature", "feature 🚀️"],
       bump: "minor",
       weight: 1,
     },
     {
       title: "📈 Enhancement",
-      labels: ["enhancement", "refactor"],
+      labels: ["enhancement", "refactor", "enhancement 👆️"],
       bump: "minor",
     },
     {
       title: "🐛 Bug Fixes",
-      labels: ["bug"],
+      labels: ["bug", "bug 🐛️"],
       bump: "patch",
     },
     {
       title: "📚 Documentation",
-      labels: ["docs", "documentation"],
+      labels: ["docs", "documentation", "documentation 📖️"],
       bump: "patch",
     },
     {
       title: "Misc",
-      labels: ["misc"],
+      labels: ["misc", "chore 🧰"],
       bump: "patch",
       default: true,
     },
