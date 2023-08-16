@@ -7,11 +7,14 @@ export async function release({
   exec,
   forge,
   changes,
+  latestVersion,
   nextVersion,
 }: CommandContext) {
   const hookCtx: HookContext = {
     exec,
+    latestVersion,
     nextVersion,
+    changes,
   };
 
   if (config.user.beforeRelease) {

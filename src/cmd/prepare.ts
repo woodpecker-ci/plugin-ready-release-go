@@ -20,12 +20,10 @@ export async function prepare({
   );
 
   const hookCtx: HookContext = {
-    // exec(...args) {
-    //   console.log(c.gray("$"), c.cyan(args[0]));
-    //   return exec.apply(null, args);
-    // }
     exec,
+    latestVersion,
     nextVersion,
+    changes,
   };
 
   const pullRequestBranch = config.user.getPullRequestBranch
