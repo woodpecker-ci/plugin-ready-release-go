@@ -13,6 +13,7 @@ export type CommandContext = {
   forge: Forge;
   git: SimpleGit;
   latestVersion: string;
+  useVersionPrefixV: boolean;
   nextVersion: string;
   changes: Change[];
 };
@@ -99,6 +100,12 @@ export type UserConfig = Partial<{
   skipLabels: string[];
 
   skipCommitsWithoutPullRequest: boolean;
+
+  /**
+   * Use a 'v' prefix for the version
+   * @default true if the previous version already has a v-prefix
+   */
+  useVersionPrefixV: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;

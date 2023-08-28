@@ -90,6 +90,10 @@ async function run() {
 
   console.log("# Found", c.green(unTaggedCommits.total), "untagged commits");
 
+  const useVersionPrefixV =
+    config.user.useVersionPrefixV === undefined
+      ? lastestTag.startsWith("v")
+      : config.user.useVersionPrefixV;
   const latestVersion = lastestTag.replace("v", "");
   const changes: Change[] = [];
 
@@ -147,6 +151,7 @@ async function run() {
     changes,
     nextVersion,
     latestVersion,
+    useVersionPrefixV,
     exec: shelljs.exec,
   };
 

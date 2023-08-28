@@ -7,6 +7,7 @@ export async function release({
   exec,
   forge,
   changes,
+  useVersionPrefixV,
   latestVersion,
   nextVersion,
 }: CommandContext) {
@@ -41,10 +42,14 @@ export async function release({
     : newChangelogSection;
 
   console.log("# Creating release");
+  const tag =
+    useVersionPrefixV && !nextVersion.startsWith("v")
+      ? `v${nextVersion}`
+      : nextVersion;
   const { releaseLink } = await forge.createRelease({
     owner: config.ci.repoOwner,
     repo: config.ci.repoName,
-    tag: nextVersion,
+    tag,
     description: releaseDescription,
     name: nextVersion,
   });
