@@ -88,6 +88,7 @@ export async function prepare({
     true
   );
   const changelog = updateChangelogSection(
+    latestVersion,
     nextVersion,
     oldChangelog,
     newChangelogSection

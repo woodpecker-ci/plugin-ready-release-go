@@ -1,38 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`change > should generate a changelog 1`] = `
-"## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2000-02-01
-
-### ❤️ Thanks to all contributors! ❤️
-
-@John Doe, @Alice Wonderland
-
-### 💥 Breaking changes
-
-- Break everything [[#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339)]
-
-### ✨ Features
-
-- Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
-
-### 🐛 Bug Fixes
-
-- Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
-- Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
-
-### 📈 Enhancement
-
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
-
-### Misc
-
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))"
-`;
-
-exports[`change > should update changelog section: 1`] = `
+exports[`change > 'should add new section' 1`] = `
 "# Changelog
 
-## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2000-02-01
+## [1.0.1](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.1) - 2000-02-01
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -58,6 +29,12 @@ exports[`change > should update changelog section: 1`] = `
 ### Misc
 
 - Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2023-07-11
+
+### ✨ Features
+
+- Add new feature [#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338) ([456](https://github.com/woodpecker-ci/woodpecker/commit/456))
 
 ## [0.0.2](https://github.com/woodpecker-ci/woodpecker/releases/tag/0.0.1) - 2020-01-01
 
@@ -74,7 +51,7 @@ exports[`change > should update changelog section: 1`] = `
 "
 `;
 
-exports[`change > should update changelog section: 2`] = `
+exports[`change > 'should remove  versions newer than th…' 1`] = `
 "# Changelog
 
 ## [2.0.4](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.4) - 2000-02-01
@@ -104,10 +81,146 @@ exports[`change > should update changelog section: 2`] = `
 
 - Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
 
-## [v2.0.3](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.3) - 2022-12-29
+## [v2.0.1](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.1) - 2022-12-21
 
 * BUGFIXES
-  * Fix write .netrc location with home var (#57)
+  * Fix dockerfile to build correct go binary (#54)
+  * Do not set GIT_TERMINAL_PROMPT=0 for git (#52)
+
+## [v2.0.0](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.0) - 2022-11-14
+
+* FEATURES
+  * Partial clone by default (#48)
+* BUGFIXES
+  * Make home var settable (#47)
+* ENHANCEMENTS
+  * Publish semver images (#50)
+"
+`;
+
+exports[`change > 'should remove all other versions newe…' 1`] = `
+"# Changelog
+
+## [2.0.4](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.4) - 2000-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@John Doe, @Alice Wonderland
+
+### 💥 Breaking changes
+
+- Break everything [[#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339)]
+
+### ✨ Features
+
+- Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
+
+### 🐛 Bug Fixes
+
+- Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
+- Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
+
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+### Misc
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+## [v2.0.1](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.1) - 2022-12-21
+
+* BUGFIXES
+  * Fix dockerfile to build correct go binary (#54)
+  * Do not set GIT_TERMINAL_PROMPT=0 for git (#52)
+
+## [v2.0.0](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.0) - 2022-11-14
+
+* FEATURES
+  * Partial clone by default (#48)
+* BUGFIXES
+  * Make home var settable (#47)
+* ENHANCEMENTS
+  * Publish semver images (#50)
+"
+`;
+
+exports[`change > 'should remove versions newer than the…' 1`] = `
+"# Changelog
+
+## [2.0.4](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.4) - 2000-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@John Doe, @Alice Wonderland
+
+### 💥 Breaking changes
+
+- Break everything [[#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339)]
+
+### ✨ Features
+
+- Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
+
+### 🐛 Bug Fixes
+
+- Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
+- Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
+
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+### Misc
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+## [v2.0.1](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.1) - 2022-12-21
+
+* BUGFIXES
+  * Fix dockerfile to build correct go binary (#54)
+  * Do not set GIT_TERMINAL_PROMPT=0 for git (#52)
+
+## [v2.0.0](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.0) - 2022-11-14
+
+* FEATURES
+  * Partial clone by default (#48)
+* BUGFIXES
+  * Make home var settable (#47)
+* ENHANCEMENTS
+  * Publish semver images (#50)
+"
+`;
+
+exports[`change > 'should update existing changelog sect…' 1`] = `
+"# Changelog
+
+## [2.0.3](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.3) - 2000-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@John Doe, @Alice Wonderland
+
+### 💥 Breaking changes
+
+- Break everything [[#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339)]
+
+### ✨ Features
+
+- Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
+
+### 🐛 Bug Fixes
+
+- Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
+- Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
+
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+### Misc
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
 
 ## [v2.0.1](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.1) - 2022-12-21
 
@@ -188,4 +301,33 @@ exports[`change > should update changelog section: 2`] = `
 * MISC
   * Upgrade urfave/cli to v2 (#5)
 "
+`;
+
+exports[`change > should generate a changelog 1`] = `
+"## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2000-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@John Doe, @Alice Wonderland
+
+### 💥 Breaking changes
+
+- Break everything [[#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339)]
+
+### ✨ Features
+
+- Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
+
+### 🐛 Bug Fixes
+
+- Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
+- Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
+
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+### Misc
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))"
 `;

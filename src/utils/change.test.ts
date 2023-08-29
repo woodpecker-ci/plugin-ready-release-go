@@ -116,12 +116,29 @@ describe("change", () => {
   });
 
   const changelogFiles = [
-    { file: "__fixtures__/CHANGELOG_1.md", nextVersion: "1.0.0" },
-    { file: "__fixtures__/CHANGELOG_2.md", nextVersion: "2.0.4" },
+    {
+      name: "should add new section",
+      file: "__fixtures__/CHANGELOG_1.md",
+      latestVersion: "1.0.0",
+      nextVersion: "1.0.1",
+    },
+    {
+      name: "should update existing changelog section",
+      file: "__fixtures__/CHANGELOG_2.md",
+      latestVersion: "2.0.1",
+      nextVersion: "2.0.3",
+    },
+    {
+      name: "should remove versions newer than the latest released version",
+      // this happens if we bump the version in an existing release PR
+      file: "__fixtures__/CHANGELOG_3.md",
+      latestVersion: "2.0.1",
+      nextVersion: "2.0.4",
+    },
   ];
   it.each(changelogFiles)(
-    "should update changelog section:",
-    async ({ file, nextVersion }) => {
+    "$name",
+    async ({ file, nextVersion, latestVersion }) => {
       const oldChangelog = await fs.readFile(
         path.join(__dirname, file),
         "utf8"
@@ -136,6 +153,7 @@ describe("change", () => {
         true
       );
       const changelog = updateChangelogSection(
+        latestVersion,
         nextVersion,
         oldChangelog,
         newSection

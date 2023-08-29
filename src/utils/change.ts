@@ -121,6 +121,7 @@ export function getChangeLogSection(
 }
 
 export function updateChangelogSection(
+  latestVersion: string,
   nextVersion: string,
   _oldChangelog: string,
   newSection: string
@@ -147,10 +148,14 @@ export function updateChangelogSection(
     oldChangelog = oldChangelog.slice(end);
   }
 
-  sections = sections.filter((s) => s.version !== nextVersion);
+  sections = sections
+    .filter((s) => s.version !== nextVersion) // filter out the new section
+    .filter((s) => semver.compare(s.version, latestVersion) !== 1); // filter out sections that are older than the latest version as they are not released and should not be in the changelog
   sections.push({ version: nextVersion, section: newSection });
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
+
+  console.log(sections.map((s) => s.version));
 
   return `# Changelog\n\n${sections.map((s) => s.section).join("\n\n")}\n`;
 }
