@@ -133,6 +133,8 @@ async function run() {
     });
   }
 
+  console.log(c.yellow(JSON.stringify(changes, null, 2)));
+
   const nextVersion = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
     : getNextVersionFromLabels(latestVersion, config.user, changes);
