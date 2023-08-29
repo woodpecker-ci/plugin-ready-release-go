@@ -155,7 +155,5 @@ export function updateChangelogSection(
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
-  console.log(sections.map((s) => s.version));
-
   return `# Changelog\n\n${sections.map((s) => s.section).join("\n\n")}\n`;
 }
