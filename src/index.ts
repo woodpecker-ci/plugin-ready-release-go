@@ -133,7 +133,7 @@ async function run() {
     });
   }
 
-  console.log(c.yellow(JSON.stringify(changes, null, 2)));
+  console.log(c.yellow("changes"), changes);
 
   const nextVersion = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
