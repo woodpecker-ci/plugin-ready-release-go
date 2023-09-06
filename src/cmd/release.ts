@@ -56,24 +56,26 @@ export async function release({
 
   console.log(c.green("# Successfully created release:"), releaseLink);
 
-  console.log("# Adding release comments to pull-requests");
-  for await (const { pullRequestNumber } of changes) {
-    if (!pullRequestNumber) {
-      continue;
-    }
+  if (config.user.commentOnReleasedPullRequests) {
+    console.log("# Adding release comments to pull-requests");
+    for await (const { pullRequestNumber } of changes) {
+      if (!pullRequestNumber) {
+        continue;
+      }
 
-    const comment = `🎉 This PR is included in version ${nextVersion} 🎉
+      const comment = `🎉 This PR is included in version ${nextVersion} 🎉
 
 The release is now available [here](${releaseLink})
 
 Thank you for your contribution. ❤️📦🚀`;
 
-    await forge.addCommentToPullRequest({
-      owner: config.ci.repoOwner,
-      repo: config.ci.repoName,
-      pullRequestNumber,
-      comment,
-    });
+      await forge.addCommentToPullRequest({
+        owner: config.ci.repoOwner,
+        repo: config.ci.repoName,
+        pullRequestNumber,
+        comment,
+      });
+    }
   }
 
   if (config.user.afterRelease) {

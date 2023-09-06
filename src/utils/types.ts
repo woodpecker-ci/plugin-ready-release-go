@@ -106,6 +106,12 @@ export type UserConfig = Partial<{
    * @default true if the previous version already has a v-prefix
    */
   useVersionPrefixV: boolean;
+
+  /**
+   * Comment on pull-requests that are included in the release
+   * @default true
+   */
+  commentOnReleasedPullRequests: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
