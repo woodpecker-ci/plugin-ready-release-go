@@ -79,6 +79,7 @@ async function run() {
       ? [releaseBranch] // use all commits of release branch if first release
       : {
           from: lastestTag,
+          symmetric: false,
           to: releaseBranch,
         }
   );
