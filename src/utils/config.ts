@@ -64,7 +64,7 @@ export const defaultUserConfig: UserConfig = {
       default: true,
     },
   ],
-  skipLabels: ["skip-release", "skip-changelog"],
+  skipLabels: ["skip-release", "skip-changelog", "regression"],
   skipCommitsWithoutPullRequest: true,
   commentOnReleasedPullRequests: true,
 };
