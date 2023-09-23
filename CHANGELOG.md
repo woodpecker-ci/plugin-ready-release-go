@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.6.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.1) - 2023-09-23
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 🐛 Bug Fixes
+
+- Fix backports added in changelogs [[#10](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/10)]
+
 ## [0.6.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.0) - 2023-09-06
 
 ### ❤️ Thanks to all contributors! ❤️
