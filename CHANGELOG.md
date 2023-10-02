@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-02
+
+### ❤️ Thanks to all contributors! ❤️
+
+@pat-s
+
+### Misc
+
+- Add renovate config [[#12](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/12)]
+
 ## [0.6.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.1) - 2023-09-23
 
 ### ❤️ Thanks to all contributors! ❤️
