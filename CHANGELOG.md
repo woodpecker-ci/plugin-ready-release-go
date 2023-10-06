@@ -1,13 +1,14 @@
 # Changelog
 
-## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-02
+## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-06
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@pat-s
+@renovate[bot], @pat-s
 
 ### Misc
 
+- fix(deps): update dependency execa to v8 [[#18](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/18)]
 - Add renovate config [[#12](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/12)]
 
 ## [0.6.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.1) - 2023-09-23
