@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
-    "execa": "^6.1.0",
+    "execa": "^8.0.0",
     "picocolors": "^1.0.0",
     "semver": "^7.5.3",
     "shelljs": "^0.8.5",
