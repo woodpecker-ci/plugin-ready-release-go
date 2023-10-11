@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-06
+## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-11
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- fix(deps): update dependency @octokit/rest to v20 [[#17](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/17)]
 - fix(deps): update dependency execa to v8 [[#18](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/18)]
 - Add renovate config [[#12](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/12)]
 
