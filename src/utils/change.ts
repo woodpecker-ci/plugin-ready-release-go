@@ -111,8 +111,10 @@ export function getChangeLogSection(
 
   let section = `## [${nextVersion}](${releaseLink}) - ${releaseDate}\n\n`;
 
-  if (includeContributors) {
+  if (config.user.includeContributors) {
     section += `${contributors}\n\n`;
+  } else {
+    section += `${config.ci.customReleaseBody}\n\n`;
   }
 
   section += `${changeLog}`;
