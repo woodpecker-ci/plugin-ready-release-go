@@ -18,6 +18,7 @@ const ciConfig = {
   repoOwner: process.env.PLUGIN_REPO_OWNER || process.env.CI_REPO_OWNER,
   repoName: process.env.PLUGIN_REPO_NAME || process.env.CI_REPO_NAME,
   releasePrefix: "🎉 Release",
+  customReleaseBody: "### ❤️ Thanks to all contributors! ❤️"
 };
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
