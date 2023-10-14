@@ -2,6 +2,20 @@
 
 This plugin can be executed on every push to your release branch (e.g. main) and will create a new release pull-request with all of your custom adjustments like an updated changelog as preparation for the next release. After you have merged the "release"-pull-request with all your desired changes, a new release / tag will be created for you.
 
+## Configuring PR label categorization
+
+The plugin automatically categorizes every pull-request based on it's labels.
+The default labels are defined [here](https://github.com/woodpecker-ci/plugin-ready-release-go/blob/main/src/utils/config.ts#L25).
+To change it, create a `release-config.ts` at the repository root and overwrite the `changeTypes` property:
+
+```ts
+export default {
+  changeTypes: [{
+    // CUSTOM LABEL CONFIG HERE
+  }]
+}
+```
+
 ## Workflow
 
 1. Setup ready-release-go on your repository by adding a config file and a workflow file
