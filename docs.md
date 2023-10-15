@@ -58,6 +58,7 @@ export default {
   beforePrepare: async ({ exec, nextVersion }) => {
     await exec(`sed -i "s/^version:.*$/version: ${nextVersion}/g" Chart.yaml`);
   }
+};
 ```
 
 ## Settings
