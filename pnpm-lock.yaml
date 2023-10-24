@@ -11,6 +11,9 @@ dependencies:
   execa:
     specifier: ^8.0.0
     version: 8.0.1
+  gitea-js:
+    specifier: ^1.20.1
+    version: 1.20.1
   picocolors:
     specifier: ^1.0.0
     version: 1.0.0
@@ -982,6 +985,10 @@ packages:
 
   /get-tsconfig@4.2.0:
     resolution: {integrity: sha512-X8u8fREiYOE6S8hLbq99PeykTDoLVnxvF4DjWKJmz9xy2nNRdUcV8ZN9tniJFeKyTU3qnC9lL8n4Chd6LmVKHg==}
+    dev: false
+
+  /gitea-js@1.20.1:
+    resolution: {integrity: sha512-g1wdNP5zYN258tTVIm2vGY8bRJTwVwCfYH0ockUpi34RAuOwJ0FavpFVVvazxXEcdo2XmXRKZcAmVhAhwMXkgg==}
     dev: false
 
   /glob-parent@5.1.2:

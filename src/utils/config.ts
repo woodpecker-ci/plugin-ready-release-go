@@ -62,6 +62,7 @@ export const defaultUserConfig: UserConfig = {
       labels: ["misc", "chore 🧰"],
       bump: "patch",
       default: true,
+      weight: -1,
     },
   ],
   skipLabels: ["skip-release", "skip-changelog", "regression"],
