@@ -9,7 +9,7 @@ This plugin can be executed on every push to your release branch (e.g. main) and
 1. You can review the pull-request and merge it when you are ready
 1. The plugin will create a new release
 
-## Interal workflow
+## Internal workflow
 - get latest release => tag
 - get all commits since commit of last tag
 - get all prs of those commits (if they have a pr associated)
@@ -22,7 +22,10 @@ This plugin can be executed on every push to your release branch (e.g. main) and
 - [x] Automatically create release pull-request
 - [x] Automatically update release pull-request
 - [x] Create a release / tag after "release"-pull-request got merged
-- [ ] Support more forges: (Gitea, Gitlab, ...)
+- [x] Support forges:
+  - [x] Gitea
+  - [ ] Gitlab
+  - [ ] Bitbucket
 - [x] Support first release (no previous tags)
 - [ ] Support defining next version manually
 - [ ] Handle -rc versions
