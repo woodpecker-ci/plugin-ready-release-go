@@ -23,6 +23,7 @@ This plugin can be executed on every push to your release branch (e.g. main) and
 - [x] Automatically update release pull-request
 - [x] Create a release / tag after "release"-pull-request got merged
 - [x] Support forges:
+  - [x] Github
   - [x] Gitea
   - [ ] Gitlab
   - [ ] Bitbucket
