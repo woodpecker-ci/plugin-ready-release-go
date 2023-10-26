@@ -112,6 +112,12 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Whether to include contributors in the release notes
+   * @default true
+   */
+  includeContributors: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;

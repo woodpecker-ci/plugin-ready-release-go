@@ -102,7 +102,7 @@ export function getChangeLogSection(
     nextVersion
   );
 
-  const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${changes
+  const contributors = `${config.ci.customReleaseBody}\n\n${changes
     .map((change) => `@${change.author}`)
     .filter((v, i, a) => a.indexOf(v) === i)
     .join(", ")}`;
@@ -111,8 +111,10 @@ export function getChangeLogSection(
 
   let section = `## [${nextVersion}](${releaseLink}) - ${releaseDate}\n\n`;
 
-  if (includeContributors) {
+  if (config.user.includeContributors) {
     section += `${contributors}\n\n`;
+  } else {
+    section += `${config.ci.customReleaseBody}\n\n`;
   }
 
   section += `${changeLog}`;
