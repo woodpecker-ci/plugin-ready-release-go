@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-26
+## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-27
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update vitest monorepo to ^0.34.0 [[#14](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/14)]
 - chore(deps): update dependency @types/node to v20 [[#15](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/15)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v2.2.0 [[#29](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/29)]
 - fix(deps): update dependency @octokit/rest to v20 [[#17](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/17)]
