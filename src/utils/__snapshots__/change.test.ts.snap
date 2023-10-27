@@ -51,7 +51,7 @@ exports[`change > 'should add new section' 1`] = `
 "
 `;
 
-exports[`change > 'should remove versions newer than the…' 1`] = `
+exports[`change > 'should remove versions newer than the latest released version' 1`] = `
 "# Changelog
 
 ## [2.0.4](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.4) - 2000-02-01
@@ -98,7 +98,7 @@ exports[`change > 'should remove versions newer than the…' 1`] = `
 "
 `;
 
-exports[`change > 'should update existing changelog sect…' 1`] = `
+exports[`change > 'should update existing changelog section' 1`] = `
 "# Changelog
 
 ## [2.0.3](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.3) - 2000-02-01
