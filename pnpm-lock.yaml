@@ -29,22 +29,22 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^20.0.0
+    specifier: 20.8.9
     version: 20.8.9
   '@types/semver':
-    specifier: ^7.5.0
+    specifier: 7.5.4
     version: 7.5.4
   '@types/shelljs':
-    specifier: ^0.8.11
+    specifier: 0.8.14
     version: 0.8.14
   '@vitest/ui':
-    specifier: ^0.34.0
+    specifier: 0.34.6
     version: 0.34.6(vitest@0.34.6)
   typescript:
-    specifier: ^5.1.6
+    specifier: 5.2.2
     version: 5.2.2
   vitest:
-    specifier: ^0.34.0
+    specifier: 0.34.6
     version: 0.34.6(@vitest/ui@0.34.6)
 
 packages:
