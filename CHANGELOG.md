@@ -1,10 +1,14 @@
 # Changelog
 
-## [0.6.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.6.2) - 2023-10-28
+## [0.7.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.7.0) - 2023-10-31
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@renovate[bot], @pat-s
+@anbraten, @renovate[bot], @pat-s
+
+### 📈 Enhancement
+
+- Add note to release PR about this plugin [[#36](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/36)]
 
 ### Misc
 
