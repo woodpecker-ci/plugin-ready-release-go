@@ -50,7 +50,7 @@ export type UserConfig = Partial<{
    * Get the release description.
    *
    * Used as pull-request and release description.
-   * By default it's `Release of ${version}`
+   * By default it's the changelog part of the current / next version.
    */
   getReleaseDescription: (ctx: HookContext) => PromiseOrValue<string>;
 
