@@ -17,7 +17,8 @@ const ciConfig = {
   gitEmail: process.env.PLUGIN_GIT_EMAIL,
   repoOwner: process.env.PLUGIN_REPO_OWNER || process.env.CI_REPO_OWNER,
   repoName: process.env.PLUGIN_REPO_NAME || process.env.CI_REPO_NAME,
-  releasePrefix: "🎉 Release",
+  releasePrefix: process.env.RELEASE_PREFIX || "🎉 Release",
+  customReleaseBody: process.env.CUSTOM_RELEASE_BODY || "### ❤️ Thanks to all contributors! ❤️"
 };
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
@@ -67,6 +68,7 @@ export const defaultUserConfig: UserConfig = {
   skipLabels: ["skip-release", "skip-changelog", "regression"],
   skipCommitsWithoutPullRequest: true,
   commentOnReleasedPullRequests: true,
+  includeContributors: true
 };
 
 export async function getConfig(): Promise<Config> {
