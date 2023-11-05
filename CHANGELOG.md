@@ -4,7 +4,11 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@renovate[bot]
+@qwerty287, @renovate[bot]
+
+### 🐛 Bug Fixes
+
+- Fix missing newlines [[#38](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/38)]
 
 ### Misc
 
