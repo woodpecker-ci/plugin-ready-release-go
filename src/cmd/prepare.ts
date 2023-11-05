@@ -116,7 +116,7 @@ export async function prepare({
       `version \`${nextVersion}\` will be created automatically.` +
       `If you're not ready to do a release yet, that's fine, ` +
       `whenever you add more changes to \`${releaseBranch}\`` +
-      `this PR will be updated.` +
+      `this PR will be updated.\n\n` +
       getChangeLogSection(nextVersion, config, changes, forge, false);
 
   console.log("# Creating release pull-request");
