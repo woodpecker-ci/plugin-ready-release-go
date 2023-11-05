@@ -4,7 +4,7 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@qwerty287, @renovate[bot]
+@renovate[bot], @qwerty287
 
 ### 🐛 Bug Fixes
 
@@ -12,6 +12,7 @@
 
 ### Misc
 
+- chore(deps): lock file maintenance [[#35](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/35)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v0.7.0 [[#37](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/37)]
 
 ## [0.7.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.7.0) - 2023-10-31
