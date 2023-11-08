@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-next-line -->
 MIT License
 
 Copyright (c) 2022 Woodpecker CI
