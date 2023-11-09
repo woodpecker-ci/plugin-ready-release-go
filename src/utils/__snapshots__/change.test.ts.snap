@@ -201,7 +201,7 @@ exports[`change > 'should update existing changelog section' 1`] = `
 - FEATURES
   - Add ppc64le support (#8)
 - BUGFIXES
-  - Regognize \\"CI_-\\" EnvVars (#6)
+  - Regognize \\"CI_*\\" EnvVars (#6)
 - ENHANCEMENTS
   - Multiarch build (#8)
 - MISC
