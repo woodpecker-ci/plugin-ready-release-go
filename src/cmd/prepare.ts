@@ -113,11 +113,11 @@ export async function prepare(cmdCtx: CommandContext) {
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
     : `This PR was opened by the ` +
-      `[ready-release-go](https://github.com/woodpecker-ci/plugin-ready-release-go) plugin.` +
+      `[ready-release-go](https://github.com/woodpecker-ci/plugin-ready-release-go) plugin. ` +
       `When you're ready to do a release, you can merge this and a release and tag with ` +
-      `version \`${nextVersion}\` will be created automatically.` +
+      `version \`${nextVersion}\` will be created automatically. ` +
       `If you're not ready to do a release yet, that's fine, ` +
-      `whenever you add more changes to \`${config.ci.releaseBranch}\`` +
+      `whenever you add more changes to \`${config.ci.releaseBranch}\` ` +
       `this PR will be updated.\n\n` +
       `## Options\n\n` +
       `- [${shouldBeRC ? "x" : " "}] Release this version as RC\n\n` +
