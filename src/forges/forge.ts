@@ -5,6 +5,13 @@ export type Comment = {
   createdAt: string;
 };
 
+export type PullRequest = {
+  title: string;
+  pullRequestNumber: number;
+  description: string;
+  labels: string[];
+};
+
 export abstract class Forge {
   abstract createOrUpdatePullRequest(options: {
     draft: boolean;
@@ -59,13 +66,9 @@ export abstract class Forge {
   abstract getPullRequest(options: {
     owner: string;
     repo: string;
-    pullRequestNumber: number;
-  }): Promise<{
-    title: string;
-    pullRequestNumber: number;
-    description: string;
-    labels: string[];
-  }>;
+    sourceBranch: string;
+    targetBranch: string;
+  }): Promise<PullRequest | undefined>;
 
   abstract getPullRequestComments(
     owner: string,

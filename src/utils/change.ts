@@ -6,7 +6,8 @@ import { Forge } from "../forges/forge";
 export function getNextVersionFromLabels(
   lastVersion: string,
   config: UserConfig,
-  changes: Change[]
+  changes: Change[],
+  isRC: boolean
 ) {
   if (changes.length === 0) {
     return null;

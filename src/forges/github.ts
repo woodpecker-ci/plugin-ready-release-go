@@ -119,24 +119,40 @@ export class GithubForge extends Forge {
   async getPullRequest(options: {
     owner: string;
     repo: string;
-    pullRequestNumber: number;
-  }): Promise<{
-    title: string;
-    description: string;
-    pullRequestNumber: number;
-    labels: string[];
-  }> {
-    const pr = await this.octokit.pulls.get({
+    sourceBranch: string;
+    targetBranch: string;
+  }): Promise<
+    | {
+        title: string;
+        description: string;
+        pullRequestNumber: number;
+        labels: string[];
+      }
+    | undefined
+  > {
+    const pullRequests = await this.octokit.pulls.list({
       owner: options.owner,
       repo: options.repo,
-      pull_number: options.pullRequestNumber,
+      head: `${options.owner}:${options.sourceBranch}`,
     });
 
+    if (pullRequests.data.length > 1) {
+      throw new Error(
+        "Found more than one pull request to release. Please close all but one."
+      );
+    }
+
+    if (pullRequests.data.length === 0) {
+      return undefined;
+    }
+
+    const pr = pullRequests.data[0];
+
     return {
-      title: pr.data.title,
-      description: pr.data.body || "",
-      pullRequestNumber: pr.data.number,
-      labels: pr.data.labels.map((label) => label.name),
+      title: pr.title,
+      description: pr.body || "",
+      pullRequestNumber: pr.number,
+      labels: pr.labels.map((label) => label.name),
     };
   }
 

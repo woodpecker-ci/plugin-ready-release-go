@@ -8,6 +8,7 @@ import { getForge } from "./forges";
 import { getConfig } from "./utils/config";
 import { Change, CommandContext, HookContext } from "./utils/types";
 import { getNextVersionFromLabels } from "./utils/change";
+import { getReleaseOptions } from "./utils/pr";
 
 async function run() {
   const config = await getConfig();
@@ -54,13 +55,9 @@ async function run() {
     await git.addRemote(remotes[0].name, remote);
   }
 
-  const releaseBranch = config.user.getReleaseBranch
-    ? await config.user.getReleaseBranch(hookCtx)
-    : config.ci.releaseBranch;
-
   await git.fetch(["--unshallow", "--tags"]);
-  await git.checkout(releaseBranch);
-  await git.branch(["--set-upstream-to", `origin/${releaseBranch}`]);
+  await git.checkout(config.ci.releaseBranch);
+  await git.branch(["--set-upstream-to", `origin/${config.ci.releaseBranch}`]);
   await git.pull();
 
   const tags = await git.tags();
@@ -81,11 +78,11 @@ async function run() {
 
   const unTaggedCommits = await git.log(
     lastestTag === "0.0.0"
-      ? [releaseBranch] // use all commits of release branch if first release
+      ? [config.ci.releaseBranch] // use all commits of release branch if first release
       : {
           from: lastestTag,
           symmetric: false,
-          to: releaseBranch,
+          to: config.ci.releaseBranch,
         }
   );
 
@@ -143,9 +140,19 @@ async function run() {
     console.log(c.yellow("changes"), changes);
   }
 
+  const releasePullRequestBranch = `next-release/${config.ci.releaseBranch}`;
+  const releasePullRequest = await forge.getPullRequest({
+    owner: config.ci.repoOwner!,
+    repo: config.ci.repoName!,
+    sourceBranch: `next-release/${config.ci.releaseBranch}`,
+    targetBranch: config.ci.releaseBranch,
+  });
+
+  const isRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+
   const nextVersion = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
-    : getNextVersionFromLabels(latestVersion, config.user, changes);
+    : getNextVersionFromLabels(latestVersion, config.user, changes, isRC);
 
   if (!nextVersion) {
     console.log(c.yellow("# No changes found, skipping."));
@@ -162,6 +169,8 @@ async function run() {
     nextVersion,
     latestVersion,
     useVersionPrefixV,
+    releasePullRequest,
+    releasePullRequestBranch,
     exec: shelljs.exec,
   };
 
