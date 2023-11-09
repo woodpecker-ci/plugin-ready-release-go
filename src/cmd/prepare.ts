@@ -108,6 +108,8 @@ export async function prepare({
     throw new Error("Missing repoOwner or repoName");
   }
 
+  const nextWillBeRC = false;
+
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
     : `This PR was opened by the ` +
@@ -117,6 +119,8 @@ export async function prepare({
       `If you're not ready to do a release yet, that's fine, ` +
       `whenever you add more changes to \`${releaseBranch}\`` +
       `this PR will be updated.\n\n` +
+      `## Options\n\n` +
+      `- [${nextWillBeRC ? "x" : " "}] Release this version as RC\n\n` +
       getChangeLogSection(nextVersion, config, changes, forge, false);
 
   console.log("# Creating release pull-request");

@@ -1,4 +1,4 @@
-import { Forge } from "./forge";
+import { Comment, Forge } from "./forge";
 import { Octokit } from "@octokit/rest";
 
 export class GithubForge extends Forge {
@@ -116,6 +116,30 @@ export class GithubForge extends Forge {
     };
   }
 
+  async getPullRequest(options: {
+    owner: string;
+    repo: string;
+    pullRequestNumber: number;
+  }): Promise<{
+    title: string;
+    description: string;
+    pullRequestNumber: number;
+    labels: string[];
+  }> {
+    const pr = await this.octokit.pulls.get({
+      owner: options.owner,
+      repo: options.repo,
+      pull_number: options.pullRequestNumber,
+    });
+
+    return {
+      title: pr.data.title,
+      description: pr.data.body || "",
+      pullRequestNumber: pr.data.number,
+      labels: pr.data.labels.map((label) => label.name),
+    };
+  }
+
   async addCommentToPullRequest(options: {
     owner: string;
     repo: string;
@@ -156,5 +180,27 @@ export class GithubForge extends Forge {
 
   getReleaseUrl(owner: string, repo: string, release: string): string {
     return `https://github.com/${owner}/${repo}/releases/tag/${release}`;
+  }
+
+  async getPullRequestComments(
+    owner: string,
+    repo: string,
+    pullRequestNumber: number
+  ): Promise<Comment[]> {
+    const comments = await this.octokit.paginate(
+      this.octokit.issues.listComments,
+      {
+        owner,
+        repo,
+        issue_number: pullRequestNumber,
+      }
+    );
+
+    return comments.map((comment) => ({
+      id: comment.id.toString(),
+      body: comment.body!,
+      author: comment.user?.login!,
+      createdAt: comment.created_at,
+    }));
   }
 }
