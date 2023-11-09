@@ -3,7 +3,6 @@ FROM node:18-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV DEBUG=simple-git
 
 COPY ["package.json", "pnpm-lock.yaml", "./"]
 COPY ["tsconfig.json", "./"]

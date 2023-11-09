@@ -64,6 +64,7 @@ const config: Config = {
     githubToken: "123",
     isCI: true,
     releasePrefix: "🎉 Release",
+    debug: false,
   },
   user: defaultUserConfig,
 };
