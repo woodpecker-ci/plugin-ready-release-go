@@ -27,7 +27,7 @@ export async function prepare({
   };
 
   const releaseBranch = config.ci.releaseBranch;
-  const pullRequestBranch = `next-release/${releaseBranch}`;
+  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
 
   const branches = await git.branch();
   if (branches.all.includes(`remotes/origin/${pullRequestBranch}`)) {

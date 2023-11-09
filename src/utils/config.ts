@@ -16,6 +16,8 @@ const ciConfig = {
   gitEmail: process.env.PLUGIN_GIT_EMAIL,
   repoOwner: process.env.CI_REPO_OWNER,
   repoName: process.env.CI_REPO_NAME,
+  pullRequestBranchPrefix:
+    process.env.PLUGIN_PULL_REQUEST_BRANCH_PREFIX || "next-release/",
   releasePrefix: "🎉 Release",
   debug: process.env.PLUGIN_DEBUG === "true",
 };
