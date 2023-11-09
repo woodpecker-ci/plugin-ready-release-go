@@ -13,7 +13,6 @@ export async function prepare(cmdCtx: CommandContext) {
     changes,
     latestVersion,
     nextVersion,
-    releasePullRequest,
     releasePullRequestBranch,
     shouldBeRC,
   } = cmdCtx;

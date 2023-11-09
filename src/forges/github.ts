@@ -1,4 +1,4 @@
-import { Comment, Forge } from "./forge";
+import { Comment, Forge, PullRequest } from "./forge";
 import { Octokit } from "@octokit/rest";
 
 export class GithubForge extends Forge {
@@ -94,10 +94,7 @@ export class GithubForge extends Forge {
     owner: string;
     repo: string;
     commitHash: string;
-  }): Promise<
-    | { title: string; author?: string; number: number; labels: string[] }
-    | undefined
-  > {
+  }): Promise<PullRequest | undefined> {
     const pr = await this.octokit.repos.listPullRequestsAssociatedWithCommit({
       owner: options.owner,
       repo: options.repo,
@@ -109,9 +106,10 @@ export class GithubForge extends Forge {
     }
 
     return {
+      pullRequestNumber: pr.data[0].number,
       title: pr.data[0].title,
-      author: pr.data[0].user?.login,
-      number: pr.data[0].number,
+      description: pr.data[0].body || "",
+      author: pr.data[0].user?.login || "",
       labels: pr.data[0].labels.map((label) => label.name),
     };
   }
@@ -121,15 +119,7 @@ export class GithubForge extends Forge {
     repo: string;
     sourceBranch: string;
     targetBranch: string;
-  }): Promise<
-    | {
-        title: string;
-        description: string;
-        pullRequestNumber: number;
-        labels: string[];
-      }
-    | undefined
-  > {
+  }): Promise<PullRequest | undefined> {
     const pullRequests = await this.octokit.pulls.list({
       owner: options.owner,
       repo: options.repo,
@@ -149,9 +139,10 @@ export class GithubForge extends Forge {
     const pr = pullRequests.data[0];
 
     return {
+      pullRequestNumber: pr.number,
       title: pr.title,
       description: pr.body || "",
-      pullRequestNumber: pr.number,
+      author: pr.user?.login || "",
       labels: pr.labels.map((label) => label.name),
     };
   }

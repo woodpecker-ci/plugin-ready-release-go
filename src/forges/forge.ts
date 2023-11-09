@@ -6,8 +6,9 @@ export type Comment = {
 };
 
 export type PullRequest = {
-  title: string;
   pullRequestNumber: number;
+  title: string;
+  author: string;
   description: string;
   labels: string[];
 };
@@ -53,15 +54,7 @@ export abstract class Forge {
     owner: string;
     repo: string;
     commitHash: string;
-  }): Promise<
-    | {
-        title: string;
-        author?: string;
-        number: number;
-        labels: string[];
-      }
-    | undefined
-  >;
+  }): Promise<PullRequest | undefined>;
 
   abstract getPullRequest(options: {
     owner: string;
@@ -69,12 +62,6 @@ export abstract class Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<PullRequest | undefined>;
-
-  abstract getPullRequestComments(
-    owner: string,
-    repo: string,
-    pullRequestNumber: number
-  ): Promise<Comment[]>;
 
   abstract getRepoUrl(owner: string, repo: string): string;
   abstract getCommitUrl(
