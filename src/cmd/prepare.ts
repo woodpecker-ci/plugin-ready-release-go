@@ -3,7 +3,6 @@ import c from "picocolors";
 import { CommandContext, HookContext } from "../utils/types";
 import { updateChangelogSection, getChangeLogSection } from "../utils/change";
 import { promises as fs } from "fs";
-import { getReleaseOptions } from "../utils/pr";
 
 export async function prepare(cmdCtx: CommandContext) {
   const {
@@ -25,6 +24,9 @@ export async function prepare(cmdCtx: CommandContext) {
     "..."
   );
 
+  const pullRequestBranch = releasePullRequestBranch;
+  const releaseBranch = config.ci.releaseBranch;
+
   const hookCtx: HookContext = {
     exec,
     latestVersion,
@@ -33,40 +35,36 @@ export async function prepare(cmdCtx: CommandContext) {
   };
 
   const branches = await git.branch();
-  if (branches.all.includes(`remotes/origin/${releasePullRequestBranch}`)) {
+  if (branches.all.includes(`remotes/origin/${pullRequestBranch}`)) {
     console.log(
-      c.yellow(
-        `Branch "${releasePullRequestBranch}" already exists, checking it out.`
-      )
+      c.yellow(`Branch "${pullRequestBranch}" already exists, checking it out.`)
     );
 
-    await git.checkout([releasePullRequestBranch]);
+    await git.checkout([pullRequestBranch]);
 
     try {
-      await git.pull(releasePullRequestBranch);
+      await git.pull(pullRequestBranch);
     } catch (e) {
       console.log(
         c.yellow(
-          `Error pulling "${releasePullRequestBranch}" branch. Maybe it does not exist yet?`
+          `Error pulling "${pullRequestBranch}" branch. Maybe it does not exist yet?`
         ),
         e
       );
     }
 
     await git.merge([
-      `origin/${config.ci.releaseBranch}`,
+      `origin/${releaseBranch}`,
       "-m",
-      `Merge branch 'origin/${config.ci.releaseBranch}' into '${releasePullRequestBranch}'`,
+      `Merge branch 'origin/${releaseBranch}' into '${pullRequestBranch}'`,
       "--no-edit",
     ]);
   } else {
     console.log(
-      c.yellow(
-        `Branch "${releasePullRequestBranch}" does not exist yet, creating it.`
-      )
+      c.yellow(`Branch "${pullRequestBranch}" does not exist yet, creating it.`)
     );
 
-    await git.checkout(["-B", releasePullRequestBranch, "--track"]);
+    await git.checkout(["-B", pullRequestBranch, "--track"]);
   }
 
   if (config.user.beforePrepare) {
@@ -103,7 +101,7 @@ export async function prepare(cmdCtx: CommandContext) {
   if (!isClean()) {
     await git.add(".");
     await git.commit(`${config.ci.releasePrefix} ${nextVersion}`);
-    await git.push(["-u", "origin", releasePullRequestBranch]);
+    await git.push(["-u", "origin", pullRequestBranch]);
   }
 
   if (!config.ci.repoOwner || !config.ci.repoName) {
@@ -117,7 +115,7 @@ export async function prepare(cmdCtx: CommandContext) {
       `When you're ready to do a release, you can merge this and a release and tag with ` +
       `version \`${nextVersion}\` will be created automatically. ` +
       `If you're not ready to do a release yet, that's fine, ` +
-      `whenever you add more changes to \`${config.ci.releaseBranch}\` ` +
+      `whenever you add more changes to \`${releaseBranch}\` ` +
       `this PR will be updated.\n\n` +
       `## Options\n\n` +
       `- [${shouldBeRC ? "x" : " "}] Release this version as RC\n\n` +
@@ -130,8 +128,8 @@ export async function prepare(cmdCtx: CommandContext) {
     title: `${config.ci.releasePrefix} ${nextVersion}`,
     description: releaseDescription,
     draft: true,
-    sourceBranch: releasePullRequestBranch,
-    targetBranch: config.ci.releaseBranch,
+    sourceBranch: pullRequestBranch,
+    targetBranch: releaseBranch,
   });
 
   if (config.user.afterPrepare) {
