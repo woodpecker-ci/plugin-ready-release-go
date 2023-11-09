@@ -16,5 +16,3 @@ CMD /app/node_modules/.bin/tsx /app/src/index.ts
 
 COPY ["tsconfig.json", "./"]
 COPY ["src", "./src"]
-
-ENV DEBUG=simple-git
