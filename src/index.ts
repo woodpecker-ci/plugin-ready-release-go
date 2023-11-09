@@ -12,6 +12,11 @@ import { getNextVersionFromLabels } from "./utils/change";
 async function run() {
   const config = await getConfig();
   const forge = await getForge(config);
+
+  if (config.ci.debug) {
+    process.env.DEBUG = "simple-git";
+  }
+
   const git = simpleGit();
   const hookCtx: HookContext = {
     exec: shelljs.exec,
@@ -132,7 +137,9 @@ async function run() {
     });
   }
 
-  console.log(c.yellow("changes"), changes);
+  if (config.ci.debug) {
+    console.log(c.yellow("changes"), changes);
+  }
 
   const nextVersion = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
