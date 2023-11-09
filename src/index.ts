@@ -134,7 +134,7 @@ async function run() {
       author: pr?.author || commit.author_name,
       title: pr?.title || commit.message,
       labels: pr?.labels || [],
-      pullRequestNumber: pr?.pullRequestNumber,
+      pullRequestNumber: pr?.number,
     });
   }
 
@@ -142,11 +142,11 @@ async function run() {
     console.log(c.yellow("changes"), changes);
   }
 
-  const releasePullRequestBranch = `next-release/${releaseBranch}`;
+  const pullRequestBranch = `next-release/${releaseBranch}`;
   const releasePullRequest = await forge.getPullRequest({
     owner: config.ci.repoOwner!,
     repo: config.ci.repoName!,
-    sourceBranch: releasePullRequestBranch,
+    sourceBranch: pullRequestBranch,
     targetBranch: releaseBranch,
   });
 
@@ -172,8 +172,7 @@ async function run() {
     nextVersion,
     latestVersion,
     useVersionPrefixV,
-    releasePullRequest,
-    releasePullRequestBranch,
+    pullRequestBranch,
     shouldBeRC,
     exec: shelljs.exec,
   };

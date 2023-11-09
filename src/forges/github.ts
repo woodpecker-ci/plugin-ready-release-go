@@ -106,7 +106,7 @@ export class GithubForge extends Forge {
     }
 
     return {
-      pullRequestNumber: pr.data[0].number,
+      number: pr.data[0].number,
       title: pr.data[0].title,
       description: pr.data[0].body || "",
       author: pr.data[0].user?.login || "",
@@ -139,7 +139,7 @@ export class GithubForge extends Forge {
     const pr = pullRequests.data[0];
 
     return {
-      pullRequestNumber: pr.number,
+      number: pr.number,
       title: pr.title,
       description: pr.body || "",
       author: pr.user?.login || "",

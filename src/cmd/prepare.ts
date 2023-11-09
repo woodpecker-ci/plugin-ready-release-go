@@ -13,7 +13,7 @@ export async function prepare(cmdCtx: CommandContext) {
     changes,
     latestVersion,
     nextVersion,
-    releasePullRequestBranch,
+    pullRequestBranch,
     shouldBeRC,
   } = cmdCtx;
 
@@ -23,8 +23,7 @@ export async function prepare(cmdCtx: CommandContext) {
     "..."
   );
 
-  const pullRequestBranch = releasePullRequestBranch;
-  const releaseBranch = config.ci.releaseBranch;
+  const { releaseBranch } = config.ci;
 
   const hookCtx: HookContext = {
     exec,

@@ -6,7 +6,7 @@ export type Comment = {
 };
 
 export type PullRequest = {
-  pullRequestNumber: number;
+  number: number;
   title: string;
   author: string;
   description: string;

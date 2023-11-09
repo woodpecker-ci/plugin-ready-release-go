@@ -15,8 +15,7 @@ export type CommandContext = {
   latestVersion: string;
   useVersionPrefixV: boolean;
   nextVersion: string;
-  releasePullRequest?: PullRequest;
-  releasePullRequestBranch: string;
+  pullRequestBranch: string;
   shouldBeRC: boolean;
   changes: Change[];
 };
