@@ -20,10 +20,9 @@ A Woodpecker workflow file could look like this:
 ```yaml
 steps:
   release-helper:
-    image: woodpeckerci/plugin-ready-release-go:0.6.1
+    image: woodpeckerci/plugin-ready-release-go
     settings:
-      release_branch: ${CI_REPO_DEFAULT_BRANCH}
-      forge_type: github
+      # release_branch: 'custom-release-branch' # default: CI_REPO_DEFAULT_BRANCH
       git_email: <email>
       github_token:
         from_secret: GITHUB_TOKEN
@@ -37,49 +36,42 @@ when:
 
 - Create automated changelog based on PRs which updates itself after each merge to the default branch
 - Auto-categorization of PRs based on labels
-- Automatically determines the next version
+- Automatically determines the next semver version using the PR labels
 - Supports any kind of programming language, changelog tool and commit style
-- Execute custom pre-release hooks
+- Allows to execute custom hooks like pre, post-release
 
-## Overriding Settings
+## Settings
 
-To override the default settings, add a `release-config.ts` file to your repository.
+There are two ways to configure the plugin:
+
+1. Most basic options can be configured via plugin settings:
+
+| Settings                     | Default                | Description                                       |
+| ---------------------------- | ---------------------- | ------------------------------------------------- |
+| `GITHUB_TOKEN`               | _none_                 | The GitHub token to use for the GitHub API        |
+| `GIT_EMAIL`                  | _none_                 | The email to use for git commits                  |
+| `RELEASE_BRANCH`             | CI_REPO_DEFAULT_BRANCH | The branch used to merge the changelog to         |
+| `PULL_REQUEST_BRANCH_PREFIX` | `next-release/`        | The prefix used for release pull-request branches |
+| `DEBUG`                      | `false`                | Enable debug logging                              |
+
+2. Using a `release-config.ts` file in your repository
+
+Add a `release-config.ts` file to the root of your repository. Have a look at the [UserConfig](https://github.com/woodpecker-ci/plugin-ready-release-go/blob/main/src/utils/types.ts) type for all available options.
+
+````ts
 
 ```ts
 export default {
   commentOnReleasedPullRequests: false,
 };
-```
+````
 
-The plugin also supports executing custom prepare hooks before the plugin execution which can e.g. help to perform additional actions during a release (e.g. updating a helm chart's `appVersion` field):
+The plugin also supports executing custom hooks which can e.g. help to perform additional actions during a release (e.g. updating a helm chart's `appVersion` field):
 
 ```ts
 export default {
   beforePrepare: async ({ exec, nextVersion }) => {
     await exec(`sed -i "s/^version:.*$/version: ${nextVersion}/g" Chart.yaml`);
-  }
+  },
 };
 ```
-
-## Settings
-
-| Settings Name             | Default                             | Description                                                                                                                            |
-| ------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `depth`                   | _none_                              | If specified, uses git's `--depth` option to create a shallow clone with a limited number of commits, overwritten by partial           |
-| `lfs`                     | `true`                              | Set this to `false` to disable retrieval of LFS files                                                                                  |
-| `recursive`               | `false`                             | Clones submodules recursively                                                                                                          |
-| `skip_verify`             | `false`                             | Skips the SSL verification                                                                                                             |
-| `tags`                    | `false` (except on tag event)       | Fetches tags when set to true, default is false if event is not tag else true                                                          |
-| `submodule_overrides`     | _none_                              | Override submodule urls                                                                                                                |
-| `submodule_update_remote` | `false`                             | Pass the --remote flag to git submodule update                                                                                         |
-| `custom_ssl_path`         | _none_                              | Set path to custom cert                                                                                                                |
-| `custom_ssl_url`          | _none_                              | Set url to custom cert                                                                                                                 |
-| `backoff`                 | `5sec`                              | Change backoff duration                                                                                                                |
-| `attempts`                | `5`                                 | Change backoff attempts                                                                                                                |
-| `branch`                  | $CI_COMMIT_BRANCH                   | Change branch name to checkout to                                                                                                      |
-| `partial`                 | `true` (except if tags are fetched) | Only fetch the one commit and it's blob objects to resolve all files, overwrite depth with 1                                           |
-| `home`                    |                                     | Change HOME var for commands executed, fail if it does not exist                                                                       |
-| `remote`                  | $CI_REPO_CLONE_URL                  | Set the git remote url                                                                                                                 |
-| `sha`                     | $CI_COMMIT_SHA                      | git commit hash to retrieve (use `sha: ''` to clone the `ref`)                                                                         |
-| `ref`                     | $CI_COMMIT_REF                      | Set the git reference to retrieve (use `ref: refs/head/a_branch` and `sha: ''` to retrieve the head commit from the "a_branch" branch) |
-| `path`                    | $CI_WORKSPACE                       | Set destination path to clone to                                                                                                       |

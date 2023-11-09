@@ -2,6 +2,27 @@
 
 This plugin can be executed on every push to your release branch (e.g. main) and will create a new release pull-request with all of your custom adjustments like an updated changelog as preparation for the next release. After you have merged the "release"-pull-request with all your desired changes, a new release / tag will be created for you.
 
+## Usage
+
+### Woodpecker CI
+
+Create a new workflow like `.woodpecker/release-helper.yml`:
+
+```yaml
+when:
+  event: push
+  branch: ${CI_REPO_DEFAULT_BRANCH}
+
+steps:
+  release-helper:
+    image: woodpeckerci/plugin-ready-release-go:latest
+    settings:
+      # release_branch: 'custom-release-branch' # default: main
+      git_email: my-email@example.org
+      github_token:
+        from_secret: GITHUB_TOKEN
+```
+
 ## Workflow
 
 1. Setup ready-release-go on your repository by adding a config file and a workflow file
@@ -9,7 +30,8 @@ This plugin can be executed on every push to your release branch (e.g. main) and
 1. You can review the pull-request and merge it when you are ready
 1. The plugin will create a new release
 
-## Interal workflow
+## Internal workflow
+
 - get latest release => tag
 - get all commits since commit of last tag
 - get all prs of those commits (if they have a pr associated)
