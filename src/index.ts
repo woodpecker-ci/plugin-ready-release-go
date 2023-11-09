@@ -55,9 +55,11 @@ async function run() {
     await git.addRemote(remotes[0].name, remote);
   }
 
+  const { releaseBranch } = config.ci;
+
   await git.fetch(["--unshallow", "--tags"]);
-  await git.checkout(config.ci.releaseBranch);
-  await git.branch(["--set-upstream-to", `origin/${config.ci.releaseBranch}`]);
+  await git.checkout(releaseBranch);
+  await git.branch(["--set-upstream-to", `origin/${releaseBranch}`]);
   await git.pull();
 
   const tags = await git.tags();
@@ -78,11 +80,11 @@ async function run() {
 
   const unTaggedCommits = await git.log(
     lastestTag === "0.0.0"
-      ? [config.ci.releaseBranch] // use all commits of release branch if first release
+      ? [releaseBranch] // use all commits of release branch if first release
       : {
           from: lastestTag,
           symmetric: false,
-          to: config.ci.releaseBranch,
+          to: releaseBranch,
         }
   );
 
@@ -132,7 +134,7 @@ async function run() {
       author: pr?.author || commit.author_name,
       title: pr?.title || commit.message,
       labels: pr?.labels || [],
-      pullRequestNumber: pr?.number,
+      pullRequestNumber: pr?.pullRequestNumber,
     });
   }
 
@@ -140,12 +142,12 @@ async function run() {
     console.log(c.yellow("changes"), changes);
   }
 
-  const releasePullRequestBranch = `next-release/${config.ci.releaseBranch}`;
+  const releasePullRequestBranch = `next-release/${releaseBranch}`;
   const releasePullRequest = await forge.getPullRequest({
     owner: config.ci.repoOwner!,
     repo: config.ci.repoName!,
     sourceBranch: releasePullRequestBranch,
-    targetBranch: config.ci.releaseBranch,
+    targetBranch: releaseBranch,
   });
 
   const shouldBeRC =
