@@ -9,7 +9,7 @@
     "start": "tsx src/index.ts",
     "build": "tsx src/index.ts --out-dir dist",
     "test": "vitest",
-    "test:ui": "vitest --ui",
+    "test:watch": "vitest --ui --open=false",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

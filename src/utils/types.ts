@@ -17,6 +17,7 @@ export type CommandContext = {
   nextVersion: string;
   releasePullRequest?: PullRequest;
   releasePullRequestBranch: string;
+  shouldBeRC: boolean;
   changes: Change[];
 };
 

@@ -144,18 +144,19 @@ async function run() {
   const releasePullRequest = await forge.getPullRequest({
     owner: config.ci.repoOwner!,
     repo: config.ci.repoName!,
-    sourceBranch: `next-release/${config.ci.releaseBranch}`,
+    sourceBranch: releasePullRequestBranch,
     targetBranch: config.ci.releaseBranch,
   });
 
-  const isRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+  const shouldBeRC =
+    getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
 
   const nextVersion = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
-    : getNextVersionFromLabels(latestVersion, config.user, changes, isRC);
+    : getNextVersionFromLabels(latestVersion, config.user, changes, shouldBeRC);
 
   if (!nextVersion) {
-    console.log(c.yellow("# No changes found, skipping."));
+    console.log(c.yellow("# No changes or unable to bump semver version."));
     return;
   }
 
@@ -171,6 +172,7 @@ async function run() {
     useVersionPrefixV,
     releasePullRequest,
     releasePullRequestBranch,
+    shouldBeRC,
     exec: shelljs.exec,
   };
 

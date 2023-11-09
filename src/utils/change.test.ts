@@ -51,6 +51,18 @@ const changes: Change[] = [
     title: "Update README",
   },
 ];
+
+const changesWithMajor = changes;
+const changesWithMinor = changes.filter(
+  (change) => !change.labels.includes("breaking")
+);
+const changesWithPatch = changes.filter(
+  (change) =>
+    !change.labels.includes("breaking") &&
+    !change.labels.includes("feature") &&
+    !change.labels.includes("enhancement")
+);
+
 const config: Config = {
   ci: {
     releaseBranch: "main",
@@ -76,7 +88,12 @@ describe("change", () => {
   });
 
   it("should get the correct major bump", () => {
-    const nextVersion = getNextVersionFromLabels("1.0.0", config.user, changes);
+    const nextVersion = getNextVersionFromLabels(
+      "1.0.0",
+      config.user,
+      changesWithMajor,
+      false
+    );
     expect(nextVersion).toBe("2.0.0");
   });
 
@@ -84,7 +101,8 @@ describe("change", () => {
     const nextVersion = getNextVersionFromLabels(
       "1.0.0",
       config.user,
-      changes.filter((change) => !change.labels.includes("breaking"))
+      changesWithMinor,
+      false
     );
 
     expect(nextVersion).toBe("1.1.0");
@@ -94,13 +112,44 @@ describe("change", () => {
     const nextVersion = getNextVersionFromLabels(
       "1.0.0",
       config.user,
-      changes
-        .filter((change) => !change.labels.includes("breaking"))
-        .filter((change) => !change.labels.includes("feature"))
-        .filter((change) => !change.labels.includes("enhancement"))
+      changesWithPatch,
+      false
     );
 
     expect(nextVersion).toBe("1.0.1");
+  });
+
+  it("should get the correct rc bump", () => {
+    const nextVersion = getNextVersionFromLabels(
+      "1.2.3",
+      config.user,
+      changesWithMajor,
+      true
+    );
+
+    expect(nextVersion).toBe("2.0.0-rc.0");
+  });
+
+  it("should get the correct bump from a rc", () => {
+    const nextVersion = getNextVersionFromLabels(
+      "1.0.0-rc.2",
+      config.user,
+      changesWithPatch,
+      false
+    );
+
+    expect(nextVersion).toBe("1.0.0");
+  });
+
+  it("should get the correct rc bump from a previous rc", () => {
+    const nextVersion = getNextVersionFromLabels(
+      "1.0.1-rc.2",
+      config.user,
+      changesWithMinor,
+      true
+    );
+
+    expect(nextVersion).toBe("1.1.0-rc.0");
   });
 
   it("should generate a changelog", () => {

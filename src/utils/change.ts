@@ -7,7 +7,7 @@ export function getNextVersionFromLabels(
   lastVersion: string,
   config: UserConfig,
   changes: Change[],
-  isRC: boolean
+  shouldBeRC: boolean
 ) {
   if (changes.length === 0) {
     return null;
@@ -27,11 +27,23 @@ export function getNextVersionFromLabels(
   );
 
   if (changeLabels["major"].some((l) => labels.includes(l))) {
+    if (shouldBeRC) {
+      return semver.inc(lastVersion, "premajor", "rc");
+    }
+
     return semver.inc(lastVersion, "major");
   }
 
   if (changeLabels["minor"].some((l) => labels.includes(l))) {
+    if (shouldBeRC) {
+      return semver.inc(lastVersion, "preminor", "rc");
+    }
+
     return semver.inc(lastVersion, "minor");
+  }
+
+  if (shouldBeRC) {
+    return semver.inc(lastVersion, "prepatch", "rc");
   }
 
   return semver.inc(lastVersion, "patch");

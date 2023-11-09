@@ -16,6 +16,7 @@ export async function prepare(cmdCtx: CommandContext) {
     nextVersion,
     releasePullRequest,
     releasePullRequestBranch,
+    shouldBeRC,
   } = cmdCtx;
 
   console.log(
@@ -109,9 +110,6 @@ export async function prepare(cmdCtx: CommandContext) {
     throw new Error("Missing repoOwner or repoName");
   }
 
-  const releaseOptions = getReleaseOptions(releasePullRequest);
-  const nextWillBeRC = releaseOptions.nextVersionShouldBeRC;
-
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
     : `This PR was opened by the ` +
@@ -122,7 +120,7 @@ export async function prepare(cmdCtx: CommandContext) {
       `whenever you add more changes to \`${config.ci.releaseBranch}\`` +
       `this PR will be updated.\n\n` +
       `## Options\n\n` +
-      `- [${nextWillBeRC ? "x" : " "}] Release this version as RC\n\n` +
+      `- [${shouldBeRC ? "x" : " "}] Release this version as RC\n\n` +
       getChangeLogSection(nextVersion, config, changes, forge, false);
 
   console.log("# Creating release pull-request");
