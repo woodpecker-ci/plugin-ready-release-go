@@ -7,10 +7,13 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "tsx src/index.ts",
-    "build": "tsx src/index.ts --out-dir dist",
+    "build": "tsup src/index.ts --out-dir dist",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./dist/index.js"
   },
   "dependencies": {
     "@octokit/rest": "^20.0.0",
@@ -26,7 +29,8 @@
     "@types/semver": "^7.5.0",
     "@types/shelljs": "^0.8.11",
     "@vitest/ui": "^0.34.0",
-    "vitest": "^0.34.0",
-    "typescript": "^5.1.6"
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.0"
   }
 }

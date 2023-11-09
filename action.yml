@@ -1,0 +1,13 @@
+name: "Ready release go"
+description: "Automatically creates release pull-request which when merged will trigger a release"
+inputs:
+  release_branch:
+    description: "Branch to merge release pull-request into"
+    default: "your default branch"
+  git_email:
+    description: "Email to use for git commits"
+    default: "email of the user who is running the action"
+outputs:
+runs:
+  using: "node20"
+  main: "dist/index.js"

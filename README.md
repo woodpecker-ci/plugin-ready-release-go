@@ -28,6 +28,53 @@ This plugin can be executed on every push to your release branch (e.g. main) and
 - [ ] Support defining next version manually
 - [ ] Handle -rc versions
 
+## Usage
+
+### Woodpecker CI
+
+Create a new workflow like `.woodpecker/release-helper.yml`:
+
+
+```yaml
+when:
+  event: push
+  branch: ${CI_REPO_DEFAULT_BRANCH}
+
+steps:
+  release-helper:
+    image: woodpeckerci/plugin-ready-release-go:latest
+    settings:
+      # release_branch: 'custom-release-branch' # default: main
+      git_email: woodpecker-bot@obermui.de
+      github_token:
+        from_secret: GITHUB_TOKEN
+```
+
+### Github Actions
+
+Create a new workflow like `.github/workflows/release-helper.yml`:
+
+```yaml
+name: Release helper
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-helper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Release helper
+        uses: woodpeckerci/plugin-ready-release-go@v1
+        with:
+          # release_branch: 'custom-release-branch' # default: main
+          git_email:
+```
+
 ## Credits
 
 This plugin is heavily inspired by [release-drafter](https://github.com/release-drafter/release-drafter) and [shipjs](https://github.com/algolia/shipjs). Thanks for the great work! Compared to the mentioned tools `ready-release-go` is not requiring a npm package and can be used with any kind of programming language, changelog tool and commit style.
