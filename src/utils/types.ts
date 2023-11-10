@@ -83,8 +83,16 @@ export type UserConfig = Partial<{
     weight?: number;
   }[];
 
+  /**
+   * Skip commits associated with pull-requests with these labels
+   * @default ["skip-release", "skip-changelog", "regression"]
+   */
   skipLabels: string[];
 
+  /**
+   * Skip commits that are not associated with a pull-request
+   * @default true
+   */
   skipCommitsWithoutPullRequest: boolean;
 
   /**
