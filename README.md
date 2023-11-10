@@ -49,6 +49,6 @@ steps:
 - [ ] Support defining next version manually
 - [ ] Handle -rc versions
 
-# Credits
+## Credits
 
 This plugin is heavily inspired by [release-drafter](https://github.com/release-drafter/release-drafter) and [shipjs](https://github.com/algolia/shipjs). Thanks for the great work! Compared to the mentioned tools `ready-release-go` is not requiring a npm package and can be used with any kind of programming language, changelog tool and commit style.

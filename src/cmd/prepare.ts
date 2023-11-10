@@ -110,7 +110,14 @@ export async function prepare({
 
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
-    : getChangeLogSection(nextVersion, config, changes, forge, false);
+    : `This PR was opened by the ` +
+      `[ready-release-go](https://github.com/woodpecker-ci/plugin-ready-release-go) plugin.` +
+      `When you're ready to do a release, you can merge this and a release and tag with ` +
+      `version \`${nextVersion}\` will be created automatically.` +
+      `If you're not ready to do a release yet, that's fine, ` +
+      `whenever you add more changes to \`${releaseBranch}\`` +
+      `this PR will be updated.\n\n` +
+      getChangeLogSection(nextVersion, config, changes, forge, false);
 
   console.log("# Creating release pull-request");
   const pullRequestLink = await forge.createOrUpdatePullRequest({
