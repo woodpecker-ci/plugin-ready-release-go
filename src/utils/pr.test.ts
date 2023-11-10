@@ -5,13 +5,13 @@ describe("pr", () => {
   it("should check for the correct checkbox value", () => {
     const prDescription = `
 This PR was opened by the [ready-release-go](https://github.com/woodpecker-ci/plugin-ready-release-go) plugin.
-When you're ready to do a release, you can merge this and a release and tag with version
-will be created automatically.If you're not ready to do a release yet, that's fine,
-whenever you add more changes to this PR will be updated.
+When you're ready to do a release, you can merge this and a new release with version '1.2.3'
+will be created automatically. If you're not ready to do a release yet, that's fine,
+whenever you add more changes to 'main' this pull-request will be updated.
 
 ## Options
 
-- [x] Release this version as RC
+- [x] Mark this version as a release candidate (RC)
 - [ ] Some random option
 
 ## [0.8.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.8.0) - 2023-11-09
@@ -23,7 +23,7 @@ whenever you add more changes to this PR will be updated.
 
     const releaseThisVersionAsRC = getCheckboxValueFromString(
       prDescription,
-      "release this version as rc"
+      "mark this version as a release candidate"
     );
     expect(releaseThisVersionAsRC).toBe(true);
 
