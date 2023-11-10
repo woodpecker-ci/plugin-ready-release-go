@@ -44,7 +44,7 @@ when:
 
 There are two parts to configure the plugin:
 
-### 1. Most basic options can be configured via plugin settings:
+### 1. Most basic options can be configured via plugin settings
 
 | Settings                     | Default                | Description                                       |
 | ---------------------------- | ---------------------- | ------------------------------------------------- |
