@@ -10,6 +10,10 @@
 
 - Cleanup config [[#46](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/46)]
 
+### ✨ Features
+
+- Allow to release as RC [[#43](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/43)]
+
 ### 📈 Enhancement
 
 - Add debug option [[#45](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/45)]
