@@ -1,13 +1,18 @@
 import shelljs from "shelljs";
 import c from "picocolors";
 import { simpleGit } from "simple-git";
+import semver from "semver";
 
 import { prepare } from "./cmd/prepare";
 import { release } from "./cmd/release";
 import { getForge } from "./forges";
 import { getConfig } from "./utils/config";
 import { Change, CommandContext, HookContext } from "./utils/types";
-import { getNextVersionFromLabels } from "./utils/change";
+import {
+  extractVersionFromCommitMessage,
+  getNextVersionFromLabels,
+} from "./utils/change";
+import { getReleaseOptions } from "./utils/pr";
 
 async function run() {
   const config = await getConfig();
@@ -54,9 +59,7 @@ async function run() {
     await git.addRemote(remotes[0].name, remote);
   }
 
-  const releaseBranch = config.user.getReleaseBranch
-    ? await config.user.getReleaseBranch(hookCtx)
-    : config.ci.releaseBranch;
+  const { releaseBranch } = config.ci;
 
   await git.fetch(["--unshallow", "--tags"]);
   await git.checkout(releaseBranch);
@@ -143,12 +146,40 @@ async function run() {
     console.log(c.yellow("changes"), changes);
   }
 
-  const nextVersion = config.user.getNextVersion
+  const isReleaseCommit = config.ci.commitMessage?.startsWith(
+    config.ci.releasePrefix
+  );
+
+  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
+
+  let shouldBeRC = false;
+  let nextVersion: string | null = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
-    : getNextVersionFromLabels(latestVersion, config.user, changes);
+    : null;
+
+  if (isReleaseCommit) {
+    // use commit message for release runs as the pull-request is not available (closed)
+    nextVersion = extractVersionFromCommitMessage(config.ci.commitMessage!);
+    shouldBeRC = semver.prerelease(nextVersion) !== null;
+  } else {
+    const releasePullRequest = await forge.getPullRequest({
+      owner: config.ci.repoOwner!,
+      repo: config.ci.repoName!,
+      sourceBranch: pullRequestBranch,
+      targetBranch: releaseBranch,
+    });
+
+    shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+    nextVersion = getNextVersionFromLabels(
+      latestVersion,
+      config.user,
+      changes,
+      shouldBeRC
+    );
+  }
 
   if (!nextVersion) {
-    console.log(c.yellow("# No changes found, skipping."));
+    console.log(c.yellow("# No changes or unable to bump semver version."));
     return;
   }
 
@@ -162,11 +193,13 @@ async function run() {
     nextVersion,
     latestVersion,
     useVersionPrefixV,
+    pullRequestBranch,
+    shouldBeRC,
     exec: shelljs.exec,
   };
 
   // is "release" commit
-  if (config.ci.commitMessage?.startsWith(config.ci.releasePrefix)) {
+  if (isReleaseCommit) {
     console.log(c.green("# Release commit detected."));
     console.log("# Now releasing version:", c.green(nextVersion));
 

@@ -46,10 +46,12 @@ steps:
 - [x] Automatically create release pull-request
 - [x] Automatically update release pull-request
 - [x] Create a release / tag after "release"-pull-request got merged
-- [ ] Support more forges: (Gitea, Gitlab, ...)
+- [x] Handle -rc versions
 - [x] Support first release (no previous tags)
-- [ ] Support defining next version manually
-- [ ] Handle -rc versions
+- [x] Support defining next version manually (can be done by changing the version on the release pull-request title / commit message)
+- [ ] Support more forges:
+  - [ ] Gitea
+  - [ ] Gitlab
 
 ## Credits
 
