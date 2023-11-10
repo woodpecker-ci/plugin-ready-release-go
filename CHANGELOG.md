@@ -4,7 +4,7 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@anbraten, @pat-s, @renovate[bot], @qwerty287
+@pat-s, @anbraten, @renovate[bot], @qwerty287
 
 ### 💥 Breaking changes
 
@@ -13,6 +13,10 @@
 ### ✨ Features
 
 - Allow to release as RC [[#43](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/43)]
+
+### 📚 Documentation
+
+- Add docs [[#32](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/32)]
 
 ### 📈 Enhancement
 
