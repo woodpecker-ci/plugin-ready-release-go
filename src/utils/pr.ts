@@ -17,7 +17,7 @@ export function getReleaseOptions(releasePullRequest?: PullRequest): {
 
   const nextVersionShouldBeRC = getCheckboxValueFromString(
     releasePullRequest.description,
-    "Mark this version as a release candidate (RC)"
+    "Mark this version as a release candidate"
   );
 
   return {

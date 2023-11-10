@@ -117,7 +117,7 @@ export async function prepare(cmdCtx: CommandContext) {
       `## Options\n\n` +
       `- [${
         shouldBeRC ? "x" : " "
-      }] Mark this version as a release candidate (RC)\n\n` +
+      }] Mark this version as a release candidate\n\n` +
       getChangeLogSection(nextVersion, config, changes, forge, false);
 
   console.log("# Creating release pull-request");

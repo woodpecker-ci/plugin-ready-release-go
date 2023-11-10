@@ -11,7 +11,7 @@ whenever you add more changes to 'main' this pull-request will be updated.
 
 ## Options
 
-- [x] Mark this version as a release candidate (RC)
+- [x] Mark this version as a release candidate
 - [ ] Some random option
 
 ## [0.8.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.8.0) - 2023-11-09
