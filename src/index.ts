@@ -150,7 +150,7 @@ async function run() {
     config.ci.releasePrefix
   );
 
-  const pullRequestBranch = `next-release/${releaseBranch}`;
+  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
 
   let shouldBeRC = false;
   let nextVersion: string | null = config.user.getNextVersion

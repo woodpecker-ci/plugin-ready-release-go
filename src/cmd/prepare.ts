@@ -23,14 +23,14 @@ export async function prepare(cmdCtx: CommandContext) {
     "..."
   );
 
-  const { releaseBranch } = config.ci;
-
   const hookCtx: HookContext = {
     exec,
     latestVersion,
     nextVersion,
     changes,
   };
+
+  const { releaseBranch } = config.ci;
 
   const branches = await git.branch();
   if (branches.all.includes(`remotes/origin/${pullRequestBranch}`)) {
