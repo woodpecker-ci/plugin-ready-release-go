@@ -17,10 +17,12 @@ steps:
   release-helper:
     image: woodpeckerci/plugin-ready-release-go:latest
     settings:
-      # release_branch: 'custom-release-branch' # default: main
       git_email: my-email@example.org
       github_token:
         from_secret: GITHUB_TOKEN
+      # release_branch: 'custom-release-branch' # default: main
+      # pull_request_branch_prefix: 'next-release/'
+      # debug: true
 ```
 
 ## Workflow
