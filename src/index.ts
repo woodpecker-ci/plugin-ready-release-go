@@ -54,9 +54,7 @@ async function run() {
     await git.addRemote(remotes[0].name, remote);
   }
 
-  const releaseBranch = config.user.getReleaseBranch
-    ? await config.user.getReleaseBranch(hookCtx)
-    : config.ci.releaseBranch;
+  const releaseBranch = config.ci.releaseBranch;
 
   await git.fetch(["--unshallow", "--tags"]);
   await git.checkout(releaseBranch);

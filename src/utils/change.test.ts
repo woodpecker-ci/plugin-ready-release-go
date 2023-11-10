@@ -62,6 +62,7 @@ const config: Config = {
     repoName: "woodpecker",
     forgeType: "github",
     githubToken: "123",
+    pullRequestBranchPrefix: "next-release/",
     isCI: true,
     releasePrefix: "🎉 Release",
     debug: false,
