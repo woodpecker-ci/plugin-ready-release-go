@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeAll } from "vitest";
 import {
+  extractVersionFromCommitMessage,
   getChangeLogSection,
   getNextVersionFromLabels,
   updateChangelogSection,
@@ -212,4 +213,27 @@ describe("change", () => {
       expect(changelog).toMatchSnapshot();
     }
   );
+
+  it("should be able to extract the release version from a commit message", () => {
+    const tests = [
+      {
+        commitMessage: "🎉 Release 1.2.3",
+        expectedVersion: "1.2.3",
+      },
+      {
+        commitMessage: "🎉 Release 1.2.3-rc.0 [skip ci]",
+        expectedVersion: "1.2.3-rc.0",
+      },
+      {
+        commitMessage: "chore(release): 1.0.0-rc.0 [skip ci]",
+        expectedVersion: "1.0.0-rc.0",
+      },
+    ];
+
+    tests.forEach(({ commitMessage, expectedVersion }) => {
+      expect(extractVersionFromCommitMessage(commitMessage)).toBe(
+        expectedVersion
+      );
+    });
+  });
 });

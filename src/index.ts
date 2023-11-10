@@ -1,13 +1,17 @@
 import shelljs from "shelljs";
 import c from "picocolors";
 import { simpleGit } from "simple-git";
+import semver from "semver";
 
 import { prepare } from "./cmd/prepare";
 import { release } from "./cmd/release";
 import { getForge } from "./forges";
 import { getConfig } from "./utils/config";
 import { Change, CommandContext, HookContext } from "./utils/types";
-import { getNextVersionFromLabels } from "./utils/change";
+import {
+  extractVersionFromCommitMessage,
+  getNextVersionFromLabels,
+} from "./utils/change";
 import { getReleaseOptions } from "./utils/pr";
 
 async function run() {
@@ -142,20 +146,37 @@ async function run() {
     console.log(c.yellow("changes"), changes);
   }
 
+  const isReleaseCommit = config.ci.commitMessage?.startsWith(
+    config.ci.releasePrefix
+  );
+
   const pullRequestBranch = `next-release/${releaseBranch}`;
-  const releasePullRequest = await forge.getPullRequest({
-    owner: config.ci.repoOwner!,
-    repo: config.ci.repoName!,
-    sourceBranch: pullRequestBranch,
-    targetBranch: releaseBranch,
-  });
 
-  const shouldBeRC =
-    getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
-
-  const nextVersion = config.user.getNextVersion
+  let shouldBeRC = false;
+  let nextVersion: string | null = config.user.getNextVersion
     ? await config.user.getNextVersion(hookCtx)
-    : getNextVersionFromLabels(latestVersion, config.user, changes, shouldBeRC);
+    : null;
+
+  if (isReleaseCommit) {
+    // use commit message for release runs as the pull-request is not available (closed)
+    nextVersion = extractVersionFromCommitMessage(config.ci.commitMessage!);
+    shouldBeRC = semver.prerelease(nextVersion) !== null;
+  } else {
+    const releasePullRequest = await forge.getPullRequest({
+      owner: config.ci.repoOwner!,
+      repo: config.ci.repoName!,
+      sourceBranch: pullRequestBranch,
+      targetBranch: releaseBranch,
+    });
+
+    shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+    nextVersion = getNextVersionFromLabels(
+      latestVersion,
+      config.user,
+      changes,
+      shouldBeRC
+    );
+  }
 
   if (!nextVersion) {
     console.log(c.yellow("# No changes or unable to bump semver version."));
@@ -178,7 +199,7 @@ async function run() {
   };
 
   // is "release" commit
-  if (config.ci.commitMessage?.startsWith(config.ci.releasePrefix)) {
+  if (isReleaseCommit) {
     console.log(c.green("# Release commit detected."));
     console.log("# Now releasing version:", c.green(nextVersion));
 
