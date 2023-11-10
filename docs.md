@@ -42,9 +42,9 @@ when:
 
 ## Settings
 
-There are two ways to configure the plugin:
+There are two parts to configure the plugin:
 
-1. Most basic options can be configured via plugin settings:
+### 1. Most basic options can be configured via plugin settings:
 
 | Settings                     | Default                | Description                                       |
 | ---------------------------- | ---------------------- | ------------------------------------------------- |
@@ -54,11 +54,9 @@ There are two ways to configure the plugin:
 | `PULL_REQUEST_BRANCH_PREFIX` | `next-release/`        | The prefix used for release pull-request branches |
 | `DEBUG`                      | `false`                | Enable debug logging                              |
 
-2. Using a `release-config.ts` file in your repository
+### 2. Using a `release-config.ts` file in your repository
 
 Add a `release-config.ts` file to the root of your repository. Have a look at the [UserConfig](https://github.com/woodpecker-ci/plugin-ready-release-go/blob/main/src/utils/types.ts) type for all available options.
-
-````ts
 
 ```ts
 export default {
