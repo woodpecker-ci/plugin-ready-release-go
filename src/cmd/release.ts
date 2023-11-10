@@ -10,6 +10,7 @@ export async function release({
   useVersionPrefixV,
   latestVersion,
   nextVersion,
+  shouldBeRC,
 }: CommandContext) {
   const hookCtx: HookContext = {
     exec,
@@ -52,6 +53,7 @@ export async function release({
     tag,
     description: releaseDescription,
     name: nextVersion,
+    prerelease: shouldBeRC,
   });
 
   console.log(c.green("# Successfully created release:"), releaseLink);
