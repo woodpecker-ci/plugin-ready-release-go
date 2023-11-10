@@ -1,6 +1,6 @@
-import { ExecFunction } from "shelljs";
-import { Forge } from "../forges/forge";
-import { Config } from "./config";
+import type { ExecFunction } from "shelljs";
+import type { Forge, PullRequest } from "../forges/forge";
+import type { Config } from "./config";
 import type { SimpleGit } from "simple-git";
 
 export type PromiseOrValue<T> = Promise<T> | T;
@@ -15,6 +15,8 @@ export type CommandContext = {
   latestVersion: string;
   useVersionPrefixV: boolean;
   nextVersion: string;
+  pullRequestBranch: string;
+  shouldBeRC: boolean;
   changes: Change[];
 };
 

@@ -6,7 +6,8 @@ import { Forge } from "../forges/forge";
 export function getNextVersionFromLabels(
   lastVersion: string,
   config: UserConfig,
-  changes: Change[]
+  changes: Change[],
+  shouldBeRC: boolean
 ) {
   if (changes.length === 0) {
     return null;
@@ -26,11 +27,23 @@ export function getNextVersionFromLabels(
   );
 
   if (changeLabels["major"].some((l) => labels.includes(l))) {
+    if (shouldBeRC) {
+      return semver.inc(lastVersion, "premajor", "rc");
+    }
+
     return semver.inc(lastVersion, "major");
   }
 
   if (changeLabels["minor"].some((l) => labels.includes(l))) {
+    if (shouldBeRC) {
+      return semver.inc(lastVersion, "preminor", "rc");
+    }
+
     return semver.inc(lastVersion, "minor");
+  }
+
+  if (shouldBeRC) {
+    return semver.inc(lastVersion, "prepatch", "rc");
   }
 
   return semver.inc(lastVersion, "patch");
@@ -156,4 +169,19 @@ export function updateChangelogSection(
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
   return `# Changelog\n\n${sections.map((s) => s.section).join("\n\n")}\n`;
+}
+
+export function extractVersionFromCommitMessage(commitMessage: string) {
+  const semverRegex =
+    /(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?/;
+
+  const match = commitMessage.match(semverRegex);
+
+  if (!match) {
+    throw new Error(
+      `Could not extract version from commit message: ${commitMessage}`
+    );
+  }
+
+  return match[0];
 }
