@@ -15,7 +15,7 @@ when:
 
 steps:
   release-helper:
-    image: woodpeckerci/plugin-ready-release-go:latest
+    image: woodpeckerci/plugin-ready-release-go:<version>
     settings:
       git_email: my-email@example.org
       github_token:
