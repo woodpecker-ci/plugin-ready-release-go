@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.0) - 2023-11-10
+
+### ❤️ Thanks to all contributors! ❤️
+
+@pat-s, @anbraten, @renovate[bot], @qwerty287
+
+### 💥 Breaking changes
+
+- Cleanup config [[#46](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/46)]
+
+### ✨ Features
+
+- Allow to release as RC [[#43](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/43)]
+
+### 📚 Documentation
+
+- Add docs [[#32](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/32)]
+
+### 📈 Enhancement
+
+- Add debug option [[#45](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/45)]
+
+### 🐛 Bug Fixes
+
+- Fix missing newlines [[#38](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/38)]
+
+### Misc
+
+- Add precommit and linters [[#40](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/40)]
+- chore(deps): lock file maintenance [[#35](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/35)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v0.7.0 [[#37](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/37)]
+
 ## [0.7.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/0.7.0) - 2023-10-31
 
 ### ❤️ Thanks to all contributors! ❤️
