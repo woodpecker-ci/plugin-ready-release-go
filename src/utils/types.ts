@@ -40,26 +40,12 @@ export type UserConfig = Partial<{
   getNextVersion: (ctx: HookContext) => PromiseOrValue<string>;
 
   /**
-   * Get the branch the release will be created from.
-   *
-   * Normally main or master
-   */
-  getReleaseBranch: (ctx: HookContext) => PromiseOrValue<string>;
-
-  /**
    * Get the release description.
    *
    * Used as pull-request and release description.
    * By default it's the changelog part of the current / next version.
    */
   getReleaseDescription: (ctx: HookContext) => PromiseOrValue<string>;
-
-  /**
-   * Get the branch used for the release pull request
-   *
-   * By default it's `next-release/${latest-version}`
-   */
-  getPullRequestBranch: (ctx: HookContext) => PromiseOrValue<string>;
 
   /**
    * Run before the release pull request is created.
@@ -97,8 +83,16 @@ export type UserConfig = Partial<{
     weight?: number;
   }[];
 
+  /**
+   * Skip commits associated with pull-requests with these labels
+   * @default ["skip-release", "skip-changelog", "regression"]
+   */
   skipLabels: string[];
 
+  /**
+   * Skip commits that are not associated with a pull-request
+   * @default true
+   */
   skipCommitsWithoutPullRequest: boolean;
 
   /**

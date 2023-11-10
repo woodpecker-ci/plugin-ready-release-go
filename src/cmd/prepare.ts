@@ -26,13 +26,8 @@ export async function prepare({
     changes,
   };
 
-  const pullRequestBranch = config.user.getPullRequestBranch
-    ? await config.user.getPullRequestBranch(hookCtx)
-    : `next-release/${latestVersion}`;
-
-  const releaseBranch = config.user.getReleaseBranch
-    ? await config.user.getReleaseBranch(hookCtx)
-    : "main";
+  const releaseBranch = config.ci.releaseBranch;
+  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
 
   const branches = await git.branch();
   if (branches.all.includes(`remotes/origin/${pullRequestBranch}`)) {
