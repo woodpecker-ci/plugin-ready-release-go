@@ -24,8 +24,8 @@ dependencies:
     specifier: ^3.19.1
     version: 3.20.0
   tsx:
-    specifier: ^3.12.1
-    version: 3.14.0
+    specifier: ^4.0.0
+    version: 4.1.0
 
 devDependencies:
   '@types/node':
@@ -1112,8 +1112,9 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /tsx@3.14.0:
-    resolution: {integrity: sha512-xHtFaKtHxM9LOklMmJdI3BEnQq/D5F73Of2E1GDrITi9sgoVkvIsrQUTY1G8FlmGtA+awCI4EBlTRRYxkL2sRg==}
+  /tsx@4.1.0:
+    resolution: {integrity: sha512-u4l17Yd63Wsk2fzNn1wZCmcS9kwJ/2ysl7wuoVggv2hd3NjLA5JQPpyJMXoWSXOwOvoQUzNcu/sf/35HEsnXsg==}
+    engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
       esbuild: 0.18.20
