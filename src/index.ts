@@ -108,7 +108,7 @@ async function run() {
     );
   }
 
-  const unTaggedCommits = await git.log(
+  let unTaggedCommits = await git.log(
     latestTag === "0.0.0"
       ? [releaseBranch] // use all commits of release branch if first release
       : {
@@ -129,27 +129,21 @@ async function run() {
       .sort(semver.compare);
 
     if (latestRCTags.length > 0) {
-      const latestRcTag = latestRCTags[0];
+      const firstRCTag = latestRCTags[0];
       console.log(
-        "# Lastest RC tag is:",
-        c.green(latestRcTag),
+        "# First RC tag is:",
+        c.green(firstRCTag),
         "adding commits between",
-        c.green(latestRcTag),
+        c.green(firstRCTag),
         "and",
         c.green(releaseBranch)
       );
 
-      const commitsBetweenRcAndRelease = await git.log({
-        from: latestRcTag,
+      unTaggedCommits = await git.log({
+        from: firstRCTag,
         symmetric: false,
         to: releaseBranch,
       });
-
-      unTaggedCommits.all = [
-        ...commitsBetweenRcAndRelease.all,
-        ...unTaggedCommits.all,
-      ];
-      unTaggedCommits.total += commitsBetweenRcAndRelease.total;
     }
   }
 
