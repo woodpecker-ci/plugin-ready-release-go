@@ -164,6 +164,9 @@ export function updateChangelogSection(
   sections = sections
     .filter((s) => s.version !== nextVersion) // filter out the new section
     .filter((s) => semver.compare(s.version, latestVersion) !== 1); // filter out sections that are older than the latest version as they are not released and should not be in the changelog
+
+  // TODO: filter rc versions with same base version
+
   sections.push({ version: nextVersion, section: newSection });
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));

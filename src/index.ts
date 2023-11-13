@@ -66,6 +66,32 @@ async function run() {
   await git.branch(["--set-upstream-to", `origin/${releaseBranch}`]);
   await git.pull();
 
+  const isReleaseCommit = config.ci.commitMessage?.startsWith(
+    config.ci.releasePrefix
+  );
+
+  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
+
+  let shouldBeRC = false;
+  let nextVersion: string | null = config.user.getNextVersion
+    ? await config.user.getNextVersion(hookCtx)
+    : null;
+
+  if (isReleaseCommit) {
+    // use commit message for release runs as the pull-request is not available (closed)
+    nextVersion = extractVersionFromCommitMessage(config.ci.commitMessage!);
+    shouldBeRC = semver.prerelease(nextVersion) !== null;
+  } else {
+    const releasePullRequest = await forge.getPullRequest({
+      owner: config.ci.repoOwner!,
+      repo: config.ci.repoName!,
+      sourceBranch: pullRequestBranch,
+      targetBranch: releaseBranch,
+    });
+
+    shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+  }
+
   const tags = await git.tags();
 
   if (!tags.latest && tags.all.length > 0) {
@@ -73,24 +99,59 @@ async function run() {
     return;
   }
 
-  const lastestTag = tags.latest || "0.0.0";
+  const latestTag = tags.latest || "0.0.0";
   if (tags.latest) {
-    console.log("# Lastest tag is:", c.green(lastestTag));
+    console.log("# Lastest tag is:", c.green(latestTag));
   } else {
     console.log(
-      c.green(`# No tags found. Starting with first tag: ${lastestTag}`)
+      c.green(`# No tags found. Starting with first tag: ${latestTag}`)
     );
   }
 
   const unTaggedCommits = await git.log(
-    lastestTag === "0.0.0"
+    latestTag === "0.0.0"
       ? [releaseBranch] // use all commits of release branch if first release
       : {
-          from: lastestTag,
+          from: latestTag,
           symmetric: false,
           to: releaseBranch,
         }
   );
+
+  // if the lastest tag is an RC and the next version should be the actual release,
+  // we need to include the commits between the first RC and the release branch
+  if (latestTag.includes("-rc.") && !shouldBeRC) {
+    const versionWithoutRc = latestTag.replace(/-rc.\d/, "");
+    let latestTags = await git.tags(["--sort=-creatordate"]);
+    const latestRCTags = latestTags.all
+      .filter((t) => t.includes("-rc."))
+      .filter((t) => t.includes(versionWithoutRc))
+      .sort(semver.compare);
+
+    if (latestRCTags.length > 0) {
+      const latestRcTag = latestRCTags[0];
+      console.log(
+        "# Lastest RC tag is:",
+        c.green(latestRcTag),
+        "adding commits between",
+        c.green(latestRcTag),
+        "and",
+        c.green(releaseBranch)
+      );
+
+      const commitsBetweenRcAndRelease = await git.log({
+        from: latestRcTag,
+        symmetric: false,
+        to: releaseBranch,
+      });
+
+      unTaggedCommits.all = [
+        ...commitsBetweenRcAndRelease.all,
+        ...unTaggedCommits.all,
+      ];
+      unTaggedCommits.total += commitsBetweenRcAndRelease.total;
+    }
+  }
 
   if (unTaggedCommits.total === 0) {
     console.log(c.yellow("# No untagged commits found, skipping."));
@@ -101,9 +162,9 @@ async function run() {
 
   const useVersionPrefixV =
     config.user.useVersionPrefixV === undefined
-      ? lastestTag.startsWith("v")
+      ? latestTag.startsWith("v")
       : config.user.useVersionPrefixV;
-  const latestVersion = lastestTag.replace("v", "");
+  const latestVersion = latestTag.replace("v", "");
   const changes: Change[] = [];
 
   for await (const commit of unTaggedCommits.all) {
@@ -146,30 +207,7 @@ async function run() {
     console.log(c.yellow("changes"), changes);
   }
 
-  const isReleaseCommit = config.ci.commitMessage?.startsWith(
-    config.ci.releasePrefix
-  );
-
-  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
-
-  let shouldBeRC = false;
-  let nextVersion: string | null = config.user.getNextVersion
-    ? await config.user.getNextVersion(hookCtx)
-    : null;
-
-  if (isReleaseCommit) {
-    // use commit message for release runs as the pull-request is not available (closed)
-    nextVersion = extractVersionFromCommitMessage(config.ci.commitMessage!);
-    shouldBeRC = semver.prerelease(nextVersion) !== null;
-  } else {
-    const releasePullRequest = await forge.getPullRequest({
-      owner: config.ci.repoOwner!,
-      repo: config.ci.repoName!,
-      sourceBranch: pullRequestBranch,
-      targetBranch: releaseBranch,
-    });
-
-    shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+  if (!isReleaseCommit) {
     nextVersion = getNextVersionFromLabels(
       latestVersion,
       config.user,
