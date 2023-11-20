@@ -27,6 +27,9 @@ describe("index", () => {
   beforeAll(() => {
     const date = new Date(2000, 1, 1, 13);
     vi.setSystemTime(date);
+
+    vi.mock("cmd/prepare.ts");
+    vi.mock("cmd/release.ts");
   });
 
   it("should prepare a new release", async () => {
