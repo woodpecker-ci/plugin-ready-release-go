@@ -28,8 +28,8 @@ describe("index", () => {
     const date = new Date(2000, 1, 1, 13);
     vi.setSystemTime(date);
 
-    vi.mock("cmd/prepare.ts");
-    vi.mock("cmd/release.ts");
+    // vi.mock("./cmd/prepare");
+    vi.mock("./cmd/release");
   });
 
   it("should prepare a new release", async () => {
