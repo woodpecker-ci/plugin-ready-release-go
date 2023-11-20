@@ -156,7 +156,7 @@ function getMockedForged() {
 
   vi.spyOn(forge, "createOrUpdatePullRequest").mockImplementation(() => {});
   vi.spyOn(forge, "getPullRequestFromCommit").mockImplementation(
-    (o: { owner: string; repo: string }) => {
+    (o: { owner: string; repo: string; commitHash: string }) => {
       return {
         number: 1,
         title: "",
