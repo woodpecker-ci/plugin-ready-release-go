@@ -157,13 +157,13 @@ function getMockedForged() {
   vi.spyOn(forge, "createOrUpdatePullRequest").mockImplementation(() => {});
   vi.spyOn(forge, "getPullRequestFromCommit").mockImplementation(
     (o: { owner: string; repo: string; commitHash: string }) => {
-      return {
+      return Promise.resolve({
         number: 1,
         title: "",
         author: "anbraten",
         description: "fixes are so cool",
         labels: ["bug"],
-      };
+      });
     }
   );
 
