@@ -96,7 +96,7 @@ export async function run({
     shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
   }
 
-  const tags = await git.tags();
+  const tags = await git.tags(["--sort=-creatordate"]);
 
   if (!tags.latest && tags.all.length > 0) {
     console.log(c.yellow("# Latest tag not found, but tags exist, skipping."));
@@ -126,9 +126,8 @@ export async function run({
   // we need to include the commits between the first RC and the release branch
   if (latestTag.includes("-") && !shouldBeRC) {
     const versionWithoutRc = latestTag.replace(/-\w+.\d+/, "");
-    let latestTags = await git.tags(["--sort=-creatordate"]);
-    const latestRCTags = latestTags.all
-      .filter((t) => t.includes("-"))
+    const latestRCTags = tags.all
+      .filter((t) => semver.prerelease(t) !== null)
       .filter((t) => t.includes(versionWithoutRc))
       .sort(semver.compare);
 
