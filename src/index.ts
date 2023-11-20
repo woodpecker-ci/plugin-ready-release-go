@@ -92,7 +92,6 @@ export async function run({
       sourceBranch: pullRequestBranch,
       targetBranch: releaseBranch,
     });
-
     shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
   }
 
@@ -117,14 +116,14 @@ export async function run({
       ? [releaseBranch] // use all commits of release branch if first release
       : {
           from: latestTag,
-          symmetric: false,
           to: releaseBranch,
+          symmetric: false,
         }
   );
 
   // if the lastest tag is an RC and the next version should be the actual release,
   // we need to include the commits between the first RC and the release branch
-  if (latestTag.includes("-") && !shouldBeRC) {
+  if (semver.prerelease(latestTag) !== null && !shouldBeRC) {
     const versionWithoutRc = latestTag.replace(/-\w+.\d+/, "");
     const latestRCTags = tags.all
       .filter((t) => semver.prerelease(t) !== null)
@@ -144,8 +143,8 @@ export async function run({
 
       unTaggedCommits = await git.log({
         from: firstRCTag,
-        symmetric: false,
         to: releaseBranch,
+        symmetric: false,
       });
     }
   }
