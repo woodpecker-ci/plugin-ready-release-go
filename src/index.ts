@@ -120,18 +120,18 @@ async function run() {
 
   // if the lastest tag is an RC and the next version should be the actual release,
   // we need to include the commits between the first RC and the release branch
-  if (latestTag.includes("-rc.") && !shouldBeRC) {
-    const versionWithoutRc = latestTag.replace(/-rc.\d/, "");
+  if (latestTag.includes("-") && !shouldBeRC) {
+    const versionWithoutRc = latestTag.replace(/-\w+.\d+/, "");
     let latestTags = await git.tags(["--sort=-creatordate"]);
     const latestRCTags = latestTags.all
-      .filter((t) => t.includes("-rc."))
+      .filter((t) => t.includes("-"))
       .filter((t) => t.includes(versionWithoutRc))
       .sort(semver.compare);
 
     if (latestRCTags.length > 0) {
       const firstRCTag = latestRCTags[0];
       console.log(
-        "# First RC tag is:",
+        "# First pre-release tag is:",
         c.green(firstRCTag),
         "adding commits between",
         c.green(firstRCTag),
@@ -158,7 +158,7 @@ async function run() {
     config.user.useVersionPrefixV === undefined
       ? latestTag.startsWith("v")
       : config.user.useVersionPrefixV;
-  const latestVersion = latestTag.replace("v", "");
+  const latestVersion = latestTag.replace(/^v/, "");
   const changes: Change[] = [];
 
   for await (const commit of unTaggedCommits.all) {
