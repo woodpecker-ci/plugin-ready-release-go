@@ -1,28 +1,32 @@
 import shelljs from "shelljs";
 import c from "picocolors";
-import { simpleGit } from "simple-git";
+import type { SimpleGit } from "simple-git";
 import semver from "semver";
 
 import { prepare } from "./cmd/prepare";
 import { release } from "./cmd/release";
-import { getForge } from "./forges";
-import { getConfig } from "./utils/config";
-import { Change, CommandContext, HookContext } from "./utils/types";
+import type { Config } from "./utils/config";
+import type { Change, CommandContext, HookContext } from "./utils/types";
 import {
   extractVersionFromCommitMessage,
   getNextVersionFromLabels,
 } from "./utils/change";
 import { getReleaseOptions } from "./utils/pr";
+import { Forge } from "./forges/forge";
 
-async function run() {
-  const config = await getConfig();
-  const forge = await getForge(config);
-
+export async function run({
+  git,
+  forge,
+  config,
+}: {
+  git: SimpleGit;
+  forge: Forge;
+  config: Config;
+}) {
   if (config.ci.debug) {
     process.env.DEBUG = "simple-git";
   }
 
-  const git = simpleGit();
   const hookCtx: HookContext = {
     exec: shelljs.exec,
   };
@@ -66,31 +70,84 @@ async function run() {
   await git.branch(["--set-upstream-to", `origin/${releaseBranch}`]);
   await git.pull();
 
-  const tags = await git.tags();
+  const isReleaseCommit = config.ci.commitMessage?.startsWith(
+    config.ci.releasePrefix
+  );
+
+  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
+
+  let shouldBeRC = false;
+  let nextVersion: string | null = config.user.getNextVersion
+    ? await config.user.getNextVersion(hookCtx)
+    : null;
+
+  if (isReleaseCommit) {
+    // use commit message for release runs as the pull-request is not available (closed)
+    nextVersion = extractVersionFromCommitMessage(config.ci.commitMessage!);
+    shouldBeRC = semver.prerelease(nextVersion) !== null;
+  } else {
+    const releasePullRequest = await forge.getPullRequest({
+      owner: config.ci.repoOwner!,
+      repo: config.ci.repoName!,
+      sourceBranch: pullRequestBranch,
+      targetBranch: releaseBranch,
+    });
+    shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+  }
+
+  const tags = await git.tags(["--sort=-creatordate"]);
 
   if (!tags.latest && tags.all.length > 0) {
     console.log(c.yellow("# Latest tag not found, but tags exist, skipping."));
     return;
   }
 
-  const lastestTag = tags.latest || "0.0.0";
+  const latestTag = tags.latest || "0.0.0";
   if (tags.latest) {
-    console.log("# Lastest tag is:", c.green(lastestTag));
+    console.log("# Lastest tag is:", c.green(latestTag));
   } else {
     console.log(
-      c.green(`# No tags found. Starting with first tag: ${lastestTag}`)
+      c.green(`# No tags found. Starting with first tag: ${latestTag}`)
     );
   }
 
-  const unTaggedCommits = await git.log(
-    lastestTag === "0.0.0"
+  let unTaggedCommits = await git.log(
+    latestTag === "0.0.0"
       ? [releaseBranch] // use all commits of release branch if first release
       : {
-          from: lastestTag,
-          symmetric: false,
+          from: latestTag,
           to: releaseBranch,
+          symmetric: false,
         }
   );
+
+  // if the lastest tag is an RC and the next version should be the actual release,
+  // we need to include the commits between the first RC and the release branch
+  if (semver.prerelease(latestTag) !== null && !shouldBeRC) {
+    const versionWithoutRc = latestTag.replace(/-\w+.\d+/, "");
+    const latestRCTags = tags.all
+      .filter((t) => semver.prerelease(t) !== null)
+      .filter((t) => t.includes(versionWithoutRc))
+      .sort(semver.compare);
+
+    if (latestRCTags.length > 0) {
+      const firstRCTag = latestRCTags[0];
+      console.log(
+        "# First pre-release tag is:",
+        c.green(firstRCTag),
+        "adding commits between",
+        c.green(firstRCTag),
+        "and",
+        c.green(releaseBranch)
+      );
+
+      unTaggedCommits = await git.log({
+        from: firstRCTag,
+        to: releaseBranch,
+        symmetric: false,
+      });
+    }
+  }
 
   if (unTaggedCommits.total === 0) {
     console.log(c.yellow("# No untagged commits found, skipping."));
@@ -101,9 +158,9 @@ async function run() {
 
   const useVersionPrefixV =
     config.user.useVersionPrefixV === undefined
-      ? lastestTag.startsWith("v")
+      ? latestTag.startsWith("v")
       : config.user.useVersionPrefixV;
-  const latestVersion = lastestTag.replace("v", "");
+  const latestVersion = latestTag.replace(/^v/, "");
   const changes: Change[] = [];
 
   for await (const commit of unTaggedCommits.all) {
@@ -146,30 +203,7 @@ async function run() {
     console.log(c.yellow("changes"), changes);
   }
 
-  const isReleaseCommit = config.ci.commitMessage?.startsWith(
-    config.ci.releasePrefix
-  );
-
-  const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
-
-  let shouldBeRC = false;
-  let nextVersion: string | null = config.user.getNextVersion
-    ? await config.user.getNextVersion(hookCtx)
-    : null;
-
-  if (isReleaseCommit) {
-    // use commit message for release runs as the pull-request is not available (closed)
-    nextVersion = extractVersionFromCommitMessage(config.ci.commitMessage!);
-    shouldBeRC = semver.prerelease(nextVersion) !== null;
-  } else {
-    const releasePullRequest = await forge.getPullRequest({
-      owner: config.ci.repoOwner!,
-      repo: config.ci.repoName!,
-      sourceBranch: pullRequestBranch,
-      targetBranch: releaseBranch,
-    });
-
-    shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
+  if (!isReleaseCommit) {
     nextVersion = getNextVersionFromLabels(
       latestVersion,
       config.user,
@@ -214,14 +248,3 @@ async function run() {
   console.log("# Push to release branch detected.");
   await prepare(commandCtx);
 }
-
-async function main() {
-  try {
-    await run();
-  } catch (error) {
-    console.error(c.red((error as Error).message));
-    process.exit(1);
-  }
-}
-
-main();

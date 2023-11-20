@@ -187,6 +187,12 @@ describe("change", () => {
       latestVersion: "2.0.1",
       nextVersion: "2.0.4",
     },
+    {
+      name: "should remove previous prerelease versions as soon as the full release is added",
+      file: "__fixtures__/CHANGELOG_4.md",
+      latestVersion: "2.0.1-pre.1",
+      nextVersion: "2.0.1",
+    },
   ];
   it.each(changelogFiles)(
     "$name",
