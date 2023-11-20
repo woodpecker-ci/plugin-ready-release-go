@@ -90,7 +90,7 @@ exports[`change > 'should remove previous prerelease versions as soon as the ful
 - ENHANCEMENTS
   - Publish semver images (#50)
 
-## [v2.0.0-pre.1](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.0) - 2022-11-14
+## [v2.0.0-pre.1](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.0-pre.1) - 2022-11-14
 
 - FEATURES
   - Partial clone by default (#48)
