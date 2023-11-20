@@ -1,28 +1,32 @@
 import shelljs from "shelljs";
 import c from "picocolors";
-import { simpleGit } from "simple-git";
+import type { SimpleGit } from "simple-git";
 import semver from "semver";
 
 import { prepare } from "./cmd/prepare";
 import { release } from "./cmd/release";
-import { getForge } from "./forges";
-import { getConfig } from "./utils/config";
-import { Change, CommandContext, HookContext } from "./utils/types";
+import type { Config } from "./utils/config";
+import type { Change, CommandContext, HookContext } from "./utils/types";
 import {
   extractVersionFromCommitMessage,
   getNextVersionFromLabels,
 } from "./utils/change";
 import { getReleaseOptions } from "./utils/pr";
+import { Forge } from "./forges/forge";
 
-async function run() {
-  const config = await getConfig();
-  const forge = await getForge(config);
-
+export async function run({
+  git,
+  forge,
+  config,
+}: {
+  git: SimpleGit;
+  forge: Forge;
+  config: Config;
+}) {
   if (config.ci.debug) {
     process.env.DEBUG = "simple-git";
   }
 
-  const git = simpleGit();
   const hookCtx: HookContext = {
     exec: shelljs.exec,
   };
@@ -246,14 +250,3 @@ async function run() {
   console.log("# Push to release branch detected.");
   await prepare(commandCtx);
 }
-
-async function main() {
-  try {
-    await run();
-  } catch (error) {
-    console.error(c.red((error as Error).message));
-    process.exit(1);
-  }
-}
-
-main();

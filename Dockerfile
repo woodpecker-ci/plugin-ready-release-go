@@ -11,4 +11,4 @@ COPY ["src", "./src"]
 RUN apk add -q --no-cache git wget && corepack enable
 RUN pnpm install --frozen-lockfile
 
-CMD ["/app/node_modules/.bin/tsx", "/app/src/index.ts"]
+CMD ["/app/node_modules/.bin/tsx", "/app/src/run.ts"]

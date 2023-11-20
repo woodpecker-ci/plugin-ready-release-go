@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.2](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.2) - 2000-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@anbraten
+
+### 🐛 Bug Fixes
+
+- fix sth on the backend [[#1](https://github.com/woodpecker-ci/woodpecker/pull/1)]
+- add some nice feature to the ui [[#1](https://github.com/woodpecker-ci/woodpecker/pull/1)]
+
 ## [1.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.0) - 2023-11-10
 
 ### ❤️ Thanks to all contributors! ❤️
