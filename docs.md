@@ -5,7 +5,7 @@ icon: https://woodpecker-ci.org/img/logo.svg
 description: Plugin for semi-automated releases.
 authors: Woodpecker Authors
 tags: [git, release]
-containerImage: woodpeckerci/plugin-ready-release-go:<version>
+containerImage: woodpeckerci/plugin-ready-release-go
 containerImageUrl: https://hub.docker.com/r/woodpeckerci/plugin-ready-release-go
 url: https://github.com/woodpecker-ci/plugin-ready-release-go
 ---
