@@ -15,9 +15,10 @@ steps:
     settings:
       dockerfile: Dockerfile
       repo: woodpeckerci/plugin-ready-release-go
+      username: woodpeckerbot
       platforms: linux/arm/v7,linux/arm64,linux/amd64,linux/ppc64le
       tag: next
-    secrets: [docker_username, docker_password]
+    secrets: [docker_password]
     when:
       branch: main
       event: push
@@ -27,9 +28,10 @@ steps:
     settings:
       dockerfile: Dockerfile
       repo: woodpeckerci/plugin-ready-release-go
+      username: woodpeckerbot
       platforms: linux/arm/v7,linux/arm64/v8,linux/amd64,linux/ppc64le
       tag: [latest, "${CI_COMMIT_TAG}"]
-    secrets: [docker_username, docker_password]
+    secrets: [docker_password]
     when:
       event: tag
 
