@@ -1,13 +1,22 @@
 # Changelog
 
-## [1.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.1) - 2023-11-15
+## [1.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.1) - 2023-11-21
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@renovate[bot]
+@renovate[bot], @anbraten, @qwerty287
+
+### 🐛 Bug Fixes
+
+- Fix changelog after rc release [[#54](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/54)]
+
+### 📚 Documentation
+
+- Remove image version [[#56](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/56)]
 
 ### Misc
 
+- fix(deps): update dependency tsx to v4 [[#49](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/49)]
 - chore(deps): lock file maintenance [[#55](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/55)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1 [[#48](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/48)]
 
