@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.2) - 2023-11-21
+
+### ❤️ Thanks to all contributors! ❤️
+
+@anbraten
+
+### 🐛 Bug Fixes
+
+- Add username to workflow [[#58](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/58)]
+
 ## [1.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.1) - 2023-11-21
 
 ### ❤️ Thanks to all contributors! ❤️
