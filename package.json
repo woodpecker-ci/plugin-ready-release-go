@@ -4,10 +4,10 @@
   "description": "",
   "license": "MIT",
   "author": "Woodpecker Maintainers",
-  "main": "dist/index.js",
+  "main": "dist/run.js",
   "scripts": {
-    "start": "tsx src/index.ts",
-    "build": "tsx src/index.ts --out-dir dist",
+    "start": "tsx src/run.ts",
+    "build": "tsx src/run.ts --out-dir dist",
     "test": "vitest",
     "test:watch": "vitest --ui --open=false",
     "typecheck": "tsc --noEmit"
@@ -19,7 +19,7 @@
     "semver": "^7.5.3",
     "shelljs": "^0.8.5",
     "simple-git": "^3.19.1",
-    "tsx": "^3.12.1"
+    "tsx": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
