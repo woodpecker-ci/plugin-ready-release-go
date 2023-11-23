@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.3) - 2023-11-23
+
+### ❤️ Thanks to all contributors! ❤️
+
+@anbraten, @renovate[bot]
+
+### 🐛 Bug Fixes
+
+- Use all commits since last none rc tag [[#62](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/62)]
+
+### Misc
+
+- chore(deps): lock file maintenance [[#64](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/64)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v2.2.1 [[#63](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/63)]
+
 ## [1.0.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.2) - 2023-11-21
 
 ### ❤️ Thanks to all contributors! ❤️
