@@ -4,7 +4,11 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@renovate[bot]
+@anbraten, @renovate[bot]
+
+### 🐛 Bug Fixes
+
+- Use all commits since last none rc tag [[#62](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/62)]
 
 ### Misc
 
