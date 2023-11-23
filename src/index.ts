@@ -122,23 +122,23 @@ export async function run({
   );
 
   // if the lastest tag is an RC and the next version should be the actual release,
-  // we need to include the all commits since the last none RC version and the release branch
+  // we need to include all commits since the last non RC version and the release branch
   if (semver.prerelease(latestTag) !== null && !shouldBeRC) {
-    const latestNoneRCTags = tags.all
+    const latestNonRCTags = tags.all
       .filter((t) => semver.valid(t) && semver.prerelease(t) === null)
       .sort(semver.rcompare);
 
-    if (latestNoneRCTags.length > 0) {
-      const firstNoneRCTag = latestNoneRCTags[0];
+    if (latestNonRCTags.length > 0) {
+      const firstNonRCTag = latestNonRCTags[0];
       console.log(
         "# Adding commits since last none rc tag:",
-        c.green(firstNoneRCTag),
+        c.green(firstNonRCTag),
         "and",
         c.green(releaseBranch)
       );
 
       unTaggedCommits = await git.log({
-        from: firstNoneRCTag,
+        from: firstNonRCTag,
         to: releaseBranch,
         symmetric: false,
       });
