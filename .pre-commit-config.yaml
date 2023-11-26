@@ -17,6 +17,10 @@ repos:
     rev: v2.12.1-beta
     hooks:
       - id: hadolint
+  - repo: https://github.com/mrtazz/checkmake
+    rev: 0.2.2
+    hooks:
+      - id: checkmake
 
 ci:
   autofix_commit_msg: |
