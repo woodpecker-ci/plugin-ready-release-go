@@ -7,8 +7,9 @@ ENV NODE_ENV=production
 COPY ["package.json", "pnpm-lock.yaml", "./"]
 COPY ["tsconfig.json", "./"]
 COPY ["src", "./src"]
+COPY ["startup.sh", "./"]
 
 RUN apk add -q --no-cache git wget && corepack enable
 RUN pnpm install --frozen-lockfile
 
-CMD ["/app/node_modules/.bin/tsx", "/app/src/run.ts"]
+CMD ["/startup.sh"]
