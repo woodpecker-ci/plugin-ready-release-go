@@ -1,4 +1,4 @@
-import { Forge } from "./forge";
+import { Comment, Forge, PullRequest } from "./forge";
 import { Octokit } from "@octokit/rest";
 
 export class GithubForge extends Forge {
@@ -94,10 +94,7 @@ export class GithubForge extends Forge {
     owner: string;
     repo: string;
     commitHash: string;
-  }): Promise<
-    | { title: string; author?: string; number: number; labels: string[] }
-    | undefined
-  > {
+  }): Promise<PullRequest | undefined> {
     const pr = await this.octokit.repos.listPullRequestsAssociatedWithCommit({
       owner: options.owner,
       repo: options.repo,
@@ -109,10 +106,44 @@ export class GithubForge extends Forge {
     }
 
     return {
-      title: pr.data[0].title,
-      author: pr.data[0].user?.login,
       number: pr.data[0].number,
+      title: pr.data[0].title,
+      description: pr.data[0].body || "",
+      author: pr.data[0].user?.login || "",
       labels: pr.data[0].labels.map((label) => label.name),
+    };
+  }
+
+  async getPullRequest(options: {
+    owner: string;
+    repo: string;
+    sourceBranch: string;
+    targetBranch: string;
+  }): Promise<PullRequest | undefined> {
+    const pullRequests = await this.octokit.pulls.list({
+      owner: options.owner,
+      repo: options.repo,
+      head: `${options.owner}:${options.sourceBranch}`,
+    });
+
+    if (pullRequests.data.length > 1) {
+      throw new Error(
+        "Found more than one pull request to release. Please close all but one."
+      );
+    }
+
+    if (pullRequests.data.length === 0) {
+      return undefined;
+    }
+
+    const pr = pullRequests.data[0];
+
+    return {
+      number: pr.number,
+      title: pr.title,
+      description: pr.body || "",
+      author: pr.user?.login || "",
+      labels: pr.labels.map((label) => label.name),
     };
   }
 
@@ -156,5 +187,27 @@ export class GithubForge extends Forge {
 
   getReleaseUrl(owner: string, repo: string, release: string): string {
     return `https://github.com/${owner}/${repo}/releases/tag/${release}`;
+  }
+
+  async getPullRequestComments(
+    owner: string,
+    repo: string,
+    pullRequestNumber: number
+  ): Promise<Comment[]> {
+    const comments = await this.octokit.paginate(
+      this.octokit.issues.listComments,
+      {
+        owner,
+        repo,
+        issue_number: pullRequestNumber,
+      }
+    );
+
+    return comments.map((comment) => ({
+      id: comment.id.toString(),
+      body: comment.body!,
+      author: comment.user?.login!,
+      createdAt: comment.created_at,
+    }));
   }
 }

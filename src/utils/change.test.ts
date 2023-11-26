@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeAll } from "vitest";
 import {
+  extractVersionFromCommitMessage,
   getChangeLogSection,
   getNextVersionFromLabels,
   updateChangelogSection,
@@ -51,6 +52,18 @@ const changes: Change[] = [
     title: "Update README",
   },
 ];
+
+const changesWithMajor = changes;
+const changesWithMinor = changes.filter(
+  (change) => !change.labels.includes("breaking")
+);
+const changesWithPatch = changes.filter(
+  (change) =>
+    !change.labels.includes("breaking") &&
+    !change.labels.includes("feature") &&
+    !change.labels.includes("enhancement")
+);
+
 const config: Config = {
   ci: {
     releaseBranch: "main",
@@ -62,8 +75,10 @@ const config: Config = {
     repoName: "woodpecker",
     forgeType: "github",
     githubToken: "123",
+    pullRequestBranchPrefix: "next-release/",
     isCI: true,
     releasePrefix: "🎉 Release",
+    debug: false,
   },
   user: defaultUserConfig,
 };
@@ -75,7 +90,12 @@ describe("change", () => {
   });
 
   it("should get the correct major bump", () => {
-    const nextVersion = getNextVersionFromLabels("1.0.0", config.user, changes);
+    const nextVersion = getNextVersionFromLabels(
+      "1.0.0",
+      config.user,
+      changesWithMajor,
+      false
+    );
     expect(nextVersion).toBe("2.0.0");
   });
 
@@ -83,7 +103,8 @@ describe("change", () => {
     const nextVersion = getNextVersionFromLabels(
       "1.0.0",
       config.user,
-      changes.filter((change) => !change.labels.includes("breaking"))
+      changesWithMinor,
+      false
     );
 
     expect(nextVersion).toBe("1.1.0");
@@ -93,13 +114,44 @@ describe("change", () => {
     const nextVersion = getNextVersionFromLabels(
       "1.0.0",
       config.user,
-      changes
-        .filter((change) => !change.labels.includes("breaking"))
-        .filter((change) => !change.labels.includes("feature"))
-        .filter((change) => !change.labels.includes("enhancement"))
+      changesWithPatch,
+      false
     );
 
     expect(nextVersion).toBe("1.0.1");
+  });
+
+  it("should get the correct rc bump", () => {
+    const nextVersion = getNextVersionFromLabels(
+      "1.2.3",
+      config.user,
+      changesWithMajor,
+      true
+    );
+
+    expect(nextVersion).toBe("2.0.0-rc.0");
+  });
+
+  it("should get the correct bump from a rc", () => {
+    const nextVersion = getNextVersionFromLabels(
+      "1.0.0-rc.2",
+      config.user,
+      changesWithPatch,
+      false
+    );
+
+    expect(nextVersion).toBe("1.0.0");
+  });
+
+  it("should get the correct rc bump from a previous rc", () => {
+    const nextVersion = getNextVersionFromLabels(
+      "1.0.1-rc.2",
+      config.user,
+      changesWithMinor,
+      true
+    );
+
+    expect(nextVersion).toBe("1.1.0-rc.0");
   });
 
   it("should generate a changelog", () => {
@@ -135,6 +187,12 @@ describe("change", () => {
       latestVersion: "2.0.1",
       nextVersion: "2.0.4",
     },
+    {
+      name: "should remove previous prerelease versions as soon as the full release is added",
+      file: "__fixtures__/CHANGELOG_4.md",
+      latestVersion: "2.0.1-pre.1",
+      nextVersion: "2.0.1",
+    },
   ];
   it.each(changelogFiles)(
     "$name",
@@ -162,4 +220,27 @@ describe("change", () => {
       expect(changelog).toMatchSnapshot();
     }
   );
+
+  it("should be able to extract the release version from a commit message", () => {
+    const tests = [
+      {
+        commitMessage: "🎉 Release 1.2.3",
+        expectedVersion: "1.2.3",
+      },
+      {
+        commitMessage: "🎉 Release 1.2.3-rc.0 [skip ci]",
+        expectedVersion: "1.2.3-rc.0",
+      },
+      {
+        commitMessage: "chore(release): 1.0.0-rc.0 [skip ci]",
+        expectedVersion: "1.0.0-rc.0",
+      },
+    ];
+
+    tests.forEach(({ commitMessage, expectedVersion }) => {
+      expect(extractVersionFromCommitMessage(commitMessage)).toBe(
+        expectedVersion
+      );
+    });
+  });
 });
