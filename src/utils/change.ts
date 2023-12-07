@@ -124,6 +124,7 @@ export function getChangeLogSection(
       .map((change) => `@${change.author}`)
       .sort()
       .filter((v, i, a) => a.indexOf(v) === i)
+      .filter((c) => !c.endsWith('[bot]'))
       .join(", ")}`;
     section += `${contributors}\n\n`;
   }
