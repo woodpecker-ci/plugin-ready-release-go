@@ -115,16 +115,17 @@ export function getChangeLogSection(
     nextVersion
   );
 
-  const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${changes
-    .map((change) => `@${change.author}`)
-    .filter((v, i, a) => a.indexOf(v) === i)
-    .join(", ")}`;
-
   const releaseDate = new Date().toISOString().split("T")[0];
 
   let section = `## [${nextVersion}](${releaseLink}) - ${releaseDate}\n\n`;
 
   if (includeContributors) {
+    const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${changes
+      .map((change) => `@${change.author}`)
+      .sort()
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .filter((c) => !c.endsWith('[bot]'))
+      .join(", ")}`;
     section += `${contributors}\n\n`;
   }
 
