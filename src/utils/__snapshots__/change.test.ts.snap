@@ -7,7 +7,7 @@ exports[`change > 'should add new section' 1`] = `
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
@@ -58,7 +58,7 @@ exports[`change > 'should remove previous prerelease versions as soon as the ful
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
@@ -108,7 +108,7 @@ exports[`change > 'should remove versions newer than the latest released version
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
@@ -155,7 +155,7 @@ exports[`change > 'should update existing changelog section' 1`] = `
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
@@ -264,7 +264,7 @@ exports[`change > should generate a changelog 1`] = `
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
