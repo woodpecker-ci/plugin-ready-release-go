@@ -12,6 +12,7 @@
 
 ### Misc
 
+- chore(deps): lock file maintenance [[#69](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/69)]
 - chore(deps): update vitest monorepo to v1 (major) [[#72](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/72)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.0.3 [[#66](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/66)]
 
