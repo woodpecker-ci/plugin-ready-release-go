@@ -1,10 +1,10 @@
 # Changelog
 
-## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2023-12-07
+## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2023-12-31
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@qwerty287, @renovate[bot]
+@renovate[bot], @qwerty287
 
 ### 📈 Enhancement
 
@@ -12,6 +12,7 @@
 
 ### Misc
 
+- chore(deps): update vitest monorepo to v1 (major) [[#72](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/72)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.0.3 [[#66](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/66)]
 
 ## [1.0.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.3) - 2023-11-23
