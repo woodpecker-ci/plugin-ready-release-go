@@ -8,7 +8,11 @@ COPY ["package.json", "pnpm-lock.yaml", "./"]
 COPY ["tsconfig.json", "./"]
 COPY ["src", "./src"]
 
-RUN apt update && apt install -y git wget && corepack enable
+RUN apt update \
+	&& apt install -y git wget \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+RUN corepack enable
 RUN pnpm install --frozen-lockfile
 
 CMD ["/app/node_modules/.bin/tsx", "/app/src/run.ts"]
