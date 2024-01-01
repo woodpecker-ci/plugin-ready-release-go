@@ -1,10 +1,10 @@
 # Changelog
 
-## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2023-12-31
+## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-01
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@renovate[bot], @qwerty287
+@pre-commit-ci[bot], @renovate[bot], @qwerty287
 
 ### 📈 Enhancement
 
@@ -12,6 +12,7 @@
 
 ### Misc
 
+- [pre-commit.ci] pre-commit autoupdate [[#74](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/74)]
 - chore(deps): lock file maintenance [[#69](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/69)]
 - chore(deps): update vitest monorepo to v1 (major) [[#72](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/72)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.0.3 [[#66](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/66)]
