@@ -1,7 +1,5 @@
 ---
 name: Release Helper
-icon: https://woodpecker-ci.org/img/logo.svg
-
 description: Plugin for semi-automated releases.
 authors: Woodpecker Authors
 tags: [git, release]
