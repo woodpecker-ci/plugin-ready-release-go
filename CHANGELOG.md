@@ -8,6 +8,7 @@
 
 ### 📚 Documentation
 
+- Fix author key [[#80](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/80)]
 - Remove icon [[#79](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/79)]
 
 ### 📈 Enhancement
