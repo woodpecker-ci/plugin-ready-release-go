@@ -1,10 +1,14 @@
 # Changelog
 
-## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-09
+## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-14
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@renovate[bot], @pre-commit-ci[bot], @qwerty287
+@qwerty287, @renovate[bot], @pre-commit-ci[bot]
+
+### 📚 Documentation
+
+- Remove icon [[#79](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/79)]
 
 ### 📈 Enhancement
 
