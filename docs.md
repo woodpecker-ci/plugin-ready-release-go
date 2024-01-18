@@ -1,9 +1,7 @@
 ---
 name: Release Helper
-icon: https://woodpecker-ci.org/img/logo.svg
-
 description: Plugin for semi-automated releases.
-authors: Woodpecker Authors
+author: Woodpecker Authors
 tags: [git, release]
 containerImage: woodpeckerci/plugin-ready-release-go
 containerImageUrl: https://hub.docker.com/r/woodpeckerci/plugin-ready-release-go

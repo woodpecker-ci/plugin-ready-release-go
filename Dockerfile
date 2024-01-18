@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-slim
 
 WORKDIR /app
 
@@ -9,7 +9,11 @@ COPY ["tsconfig.json", "./"]
 COPY ["src", "./src"]
 COPY ["src/startup.sh", "./"]
 
-RUN apk add -q --no-cache git wget && corepack enable
+RUN apt update \
+	&& apt install -y git wget \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+RUN corepack enable
 RUN pnpm install --frozen-lockfile
 
 CMD ["/startup.sh"]
