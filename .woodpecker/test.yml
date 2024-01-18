@@ -1,18 +1,18 @@
 steps:
   install:
-    image: node:20-alpine
+    image: node:20-slim
     commands:
       - corepack enable
       - pnpm i
 
   unit-test:
-    image: node:20-alpine
+    image: node:20-slim
     commands:
       - corepack enable
       - pnpm test
 
   typecheck:
-    image: node:20-alpine
+    image: node:20-slim
     commands:
       - corepack enable
       - pnpm typecheck
