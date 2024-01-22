@@ -1,10 +1,10 @@
 # Changelog
 
-## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-18
+## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-22
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@pat-s, @qwerty287, @renovate[bot], @pre-commit-ci[bot]
+@renovate[bot], @pat-s, @qwerty287, @pre-commit-ci[bot]
 
 ### 📚 Documentation
 
@@ -17,6 +17,7 @@
 
 ### Misc
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3 [[#83](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/83)]
 - Use `node:20-slim` instead of` node:20-alpine` [[#73](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/73)]
 - chore(deps): lock file maintenance [[#78](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/78)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v2.3.0 [[#76](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/76)]
