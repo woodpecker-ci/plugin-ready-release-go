@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-27
+
+### ❤️ Thanks to all contributors! ❤️
+
+@renovate[bot], @pat-s, @qwerty287, @pre-commit-ci[bot]
+
+### 📚 Documentation
+
+- Fix author key [[#80](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/80)]
+
+### 📈 Enhancement
+
+- Alphabetically sort contributors and filter bots [[#71](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/71)]
+
+### Misc
+
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3 [[#83](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/83)]
+- Use `node:20-slim` instead of `node:20-alpine` [[#73](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/73)]
+- chore(deps): lock file maintenance [[#78](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/78)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v2.3.0 [[#76](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/76)]
+- chore(deps): lock file maintenance [[#75](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/75)]
+- [pre-commit.ci] pre-commit autoupdate [[#74](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/74)]
+- chore(deps): lock file maintenance [[#69](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/69)]
+- chore(deps): update vitest monorepo to v1 (major) [[#72](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/72)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.0.3 [[#66](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/66)]
+
 ## [1.0.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.0.3) - 2023-11-23
 
 ### ❤️ Thanks to all contributors! ❤️
