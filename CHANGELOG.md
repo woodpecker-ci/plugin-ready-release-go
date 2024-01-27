@@ -17,7 +17,7 @@
 ### Misc
 
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3 [[#83](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/83)]
-- Use `node:20-slim` instead of` node:20-alpine` [[#73](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/73)]
+- Use `node:20-slim` instead of `node:20-alpine` [[#73](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/73)]
 - chore(deps): lock file maintenance [[#78](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/78)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v2.3.0 [[#76](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/76)]
 - chore(deps): lock file maintenance [[#75](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/75)]
