@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-01-30
+
+### ❤️ Thanks to all contributors! ❤️
+
+
+
+### Misc
+
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.1.0 [[#85](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/85)]
+
 ## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-27
 
 ### ❤️ Thanks to all contributors! ❤️
