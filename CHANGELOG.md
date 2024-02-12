@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-02-07
+## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-02-12
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3.1.0 [[#89](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/89)]
 - [pre-commit.ci] pre-commit autoupdate [[#88](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/88)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3.0.1 [[#87](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/87)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.1.0 [[#85](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/85)]
