@@ -7,7 +7,7 @@ exports[`change > 'should add new section' 1`] = `
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
@@ -51,6 +51,56 @@ exports[`change > 'should add new section' 1`] = `
 "
 `;
 
+exports[`change > 'should remove previous prerelease versions as soon as the full release is added' 1`] = `
+"# Changelog
+
+## [2.0.1](https://github.com/woodpecker-ci/woodpecker/releases/tag/2.0.1) - 2000-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@Alice Wonderland, @John Doe
+
+### 💥 Breaking changes
+
+- Break everything [[#1339](https://github.com/woodpecker-ci/woodpecker/pull/1339)]
+
+### ✨ Features
+
+- Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
+
+### 🐛 Bug Fixes
+
+- Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
+- Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
+
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+### Misc
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
+## [v2.0.0](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.0) - 2022-11-14
+
+- FEATURES
+  - Partial clone by default (#48)
+- BUGFIXES
+  - Make home var settable (#47)
+- ENHANCEMENTS
+  - Publish semver images (#50)
+
+## [v2.0.0-pre.1](https://github.com/woodpecker-ci/plugin-git/releases/tag/v2.0.0-pre.1) - 2022-11-14
+
+- FEATURES
+  - Partial clone by default (#48)
+- BUGFIXES
+  - Make home var settable (#47)
+- ENHANCEMENTS
+  - Publish semver images (#50)
+"
+`;
+
 exports[`change > 'should remove versions newer than the latest released version' 1`] = `
 "# Changelog
 
@@ -58,7 +108,7 @@ exports[`change > 'should remove versions newer than the latest released version
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
@@ -105,7 +155,7 @@ exports[`change > 'should update existing changelog section' 1`] = `
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 
@@ -201,7 +251,7 @@ exports[`change > 'should update existing changelog section' 1`] = `
 - FEATURES
   - Add ppc64le support (#8)
 - BUGFIXES
-  - Regognize \\"CI_*\\" EnvVars (#6)
+  - Regognize "CI_*" EnvVars (#6)
 - ENHANCEMENTS
   - Multiarch build (#8)
 - MISC
@@ -214,7 +264,7 @@ exports[`change > should generate a changelog 1`] = `
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@John Doe, @Alice Wonderland
+@Alice Wonderland, @John Doe
 
 ### 💥 Breaking changes
 

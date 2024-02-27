@@ -1,3 +1,18 @@
+export type Comment = {
+  id: string;
+  author: string;
+  body: string;
+  createdAt: string;
+};
+
+export type PullRequest = {
+  number: number;
+  title: string;
+  author: string;
+  description: string;
+  labels: string[];
+};
+
 export abstract class Forge {
   abstract createOrUpdatePullRequest(options: {
     draft: boolean;
@@ -39,15 +54,14 @@ export abstract class Forge {
     owner: string;
     repo: string;
     commitHash: string;
-  }): Promise<
-    | {
-        title: string;
-        author?: string;
-        number: number;
-        labels: string[];
-      }
-    | undefined
-  >;
+  }): Promise<PullRequest | undefined>;
+
+  abstract getPullRequest(options: {
+    owner: string;
+    repo: string;
+    sourceBranch: string;
+    targetBranch: string;
+  }): Promise<PullRequest | undefined>;
 
   abstract getRepoUrl(owner: string, repo: string): string;
   abstract getCommitUrl(
