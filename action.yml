@@ -1,13 +1,24 @@
-name: "Ready release go"
-description: "Automatically creates release pull-request which when merged will trigger a release"
+name: 'Ready release go'
+description: 'Automatically creates release pull-request which when merged will trigger a release'
 inputs:
   release_branch:
-    description: "Branch to merge release pull-request into"
-    default: "your default branch"
+    description: 'Branch to merge release pull-request into'
+    default: 'your default branch'
   git_email:
-    description: "Email to use for git commits"
-    default: "email of the user who is running the action"
-outputs:
+    description: 'Email to use for git commits'
+    default: 'email of the user who is running the action'
+  config_file:
+    description: 'Path to the config file'
+    default: 'release.config.js'
+  github_token:
+    description: 'GitHub token'
+    required: true
+  pullRequestBranchPrefix:
+    description: 'Prefix for the release branch'
+    default: 'next-release/'
+  debug:
+    description: 'Enable debug mode'
+    default: 'false'
 runs:
-  using: "node20"
-  main: "dist/index.js"
+  using: 'node20'
+  main: 'dist/run.js'

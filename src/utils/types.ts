@@ -1,11 +1,26 @@
-import type { ExecFunction } from "shelljs";
-import type { Forge, PullRequest } from "../forges/forge";
-import type { Config } from "./config";
-import type { SimpleGit } from "simple-git";
+import type { ExecFunction } from 'shelljs';
+import type { Forge } from '../forges/forge';
+import type { SimpleGit } from 'simple-git';
 
 export type PromiseOrValue<T> = Promise<T> | T;
 
 export type Exec = ExecFunction;
+
+export type CIConfig = {
+  configFile?: string;
+  eventType: string;
+  releaseBranch: string;
+  commitMessage: string;
+  forgeType: string;
+  githubToken?: string;
+  gitEmail: string;
+  repoOwner: string;
+  repoName: string;
+  pullRequestBranchPrefix: string;
+  releasePrefix: string;
+  debug: boolean;
+};
+export type Config = { user: UserConfig; ci: CIConfig };
 
 export type CommandContext = {
   exec: Exec;
@@ -80,7 +95,7 @@ export type UserConfig = Partial<{
   changeTypes: {
     title: string;
     labels: string[];
-    bump: "major" | "minor" | "patch";
+    bump: 'major' | 'minor' | 'patch';
     default?: boolean;
     weight?: number;
   }[];
