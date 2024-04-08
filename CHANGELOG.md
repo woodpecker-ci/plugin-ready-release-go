@@ -8,6 +8,7 @@
 
 ### Misc
 
+- fix(deps): update dependency tsx to v4.7.2 [[#102](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/102)]
 - chore(deps): update dependency typescript to v5.4.4 [[#101](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/101)]
 - fix(deps): update dependency simple-git to v3.24.0 [[#100](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/100)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3.2.1 [[#99](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/99)]
