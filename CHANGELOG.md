@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update pre-commit hook pre-commit/pre-commit-hooks to v4.6.0 [[#104](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/104)]
 - chore(deps): update dependency typescript to v5.4.5 [[#103](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/103)]
 - fix(deps): update dependency tsx to v4.7.2 [[#102](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/102)]
 - chore(deps): update dependency typescript to v5.4.4 [[#101](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/101)]
