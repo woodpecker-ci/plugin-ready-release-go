@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-04-08
+## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-04-14
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update dependency typescript to v5.4.5 [[#103](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/103)]
 - fix(deps): update dependency tsx to v4.7.2 [[#102](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/102)]
 - chore(deps): update dependency typescript to v5.4.4 [[#101](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/101)]
 - fix(deps): update dependency simple-git to v3.24.0 [[#100](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/100)]
