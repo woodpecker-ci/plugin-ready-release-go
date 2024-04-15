@@ -158,6 +158,7 @@ describe("change", () => {
     const forge = new GithubForge("", "");
     const changelog = getChangeLogSection(
       "1.0.0",
+      "v1.0.0",
       config,
       changes,
       forge,
@@ -204,6 +205,7 @@ describe("change", () => {
 
       const forge = new GithubForge("", "");
       const newSection = getChangeLogSection(
+        nextVersion,
         nextVersion,
         config,
         changes,
