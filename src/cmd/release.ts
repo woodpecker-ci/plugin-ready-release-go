@@ -29,7 +29,7 @@ export async function release({
   if (!config.ci.repoOwner || !config.ci.repoName) {
     throw new Error("Missing repoOwner or repoName");
   }
-  
+
   const tag =
     useVersionPrefixV && !nextVersion.startsWith("v")
       ? `v${nextVersion}`

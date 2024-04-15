@@ -74,7 +74,7 @@ export async function prepare(cmdCtx: CommandContext) {
       return;
     }
   }
-  
+
   const tag =
     useVersionPrefixV && !nextVersion.startsWith("v")
       ? `v${nextVersion}`
