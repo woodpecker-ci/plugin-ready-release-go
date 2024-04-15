@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-04-15
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 🐛 Bug Fixes
+
+- Fix release link [[#105](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/105)]
+
+### Misc
+
+- chore(deps): update pre-commit hook pre-commit/pre-commit-hooks to v4.6.0 [[#104](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/104)]
+- chore(deps): update dependency typescript to v5.4.5 [[#103](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/103)]
+- fix(deps): update dependency tsx to v4.7.2 [[#102](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/102)]
+- chore(deps): update dependency typescript to v5.4.4 [[#101](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/101)]
+- fix(deps): update dependency simple-git to v3.24.0 [[#100](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/100)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3.2.1 [[#99](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/99)]
+- chore(deps): update dependency typescript to v5.4.3 [[#98](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/98)]
+- fix(deps): update dependency simple-git to v3.23.0 [[#97](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/97)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3.2.0 [[#96](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/96)]
+- chore(deps): update dependency typescript to v5.4.2 [[#95](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/95)]
+- fix(deps): update dependency semver to v7.6.0 [[#93](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/93)]
+- fix(deps): update dependency tsx to v4.7.1 [[#90](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/90)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3.1.0 [[#89](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/89)]
+- [pre-commit.ci] pre-commit autoupdate [[#88](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/88)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3.0.1 [[#87](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/87)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.1.0 [[#85](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/85)]
+
 ## [1.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.0) - 2024-01-27
 
 ### ❤️ Thanks to all contributors! ❤️
