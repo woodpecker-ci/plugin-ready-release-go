@@ -15,6 +15,7 @@ export async function prepare(cmdCtx: CommandContext) {
     nextVersion,
     pullRequestBranch,
     shouldBeRC,
+    useVersionPrefixV,
   } = cmdCtx;
 
   console.log(
@@ -73,6 +74,11 @@ export async function prepare(cmdCtx: CommandContext) {
       return;
     }
   }
+  
+  const tag =
+    useVersionPrefixV && !nextVersion.startsWith("v")
+      ? `v${nextVersion}`
+      : nextVersion;
 
   let oldChangelog = "";
   if (await fs.stat("CHANGELOG.md").catch(() => false)) {
@@ -80,6 +86,7 @@ export async function prepare(cmdCtx: CommandContext) {
   }
   const newChangelogSection = getChangeLogSection(
     nextVersion,
+    tag,
     config,
     changes,
     forge,
@@ -118,7 +125,7 @@ export async function prepare(cmdCtx: CommandContext) {
       `- [${
         shouldBeRC ? "x" : " "
       }] Mark this version as a release candidate\n\n` +
-      getChangeLogSection(nextVersion, config, changes, forge, false);
+      getChangeLogSection(nextVersion, tag, config, changes, forge, false);
 
   console.log("# Creating release pull-request");
   const pullRequestLink = await forge.createOrUpdatePullRequest({
