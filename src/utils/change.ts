@@ -51,6 +51,7 @@ export function getNextVersionFromLabels(
 
 export function getChangeLogSection(
   nextVersion: string,
+  tag: string,
   config: Config,
   changes: Change[],
   forge: Forge,
@@ -112,7 +113,7 @@ export function getChangeLogSection(
   const releaseLink = forge.getReleaseUrl(
     config.ci.repoOwner!,
     config.ci.repoName!,
-    nextVersion
+    tag
   );
 
   const releaseDate = new Date().toISOString().split("T")[0];
@@ -120,13 +121,15 @@ export function getChangeLogSection(
   let section = `## [${nextVersion}](${releaseLink}) - ${releaseDate}\n\n`;
 
   if (includeContributors) {
-    const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${changes
+    const authors = changes
       .map((change) => `@${change.author}`)
       .sort()
       .filter((v, i, a) => a.indexOf(v) === i)
       .filter((c) => !c.endsWith('[bot]'))
-      .join(", ")}`;
-    section += `${contributors}\n\n`;
+    if (authors.length > 0) {
+      const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${authors.join(", ")}`;
+      section += `${contributors}\n\n`;
+    }
   }
 
   section += `${changeLog}`;
