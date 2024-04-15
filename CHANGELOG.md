@@ -1,10 +1,14 @@
 # Changelog
 
-## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-04-14
+## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-04-15
 
 ### ❤️ Thanks to all contributors! ❤️
 
+@qwerty287
 
+### 🐛 Bug Fixes
+
+- Fix release link [[#105](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/105)]
 
 ### Misc
 
