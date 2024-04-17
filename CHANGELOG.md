@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-04-17
+
+### ❤️ Thanks to all contributors! ❤️
+
+
+
+### Misc
+
+- fix(deps): update dependency @octokit/rest to v20.1.0 [[#106](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/106)]
+
 ## [1.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.1) - 2024-04-15
 
 ### ❤️ Thanks to all contributors! ❤️
