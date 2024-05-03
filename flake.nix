@@ -27,7 +27,7 @@
             nodePackages.typescript-language-server
           ];
           shellHook = ''
-            onefetch
+            onefetch --number-of-authors 5
           '';
         };
       }
