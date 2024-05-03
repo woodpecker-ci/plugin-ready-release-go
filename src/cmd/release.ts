@@ -10,6 +10,7 @@ export async function release({
   useVersionPrefixV,
   latestVersion,
   nextVersion,
+  shouldBeRC,
 }: CommandContext) {
   const hookCtx: HookContext = {
     exec,
@@ -29,8 +30,14 @@ export async function release({
     throw new Error("Missing repoOwner or repoName");
   }
 
+  const tag =
+    useVersionPrefixV && !nextVersion.startsWith("v")
+      ? `v${nextVersion}`
+      : nextVersion;
+
   const newChangelogSection = getChangeLogSection(
     nextVersion,
+    tag,
     config,
     changes,
     forge,
@@ -42,16 +49,13 @@ export async function release({
     : newChangelogSection;
 
   console.log("# Creating release");
-  const tag =
-    useVersionPrefixV && !nextVersion.startsWith("v")
-      ? `v${nextVersion}`
-      : nextVersion;
   const { releaseLink } = await forge.createRelease({
     owner: config.ci.repoOwner,
     repo: config.ci.repoName,
     tag,
     description: releaseDescription,
     name: nextVersion,
+    prerelease: shouldBeRC,
   });
 
   console.log(c.green("# Successfully created release:"), releaseLink);

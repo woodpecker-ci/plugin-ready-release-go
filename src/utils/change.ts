@@ -6,7 +6,8 @@ import { Forge } from "../forges/forge";
 export function getNextVersionFromLabels(
   lastVersion: string,
   config: UserConfig,
-  changes: Change[]
+  changes: Change[],
+  shouldBeRC: boolean
 ) {
   if (changes.length === 0) {
     return null;
@@ -26,11 +27,23 @@ export function getNextVersionFromLabels(
   );
 
   if (changeLabels["major"].some((l) => labels.includes(l))) {
+    if (shouldBeRC) {
+      return semver.inc(lastVersion, "premajor", "rc");
+    }
+
     return semver.inc(lastVersion, "major");
   }
 
   if (changeLabels["minor"].some((l) => labels.includes(l))) {
+    if (shouldBeRC) {
+      return semver.inc(lastVersion, "preminor", "rc");
+    }
+
     return semver.inc(lastVersion, "minor");
+  }
+
+  if (shouldBeRC) {
+    return semver.inc(lastVersion, "prepatch", "rc");
   }
 
   return semver.inc(lastVersion, "patch");
@@ -38,6 +51,7 @@ export function getNextVersionFromLabels(
 
 export function getChangeLogSection(
   nextVersion: string,
+  tag: string,
   config: Config,
   changes: Change[],
   forge: Forge,
@@ -99,20 +113,23 @@ export function getChangeLogSection(
   const releaseLink = forge.getReleaseUrl(
     config.ci.repoOwner!,
     config.ci.repoName!,
-    nextVersion
+    tag
   );
-
-  const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${changes
-    .map((change) => `@${change.author}`)
-    .filter((v, i, a) => a.indexOf(v) === i)
-    .join(", ")}`;
 
   const releaseDate = new Date().toISOString().split("T")[0];
 
   let section = `## [${nextVersion}](${releaseLink}) - ${releaseDate}\n\n`;
 
   if (includeContributors) {
-    section += `${contributors}\n\n`;
+    const authors = changes
+      .map((change) => `@${change.author}`)
+      .sort()
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .filter((c) => !c.endsWith('[bot]'))
+    if (authors.length > 0) {
+      const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${authors.join(", ")}`;
+      section += `${contributors}\n\n`;
+    }
   }
 
   section += `${changeLog}`;
@@ -150,10 +167,32 @@ export function updateChangelogSection(
 
   sections = sections
     .filter((s) => s.version !== nextVersion) // filter out the new section
-    .filter((s) => semver.compare(s.version, latestVersion) !== 1); // filter out sections that are older than the latest version as they are not released and should not be in the changelog
+    .filter((s) => semver.compare(s.version, latestVersion) !== 1) // filter out sections that are older than the latest version as they are not released and should not be in the changelog
+    .filter(
+      (s) =>
+        semver.prerelease(s.version) === null ||
+        !s.version.replace(/^v/, "").startsWith(nextVersion.replace(/^v/, ""))
+      // filter out prerelease versions if the next version is not a prerelease
+    );
+
   sections.push({ version: nextVersion, section: newSection });
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
   return `# Changelog\n\n${sections.map((s) => s.section).join("\n\n")}\n`;
+}
+
+export function extractVersionFromCommitMessage(commitMessage: string) {
+  const semverRegex =
+    /(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?/;
+
+  const match = commitMessage.match(semverRegex);
+
+  if (!match) {
+    throw new Error(
+      `Could not extract version from commit message: ${commitMessage}`
+    );
+  }
+
+  return match[0];
 }

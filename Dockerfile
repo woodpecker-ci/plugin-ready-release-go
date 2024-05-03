@@ -1,20 +1,18 @@
-FROM node:18-alpine
-
-ENV NODE_ENV=production
+FROM node:20-slim
 
 WORKDIR /app
 
-RUN apk add git wget
-
-RUN corepack enable
+ENV NODE_ENV=production
 
 COPY ["package.json", "pnpm-lock.yaml", "./"]
-
-RUN pnpm install --frozen-lockfile
-
-CMD /app/node_modules/.bin/tsx /app/src/index.ts
-
 COPY ["tsconfig.json", "./"]
 COPY ["src", "./src"]
 
-ENV DEBUG=simple-git
+RUN apt update \
+	&& apt install -y git wget \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+RUN corepack enable
+RUN pnpm install --frozen-lockfile
+
+CMD ["/app/node_modules/.bin/tsx", "/app/src/run.ts"]
