@@ -4,13 +4,13 @@ import { GithubForge } from "./github";
 import { GiteaForge } from "./gitea";
 
 export async function getForge(config: Config): Promise<Forge> {
+  if (!config.ci.gitEmail) {
+    throw new Error("Please provide a Git email");
+  }
+
   if (config.ci.forgeType === "github") {
     if (!config.ci.githubToken) {
       throw new Error("Please provide a Github token");
-    }
-
-    if (!config.ci.gitEmail) {
-      throw new Error("Please provide a Git email");
     }
 
     return new GithubForge(config.ci.githubToken, config.ci.gitEmail);
@@ -23,10 +23,6 @@ export async function getForge(config: Config): Promise<Forge> {
 
     if (!config.ci.giteaUrl) {
       throw new Error("Please provide an URL to your Gitea instance");
-    }
-
-    if (!config.ci.gitEmail) {
-      throw new Error("Please provide a Git email");
     }
 
     return new GiteaForge(
