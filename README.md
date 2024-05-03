@@ -33,6 +33,7 @@ steps:
 1. The plugin will create a new release
 
 ## Internal workflow
+
 - get latest release => tag
 - get all commits since commit of last tag
 - get all prs of those commits (if they have a pr associated)
