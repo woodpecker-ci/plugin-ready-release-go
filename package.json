@@ -13,21 +13,21 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@octokit/rest": "^20.0.0",
-    "execa": "^8.0.0",
-    "gitea-js": "^1.20.1",
+    "@octokit/rest": "^20.1.0",
+    "execa": "^8.0.1",
+    "gitea-js": "^1.21.2",
     "picocolors": "^1.0.0",
-    "semver": "^7.5.3",
+    "semver": "^7.6.0",
     "shelljs": "^0.8.5",
-    "simple-git": "^3.21.0",
-    "tsx": "^4.3.0"
+    "simple-git": "^3.24.0",
+    "tsx": "^4.9.0"
   },
   "devDependencies": {
-    "@types/node": "^20.9.4",
-    "@types/semver": "^7.5.0",
-    "@types/shelljs": "^0.8.11",
-    "@vitest/ui": "^1.0.0",
-    "vitest": "^1.0.0",
-    "typescript": "^5.3.2"
+    "@types/node": "^20.12.8",
+    "@types/semver": "^7.5.8",
+    "@types/shelljs": "^0.8.15",
+    "@vitest/ui": "^1.5.3",
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.3"
   }
 }
