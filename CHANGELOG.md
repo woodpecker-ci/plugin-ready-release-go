@@ -4,6 +4,7 @@
 
 ### Misc
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4 [[#117](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/117)]
 - fix(deps): update dependency semver to v7.6.2 [[#114](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/114)]
 - fix(deps): update dependency tsx to v4.10.0 [[#115](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/115)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.40.0 [[#112](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/112)]
