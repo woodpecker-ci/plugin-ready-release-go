@@ -1,9 +1,10 @@
 # Changelog
 
-## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-06
+## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-12
 
 ### Misc
 
+- fix(deps): update dependency tsx to v4.10.0 [[#115](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/115)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.40.0 [[#112](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/112)]
 - fix(deps): update dependency @octokit/rest to v20.1.1 [[#111](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/111)]
 - fix(deps): update dependency tsx to v4.7.3 [[#109](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/109)]
