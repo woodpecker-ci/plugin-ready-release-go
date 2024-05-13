@@ -1,9 +1,10 @@
 # Changelog
 
-## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-12
+## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-13
 
 ### Misc
 
+- fix(deps): update dependency execa to v9 [[#118](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/118)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4 [[#117](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/117)]
 - fix(deps): update dependency semver to v7.6.2 [[#114](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/114)]
 - fix(deps): update dependency tsx to v4.10.0 [[#115](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/115)]
