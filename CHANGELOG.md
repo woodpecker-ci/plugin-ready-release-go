@@ -1,9 +1,11 @@
 # Changelog
 
-## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-13
+## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-20
 
 ### Misc
 
+- fix(deps): update dependency tsx to v4.10.5 [[#120](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/120)]
+- fix(deps): update dependency picocolors to v1.0.1 [[#119](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/119)]
 - fix(deps): update dependency tsx to v4.10.2 [[#116](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/116)]
 - fix(deps): update dependency execa to v9 [[#118](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/118)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4 [[#117](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/117)]
