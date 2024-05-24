@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-05-24
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### Misc
+
+- Add nix flake for dev environment [[#110](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/110)]
+
 ## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-20
 
 ### Misc
