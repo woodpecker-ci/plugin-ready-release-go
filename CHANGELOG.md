@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-05-24
+## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-05-26
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.1.2 [[#122](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/122)]
 - Add nix flake for dev environment [[#110](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/110)]
 
 ## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-20
