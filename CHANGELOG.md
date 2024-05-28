@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-05-26
+## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-05-28
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,8 @@
 
 ### Misc
 
+- fix(deps): update dependency execa to v9.1.0 [[#124](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/124)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.41.0 [[#123](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/123)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.1.2 [[#122](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/122)]
 - Add nix flake for dev environment [[#110](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/110)]
 
