@@ -1,5 +1,5 @@
-import { Forge } from "./forge";
-import { giteaApi, Api } from "gitea-js";
+import { Forge, PullRequest } from './forge';
+import { giteaApi, Api } from 'gitea-js';
 
 export class GiteaForge extends Forge {
   accessToken: string;
@@ -26,38 +26,29 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<{ pullRequestLink: string }> {
-    const pullRequests = await this.api.repos.repoListPullRequests(
+    const pullRequest = await this.api.repos.repoGetPullRequestByBaseHead(
       options.owner,
       options.repo,
-      {
-        // head: `${options.owner}:${options.sourceBranch}`, // TODO: filter by source and target branch
-      }
+      options.targetBranch,
+      options.sourceBranch,
     );
 
-    if (pullRequests.data.length > 0) {
-      const pr = await this.api.repos.repoEditPullRequest(
-        options.owner,
-        options.repo,
-        pullRequests.data[0].number!,
-        {
-          title: options.title,
-          body: options.description,
-        }
-      );
+    // TODO: check how to handle 404
+    if (pullRequest.data) {
+      const pr = await this.api.repos.repoEditPullRequest(options.owner, options.repo, pullRequest.data.number!, {
+        title: options.title,
+        body: options.description,
+      });
 
       return { pullRequestLink: pr.data.html_url! };
     }
 
-    const pr = await this.api.repos.repoCreatePullRequest(
-      options.owner,
-      options.repo,
-      {
-        title: options.title,
-        head: options.sourceBranch,
-        base: options.targetBranch,
-        body: options.description,
-      }
-    );
+    const pr = await this.api.repos.repoCreatePullRequest(options.owner, options.repo, {
+      title: options.title,
+      head: options.sourceBranch,
+      base: options.targetBranch,
+      body: options.description,
+    });
 
     return { pullRequestLink: pr.data.html_url! };
   }
@@ -70,16 +61,12 @@ export class GiteaForge extends Forge {
     description: string;
     prerelease?: boolean;
   }): Promise<{ releaseLink: string }> {
-    const release = await this.api.repos.repoCreateRelease(
-      options.owner,
-      options.repo,
-      {
-        tag_name: options.tag,
-        name: options.name,
-        body: options.description,
-        prerelease: options.prerelease,
-      }
-    );
+    const release = await this.api.repos.repoCreateRelease(options.owner, options.repo, {
+      tag_name: options.tag,
+      name: options.name,
+      body: options.description,
+      prerelease: options.prerelease,
+    });
 
     return { releaseLink: release.data.html_url! };
   }
@@ -91,8 +78,36 @@ export class GiteaForge extends Forge {
   }> {
     return {
       email: this.email,
-      username: "oauth",
+      username: 'oauth',
       password: this.accessToken,
+    };
+  }
+
+  async getPullRequest(options: {
+    owner: string;
+    repo: string;
+    sourceBranch: string;
+    targetBranch: string;
+  }): Promise<PullRequest | undefined> {
+    const pullRequest = await this.api.repos.repoGetPullRequestByBaseHead(
+      options.owner,
+      options.repo,
+      options.targetBranch,
+      options.sourceBranch,
+    );
+
+    // TODO: check how we can handle 404
+    if (!pullRequest.data) {
+      return undefined;
+    }
+
+    return {
+      // TODO: check if those fields are always present and we can safely use ! here
+      title: pullRequest.data.title!,
+      author: pullRequest.data.user?.login!,
+      number: pullRequest.data.number!,
+      labels: pullRequest.data.labels?.map((label) => label.name!) ?? [],
+      description: pullRequest.data.body!,
     };
   }
 
@@ -100,25 +115,21 @@ export class GiteaForge extends Forge {
     owner: string;
     repo: string;
     commitHash: string;
-  }): Promise<
-    | { title: string; author?: string; number: number; labels: string[] }
-    | undefined
-  > {
-    const pr = await this.api.repos.listPullRequestsAssociatedWithCommit({
-      owner: options.owner,
-      repo: options.repo,
-      commit_sha: options.commitHash,
-    });
+  }): Promise<PullRequest | undefined> {
+    const pullRequest = await this.api.repos.repoGetCommitPullRequest(options.owner, options.repo, options.commitHash);
 
-    if (pr.data.length === 0) {
+    // TODO: check how we can handle 404
+    if (!pullRequest.data) {
       return undefined;
     }
 
     return {
-      title: pr.data[0].title,
-      author: pr.data[0].user?.login,
-      number: pr.data[0].number,
-      labels: pr.data[0].labels.map((label) => label.name),
+      // TODO: check if those fields are always present and we can safely use ! here
+      title: pullRequest.data.title!,
+      author: pullRequest.data.user?.login!,
+      number: pullRequest.data.number!,
+      labels: pullRequest.data.labels?.map((label) => label.name!) ?? [],
+      description: pullRequest.data.body!,
     };
   }
 
@@ -128,14 +139,9 @@ export class GiteaForge extends Forge {
     pullRequestNumber: number;
     comment: string;
   }): Promise<void> {
-    await this.api.repos.issueCreateComment(
-      options.owner,
-      options.repo,
-      options.pullRequestNumber,
-      {
-        body: options.comment,
-      }
-    );
+    await this.api.repos.issueCreateComment(options.owner, options.repo, options.pullRequestNumber, {
+      body: options.comment,
+    });
   }
 
   getRepoUrl(owner: string, repo: string): string {
@@ -146,19 +152,11 @@ export class GiteaForge extends Forge {
     return `${this.url}/${owner}/${repo}/src/commit/${commitHash}`;
   }
 
-  getIssueUrl(
-    owner: string,
-    repo: string,
-    issueNumber: string | number
-  ): string {
+  getIssueUrl(owner: string, repo: string, issueNumber: string | number): string {
     return `${this.url}/${owner}/${repo}/issues/${issueNumber}`;
   }
 
-  getPullRequestUrl(
-    owner: string,
-    repo: string,
-    pullRequestNumber: string | number
-  ): string {
+  getPullRequestUrl(owner: string, repo: string, pullRequestNumber: string | number): string {
     return `${this.url}/${owner}/${repo}/pulls/${pullRequestNumber}`;
   }
 
