@@ -13,8 +13,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@octokit/rest": "^20.1.0",
-    "execa": "^8.0.1",
+    "@octokit/rest": "^20.0.0",
+    "execa": "^9.0.0",
     "gitea-js": "^1.22.0",
     "picocolors": "^1.0.0",
     "semver": "^7.6.0",
