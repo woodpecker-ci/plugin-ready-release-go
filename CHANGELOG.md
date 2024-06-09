@@ -8,6 +8,7 @@
 
 ### Misc
 
+- fix(deps): update dependency execa to v9.2.0 [[#127](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/127)]
 - fix(deps): update dependency tsx to v4.14.1 [[#128](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/128)]
 - fix(deps): update dependency tsx to v4.11.0 [[#125](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/125)]
 - fix(deps): update dependency execa to v9.1.0 [[#124](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/124)]
