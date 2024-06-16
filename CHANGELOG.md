@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-06-09
+## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-06-16
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- fix(deps): update dependency simple-git to v3.25.0 [[#130](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/130)]
 - fix(deps): update dependency execa to v9.2.0 [[#127](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/127)]
 - fix(deps): update dependency tsx to v4.14.1 [[#128](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/128)]
 - fix(deps): update dependency tsx to v4.11.0 [[#125](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/125)]
