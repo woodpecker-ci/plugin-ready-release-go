@@ -3,6 +3,7 @@
     "module": "es2022",
     "moduleResolution": "Bundler",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   }
 }
