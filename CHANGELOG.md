@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update dependency @types/node to v20.14.6 [[#91](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/91)]
 - fix(deps): update dependency tsx to v4.15.6 [[#129](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/129)]
 - fix(deps): update dependency simple-git to v3.25.0 [[#130](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/130)]
 - fix(deps): update dependency execa to v9.2.0 [[#127](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/127)]
