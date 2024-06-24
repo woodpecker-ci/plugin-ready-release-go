@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-06-20
+## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-06-24
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update dependency @types/node to v20.14.8 [[#131](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/131)]
 - chore(deps): update dependency @types/node to v20.14.6 [[#91](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/91)]
 - fix(deps): update dependency tsx to v4.15.6 [[#129](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/129)]
 - fix(deps): update dependency simple-git to v3.25.0 [[#130](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/130)]
