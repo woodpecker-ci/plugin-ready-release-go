@@ -8,6 +8,7 @@
 
 ### Misc
 
+- fix(deps): update dependency tsx to v4.15.7 [[#132](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/132)]
 - chore(deps): update dependency @types/node to v20.14.8 [[#131](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/131)]
 - chore(deps): update dependency @types/node to v20.14.6 [[#91](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/91)]
 - fix(deps): update dependency tsx to v4.15.6 [[#129](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/129)]
