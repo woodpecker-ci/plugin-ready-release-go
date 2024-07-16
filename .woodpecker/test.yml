@@ -21,7 +21,7 @@ steps:
     image: node:20-slim
     commands:
       - corepack enable
-      - pnpm check-format
+      - pnpm format:check
 
 when:
   - event: pull_request

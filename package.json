@@ -8,9 +8,9 @@
   "scripts": {
     "start": "tsx src/run.ts",
     "build": "tsx src/run.ts --out-dir dist",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --ui --open=false",
-    "check:format": "prettier --check .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
