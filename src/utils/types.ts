@@ -1,7 +1,7 @@
-import type { ExecFunction } from "shelljs";
-import type { Forge, PullRequest } from "../forges/forge";
-import type { Config } from "./config";
-import type { SimpleGit } from "simple-git";
+import type { ExecFunction } from 'shelljs';
+import type { Forge, PullRequest } from '../forges/forge';
+import type { Config } from './config';
+import type { SimpleGit } from 'simple-git';
 
 export type PromiseOrValue<T> = Promise<T> | T;
 
@@ -80,7 +80,7 @@ export type UserConfig = Partial<{
   changeTypes: {
     title: string;
     labels: string[];
-    bump: "major" | "minor" | "patch";
+    bump: 'major' | 'minor' | 'patch';
     default?: boolean;
     weight?: number;
   }[];

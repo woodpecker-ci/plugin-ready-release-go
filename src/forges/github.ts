@@ -1,5 +1,5 @@
-import { Comment, Forge, PullRequest } from "./forge";
-import { Octokit } from "@octokit/rest";
+import { Comment, Forge, PullRequest } from './forge';
+import { Octokit } from '@octokit/rest';
 
 export class GithubForge extends Forge {
   accessToken: string;
@@ -85,7 +85,7 @@ export class GithubForge extends Forge {
   }> {
     return {
       email: this.email,
-      username: "oauth",
+      username: 'oauth',
       password: this.accessToken,
     };
   }
@@ -108,8 +108,8 @@ export class GithubForge extends Forge {
     return {
       number: pr.data[0].number,
       title: pr.data[0].title,
-      description: pr.data[0].body || "",
-      author: pr.data[0].user?.login || "",
+      description: pr.data[0].body || '',
+      author: pr.data[0].user?.login || '',
       labels: pr.data[0].labels.map((label) => label.name),
     };
   }
@@ -127,9 +127,7 @@ export class GithubForge extends Forge {
     });
 
     if (pullRequests.data.length > 1) {
-      throw new Error(
-        "Found more than one pull request to release. Please close all but one.",
-      );
+      throw new Error('Found more than one pull request to release. Please close all but one.');
     }
 
     if (pullRequests.data.length === 0) {
@@ -141,8 +139,8 @@ export class GithubForge extends Forge {
     return {
       number: pr.number,
       title: pr.title,
-      description: pr.body || "",
-      author: pr.user?.login || "",
+      description: pr.body || '',
+      author: pr.user?.login || '',
       labels: pr.labels.map((label) => label.name),
     };
   }
@@ -169,19 +167,11 @@ export class GithubForge extends Forge {
     return `https://github.com/${owner}/${repo}/commit/${commitHash}`;
   }
 
-  getIssueUrl(
-    owner: string,
-    repo: string,
-    issueNumber: string | number,
-  ): string {
+  getIssueUrl(owner: string, repo: string, issueNumber: string | number): string {
     return `https://github.com/${owner}/${repo}/issues/${issueNumber}`;
   }
 
-  getPullRequestUrl(
-    owner: string,
-    repo: string,
-    pullRequestNumber: string | number,
-  ): string {
+  getPullRequestUrl(owner: string, repo: string, pullRequestNumber: string | number): string {
     return `https://github.com/${owner}/${repo}/pull/${pullRequestNumber}`;
   }
 
@@ -189,19 +179,12 @@ export class GithubForge extends Forge {
     return `https://github.com/${owner}/${repo}/releases/tag/${release}`;
   }
 
-  async getPullRequestComments(
-    owner: string,
-    repo: string,
-    pullRequestNumber: number,
-  ): Promise<Comment[]> {
-    const comments = await this.octokit.paginate(
-      this.octokit.issues.listComments,
-      {
-        owner,
-        repo,
-        issue_number: pullRequestNumber,
-      },
-    );
+  async getPullRequestComments(owner: string, repo: string, pullRequestNumber: number): Promise<Comment[]> {
+    const comments = await this.octokit.paginate(this.octokit.issues.listComments, {
+      owner,
+      repo,
+      issue_number: pullRequestNumber,
+    });
 
     return comments.map((comment) => ({
       id: comment.id.toString(),

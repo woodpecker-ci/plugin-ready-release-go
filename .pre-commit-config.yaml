@@ -13,7 +13,7 @@ repos:
     rev: v0.41.0
     hooks:
       - id: markdownlint
-        exclude: "^(CHANGELOG.md|src/utils/__fixtures__/.*)$"
+        exclude: '^(CHANGELOG.md|src/utils/__fixtures__/.*)$'
   - repo: https://github.com/hadolint/hadolint
     rev: v2.12.1-beta
     hooks:
@@ -25,8 +25,8 @@ ci:
 
     for more information, see https://pre-commit.ci
   autofix_prs: true
-  autoupdate_branch: ""
-  autoupdate_commit_msg: "[pre-commit.ci] pre-commit autoupdate"
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
   autoupdate_schedule: monthly
   # NB: hadolint not included in pre-commit.ci
   skip: [check-hooks-apply, check-useless-excludes, hadolint]
