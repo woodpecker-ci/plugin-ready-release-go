@@ -14,7 +14,7 @@ const ciConfig = {
   forgeType: process.env.CI_FORGE_TYPE,
   githubToken: process.env.PLUGIN_GITHUB_TOKEN,
   giteaToken: process.env.PLUGIN_GITEA_TOKEN,
-  giteaUrl: process.env.PLUGIN_GITEA_URL,
+  giteaUrl: process.env.PLUGIN_GITEA_URL || process.env.CI_FORGE_URL,
   gitEmail: process.env.PLUGIN_GIT_EMAIL,
   repoOwner: process.env.CI_REPO_OWNER,
   repoName: process.env.CI_REPO_NAME,
