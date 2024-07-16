@@ -17,6 +17,12 @@ steps:
       - corepack enable
       - pnpm typecheck
 
+  format:
+    image: node:20-slim
+    commands:
+      - corepack enable
+      - pnpm format:check
+
 when:
   - event: pull_request
   - event: push
