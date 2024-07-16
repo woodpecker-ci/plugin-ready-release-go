@@ -16,7 +16,7 @@ export async function getForge(config: Config): Promise<Forge> {
     return new GithubForge(config.ci.githubToken, config.ci.gitEmail);
   }
 
-  if (config.ci.forgeType === "gitea") {
+  if (config.ci.forgeType === "gitea" || config.ci.forgeType === "forgejo") {
     if (!config.ci.giteaToken) {
       throw new Error("Please provide a Github token");
     }
