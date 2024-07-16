@@ -1,6 +1,6 @@
-import { getChangeLogSection } from "../utils/change";
-import { CommandContext, HookContext } from "../utils/types";
-import c from "picocolors";
+import { getChangeLogSection } from '../utils/change';
+import { CommandContext, HookContext } from '../utils/types';
+import c from 'picocolors';
 
 export async function release({
   config,
@@ -20,35 +20,25 @@ export async function release({
   };
 
   if (config.user.beforeRelease) {
-    console.log("# Running beforeRelease hook");
+    console.log('# Running beforeRelease hook');
     if ((await config.user.beforeRelease(hookCtx)) === false) {
       return;
     }
   }
 
   if (!config.ci.repoOwner || !config.ci.repoName) {
-    throw new Error("Missing repoOwner or repoName");
+    throw new Error('Missing repoOwner or repoName');
   }
 
-  const tag =
-    useVersionPrefixV && !nextVersion.startsWith("v")
-      ? `v${nextVersion}`
-      : nextVersion;
+  const tag = useVersionPrefixV && !nextVersion.startsWith('v') ? `v${nextVersion}` : nextVersion;
 
-  const newChangelogSection = getChangeLogSection(
-    nextVersion,
-    tag,
-    config,
-    changes,
-    forge,
-    true
-  );
+  const newChangelogSection = getChangeLogSection(nextVersion, tag, config, changes, forge, true);
 
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
     : newChangelogSection;
 
-  console.log("# Creating release");
+  console.log('# Creating release');
   const { releaseLink } = await forge.createRelease({
     owner: config.ci.repoOwner,
     repo: config.ci.repoName,
@@ -58,10 +48,10 @@ export async function release({
     prerelease: shouldBeRC,
   });
 
-  console.log(c.green("# Successfully created release:"), releaseLink);
+  console.log(c.green('# Successfully created release:'), releaseLink);
 
   if (config.user.commentOnReleasedPullRequests) {
-    console.log("# Adding release comments to pull-requests");
+    console.log('# Adding release comments to pull-requests');
     for await (const { pullRequestNumber } of changes) {
       if (!pullRequestNumber) {
         continue;
@@ -83,7 +73,7 @@ Thank you for your contribution. ❤️📦🚀`;
   }
 
   if (config.user.afterRelease) {
-    console.log("# Running afterRelease hook");
+    console.log('# Running afterRelease hook');
     await config.user.afterRelease(hookCtx);
   }
 }

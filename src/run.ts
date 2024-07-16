@@ -1,8 +1,8 @@
-import c from "picocolors";
-import { run } from "./index";
-import { getConfig } from "./utils/config";
-import { getForge } from "./forges";
-import simpleGit from "simple-git";
+import c from 'picocolors';
+import { run } from './index';
+import { getConfig } from './utils/config';
+import { getForge } from './forges';
+import simpleGit from 'simple-git';
 
 async function main() {
   try {
