@@ -67,17 +67,17 @@ export abstract class Forge {
   abstract getCommitUrl(
     owner: string,
     repo: string,
-    commitHash: string
+    commitHash: string,
   ): string;
   abstract getIssueUrl(
     owner: string,
     repo: string,
-    issueNumber: string | number
+    issueNumber: string | number,
   ): string;
   abstract getPullRequestUrl(
     owner: string,
     repo: string,
-    pullRequestNumber: string | number
+    pullRequestNumber: string | number,
   ): string;
   abstract getReleaseUrl(owner: string, repo: string, release: string): string;
 }

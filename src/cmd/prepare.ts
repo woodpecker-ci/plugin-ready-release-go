@@ -21,7 +21,7 @@ export async function prepare(cmdCtx: CommandContext) {
   console.log(
     "# Preparing release pull-request for version:",
     c.green(nextVersion),
-    "..."
+    "...",
   );
 
   const hookCtx: HookContext = {
@@ -36,7 +36,9 @@ export async function prepare(cmdCtx: CommandContext) {
   const branches = await git.branch();
   if (branches.all.includes(`remotes/origin/${pullRequestBranch}`)) {
     console.log(
-      c.yellow(`Branch "${pullRequestBranch}" already exists, checking it out.`)
+      c.yellow(
+        `Branch "${pullRequestBranch}" already exists, checking it out.`,
+      ),
     );
 
     await git.checkout([pullRequestBranch]);
@@ -46,9 +48,9 @@ export async function prepare(cmdCtx: CommandContext) {
     } catch (e) {
       console.log(
         c.yellow(
-          `Error pulling "${pullRequestBranch}" branch. Maybe it does not exist yet?`
+          `Error pulling "${pullRequestBranch}" branch. Maybe it does not exist yet?`,
         ),
-        e
+        e,
       );
     }
 
@@ -60,7 +62,9 @@ export async function prepare(cmdCtx: CommandContext) {
     ]);
   } else {
     console.log(
-      c.yellow(`Branch "${pullRequestBranch}" does not exist yet, creating it.`)
+      c.yellow(
+        `Branch "${pullRequestBranch}" does not exist yet, creating it.`,
+      ),
     );
 
     await git.checkout(["-B", pullRequestBranch, "--track"]);
@@ -90,13 +94,13 @@ export async function prepare(cmdCtx: CommandContext) {
     config,
     changes,
     forge,
-    true
+    true,
   );
   const changelog = updateChangelogSection(
     latestVersion,
     nextVersion,
     oldChangelog,
-    newChangelogSection
+    newChangelogSection,
   );
 
   console.log("# Updating CHANGELOG.md");
@@ -145,7 +149,7 @@ export async function prepare(cmdCtx: CommandContext) {
 
   console.log(
     "# Successfully prepared release pull-request: ",
-    pullRequestLink
+    pullRequestLink,
   );
 
   console.log("# Pull-request created");

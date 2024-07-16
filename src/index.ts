@@ -57,7 +57,7 @@ export async function run({
   if (!remotes[0].refs.push.includes("@")) {
     const remote = remotes[0].refs.push.replace(
       "://",
-      `://${credentials.username}:${credentials.password}@`
+      `://${credentials.username}:${credentials.password}@`,
     );
     await git.removeRemote(remotes[0].name);
     await git.addRemote(remotes[0].name, remote);
@@ -71,7 +71,7 @@ export async function run({
   await git.pull();
 
   const isReleaseCommit = config.ci.commitMessage?.startsWith(
-    config.ci.releasePrefix
+    config.ci.releasePrefix,
   );
 
   const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
@@ -107,7 +107,7 @@ export async function run({
     console.log("# Lastest tag is:", c.green(latestTag));
   } else {
     console.log(
-      c.green(`# No tags found. Starting with first tag: ${latestTag}`)
+      c.green(`# No tags found. Starting with first tag: ${latestTag}`),
     );
   }
 
@@ -118,7 +118,7 @@ export async function run({
           from: latestTag,
           to: releaseBranch,
           symmetric: false,
-        }
+        },
   );
 
   // if the lastest tag is an RC and the next version should be the actual release,
@@ -134,7 +134,7 @@ export async function run({
         "# Adding commits since last none rc tag:",
         c.green(firstNonRCTag),
         "and",
-        c.green(releaseBranch)
+        c.green(releaseBranch),
       );
 
       unTaggedCommits = await git.log({
@@ -173,7 +173,7 @@ export async function run({
     if (config.user.skipCommitsWithoutPullRequest && !pr) {
       console.log(
         c.yellow("# No pull-request found for commit, skipping."),
-        `${commit.hash}: "${commit.message}"`
+        `${commit.hash}: "${commit.message}"`,
       );
       continue;
     }
@@ -181,7 +181,7 @@ export async function run({
     if (pr?.labels.some((l) => config.user.skipLabels?.includes(l))) {
       console.log(
         c.yellow("# Skipping commit / PR by label:"),
-        `${commit.hash}: "${commit.message}"`
+        `${commit.hash}: "${commit.message}"`,
       );
       continue;
     }
@@ -204,7 +204,7 @@ export async function run({
       latestVersion,
       config.user,
       changes,
-      shouldBeRC
+      shouldBeRC,
     );
   }
 

@@ -41,7 +41,7 @@ export async function release({
     config,
     changes,
     forge,
-    true
+    true,
   );
 
   const releaseDescription = config.user.getReleaseDescription

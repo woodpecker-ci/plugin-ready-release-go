@@ -23,13 +23,13 @@ whenever you add more changes to 'main' this pull-request will be updated.
 
     const releaseThisVersionAsRC = getCheckboxValueFromString(
       prDescription,
-      "mark this version as a release candidate"
+      "mark this version as a release candidate",
     );
     expect(releaseThisVersionAsRC).toBe(true);
 
     const someRandomOption = getCheckboxValueFromString(
       prDescription,
-      "Some random option"
+      "Some random option",
     );
     expect(someRandomOption).toBe(false);
   });

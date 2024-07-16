@@ -7,7 +7,7 @@ export function getNextVersionFromLabels(
   lastVersion: string,
   config: UserConfig,
   changes: Change[],
-  shouldBeRC: boolean
+  shouldBeRC: boolean,
 ) {
   if (changes.length === 0) {
     return null;
@@ -18,12 +18,12 @@ export function getNextVersionFromLabels(
       acc[c.bump].push(...c.labels);
       return acc;
     },
-    { minor: [] as string[], major: [] as string[], patch: [] as string[] }
+    { minor: [] as string[], major: [] as string[], patch: [] as string[] },
   );
 
   const labels = changes.reduce(
     (acc, change) => [...acc, ...change.labels],
-    [] as string[]
+    [] as string[],
   );
 
   if (changeLabels["major"].some((l) => labels.includes(l))) {
@@ -55,14 +55,14 @@ export function getChangeLogSection(
   config: Config,
   changes: Change[],
   forge: Forge,
-  includeContributors: boolean
+  includeContributors: boolean,
 ) {
   const defaultChangeType = config.user.changeTypes!.find((c) => c.default);
 
   const changeSections = changes.reduce((acc, change) => {
     const changeType =
       config.user.changeTypes!.find((c) =>
-        c.labels.some((l) => change.labels.includes(l))
+        c.labels.some((l) => change.labels.includes(l)),
       ) || defaultChangeType;
 
     if (!changeType) {
@@ -76,20 +76,20 @@ export function getChangeLogSection(
     const commitLink = forge.getCommitUrl(
       config.ci.repoOwner!,
       config.ci.repoName!,
-      change.commitHash
+      change.commitHash,
     );
     if (change.pullRequestNumber) {
       const prLink = forge.getPullRequestUrl(
         config.ci.repoOwner!,
         config.ci.repoName!,
-        change.pullRequestNumber
+        change.pullRequestNumber,
       );
       const entry = `- ${change.title} [[#${change.pullRequestNumber}](${prLink})]`;
       acc.get(changeType.title)?.changes.push(entry);
     } else {
       const entry = `- ${change.title} ([${change.commitHash.substring(
         0,
-        7
+        7,
       )}](${commitLink}))`;
       acc.get(changeType.title)?.changes.push(entry);
     }
@@ -101,7 +101,7 @@ export function getChangeLogSection(
   const changeLog = Array.from(changeSections.values())
     .sort(
       (a, b) =>
-        (b.weight || (b.default ? -1 : 0)) - (a.weight || (a.default ? -1 : 0))
+        (b.weight || (b.default ? -1 : 0)) - (a.weight || (a.default ? -1 : 0)),
     )
     .map((changeSection) => {
       return `### ${changeSection.title}\n\n${changeSection.changes
@@ -113,7 +113,7 @@ export function getChangeLogSection(
   const releaseLink = forge.getReleaseUrl(
     config.ci.repoOwner!,
     config.ci.repoName!,
-    tag
+    tag,
   );
 
   const releaseDate = new Date().toISOString().split("T")[0];
@@ -125,7 +125,7 @@ export function getChangeLogSection(
       .map((change) => `@${change.author}`)
       .sort()
       .filter((v, i, a) => a.indexOf(v) === i)
-      .filter((c) => !c.endsWith('[bot]'))
+      .filter((c) => !c.endsWith("[bot]"));
     if (authors.length > 0) {
       const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${authors.join(", ")}`;
       section += `${contributors}\n\n`;
@@ -141,7 +141,7 @@ export function updateChangelogSection(
   latestVersion: string,
   nextVersion: string,
   _oldChangelog: string,
-  newSection: string
+  newSection: string,
 ) {
   let oldChangelog = _oldChangelog.replace("# Changelog\n\n", "");
 
@@ -171,7 +171,7 @@ export function updateChangelogSection(
     .filter(
       (s) =>
         semver.prerelease(s.version) === null ||
-        !s.version.replace(/^v/, "").startsWith(nextVersion.replace(/^v/, ""))
+        !s.version.replace(/^v/, "").startsWith(nextVersion.replace(/^v/, "")),
       // filter out prerelease versions if the next version is not a prerelease
     );
 
@@ -190,7 +190,7 @@ export function extractVersionFromCommitMessage(commitMessage: string) {
 
   if (!match) {
     throw new Error(
-      `Could not extract version from commit message: ${commitMessage}`
+      `Could not extract version from commit message: ${commitMessage}`,
     );
   }
 

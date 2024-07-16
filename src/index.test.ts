@@ -54,7 +54,7 @@ describe("index", () => {
     const latestTag = "2.0.1";
     const tags = ["1.0.3", latestTag];
     vi.spyOn(git, "tags").mockImplementation(() =>
-      mockSimpleGitResponse({ all: tags, latest: latestTag })
+      mockSimpleGitResponse({ all: tags, latest: latestTag }),
     );
 
     const commits = [
@@ -84,7 +84,7 @@ describe("index", () => {
         all: commits,
         total: commits.length,
         latest: commits[0],
-      })
+      }),
     );
 
     const _prepare = prepare as MockedFunction<typeof prepare>;
@@ -129,7 +129,7 @@ const mockSimpleGitResponse = <T>(value: T): SimpleGitResponse<T> => {
 function getMockedGit(): SimpleGit {
   const git = simpleGit();
   vi.spyOn(git, "addConfig").mockImplementation(() =>
-    mockSimpleGitResponse("")
+    mockSimpleGitResponse(""),
   );
   vi.spyOn(git, "getRemotes").mockImplementation(() =>
     mockSimpleGitResponse([
@@ -140,7 +140,7 @@ function getMockedGit(): SimpleGit {
           push: "https://oauth:token123@github.com/woodpecker-ci/woodpecker",
         },
       },
-    ])
+    ]),
   );
 
   vi.spyOn(git, "fetch").mockImplementation(() =>
@@ -151,7 +151,7 @@ function getMockedGit(): SimpleGit {
       tags: [],
       updated: [],
       deleted: [],
-    })
+    }),
   );
   vi.spyOn(git, "checkout").mockImplementation(() => mockSimpleGitResponse(""));
   vi.spyOn(git, "branch").mockImplementation(() =>
@@ -160,7 +160,7 @@ function getMockedGit(): SimpleGit {
       current: "",
       all: [],
       branches: {},
-    })
+    }),
   );
   vi.spyOn(git, "pull").mockImplementation(() =>
     mockSimpleGitResponse({
@@ -177,7 +177,7 @@ function getMockedGit(): SimpleGit {
       remoteMessages: {
         all: [],
       },
-    })
+    }),
   );
 
   return git;
@@ -194,7 +194,7 @@ function getMockedForged() {
       targetBranch: string;
     }) => {
       return Promise.resolve(undefined);
-    }
+    },
   );
 
   vi.spyOn(forge, "getPullRequestFromCommit").mockImplementation(
@@ -221,7 +221,7 @@ function getMockedForged() {
         default:
           return Promise.resolve(undefined);
       }
-    }
+    },
   );
 
   return forge;

@@ -55,13 +55,13 @@ const changes: Change[] = [
 
 const changesWithMajor = changes;
 const changesWithMinor = changes.filter(
-  (change) => !change.labels.includes("breaking")
+  (change) => !change.labels.includes("breaking"),
 );
 const changesWithPatch = changes.filter(
   (change) =>
     !change.labels.includes("breaking") &&
     !change.labels.includes("feature") &&
-    !change.labels.includes("enhancement")
+    !change.labels.includes("enhancement"),
 );
 
 const config: Config = {
@@ -94,7 +94,7 @@ describe("change", () => {
       "1.0.0",
       config.user,
       changesWithMajor,
-      false
+      false,
     );
     expect(nextVersion).toBe("2.0.0");
   });
@@ -104,7 +104,7 @@ describe("change", () => {
       "1.0.0",
       config.user,
       changesWithMinor,
-      false
+      false,
     );
 
     expect(nextVersion).toBe("1.1.0");
@@ -115,7 +115,7 @@ describe("change", () => {
       "1.0.0",
       config.user,
       changesWithPatch,
-      false
+      false,
     );
 
     expect(nextVersion).toBe("1.0.1");
@@ -126,7 +126,7 @@ describe("change", () => {
       "1.2.3",
       config.user,
       changesWithMajor,
-      true
+      true,
     );
 
     expect(nextVersion).toBe("2.0.0-rc.0");
@@ -137,7 +137,7 @@ describe("change", () => {
       "1.0.0-rc.2",
       config.user,
       changesWithPatch,
-      false
+      false,
     );
 
     expect(nextVersion).toBe("1.0.0");
@@ -148,7 +148,7 @@ describe("change", () => {
       "1.0.1-rc.2",
       config.user,
       changesWithMinor,
-      true
+      true,
     );
 
     expect(nextVersion).toBe("1.1.0-rc.0");
@@ -162,7 +162,7 @@ describe("change", () => {
       config,
       changes,
       forge,
-      true
+      true,
     );
 
     expect(changelog).toMatchSnapshot();
@@ -200,7 +200,7 @@ describe("change", () => {
     async ({ file, nextVersion, latestVersion }) => {
       const oldChangelog = await fs.readFile(
         path.join(__dirname, file),
-        "utf8"
+        "utf8",
       );
 
       const forge = new GithubForge("", "");
@@ -210,17 +210,17 @@ describe("change", () => {
         config,
         changes,
         forge,
-        true
+        true,
       );
       const changelog = updateChangelogSection(
         latestVersion,
         nextVersion,
         oldChangelog,
-        newSection
+        newSection,
       );
 
       expect(changelog).toMatchSnapshot();
-    }
+    },
   );
 
   it("should be able to extract the release version from a commit message", () => {
@@ -241,7 +241,7 @@ describe("change", () => {
 
     tests.forEach(({ commitMessage, expectedVersion }) => {
       expect(extractVersionFromCommitMessage(commitMessage)).toBe(
-        expectedVersion
+        expectedVersion,
       );
     });
   });

@@ -128,7 +128,7 @@ export class GithubForge extends Forge {
 
     if (pullRequests.data.length > 1) {
       throw new Error(
-        "Found more than one pull request to release. Please close all but one."
+        "Found more than one pull request to release. Please close all but one.",
       );
     }
 
@@ -172,7 +172,7 @@ export class GithubForge extends Forge {
   getIssueUrl(
     owner: string,
     repo: string,
-    issueNumber: string | number
+    issueNumber: string | number,
   ): string {
     return `https://github.com/${owner}/${repo}/issues/${issueNumber}`;
   }
@@ -180,7 +180,7 @@ export class GithubForge extends Forge {
   getPullRequestUrl(
     owner: string,
     repo: string,
-    pullRequestNumber: string | number
+    pullRequestNumber: string | number,
   ): string {
     return `https://github.com/${owner}/${repo}/pull/${pullRequestNumber}`;
   }
@@ -192,7 +192,7 @@ export class GithubForge extends Forge {
   async getPullRequestComments(
     owner: string,
     repo: string,
-    pullRequestNumber: number
+    pullRequestNumber: number,
   ): Promise<Comment[]> {
     const comments = await this.octokit.paginate(
       this.octokit.issues.listComments,
@@ -200,7 +200,7 @@ export class GithubForge extends Forge {
         owner,
         repo,
         issue_number: pullRequestNumber,
-      }
+      },
     );
 
     return comments.map((comment) => ({
