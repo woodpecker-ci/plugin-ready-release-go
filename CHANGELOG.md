@@ -1,10 +1,14 @@
 # Changelog
 
-## [1.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.3) - 2024-07-16
+## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-17
 
 ### ❤️ Thanks to all contributors! ❤️
 
 @6543, @anbraten
+
+### 📈 Enhancement
+
+- Add git-lfs into container image [[#144](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/144)]
 
 ### Misc
 
