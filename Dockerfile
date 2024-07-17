@@ -9,7 +9,7 @@ COPY ["tsconfig.json", "./"]
 COPY ["src", "./src"]
 
 RUN apt update \
-	&& apt install -y git wget \
+	&& apt install -y git git-lfs wget \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 RUN corepack enable
