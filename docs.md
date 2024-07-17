@@ -60,7 +60,7 @@ Add a `release-config.ts` file to the root of your repository. Have a look at th
 export default {
   commentOnReleasedPullRequests: false,
 };
-````
+```
 
 The plugin also supports executing custom hooks which can e.g. help to perform additional actions during a release (e.g. updating a helm chart's `appVersion` field):
 
