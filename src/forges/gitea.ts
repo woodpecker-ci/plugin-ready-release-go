@@ -17,6 +17,17 @@ export class GiteaForge extends Forge {
     });
   }
 
+  async handleApiErrors<T>(promise: Promise<T>, ignoreErrors = [404]): Promise<T | undefined> {
+    return promise.catch((error) => {
+      const status = (error as Response)?.status;
+      if (ignoreErrors.includes(status)) {
+        console.error('gitea error', error);
+      }
+
+      return undefined;
+    });
+  }
+
   async createOrUpdatePullRequest(options: {
     draft: boolean;
     title: string;
@@ -26,15 +37,16 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<{ pullRequestLink: string }> {
-    const pullRequest = await this.api.repos.repoGetPullRequestByBaseHead(
-      options.owner,
-      options.repo,
-      options.targetBranch,
-      options.sourceBranch,
+    const pullRequest = await this.handleApiErrors(
+      this.api.repos.repoGetPullRequestByBaseHead(
+        options.owner,
+        options.repo,
+        options.targetBranch,
+        options.sourceBranch,
+      ),
     );
 
-    // TODO: check how to handle 404
-    if (pullRequest.data) {
+    if (pullRequest?.data) {
       const pr = await this.api.repos.repoEditPullRequest(options.owner, options.repo, pullRequest.data.number!, {
         title: options.title,
         body: options.description,
@@ -89,15 +101,16 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<PullRequest | undefined> {
-    const pullRequest = await this.api.repos.repoGetPullRequestByBaseHead(
-      options.owner,
-      options.repo,
-      options.targetBranch,
-      options.sourceBranch,
+    const pullRequest = await this.handleApiErrors(
+      this.api.repos.repoGetPullRequestByBaseHead(
+        options.owner,
+        options.repo,
+        options.targetBranch,
+        options.sourceBranch,
+      ),
     );
 
-    // TODO: check how we can handle 404
-    if (!pullRequest.data) {
+    if (!pullRequest?.data) {
       return undefined;
     }
 
@@ -116,10 +129,11 @@ export class GiteaForge extends Forge {
     repo: string;
     commitHash: string;
   }): Promise<PullRequest | undefined> {
-    const pullRequest = await this.api.repos.repoGetCommitPullRequest(options.owner, options.repo, options.commitHash);
+    const pullRequest = await this.handleApiErrors(
+      this.api.repos.repoGetCommitPullRequest(options.owner, options.repo, options.commitHash),
+    );
 
-    // TODO: check how we can handle 404
-    if (!pullRequest.data) {
+    if (!pullRequest?.data) {
       return undefined;
     }
 
