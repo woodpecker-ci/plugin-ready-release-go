@@ -11,8 +11,15 @@ async function main() {
     const git = simpleGit();
 
     await run({ git, forge, config });
-  } catch (error) {
-    console.error(c.red((error as Error).message));
+  } catch (_error) {
+    const error = _error as Error;
+    console.error(
+      c.red(
+        `Error: ${error.name}` +
+          (error.message ? `\n\t${error.message}` : '') +
+          (error.stack ? `\n\t${error.stack}` : ''),
+      ),
+    );
     process.exit(1);
   }
 }
