@@ -81,7 +81,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   let latestTag = tags.latest;
 
   if (tags.all.length > 0 && config.user.sortTags) {
-    const sortedTags = semver.rsort(tags.all.filter(tag => semver.valid(tag)));
+    const sortedTags = semver.rsort(tags.all.filter((tag) => semver.valid(tag)));
     latestTag = sortedTags[0];
   }
 
