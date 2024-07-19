@@ -78,13 +78,19 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   }
 
   const tags = await git.tags(['--sort=-creatordate']);
+  let latestTag = tags.latest;
 
-  if (!tags.latest && tags.all.length > 0) {
+  if (tags.all.length > 0 && config.user.sortTags) {
+    const sortedTags = semver.rsort(tags.all.filter(tag => semver.valid(tag)));
+    latestTag = sortedTags[0];
+  }
+
+  if (!latestTag && tags.all.length > 0) {
     console.log(c.yellow('# Latest tag not found, but tags exist, skipping.'));
     return;
   }
 
-  const latestTag = tags.latest || '0.0.0';
+  latestTag = latestTag || '0.0.0';
   if (tags.latest) {
     console.log('# Lastest tag is:', c.green(latestTag));
   } else {
@@ -101,7 +107,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
         },
   );
 
-  // if the lastest tag is an RC and the next version should be the actual release,
+  // if the latest tag is an RC and the next version should be the actual release,
   // we need to include all commits since the last non RC version and the release branch
   if (semver.prerelease(latestTag) !== null && !shouldBeRC) {
     const latestNonRCTags = tags.all

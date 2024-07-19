@@ -77,6 +77,11 @@ export type UserConfig = Partial<{
    */
   afterRelease: (ctx: HookContext) => PromiseOrValue<boolean | void>;
 
+  /**
+   * Run semver sort over tags before detecting latest tag
+   */
+  sortTags: (ctx: HookContext) => PromiseOrValue<boolean | void>;
+
   changeTypes: {
     title: string;
     labels: string[];
