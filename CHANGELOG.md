@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-17
+## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-19
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -12,6 +12,8 @@
 
 ### Misc
 
+- fix(deps): update dependency tsx to v4.16.2 [[#136](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/136)]
+- fix(deps): update dependency @octokit/rest to v21 [[#137](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/137)]
 - Add prettier [[#143](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/143)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4.1.0 [[#142](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/142)]
 - chore(deps): update dependency typescript to v5.5.3 [[#141](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/141)]
