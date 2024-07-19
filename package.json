@@ -14,7 +14,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@octokit/rest": "^20.0.0",
+    "@octokit/rest": "^21.0.0",
     "execa": "^9.0.0",
     "picocolors": "^1.0.0",
     "semver": "^7.5.3",
