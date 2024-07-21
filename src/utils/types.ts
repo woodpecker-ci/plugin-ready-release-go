@@ -77,11 +77,6 @@ export type UserConfig = Partial<{
    */
   afterRelease: (ctx: HookContext) => PromiseOrValue<boolean | void>;
 
-  /**
-   * Run semver sort over tags before detecting latest tag
-   */
-  sortTags: (ctx: HookContext) => PromiseOrValue<boolean | void>;
-
   changeTypes: {
     title: string;
     labels: string[];
@@ -113,6 +108,12 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Run semver sort over tags before detecting latest tag
+   * @default true
+   */
+  sortTags: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
