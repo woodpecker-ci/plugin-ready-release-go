@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-19
+## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-21
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### 📈 Enhancement
 
+- Add option to sort via semver before determin latest tag [[#146](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/146)]
 - Add git-lfs into container image [[#144](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/144)]
 
 ### Misc
