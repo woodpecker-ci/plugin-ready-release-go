@@ -43,8 +43,8 @@ describe('index', () => {
     const git = getMockedGit();
     const forge = getMockedForged();
 
-    const latestTag = '2.0.1';
-    const tags = ['1.0.3', latestTag];
+    const latestTag = '1.0.4';
+    const tags = ['1.0.3', '2.0.1', latestTag];
     vi.spyOn(git, 'tags').mockImplementation(() => mockSimpleGitResponse({ all: tags, latest: latestTag }));
 
     const commits = [
