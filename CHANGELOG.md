@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-21
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @anbraten
+
+### 📈 Enhancement
+
+- Add option to sort via semver before determin latest tag [[#146](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/146)]
+- Add git-lfs into container image [[#144](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/144)]
+
+### Misc
+
+- fix(deps): update dependency tsx to v4.16.2 [[#136](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/136)]
+- fix(deps): update dependency @octokit/rest to v21 [[#137](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/137)]
+- Add prettier [[#143](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/143)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4.1.0 [[#142](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/142)]
+- chore(deps): update dependency typescript to v5.5.3 [[#141](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/141)]
+- chore(deps): update dependency @types/node to v20.14.10 [[#140](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/140)]
+- fix(deps): update dependency execa to v9.3.0 [[#139](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/139)]
+- chore(deps): update dependency @types/node to v20.14.9 [[#134](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/134)]
+- fix(deps): update dependency tsx to v4.16.0 [[#135](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/135)]
+- chore(deps): update dependency typescript to v5.5.2 [[#133](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/133)]
+- fix(deps): update dependency tsx to v4.15.7 [[#132](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/132)]
+- chore(deps): update dependency @types/node to v20.14.8 [[#131](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/131)]
+- chore(deps): update dependency @types/node to v20.14.6 [[#91](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/91)]
+- fix(deps): update dependency tsx to v4.15.6 [[#129](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/129)]
+- fix(deps): update dependency simple-git to v3.25.0 [[#130](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/130)]
+- fix(deps): update dependency execa to v9.2.0 [[#127](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/127)]
+- fix(deps): update dependency tsx to v4.14.1 [[#128](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/128)]
+- fix(deps): update dependency tsx to v4.11.0 [[#125](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/125)]
+- fix(deps): update dependency execa to v9.1.0 [[#124](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/124)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.41.0 [[#123](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/123)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.1.2 [[#122](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/122)]
+- Add nix flake for dev environment [[#110](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/110)]
+
 ## [1.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.1.2) - 2024-05-20
 
 ### Misc
