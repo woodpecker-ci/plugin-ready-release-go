@@ -78,9 +78,9 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   }
 
   const tags = await git.tags(['--sort=-creatordate']);
-  let latestTag = tags.latest;
+  let latestTag: string | undefined;
 
-  if (tags.all.length > 0 && config.user.sortTags) {
+  if (tags.all.length > 0) {
     const sortedTags = semver.rsort(tags.all.filter((tag) => semver.valid(tag)));
     latestTag = sortedTags[0];
   }
