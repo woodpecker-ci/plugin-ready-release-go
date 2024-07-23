@@ -108,12 +108,6 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
-
-  /**
-   * Run semver sort over tags before detecting latest tag
-   * @default true
-   */
-  sortTags: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
