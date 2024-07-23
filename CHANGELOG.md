@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-07-23
+
+### Misc
+
+- chore(deps): update dependency @types/node to v20.14.11 [[#147](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/147)]
+- fix(deps): update dependency @octokit/rest to v21.0.1 [[#148](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/148)]
+
 ## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-21
 
 ### ❤️ Thanks to all contributors! ❤️
