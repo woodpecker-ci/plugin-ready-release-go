@@ -251,7 +251,7 @@ exports[`change > 'should update existing changelog section' 1`] = `
 - FEATURES
   - Add ppc64le support (#8)
 - BUGFIXES
-  - Regognize "CI_*" EnvVars (#6)
+  - Regognize \`CI_*\` EnvVars (#6)
 - ENHANCEMENTS
   - Multiarch build (#8)
 - MISC
@@ -260,7 +260,7 @@ exports[`change > 'should update existing changelog section' 1`] = `
 `;
 
 exports[`change > should generate a changelog 1`] = `
-"## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/1.0.0) - 2000-02-01
+"## [1.0.0](https://github.com/woodpecker-ci/woodpecker/releases/tag/v1.0.0) - 2000-02-01
 
 ### ❤️ Thanks to all contributors! ❤️
 
