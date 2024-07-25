@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-07-23
+## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-07-25
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- fix(deps): update dependency semver to v7.6.3 [[#151](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/151)]
 - Revert "chore(deps): update vitest monorepo to v1.6.0 (#92)" ([d59ecb7](https://github.com/woodpecker-ci/plugin-ready-release-go/commit/d59ecb7bdee16d1bd02285b291b4196d6477909d))
 - Remove config option sortTags [[#150](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/150)]
 - chore(deps): update dependency @types/node to v20.14.11 [[#147](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/147)]
