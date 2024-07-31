@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-07-29
+## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-07-31
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,7 @@
 
 ### Misc
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4.2.0 [[#155](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/155)]
 - chore(deps): update dependency @types/node to v20.14.13 [[#152](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/152)]
 - chore(deps): update dependency typescript to v5.5.4 [[#153](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/153)]
 - fix(deps): update dependency semver to v7.6.3 [[#151](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/151)]
