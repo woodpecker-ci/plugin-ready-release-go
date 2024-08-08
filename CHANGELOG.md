@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-08-08
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### Misc
+
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.2.0 [[#159](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/159)]
+- [pre-commit.ci] pre-commit autoupdate [[#158](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/158)]
+- chore(deps): update dependency @types/node to v20.14.14 [[#156](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/156)]
+- fix(deps): update dependency tsx to v4.16.5 [[#157](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/157)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4.2.0 [[#155](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/155)]
+- chore(deps): update dependency @types/node to v20.14.13 [[#152](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/152)]
+- chore(deps): update dependency typescript to v5.5.4 [[#153](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/153)]
+- fix(deps): update dependency semver to v7.6.3 [[#151](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/151)]
+- Revert "chore(deps): update vitest monorepo to v1.6.0 (#92)" ([d59ecb7](https://github.com/woodpecker-ci/plugin-ready-release-go/commit/d59ecb7bdee16d1bd02285b291b4196d6477909d))
+- Remove config option sortTags [[#150](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/150)]
+- chore(deps): update dependency @types/node to v20.14.11 [[#147](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/147)]
+- fix(deps): update dependency @octokit/rest to v21.0.1 [[#148](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/148)]
+
 ## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-21
 
 ### ❤️ Thanks to all contributors! ❤️
