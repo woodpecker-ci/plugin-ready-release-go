@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-08-11
+## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-08-26
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,10 @@
 
 ### Misc
 
+- chore(deps): update dependency @types/node to v20.16.1 [[#165](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/165)]
+- fix(deps): update dependency tsx to v4.18.0 [[#166](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/166)]
+- fix(deps): update dependency execa to v9.3.1 [[#164](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/164)]
+- fix(deps): update dependency @octokit/rest to v21.0.2 [[#163](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/163)]
 - chore(deps): update dependency @types/node to v20.14.15 [[#161](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/161)]
 - fix(deps): update dependency tsx to v4.17.0 [[#162](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/162)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.2.0 [[#159](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/159)]
