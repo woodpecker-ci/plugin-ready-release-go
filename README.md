@@ -33,10 +33,12 @@ To change it, create a `release-config.ts` at the repository root and overwrite 
 
 ```ts
 export default {
-  changeTypes: [{
-    // CUSTOM LABEL CONFIG HERE
-  }]
-}
+  changeTypes: [
+    {
+      // CUSTOM LABEL CONFIG HERE
+    },
+  ],
+};
 ```
 
 ## Workflow
