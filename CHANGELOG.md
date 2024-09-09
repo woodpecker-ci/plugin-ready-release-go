@@ -1,10 +1,14 @@
 # Changelog
 
-## [1.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.1) - 2024-09-09
+## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-09
 
 ### ❤️ Thanks to all contributors! ❤️
 
 @6543, @pat-s
+
+### 💥 Breaking changes
+
+- Remove config option sortTags [[#150](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/150)]
 
 ### 📚 Documentation
 
@@ -12,6 +16,7 @@
 
 ### Misc
 
+- Update nix flake and pin nodejs to v20 [[#174](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/174)]
 - fix(deps): update dependency picocolors to v1.1.0 [[#173](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/173)]
 - chore(deps): update dependency @types/node to v20.16.5 [[#172](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/172)]
 - chore(deps): update dependency @types/node to v20.16.3 [[#170](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/170)]
@@ -33,7 +38,6 @@
 - chore(deps): update dependency typescript to v5.5.4 [[#153](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/153)]
 - fix(deps): update dependency semver to v7.6.3 [[#151](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/151)]
 - Revert "chore(deps): update vitest monorepo to v1.6.0 (#92)" ([d59ecb7](https://github.com/woodpecker-ci/plugin-ready-release-go/commit/d59ecb7bdee16d1bd02285b291b4196d6477909d))
-- Remove config option sortTags [[#150](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/150)]
 - chore(deps): update dependency @types/node to v20.14.11 [[#147](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/147)]
 - fix(deps): update dependency @octokit/rest to v21.0.1 [[#148](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/148)]
 
