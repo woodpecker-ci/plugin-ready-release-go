@@ -32,7 +32,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^20.9.4
-        version: 20.16.3
+        version: 20.16.5
       '@types/semver':
         specifier: ^7.5.0
         version: 7.5.8
@@ -50,7 +50,7 @@ importers:
         version: 5.5.4
       vitest:
         specifier: ^1.0.0
-        version: 1.1.3(@types/node@20.16.3)(@vitest/ui@1.1.3)
+        version: 1.1.3(@types/node@20.16.5)(@vitest/ui@1.1.3)
 
 packages:
 
@@ -500,8 +500,8 @@ packages:
   '@types/minimatch@5.1.2':
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
 
-  '@types/node@20.16.3':
-    resolution: {integrity: sha512-/wdGiWRkMOm53gAsSyFMXFZHbVg7C6CbkrzHNpaHoYfsUWPg7m6ZRKtvQjgvQ9i8WT540a3ydRlRQbxjY30XxQ==}
+  '@types/node@20.16.5':
+    resolution: {integrity: sha512-VwYCweNo3ERajwy0IUlqqcyZ8/A7Zwa9ZP3MnENWcB11AejO+tLy3pu850goUW2FC/IJMdZUfKpX/yxL1gymCA==}
 
   '@types/semver@7.5.8':
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
@@ -1337,11 +1337,11 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.16.3
+      '@types/node': 20.16.5
 
   '@types/minimatch@5.1.2': {}
 
-  '@types/node@20.16.3':
+  '@types/node@20.16.5':
     dependencies:
       undici-types: 6.19.8
 
@@ -1350,7 +1350,7 @@ snapshots:
   '@types/shelljs@0.8.15':
     dependencies:
       '@types/glob': 7.2.0
-      '@types/node': 20.16.3
+      '@types/node': 20.16.5
 
   '@vitest/expect@1.1.3':
     dependencies:
@@ -1383,7 +1383,7 @@ snapshots:
       pathe: 1.1.1
       picocolors: 1.0.1
       sirv: 2.0.4
-      vitest: 1.1.3(@types/node@20.16.3)(@vitest/ui@1.1.3)
+      vitest: 1.1.3(@types/node@20.16.5)(@vitest/ui@1.1.3)
 
   '@vitest/utils@1.1.3':
     dependencies:
@@ -1850,13 +1850,13 @@ snapshots:
 
   universal-user-agent@7.0.2: {}
 
-  vite-node@1.1.3(@types/node@20.16.3):
+  vite-node@1.1.3(@types/node@20.16.5):
     dependencies:
       cac: 6.7.14
       debug: 4.3.4
       pathe: 1.1.1
       picocolors: 1.0.1
-      vite: 5.0.11(@types/node@20.16.3)
+      vite: 5.0.11(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -1867,16 +1867,16 @@ snapshots:
       - supports-color
       - terser
 
-  vite@5.0.11(@types/node@20.16.3):
+  vite@5.0.11(@types/node@20.16.5):
     dependencies:
       esbuild: 0.19.12
       postcss: 8.4.33
       rollup: 4.9.4
     optionalDependencies:
-      '@types/node': 20.16.3
+      '@types/node': 20.16.5
       fsevents: 2.3.3
 
-  vitest@1.1.3(@types/node@20.16.3)(@vitest/ui@1.1.3):
+  vitest@1.1.3(@types/node@20.16.5)(@vitest/ui@1.1.3):
     dependencies:
       '@vitest/expect': 1.1.3
       '@vitest/runner': 1.1.3
@@ -1896,11 +1896,11 @@ snapshots:
       strip-literal: 1.3.0
       tinybench: 2.5.1
       tinypool: 0.8.1
-      vite: 5.0.11(@types/node@20.16.3)
-      vite-node: 1.1.3(@types/node@20.16.3)
+      vite: 5.0.11(@types/node@20.16.5)
+      vite-node: 1.1.3(@types/node@20.16.5)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      '@types/node': 20.16.3
+      '@types/node': 20.16.5
       '@vitest/ui': 1.1.3(vitest@1.1.3)
     transitivePeerDependencies:
       - less
