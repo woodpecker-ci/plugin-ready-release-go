@@ -1,9 +1,7 @@
 ---
 name: Release Helper
-icon: https://woodpecker-ci.org/img/logo.svg
-
 description: Plugin for semi-automated releases.
-authors: Woodpecker Authors
+author: Woodpecker Authors
 tags: [git, release]
 containerImage: woodpeckerci/plugin-ready-release-go
 containerImageUrl: https://hub.docker.com/r/woodpeckerci/plugin-ready-release-go
@@ -62,7 +60,7 @@ Add a `release-config.ts` file to the root of your repository. Have a look at th
 export default {
   commentOnReleasedPullRequests: false,
 };
-````
+```
 
 The plugin also supports executing custom hooks which can e.g. help to perform additional actions during a release (e.g. updating a helm chart's `appVersion` field):
 
