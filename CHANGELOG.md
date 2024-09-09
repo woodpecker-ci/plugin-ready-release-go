@@ -8,6 +8,7 @@
 
 ### Misc
 
+- fix(deps): update dependency picocolors to v1.1.0 [[#173](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/173)]
 - chore(deps): update dependency @types/node to v20.16.5 [[#172](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/172)]
 - chore(deps): update dependency @types/node to v20.16.3 [[#170](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/170)]
 - fix(deps): update dependency simple-git to v3.26.0 [[#171](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/171)]
