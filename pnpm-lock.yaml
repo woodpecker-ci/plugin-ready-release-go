@@ -16,7 +16,7 @@ importers:
         version: 9.3.1
       picocolors:
         specifier: ^1.0.0
-        version: 1.0.1
+        version: 1.1.0
       semver:
         specifier: ^7.5.3
         version: 7.6.3
@@ -821,8 +821,8 @@ packages:
   pathval@1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
 
-  picocolors@1.0.1:
-    resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
+  picocolors@1.1.0:
+    resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
 
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -1381,7 +1381,7 @@ snapshots:
       fflate: 0.8.1
       flatted: 3.2.9
       pathe: 1.1.1
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       sirv: 2.0.4
       vitest: 1.1.3(@types/node@20.16.5)(@vitest/ui@1.1.3)
 
@@ -1704,7 +1704,7 @@ snapshots:
 
   pathval@1.1.1: {}
 
-  picocolors@1.0.1: {}
+  picocolors@1.1.0: {}
 
   picomatch@2.3.1: {}
 
@@ -1717,7 +1717,7 @@ snapshots:
   postcss@8.4.33:
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       source-map-js: 1.0.2
 
   prettier@3.3.3: {}
@@ -1855,7 +1855,7 @@ snapshots:
       cac: 6.7.14
       debug: 4.3.4
       pathe: 1.1.1
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       vite: 5.0.11(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
@@ -1891,7 +1891,7 @@ snapshots:
       local-pkg: 0.5.0
       magic-string: 0.30.5
       pathe: 1.1.1
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       std-env: 3.7.0
       strip-literal: 1.3.0
       tinybench: 2.5.1
