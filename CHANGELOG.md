@@ -10,6 +10,10 @@
 
 - Remove config option sortTags [[#150](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/150)]
 
+### 📈 Enhancement
+
+- Display stack on global try-catch if an unexpected error ocured [[#176](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/176)]
+
 ### 📚 Documentation
 
 - Describe custom label config [[#31](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/31)]
