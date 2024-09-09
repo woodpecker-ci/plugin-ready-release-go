@@ -22,7 +22,7 @@ export async function getForge(config: Config): Promise<Forge> {
     }
 
     if (!config.ci.forgeURL) {
-      throw new Error('Please provide the `gitea_url` to your Gitea instance');
+      throw new Error('Please provide the `forge_url` to your Gitea instance');
     }
 
     return new GiteaForge(config.ci.forgeURL, config.ci.forgeToken, config.ci.gitEmail);
