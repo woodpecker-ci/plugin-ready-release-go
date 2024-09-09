@@ -178,19 +178,4 @@ export class GithubForge extends Forge {
   getReleaseUrl(owner: string, repo: string, release: string): string {
     return `https://github.com/${owner}/${repo}/releases/tag/${release}`;
   }
-
-  async getPullRequestComments(owner: string, repo: string, pullRequestNumber: number): Promise<Comment[]> {
-    const comments = await this.octokit.paginate(this.octokit.issues.listComments, {
-      owner,
-      repo,
-      issue_number: pullRequestNumber,
-    });
-
-    return comments.map((comment) => ({
-      id: comment.id.toString(),
-      body: comment.body!,
-      author: comment.user?.login!,
-      createdAt: comment.created_at,
-    }));
-  }
 }
