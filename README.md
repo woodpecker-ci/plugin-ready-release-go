@@ -25,6 +25,22 @@ steps:
       # debug: true
 ```
 
+## Configuring PR label categorization
+
+The plugin automatically categorizes every pull-request based on it's labels.
+The default labels are defined [here](https://github.com/woodpecker-ci/plugin-ready-release-go/blob/main/src/utils/config.ts#L25).
+To change it, create a `release-config.ts` at the repository root and overwrite the `changeTypes` property:
+
+```ts
+export default {
+  changeTypes: [
+    {
+      // CUSTOM LABEL CONFIG HERE
+    },
+  ],
+};
+```
+
 ## Workflow
 
 1. Setup ready-release-go on your repository by adding a config file and a workflow file
