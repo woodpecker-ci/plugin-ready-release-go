@@ -4,7 +4,11 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@6543
+@6543, @pat-s
+
+### 📚 Documentation
+
+- Describe custom label config [[#31](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/31)]
 
 ### Misc
 
