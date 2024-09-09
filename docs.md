@@ -44,13 +44,15 @@ There are two parts to configure the plugin:
 
 ### 1. Most basic options can be configured via plugin settings
 
-| Settings                     | Default                | Description                                       |
-| ---------------------------- | ---------------------- | ------------------------------------------------- |
-| `GITHUB_TOKEN`               | _none_                 | The GitHub token to use for the GitHub API        |
-| `GIT_EMAIL`                  | _none_                 | The email to use for git commits                  |
-| `RELEASE_BRANCH`             | CI_REPO_DEFAULT_BRANCH | The branch used to merge the changelog to         |
-| `PULL_REQUEST_BRANCH_PREFIX` | `next-release/`        | The prefix used for release pull-request branches |
-| `DEBUG`                      | `false`                | Enable debug logging                              |
+| Settings                     | Default                | Description                                              |
+| ---------------------------- | ---------------------- | -------------------------------------------------------- |
+| `FORGE_TYPE`                 | CI_FORGE_TYPE          | The forge type we connect to (github, gitea, ...)        |
+| `FORGE_URL`                  | CI_FORGE_URL           | The url to the forge used for the API client             |
+| `FORGE_TOKEN`, `GITHUB_TOKEN`| _none_                 | The auth token to use for the forge API (e.g. github API)|
+| `GIT_EMAIL`                  | _none_                 | The email to use for git commits                         |
+| `RELEASE_BRANCH`             | CI_REPO_DEFAULT_BRANCH | The branch used to merge the changelog to                |
+| `PULL_REQUEST_BRANCH_PREFIX` | `next-release/`        | The prefix used for release pull-request branches        |
+| `DEBUG`                      | `false`                | Enable debug logging                                     |
 
 ### 2. Using a `release-config.ts` file in your repository
 
