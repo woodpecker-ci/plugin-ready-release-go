@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-09
+## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-10
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -12,6 +12,7 @@
 
 ### 📈 Enhancement
 
+- Remove unused options from github provider [[#175](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/175)]
 - Display stack on global try-catch if an unexpected error ocured [[#176](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/176)]
 
 ### 📚 Documentation
