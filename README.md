@@ -67,7 +67,8 @@ export default {
 - [x] Support defining next version manually (can be done by changing the version on the release pull-request title / commit message)
 - [ ] Support more forges:
   - [x] Github
-  - [x] Gitea / Forgejo
+  - [x] Gitea
+  - [x] Forgejo _(via gitea api client)_
   - [ ] Gitlab
   - [ ] Bitbucket
 
