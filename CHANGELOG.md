@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-10
+## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-16
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -21,6 +21,8 @@
 
 ### Misc
 
+- chore(deps): update dependency typescript to v5.6.2 [[#178](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/178)]
+- fix(deps): update dependency tsx to v4.19.1 [[#177](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/177)]
 - Update nix flake and pin nodejs to v20 [[#174](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/174)]
 - fix(deps): update dependency picocolors to v1.1.0 [[#173](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/173)]
 - chore(deps): update dependency @types/node to v20.16.5 [[#172](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/172)]
