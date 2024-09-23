@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-16
+## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-23
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -21,6 +21,8 @@
 
 ### Misc
 
+- fix(deps): update dependency execa to v9.4.0 [[#179](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/179)]
+- fix(deps): update dependency simple-git to v3.27.0 [[#180](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/180)]
 - chore(deps): update dependency typescript to v5.6.2 [[#178](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/178)]
 - fix(deps): update dependency tsx to v4.19.1 [[#177](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/177)]
 - Update nix flake and pin nodejs to v20 [[#174](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/174)]
