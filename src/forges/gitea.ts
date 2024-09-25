@@ -175,6 +175,6 @@ export class GiteaForge extends Forge {
   }
 
   getReleaseUrl(owner: string, repo: string, release: string): string {
-    return `${this.url}/${owner}/${repo}/releases/tags/${release}`;
+    return `${this.url}/${owner}/${repo}/releases/tag/${release}`;
   }
 }
