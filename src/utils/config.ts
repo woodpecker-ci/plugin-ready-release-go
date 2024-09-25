@@ -64,8 +64,7 @@ export const defaultUserConfig: UserConfig = {
     {
       title: '⚙️ Dependency',
       labels: ['dependency', 'dependencies'],
-      bump: 'patch',
-      default: true,
+      bump: 'patch'
     },
   ],
   skipLabels: ['skip-release', 'skip-changelog', 'regression'],
