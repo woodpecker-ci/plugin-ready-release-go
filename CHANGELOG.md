@@ -4,11 +4,15 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@6543, @pat-s
+@6543, @anbraten, @pat-s
 
 ### 💥 Breaking changes
 
 - Remove config option sortTags [[#150](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/150)]
+
+### ✨ Features
+
+- Add gitea / forgejo support [[#28](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/28)]
 
 ### 📈 Enhancement
 
