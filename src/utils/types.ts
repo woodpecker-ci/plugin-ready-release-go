@@ -1,5 +1,5 @@
 import type { ExecFunction } from 'shelljs';
-import type { Forge, PullRequest } from '../forges/forge';
+import type { Forge } from '../forges/forge';
 import type { Config } from './config';
 import type { SimpleGit } from 'simple-git';
 
