@@ -58,7 +58,7 @@ export function getChangeLogSection(
 
   const changeSections = changes.reduce((acc, change) => {
     const changeType =
-      config.user.changeTypes!.find((c) => c.labels.some((l) => change.labels.includes(l))) || defaultChangeType;
+      config.user.changeTypes!.find((c) => c.labels.some((l) => change.labels.includes(l))) ?? defaultChangeType;
 
     if (!changeType) {
       return acc;
@@ -83,7 +83,7 @@ export function getChangeLogSection(
   }, new Map<string, { title: string; weight?: number; changes: string[]; default: boolean }>());
 
   const changeLog = Array.from(changeSections.values())
-    .sort((a, b) => (b.weight || (b.default ? -1 : 0)) - (a.weight || (a.default ? -1 : 0)))
+    .sort((a, b) => (b.weight ?? 0) - (a.weight ?? 0))
     .map((changeSection) => {
       return `### ${changeSection.title}\n\n${changeSection.changes.filter((c) => c !== '').join('\n')}`;
     })
@@ -145,7 +145,7 @@ export function updateChangelogSection(
     .filter((s) => semver.compare(s.version, latestVersion) !== 1) // filter out sections that are older than the latest version as they are not released and should not be in the changelog
     .filter(
       (s) =>
-        semver.prerelease(s.version) === null || !s.version.replace(/^v/, '').startsWith(nextVersion.replace(/^v/, '')),
+        semver.prerelease(s.version) === null ?? !s.version.replace(/^v/, '').startsWith(nextVersion.replace(/^v/, '')),
       // filter out prerelease versions if the next version is not a prerelease
     );
 

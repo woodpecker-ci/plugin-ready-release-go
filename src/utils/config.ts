@@ -56,15 +56,17 @@ export const defaultUserConfig: UserConfig = {
       bump: 'patch',
     },
     {
+      title: '📦️ Dependency',
+      labels: ['dependency', 'dependencies'],
+      bump: 'patch',
+      weight: -1,
+    },
+    {
       title: 'Misc',
       labels: ['misc', 'chore 🧰'],
       bump: 'patch',
       default: true,
-    },
-    {
-      title: '⚙️ Dependency',
-      labels: ['dependency', 'dependencies'],
-      bump: 'patch'
+      weight: -2,
     },
   ],
   skipLabels: ['skip-release', 'skip-changelog', 'regression'],
