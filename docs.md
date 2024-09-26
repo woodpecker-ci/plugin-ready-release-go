@@ -22,7 +22,7 @@ steps:
     settings:
       # release_branch: 'custom-release-branch' # default: CI_REPO_DEFAULT_BRANCH
       git_email: <email>
-      github_token:
+      forge_token:
         from_secret: GITHUB_TOKEN
 
 when:
