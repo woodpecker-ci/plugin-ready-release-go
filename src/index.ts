@@ -47,7 +47,6 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
     const remote = remotes[0].refs.push.replace('://', `://${credentials.username}:${credentials.password}@`);
     await git.removeRemote(remotes[0].name);
     await git.addRemote(remotes[0].name, remote);
-    console.log('# Remote updated with credentials.');
   }
 
   const { releaseBranch } = config.ci;
@@ -56,7 +55,6 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   await git.checkout(releaseBranch);
   await git.branch(['--set-upstream-to', `origin/${releaseBranch}`]);
   await git.pull();
-  console.log('# Checked out release branch:', c.green(releaseBranch));
 
   const isReleaseCommit = config.ci.commitMessage?.startsWith(config.ci.releasePrefix);
 
