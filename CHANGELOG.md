@@ -1,5 +1,61 @@
 # Changelog
 
+## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @anbraten, @pat-s
+
+### 💥 Breaking changes
+
+- Remove config option sortTags [[#150](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/150)]
+
+### ✨ Features
+
+- Add gitea / forgejo support [[#28](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/28)]
+
+### 📈 Enhancement
+
+- Remove unused options from github provider [[#175](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/175)]
+- Display stack on global try-catch if an unexpected error ocured [[#176](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/176)]
+
+### 📚 Documentation
+
+- Describe custom label config [[#31](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/31)]
+
+### Misc
+
+- Adjust dependency section [[#182](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/182)]
+- Add "dependency" to default changeTypes [[#181](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/181)]
+- fix(deps): update dependency execa to v9.4.0 [[#179](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/179)]
+- fix(deps): update dependency simple-git to v3.27.0 [[#180](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/180)]
+- chore(deps): update dependency typescript to v5.6.2 [[#178](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/178)]
+- fix(deps): update dependency tsx to v4.19.1 [[#177](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/177)]
+- Update nix flake and pin nodejs to v20 [[#174](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/174)]
+- fix(deps): update dependency picocolors to v1.1.0 [[#173](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/173)]
+- chore(deps): update dependency @types/node to v20.16.5 [[#172](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/172)]
+- chore(deps): update dependency @types/node to v20.16.3 [[#170](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/170)]
+- fix(deps): update dependency simple-git to v3.26.0 [[#171](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/171)]
+- chore(deps): update dependency @types/node to v20.16.2 [[#168](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/168)]
+- fix(deps): update dependency tsx to v4.19.0 [[#169](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/169)]
+- chore(deps): update dependency @types/node to v20.16.1 [[#165](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/165)]
+- fix(deps): update dependency tsx to v4.18.0 [[#166](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/166)]
+- fix(deps): update dependency execa to v9.3.1 [[#164](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/164)]
+- fix(deps): update dependency @octokit/rest to v21.0.2 [[#163](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/163)]
+- chore(deps): update dependency @types/node to v20.14.15 [[#161](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/161)]
+- fix(deps): update dependency tsx to v4.17.0 [[#162](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/162)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v1.2.0 [[#159](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/159)]
+- [pre-commit.ci] pre-commit autoupdate [[#158](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/158)]
+- chore(deps): update dependency @types/node to v20.14.14 [[#156](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/156)]
+- fix(deps): update dependency tsx to v4.16.5 [[#157](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/157)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4.2.0 [[#155](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/155)]
+- chore(deps): update dependency @types/node to v20.14.13 [[#152](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/152)]
+- chore(deps): update dependency typescript to v5.5.4 [[#153](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/153)]
+- fix(deps): update dependency semver to v7.6.3 [[#151](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/151)]
+- Revert "chore(deps): update vitest monorepo to v1.6.0 (#92)" ([d59ecb7](https://github.com/woodpecker-ci/plugin-ready-release-go/commit/d59ecb7bdee16d1bd02285b291b4196d6477909d))
+- chore(deps): update dependency @types/node to v20.14.11 [[#147](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/147)]
+- fix(deps): update dependency @octokit/rest to v21.0.1 [[#148](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/148)]
+
 ## [1.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/1.2.0) - 2024-07-21
 
 ### ❤️ Thanks to all contributors! ❤️
