@@ -145,7 +145,7 @@ export function updateChangelogSection(
     .filter((s) => semver.compare(s.version, latestVersion) !== 1) // filter out sections that are older than the latest version as they are not released and should not be in the changelog
     .filter(
       (s) =>
-        semver.prerelease(s.version) === null ?? !s.version.replace(/^v/, '').startsWith(nextVersion.replace(/^v/, '')),
+        semver.prerelease(s.version) === null || !s.version.replace(/^v/, '').startsWith(nextVersion.replace(/^v/, '')),
       // filter out prerelease versions if the next version is not a prerelease
     );
 
