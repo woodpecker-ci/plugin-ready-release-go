@@ -77,6 +77,8 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
     shouldBeRC = getReleaseOptions(releasePullRequest).nextVersionShouldBeRC;
   }
 
+  console.log('# Should next version be a release candidate:', c.green(shouldBeRC ? 'yes' : 'no'));
+
   const tags = await git.tags(['--sort=-creatordate']);
   let latestTag = tags.latest;
 
