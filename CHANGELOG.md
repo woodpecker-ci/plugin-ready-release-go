@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-09-26
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 📚 Documentation
+
+- Use the general setting for github token example [[#183](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/183)]
+
 ## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
 
 ### ❤️ Thanks to all contributors! ❤️
