@@ -16,6 +16,7 @@
   "dependencies": {
     "@octokit/rest": "^21.0.0",
     "execa": "^9.0.0",
+    "gitea-js": "^1.22.0",
     "picocolors": "^1.0.0",
     "semver": "^7.5.3",
     "shelljs": "^0.8.5",

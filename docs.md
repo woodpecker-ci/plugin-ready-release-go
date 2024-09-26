@@ -46,7 +46,9 @@ There are two parts to configure the plugin:
 
 | Settings                     | Default                | Description                                       |
 | ---------------------------- | ---------------------- | ------------------------------------------------- |
-| `GITHUB_TOKEN`               | _none_                 | The GitHub token to use for the GitHub API        |
+| `FORGE_TYPE`                 | CI_FORGE_TYPE          | The forge type we connect to (github, gitea, ...) |
+| `FORGE_URL`                  | CI_FORGE_URL           | The url of the forge                              |
+| `FORGE_TOKEN`                | _none_                 | The token to connect to the forge                 |
 | `GIT_EMAIL`                  | _none_                 | The email to use for git commits                  |
 | `RELEASE_BRANCH`             | CI_REPO_DEFAULT_BRANCH | The branch used to merge the changelog to         |
 | `PULL_REQUEST_BRANCH_PREFIX` | `next-release/`        | The prefix used for release pull-request branches |
