@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-25
+## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -21,6 +21,7 @@
 
 ### Misc
 
+- Adjust dependency section [[#182](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/182)]
 - Add "dependency" to default changeTypes [[#181](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/181)]
 - fix(deps): update dependency execa to v9.4.0 [[#179](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/179)]
 - fix(deps): update dependency simple-git to v3.27.0 [[#180](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/180)]
