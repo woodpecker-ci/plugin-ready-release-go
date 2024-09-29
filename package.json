@@ -4,7 +4,6 @@
   "description": "",
   "license": "MIT",
   "author": "Woodpecker Maintainers",
-  "main": "dist/run.js",
   "scripts": {
     "start": "tsx src/run.ts",
     "build": "tsx src/run.ts --out-dir dist",
@@ -23,7 +22,6 @@
     "tsx": "^4.3.0"
   },
   "devDependencies": {
-    "@types/node": "^20.9.4",
     "@types/semver": "^7.5.0",
     "@types/shelljs": "^0.8.11",
     "@vitest/ui": "^1.0.0",

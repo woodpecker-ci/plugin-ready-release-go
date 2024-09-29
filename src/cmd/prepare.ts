@@ -2,7 +2,6 @@ import c from 'picocolors';
 
 import { CommandContext, HookContext } from '../utils/types.ts';
 import { updateChangelogSection, getChangeLogSection } from '../utils/change.ts';
-import { promises as fs } from 'node:fs';
 
 export async function prepare(cmdCtx: CommandContext) {
   const {
@@ -65,14 +64,20 @@ export async function prepare(cmdCtx: CommandContext) {
   const tag = useVersionPrefixV && !nextVersion.startsWith('v') ? `v${nextVersion}` : nextVersion;
 
   let oldChangelog = '';
-  if (await fs.stat('CHANGELOG.md').catch(() => false)) {
-    oldChangelog = await fs.readFile('CHANGELOG.md', 'utf-8');
+  try {
+    await Deno.stat('CHANGELOG.md');
+    oldChangelog = await Deno.readTextFile('CHANGELOG.md');
+  } catch (error) {
+    if (!(error instanceof Deno.errors.NotFound)) {
+      throw error;
+    }
   }
+
   const newChangelogSection = getChangeLogSection(nextVersion, tag, config, changes, forge, true);
   const changelog = updateChangelogSection(latestVersion, nextVersion, oldChangelog, newChangelogSection);
 
   console.log('# Updating CHANGELOG.md');
-  await fs.writeFile('CHANGELOG.md', changelog);
+  await Deno.writeTextFile('CHANGELOG.md', changelog);
 
   const { isClean } = await git.status();
   if (!isClean()) {

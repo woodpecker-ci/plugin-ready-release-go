@@ -1,4 +1,3 @@
-import path from 'node:path';
 import { UserConfig } from './types.ts';
 
 const ciConfig = {
@@ -77,16 +76,22 @@ export const defaultUserConfig: UserConfig = {
 export async function getConfig(): Promise<Config> {
   const userConfig: UserConfig = {};
 
-  const configFilePath = ciConfig.configFile || path.join(Deno.cwd(), 'release-config.ts');
-  if (
-    await Deno.stat(configFilePath)
-      .then(() => true)
-      .catch(() => false)
-  ) {
+  const configFileName = 'release-config.ts';
+  const configFilePath = ciConfig.configFile || Deno.cwd() + (Deno.cwd().endsWith('/') ? '' : '/') + configFileName;
+
+  try {
+    await Deno.stat(configFilePath);
     console.log('# Loading config from', configFilePath, '...');
     const _userConfig = await import(configFilePath);
     Object.assign(userConfig, _userConfig.default);
     console.log('# Loaded config from', configFilePath);
+  } catch (error) {
+    if (error instanceof Deno.errors.NotFound) {
+      console.log('# No config file found at', configFilePath, '. Using default configuration.');
+    } else {
+      console.error('# Error loading config:', error.message);
+    }
+    // Proceed with default configuration
   }
 
   return {
