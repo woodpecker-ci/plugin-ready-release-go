@@ -20,7 +20,6 @@
     "picocolors": "^1.0.0",
     "semver": "^7.5.3",
     "shelljs": "^0.8.5",
-    "simple-git": "^3.21.0",
     "tsx": "^4.3.0"
   },
   "devDependencies": {

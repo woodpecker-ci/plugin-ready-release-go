@@ -1,22 +1,21 @@
-import path from 'path';
-import { UserConfig } from './types';
-import { promises as fs } from 'fs';
+import path from 'node:path';
+import { UserConfig } from './types.ts';
 
 const ciConfig = {
-  configFile: process.env.PLUGIN_CONFIG_FILE,
-  isCI: process.env.CI === 'woodpecker',
-  eventType: process.env.CI_PIPELINE_EVENT,
-  releaseBranch: process.env.PLUGIN_RELEASE_BRANCH || process.env.CI_REPO_DEFAULT_BRANCH || 'main',
-  commitMessage: process.env.CI_COMMIT_MESSAGE,
-  forgeType: process.env.PLUGIN_FORGE_TYPE || process.env.CI_FORGE_TYPE,
-  forgeToken: process.env.PLUGIN_FORGE_TOKEN || process.env.PLUGIN_GITHUB_TOKEN,
-  forgeURL: process.env.PLUGIN_FORGE_URL || process.env.CI_FORGE_URL,
-  gitEmail: process.env.PLUGIN_GIT_EMAIL,
-  repoOwner: process.env.CI_REPO_OWNER,
-  repoName: process.env.CI_REPO_NAME,
-  pullRequestBranchPrefix: process.env.PLUGIN_PULL_REQUEST_BRANCH_PREFIX || 'next-release/',
+  configFile: Deno.env.get('PLUGIN_CONFIG_FILE'),
+  isCI: Deno.env.get('CI') === 'woodpecker',
+  eventType: Deno.env.get('CI_PIPELINE_EVENT'),
+  releaseBranch: Deno.env.get('PLUGIN_RELEASE_BRANCH') || Deno.env.get('CI_REPO_DEFAULT_BRANCH') || 'main',
+  commitMessage: Deno.env.get('CI_COMMIT_MESSAGE'),
+  forgeType: Deno.env.get('PLUGIN_FORGE_TYPE') || Deno.env.get('CI_FORGE_TYPE'),
+  forgeToken: Deno.env.get('PLUGIN_FORGE_TOKEN') || Deno.env.get('PLUGIN_GITHUB_TOKEN'),
+  forgeURL: Deno.env.get('PLUGIN_FORGE_URL') || Deno.env.get('CI_FORGE_URL'),
+  gitEmail: Deno.env.get('PLUGIN_GIT_EMAIL'),
+  repoOwner: Deno.env.get('CI_REPO_OWNER'),
+  repoName: Deno.env.get('CI_REPO_NAME'),
+  pullRequestBranchPrefix: Deno.env.get('PLUGIN_PULL_REQUEST_BRANCH_PREFIX') || 'next-release/',
   releasePrefix: '🎉 Release',
-  debug: process.env.PLUGIN_DEBUG === 'true',
+  debug: Deno.env.get('PLUGIN_DEBUG') === 'true',
 };
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
@@ -78,10 +77,9 @@ export const defaultUserConfig: UserConfig = {
 export async function getConfig(): Promise<Config> {
   const userConfig: UserConfig = {};
 
-  const configFilePath = ciConfig.configFile || path.join(process.cwd(), 'release-config.ts');
+  const configFilePath = ciConfig.configFile || path.join(Deno.cwd(), 'release-config.ts');
   if (
-    await fs
-      .stat(configFilePath)
+    await Deno.stat(configFilePath)
       .then(() => true)
       .catch(() => false)
   ) {

@@ -1,8 +1,8 @@
 import c from 'picocolors';
-import { run } from './index';
-import { getConfig } from './utils/config';
-import { getForge } from './forges';
-import simpleGit from 'simple-git';
+import { run } from './index.ts';
+import { getConfig } from './utils/config.ts';
+import { getForge } from './forges/index.ts';
+import { simpleGit } from './utils/git.ts';
 
 async function main() {
   try {
@@ -20,7 +20,7 @@ async function main() {
           (error.stack ? `\n\t${error.stack}` : ''),
       ),
     );
-    process.exit(1);
+    Deno.exit(1);
   }
 }
 

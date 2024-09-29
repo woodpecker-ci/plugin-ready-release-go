@@ -1,7 +1,7 @@
 import semver from 'semver';
-import { Change, UserConfig } from './types';
-import { Config } from './config';
-import { Forge } from '../forges/forge';
+import { Change, UserConfig } from './types.ts';
+import { Config } from './config.ts';
+import { Forge } from '../forges/forge.ts';
 
 export function getNextVersionFromLabels(
   lastVersion: string,

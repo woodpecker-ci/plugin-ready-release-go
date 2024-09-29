@@ -1,4 +1,4 @@
-import { Forge, PullRequest } from './forge';
+import { Forge, PullRequest } from './forge.ts';
 import { giteaApi, Api } from 'gitea-js';
 
 export class GiteaForge extends Forge {
