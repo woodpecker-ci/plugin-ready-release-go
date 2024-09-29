@@ -15,7 +15,8 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            onefetch
+            deno
+            unzip
 
             nodejs_20
             nodejs.pkgs.pnpm
@@ -24,7 +25,7 @@
             nodePackages.typescript-language-server
           ];
           shellHook = ''
-            onefetch --number-of-authors 5
+            ${pkgs.onefetch}/bin/onefetch --number-of-authors 5
           '';
         };
       }

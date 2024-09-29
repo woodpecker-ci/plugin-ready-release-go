@@ -1,4 +1,4 @@
-import { Comment, Forge, PullRequest } from './forge';
+import { Comment, Forge, PullRequest } from './forge.ts';
 import { Octokit } from '@octokit/rest';
 
 export class GithubForge extends Forge {

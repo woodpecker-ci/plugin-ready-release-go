@@ -1,7 +1,7 @@
 import type { ExecFunction } from 'shelljs';
-import type { Forge } from '../forges/forge';
-import type { Config } from './config';
-import type { SimpleGit } from 'simple-git';
+import type { Forge } from '../forges/forge.ts';
+import type { Config } from './config.ts';
+import type { SimpleGit } from './git.ts';
 
 export type PromiseOrValue<T> = Promise<T> | T;
 

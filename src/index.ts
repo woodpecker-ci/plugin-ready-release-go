@@ -1,19 +1,19 @@
 import shelljs from 'shelljs';
 import c from 'picocolors';
-import type { SimpleGit } from 'simple-git';
+import type { SimpleGit } from './utils/git.ts';
 import semver from 'semver';
 
-import { prepare } from './cmd/prepare';
-import { release } from './cmd/release';
-import type { Config } from './utils/config';
-import type { Change, CommandContext, HookContext } from './utils/types';
-import { extractVersionFromCommitMessage, getNextVersionFromLabels } from './utils/change';
-import { getReleaseOptions } from './utils/pr';
-import { Forge } from './forges/forge';
+import { prepare } from './cmd/prepare.ts';
+import { release } from './cmd/release.ts';
+import type { Config } from './utils/config.ts';
+import type { Change, CommandContext, HookContext } from './utils/types.ts';
+import { extractVersionFromCommitMessage, getNextVersionFromLabels } from './utils/change.ts';
+import { getReleaseOptions } from './utils/pr.ts';
+import { Forge } from './forges/forge.ts';
 
 export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge; config: Config }) {
   if (config.ci.debug) {
-    process.env.DEBUG = 'simple-git';
+    console.log('Debug mode enabled');
   }
 
   const hookCtx: HookContext = {
@@ -83,7 +83,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   let latestTag = tags.latest;
 
   if (tags.all.length > 0) {
-    const sortedTags = semver.rsort(tags.all.filter((tag) => semver.valid(tag)));
+    const sortedTags = semver.rsort(tags.all.filter((tag: string) => semver.valid(tag)));
     latestTag = sortedTags[0];
   }
 
@@ -113,7 +113,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   // we need to include all commits since the last non RC version and the release branch
   if (semver.prerelease(latestTag) !== null && !shouldBeRC) {
     const latestNonRCTags = tags.all
-      .filter((t) => semver.valid(t) && semver.prerelease(t) === null)
+      .filter((t: string) => semver.valid(t) && semver.prerelease(t) === null)
       .sort(semver.rcompare);
 
     if (latestNonRCTags.length > 0) {
