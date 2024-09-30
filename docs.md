@@ -1,5 +1,5 @@
 ---
-name: Release Helper
+name: Ready release go 🚀
 description: Plugin for semi-automated releases.
 author: Woodpecker Authors
 tags: [git, release]
@@ -10,8 +10,9 @@ url: https://github.com/woodpecker-ci/plugin-ready-release-go
 
 # Introduction
 
-This plugin aims to help with git-based releases.
-It should be run on every commit of the default branch to execute it's necessary actions.
+This plugin can be executed on every push to your release branch (e.g. default branch) and will create a new release pull-request with an updated changelog
+as preparation for the next release.
+After merging the "release"-pull-request, a new release / tag will be created for you.
 
 A Woodpecker workflow file could look like this:
 
