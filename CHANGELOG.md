@@ -12,6 +12,7 @@
 
 ### Misc
 
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.42.0 [[#189](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/189)]
 - chore(deps): update dependency @types/node to v20.16.10 [[#188](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/188)]
 
 ## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
