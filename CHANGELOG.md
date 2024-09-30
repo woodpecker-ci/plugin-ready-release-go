@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-09-26
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-09-30
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -9,6 +9,10 @@
 ### 📚 Documentation
 
 - Use the general setting for github token example [[#183](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/183)]
+
+### Misc
+
+- chore(deps): update dependency @types/node to v20.16.10 [[#188](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/188)]
 
 ## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
 
