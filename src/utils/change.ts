@@ -102,7 +102,7 @@ export function getChangeLogSection(
       .filter((v, i, a) => a.indexOf(v) === i)
       .filter((c) => !c.endsWith('[bot]'));
     if (authors.length > 0) {
-      const contributors = `### ❤️ Thanks to all contributors! ❤️\n\n${authors.join(', ')}`;
+      const contributors = `${config.ci.releaseContributorGreeting}\n\n${authors.join(', ')}`;
       section += `${contributors}\n\n`;
     }
   }
