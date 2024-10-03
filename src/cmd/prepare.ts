@@ -77,7 +77,7 @@ export async function prepare(cmdCtx: CommandContext) {
   const { isClean } = await git.status();
   if (!isClean()) {
     await git.add('.');
-    await git.commit(`${config.ci.releasePrefix} ${nextVersion}`);
+    await git.commit(`${config.ci.releasePrefix} ${nextVersion} ${config.ci.skipCi}`);
     await git.push(['-u', 'origin', pullRequestBranch]);
   }
 

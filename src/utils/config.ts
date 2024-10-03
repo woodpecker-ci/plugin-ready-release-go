@@ -17,6 +17,7 @@ const ciConfig = {
   pullRequestBranchPrefix: process.env.PLUGIN_PULL_REQUEST_BRANCH_PREFIX || 'next-release/',
   releasePrefix: '🎉 Release',
   debug: process.env.PLUGIN_DEBUG === 'true',
+  skipCi: '[ci skip]',
 };
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
