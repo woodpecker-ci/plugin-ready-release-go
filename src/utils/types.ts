@@ -108,6 +108,12 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Set the release contributor greeting
+   * @default ### ❤️ Thanks to all contributors! ❤️
+   */
+  releaseContributorGreeting: string;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
