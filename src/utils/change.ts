@@ -63,7 +63,6 @@ export function getChangeLogSection(
       changeType = config.user.changeTypes!.find((c) => c.commitMessage.some((msg) => change.title.startsWith(msg)));
     }
 
-    // If still no match, use default change type
     if (!changeType) {
       changeType = defaultChangeType;
     }
