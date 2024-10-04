@@ -108,7 +108,6 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
-
 }>;
 
 export const defineConfig = (config: UserConfig) => config;

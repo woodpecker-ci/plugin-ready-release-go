@@ -75,7 +75,7 @@ const config: Config = {
     pullRequestBranchPrefix: 'next-release/',
     isCI: true,
     debug: false,
-    releasePrefix: '🎉 Release'
+    releasePrefix: '🎉 Release',
   },
   user: defaultUserConfig,
 };
