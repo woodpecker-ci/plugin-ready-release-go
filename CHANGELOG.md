@@ -1,17 +1,19 @@
 # Changelog
 
-## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-09-30
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-04
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@6543
+@6543, @anbraten
 
 ### 📚 Documentation
 
+- Update plugin documentation [[#190](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/190)]
 - Use the general setting for github token example [[#183](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/183)]
 
 ### Misc
 
+- chore(deps): update vitest monorepo to v1.6.0 [[#154](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/154)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.42.0 [[#189](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/189)]
 - chore(deps): update dependency @types/node to v20.16.10 [[#188](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/188)]
 
