@@ -15,7 +15,6 @@ const ciConfig = {
   repoOwner: process.env.CI_REPO_OWNER,
   repoName: process.env.CI_REPO_NAME,
   pullRequestBranchPrefix: process.env.PLUGIN_PULL_REQUEST_BRANCH_PREFIX || 'next-release/',
-  releasePrefix: '🎉 Release',
   debug: process.env.PLUGIN_DEBUG === 'true',
 };
 
@@ -73,6 +72,7 @@ export const defaultUserConfig: UserConfig = {
   skipLabels: ['skip-release', 'skip-changelog', 'regression'],
   skipCommitsWithoutPullRequest: true,
   commentOnReleasedPullRequests: true,
+  releasePrefix: '🎉 Release',
 };
 
 export async function getConfig(): Promise<Config> {

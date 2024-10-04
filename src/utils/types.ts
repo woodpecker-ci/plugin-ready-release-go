@@ -108,6 +108,12 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Prefix for the PR title
+   * @default '🎉 Release'
+   */
+  releasePrefix: string;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
