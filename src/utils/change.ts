@@ -118,6 +118,50 @@ export function getChangeLogSection(
   return section;
 }
 
+export function updateChangelogSection(
+  latestVersion: string,
+  nextVersion: string,
+  _oldChangelog: string,
+  newSection: string,
+) {
+  let oldChangelog = _oldChangelog.replace('# Changelog\n\n', '');
+
+  let sections: { version: string; section: string }[] = [];
+
+  const sectionBegin = `## [`;
+  while (oldChangelog.includes(sectionBegin)) {
+    const start = oldChangelog.indexOf(sectionBegin);
+    let end = oldChangelog.indexOf(sectionBegin, start + 1);
+    if (end === -1) {
+      end = oldChangelog.length;
+    }
+
+    const section = oldChangelog.slice(start, end).trim();
+    const version = section.match(/\[(.*?)\]/)?.[1];
+    if (!version) {
+      throw new Error('Could not find version in changelog section');
+    }
+    sections.push({ version, section });
+
+    oldChangelog = oldChangelog.slice(end);
+  }
+
+  sections = sections
+    .filter((s) => s.version !== nextVersion) // filter out the new section
+    .filter((s) => semver.compare(s.version, latestVersion) !== 1) // filter out sections that are older than the latest version as they are not released and should not be in the changelog
+    .filter(
+      (s) =>
+        semver.prerelease(s.version) === null || !s.version.replace(/^v/, '').startsWith(nextVersion.replace(/^v/, '')),
+      // filter out prerelease versions if the next version is not a prerelease
+    );
+
+  sections.push({ version: nextVersion, section: newSection });
+
+  sections = sections.sort((a, b) => semver.compare(b.version, a.version));
+
+  return `# Changelog\n\n${sections.map((s) => s.section).join('\n\n')}\n`;
+}
+
 export function extractVersionFromCommitMessage(commitMessage: string) {
   const semverRegex =
     /(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?/;
