@@ -1,6 +1,6 @@
 # Ready release go :rocket:
 
-This plugin can be executed on every push to your release branch (e.g. main) and will create a new release pull-request with all of your custom adjustments like an updated changelog as preparation for the next release. After you have merged the "release"-pull-request with all your desired changes, a new release / tag will be created for you.
+This plugin can be executed on every push to your release branch (e.g. default branch) and will create a new release pull-request with an updated changelog as preparation for the next release. After merging the "release"-pull-request, a new release / tag will be created for you.
 
 ## Usage
 
