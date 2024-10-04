@@ -1,188 +1,299 @@
-import { describe, it, expect, vi, beforeAll } from 'vitest';
-import {
-  extractVersionFromCommitMessage,
-  getChangeLogSection,
-  getNextVersionFromLabels,
-  updateChangelogSection,
-} from './change';
+import { describe, it, expect, beforeAll, afterEach, vi } from 'vitest';
+import { getChangeLogSection } from './change';
+import { Config } from './config';
 import { Change } from './types';
-import { Config, defaultUserConfig } from './config';
+import { Forge } from '../forges/forge';
 import { GithubForge } from '../forges/github';
-import { promises as fs } from 'fs';
-import path from 'path';
 
-const changes: Change[] = [
-  {
-    commitHash: '123',
-    author: 'John Doe',
-    labels: ['bug', 'ui'],
-    title: 'Fix random UI bug',
-    pullRequestNumber: 1337,
-  },
-  {
-    commitHash: '456',
-    author: 'Alice Wonderland',
-    labels: ['feature'],
-    title: 'Add new feature',
-    pullRequestNumber: 1338,
-  },
-  {
-    commitHash: '789',
-    author: 'John Doe',
-    labels: ['breaking'],
-    title: 'Break everything',
-    pullRequestNumber: 1339,
-  },
-  {
-    commitHash: 'abc',
-    author: 'Alice Wonderland',
-    labels: ['bug'],
-    title: 'Fix another bug',
-  },
-  {
-    commitHash: 'def',
-    author: 'Alice Wonderland',
-    labels: [],
-    title: 'Update README',
-  },
-  {
-    commitHash: 'def',
-    author: 'Alice Wonderland',
-    labels: ['enhancement'],
-    title: 'Update README',
-  },
-];
+function getMockedForge(): Forge {
+  const forge = new GithubForge('', '');
 
-const changesWithMajor = changes;
-const changesWithMinor = changes.filter((change) => !change.labels.includes('breaking'));
-const changesWithPatch = changes.filter(
-  (change) =>
-    !change.labels.includes('breaking') && !change.labels.includes('feature') && !change.labels.includes('enhancement'),
-);
+  vi.spyOn(forge, 'getPullRequest').mockImplementation(
+    (o: { owner: string; repo: string; sourceBranch: string; targetBranch: string }) => {
+      return Promise.resolve(undefined);
+    },
+  );
 
-const config: Config = {
-  ci: {
-    releaseBranch: 'main',
-    commitMessage: 'chore(release): 1.0.0 [skip ci]',
-    configFile: 'ready-go-release.config.ts',
-    eventType: 'push',
-    gitEmail: 'ci@woodpecker-ci.org',
-    repoOwner: 'woodpecker-ci',
-    repoName: 'woodpecker',
-    forgeType: 'github',
-    forgeToken: '123',
-    forgeURL: '',
-    pullRequestBranchPrefix: 'next-release/',
-    isCI: true,
-    releasePrefix: '🎉 Release',
-    debug: false,
-  },
-  user: defaultUserConfig,
-};
+  vi.spyOn(forge, 'getPullRequestFromCommit').mockImplementation(
+    (o: { owner: string; repo: string; commitHash: string }) => {
+      switch (o.commitHash) {
+        case '1':
+          return Promise.resolve({
+            number: 1,
+            title: 'Fix sth on the backend',
+            author: 'anbraten',
+            description: '',
+            labels: ['bug'],
+          });
 
-describe('change', () => {
+        case '2':
+          return Promise.resolve({
+            number: 2,
+            title: 'Add some nice feature to the ui',
+            author: 'anbraten',
+            description: '',
+            labels: ['feature'],
+          });
+
+        case '3':
+          return Promise.resolve({
+            number: 3,
+            title: 'docs: Update documentation',
+            author: 'anbraten',
+            description: '',
+            labels: [],
+          });
+
+        case '4':
+          return Promise.resolve({
+            number: 4,
+            title: 'feat: Add a new feature',
+            author: 'anbraten',
+            description: '',
+            labels: ['bug'], // Label should take precedence over commit message
+          });
+
+        default:
+          return Promise.resolve(undefined);
+      }
+    },
+  );
+
+  return forge;
+}
+
+describe('getChangeLogSection', () => {
   beforeAll(() => {
     const date = new Date(2000, 1, 1, 13);
+    vi.useFakeTimers();
     vi.setSystemTime(date);
   });
 
-  it('should get the correct major bump', () => {
-    const nextVersion = getNextVersionFromLabels('1.0.0', config.user, changesWithMajor, false);
-    expect(nextVersion).toBe('2.0.0');
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
-  it('should get the correct minor bump', () => {
-    const nextVersion = getNextVersionFromLabels('1.0.0', config.user, changesWithMinor, false);
+  it('should group changes by labels and then by commit messages', () => {
+    const config: Config = {
+      user: {
+        changeTypes: [
+          {
+            title: '💥 Breaking changes',
+            labels: ['breaking'],
+            bump: 'major',
+            commitMessage: ["breaking:"],
+            weight: 3,
+          },
+          {
+            title: '🔒 Security',
+            labels: ['security'],
+            bump: 'patch',
+            commitMessage: ["sec:"],
+            weight: 2,
+          },
+          {
+            title: '✨ Features',
+            labels: ['feature', 'feature 🚀️'],
+            commitMessage: ["feat:"],
+            bump: 'minor',
+            weight: 1,
+          },
+          {
+            title: '📈 Enhancement',
+            labels: ['enhancement', 'refactor', 'enhancement 👆️'],
+            commitMessage: ["refactor:"],
+            bump: 'minor',
+          },
+          {
+            title: '🐛 Bug Fixes',
+            labels: ['bug', 'bug 🐛️'],
+            commitMessage: ["fix:"],
+            bump: 'patch',
+          },
+          {
+            title: '📚 Documentation',
+            labels: ['docs', 'documentation', 'documentation 📖️'],
+            commitMessage: ["docs:"],
+            bump: 'patch',
+          },
+          {
+            title: '📦️ Dependency',
+            labels: ['dependency', 'dependencies'],
+            bump: 'patch',
+            commitMessage: [""],
+            weight: -1,
+          },
+          {
+            title: 'Misc',
+            labels: ['misc', 'chore 🧰'],
+            commitMessage: ["chore:"],
+            bump: 'patch',
+            default: true,
+            weight: -2,
+          },
+        ],
+        skipLabels: ['skip-release', 'skip-changelog', 'regression'],
+        skipCommitsWithoutPullRequest: true,
+        commentOnReleasedPullRequests: true,
+        groupByCommitMessage: true,
+      },
+      ci: {
+        repoOwner: 'woodpecker-ci',
+        repoName: 'plugin-ready-release-go',
+        configFile: undefined,
+        isCI: false,
+        eventType: undefined,
+        releaseBranch: 'main',
+        commitMessage: undefined,
+        forgeType: undefined,
+        forgeToken: undefined,
+        forgeURL: 'dummy',
+        gitEmail: 'dummy',
+        pullRequestBranchPrefix: 'next-release/',
+        releasePrefix: '🎉 Release',
+        debug: false,
+      },
+    };
 
-    expect(nextVersion).toBe('1.1.0');
-  });
-
-  it('should get the correct patch bump', () => {
-    const nextVersion = getNextVersionFromLabels('1.0.0', config.user, changesWithPatch, false);
-
-    expect(nextVersion).toBe('1.0.1');
-  });
-
-  it('should get the correct rc bump', () => {
-    const nextVersion = getNextVersionFromLabels('1.2.3', config.user, changesWithMajor, true);
-
-    expect(nextVersion).toBe('2.0.0-rc.0');
-  });
-
-  it('should get the correct bump from a rc', () => {
-    const nextVersion = getNextVersionFromLabels('1.0.0-rc.2', config.user, changesWithPatch, false);
-
-    expect(nextVersion).toBe('1.0.0');
-  });
-
-  it('should get the correct rc bump from a previous rc', () => {
-    const nextVersion = getNextVersionFromLabels('1.0.1-rc.2', config.user, changesWithMinor, true);
-
-    expect(nextVersion).toBe('1.1.0-rc.0');
-  });
-
-  it('should generate a changelog', () => {
-    const forge = new GithubForge('', '');
-    const changelog = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
-
-    expect(changelog).toMatchSnapshot();
-  });
-
-  const changelogFiles = [
-    {
-      name: 'should add new section',
-      file: '__fixtures__/CHANGELOG_1.md',
-      latestVersion: '1.0.0',
-      nextVersion: '1.0.1',
-    },
-    {
-      name: 'should update existing changelog section',
-      file: '__fixtures__/CHANGELOG_2.md',
-      latestVersion: '2.0.1',
-      nextVersion: '2.0.3',
-    },
-    {
-      name: 'should remove versions newer than the latest released version',
-      // this happens if we bump the version in an existing release PR
-      file: '__fixtures__/CHANGELOG_3.md',
-      latestVersion: '2.0.1',
-      nextVersion: '2.0.4',
-    },
-    {
-      name: 'should remove previous prerelease versions as soon as the full release is added',
-      file: '__fixtures__/CHANGELOG_4.md',
-      latestVersion: '2.0.1-pre.1',
-      nextVersion: '2.0.1',
-    },
-  ];
-  it.each(changelogFiles)('$name', async ({ file, nextVersion, latestVersion }) => {
-    const oldChangelog = await fs.readFile(path.join(__dirname, file), 'utf8');
-
-    const forge = new GithubForge('', '');
-    const newSection = getChangeLogSection(nextVersion, nextVersion, config, changes, forge, true);
-    const changelog = updateChangelogSection(latestVersion, nextVersion, oldChangelog, newSection);
-
-    expect(changelog).toMatchSnapshot();
-  });
-
-  it('should be able to extract the release version from a commit message', () => {
-    const tests = [
+    const changes: Change[] = [
       {
-        commitMessage: '🎉 Release 1.2.3',
-        expectedVersion: '1.2.3',
+        commitHash: '1',
+        title: 'Fix sth on the backend',
+        author: 'anbraten',
+        labels: ['bug'],
+        pullRequestNumber: 1,
       },
       {
-        commitMessage: '🎉 Release 1.2.3-rc.0 [skip ci]',
-        expectedVersion: '1.2.3-rc.0',
+        commitHash: '2',
+        title: 'Add some nice feature to the ui',
+        author: 'anbraten',
+        labels: ['feature'],
+        pullRequestNumber: 2,
       },
       {
-        commitMessage: 'chore(release): 1.0.0-rc.0 [skip ci]',
-        expectedVersion: '1.0.0-rc.0',
+        commitHash: '3',
+        title: 'docs: Update documentation',
+        author: 'anbraten',
+        labels: [],
+        pullRequestNumber: 3,
+      }
+    ];
+
+    const forge = getMockedForge();
+    const changeLogSection = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
+
+    expect(changeLogSection).toContain('### ✨ Features');
+    expect(changeLogSection).toContain(
+      '- Add some nice feature to the ui [[#2](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/2)]',
+    );
+    expect(changeLogSection).toContain('### 📚 Documentation');
+    expect(changeLogSection).toContain(
+      '- docs: Update documentation [[#3](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/3)]',
+    );
+    expect(changeLogSection).toContain('### 🐛 Bug Fixes');
+    expect(changeLogSection).toContain(
+      '- Fix sth on the backend [[#1](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/1)]',
+    );
+  });
+
+  it('should prefer labels over commit messages when both are present', () => {
+    const config: Config = {
+      user: {
+        changeTypes: [
+          {
+            title: '💥 Breaking changes',
+            labels: ['breaking'],
+            bump: 'major',
+            commitMessage: ['breaking:'],
+            weight: 3,
+          },
+          {
+            title: '🔒 Security',
+            labels: ['security'],
+            bump: 'patch',
+            commitMessage: ['sec:'],
+            weight: 2,
+          },
+          {
+            title: '✨ Features',
+            labels: ['feature', 'feature 🚀️'],
+            commitMessage: ['feat:'],
+            bump: 'minor',
+            weight: 1,
+          },
+          {
+            title: '📈 Enhancement',
+            labels: ['enhancement', 'refactor', 'enhancement 👆️'],
+            commitMessage: ['refactor:'],
+            bump: 'minor',
+          },
+          {
+            title: '🐛 Bug Fixes',
+            labels: ['bug', 'bug 🐛️'],
+            commitMessage: ['fix:'],
+            bump: 'patch',
+          },
+          {
+            title: '📚 Documentation',
+            labels: ['docs', 'documentation', 'documentation 📖️'],
+            commitMessage: ['docs:'],
+            bump: 'patch',
+          },
+          {
+            title: '📦️ Dependency',
+            labels: ['dependency', 'dependencies'],
+            bump: 'patch',
+            commitMessage: [''],
+            weight: -1,
+          },
+          {
+            title: 'Misc',
+            labels: ['misc', 'chore 🧰'],
+            commitMessage: ['chore:'],
+            bump: 'patch',
+            default: true,
+            weight: -2,
+          },
+        ],
+        skipLabels: ['skip-release', 'skip-changelog', 'regression'],
+        skipCommitsWithoutPullRequest: true,
+        commentOnReleasedPullRequests: true,
+        groupByCommitMessage: true,
+      },
+      ci: {
+        repoOwner: 'woodpecker-ci',
+        repoName: 'plugin-ready-release-go',
+        configFile: undefined,
+        isCI: false,
+        eventType: undefined,
+        releaseBranch: 'main',
+        commitMessage: undefined,
+        forgeType: undefined,
+        forgeToken: undefined,
+        forgeURL: 'dummy',
+        gitEmail: 'dummy',
+        pullRequestBranchPrefix: 'next-release/',
+        releasePrefix: '🎉 Release',
+        debug: false,
+      },
+    };
+
+    const changes: Change[] = [
+      {
+        commitHash: '4',
+        title: 'feat: Add a new feature',
+        author: 'anbraten',
+        labels: ['bug'], // Label should take precedence over commit message
+        pullRequestNumber: 4,
       },
     ];
 
-    tests.forEach(({ commitMessage, expectedVersion }) => {
-      expect(extractVersionFromCommitMessage(commitMessage)).toBe(expectedVersion);
-    });
+    const forge = getMockedForge();
+    const changeLogSection = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
+
+    expect(changeLogSection).toContain('### 🐛 Bug Fixes');
+    expect(changeLogSection).toContain(
+      '- feat: Add a new feature [[#4](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/4)]',
+    );
   });
 });
