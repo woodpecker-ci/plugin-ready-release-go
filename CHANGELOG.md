@@ -13,6 +13,7 @@
 
 ### Misc
 
+- chore(deps): update vitest monorepo to v2 (major) [[#160](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/160)]
 - chore(deps): update vitest monorepo to v1.6.0 [[#154](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/154)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.42.0 [[#189](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/189)]
 - chore(deps): update dependency @types/node to v20.16.10 [[#188](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/188)]
