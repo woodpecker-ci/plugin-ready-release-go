@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-04
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-05
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -11,8 +11,9 @@
 - Update plugin documentation [[#190](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/190)]
 - Use the general setting for github token example [[#183](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/183)]
 
-### Misc
+### 📦️ Dependency
 
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2 [[#199](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/199)]
 - chore(deps): lock file maintenance [[#81](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/81)]
 - chore(deps): update vitest monorepo to v2 (major) [[#160](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/160)]
 - chore(deps): update vitest monorepo to v1.6.0 [[#154](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/154)]
