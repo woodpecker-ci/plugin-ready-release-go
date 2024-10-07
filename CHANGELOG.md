@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-07
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @anbraten, @qwerty287
+
+### 📚 Documentation
+
+- Update plugin documentation [[#190](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/190)]
+- Use the general setting for github token example [[#183](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/183)]
+
+### 📦️ Dependency
+
+- chore(deps): update pre-commit hook pre-commit/pre-commit-hooks to v5 [[#201](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/201)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2 [[#199](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/199)]
+- chore(deps): lock file maintenance [[#81](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/81)]
+- chore(deps): update vitest monorepo to v2 (major) [[#160](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/160)]
+- chore(deps): update vitest monorepo to v1.6.0 [[#154](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/154)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.42.0 [[#189](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/189)]
+- chore(deps): update dependency @types/node to v20.16.10 [[#188](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/188)]
+
+### Misc
+
+- [pre-commit.ci] pre-commit autoupdate [[#202](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/202)]
+- Add CODEOWNERS [[#200](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/200)]
+
 ## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
 
 ### ❤️ Thanks to all contributors! ❤️
