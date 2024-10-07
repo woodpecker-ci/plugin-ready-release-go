@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-05
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-07
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -23,6 +23,7 @@
 
 ### Misc
 
+- [pre-commit.ci] pre-commit autoupdate [[#202](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/202)]
 - Add CODEOWNERS [[#200](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/200)]
 
 ## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
