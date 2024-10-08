@@ -34,8 +34,8 @@ when:
 ## Features
 
 - Create automated changelog based on PRs which updates itself after each merge to the default branch
-- Auto-categorization of PRs based on labels
-- Automatically determines the next semver version using the PR labels
+- Auto-categorization of PRs based on labels and commit message patterns (in this order)
+- Automatically determines the next semver version using the respective change patterns
 - Supports any kind of programming language, changelog tool and commit style
 - Allows to execute custom hooks like pre, post-release
 

@@ -27,44 +27,52 @@ export const defaultUserConfig: UserConfig = {
       title: '💥 Breaking changes',
       labels: ['breaking'],
       bump: 'major',
+      commitMessage: ['breaking:'],
       weight: 3,
     },
     {
       title: '🔒 Security',
       labels: ['security'],
       bump: 'patch',
+      commitMessage: ['sec:'],
       weight: 2,
     },
     {
       title: '✨ Features',
       labels: ['feature', 'feature 🚀️'],
+      commitMessage: ['feat:'],
       bump: 'minor',
       weight: 1,
     },
     {
       title: '📈 Enhancement',
       labels: ['enhancement', 'refactor', 'enhancement 👆️'],
+      commitMessage: ['refactor:'],
       bump: 'minor',
     },
     {
       title: '🐛 Bug Fixes',
       labels: ['bug', 'bug 🐛️'],
+      commitMessage: ['fix:'],
       bump: 'patch',
     },
     {
       title: '📚 Documentation',
       labels: ['docs', 'documentation', 'documentation 📖️'],
+      commitMessage: ['docs:'],
       bump: 'patch',
     },
     {
       title: '📦️ Dependency',
       labels: ['dependency', 'dependencies'],
       bump: 'patch',
+      commitMessage: [''],
       weight: -1,
     },
     {
       title: 'Misc',
       labels: ['misc', 'chore 🧰'],
+      commitMessage: ['chore:'],
       bump: 'patch',
       default: true,
       weight: -2,
@@ -73,6 +81,7 @@ export const defaultUserConfig: UserConfig = {
   skipLabels: ['skip-release', 'skip-changelog', 'regression'],
   skipCommitsWithoutPullRequest: true,
   commentOnReleasedPullRequests: true,
+  groupByCommitMessage: true,
 };
 
 export async function getConfig(): Promise<Config> {

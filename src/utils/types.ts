@@ -80,6 +80,7 @@ export type UserConfig = Partial<{
   changeTypes: {
     title: string;
     labels: string[];
+    commitMessage: string[];
     bump: 'major' | 'minor' | 'patch';
     default?: boolean;
     weight?: number;
@@ -108,6 +109,12 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Group by commit message pattern (after label grouping)
+   * @default true
+   */
+  groupByCommitMessage: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
