@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-07
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-12
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -13,6 +13,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5 [[#206](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/206)]
 - chore(deps): update pre-commit hook pre-commit/pre-commit-hooks to v5 [[#201](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/201)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2 [[#199](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/199)]
 - chore(deps): lock file maintenance [[#81](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/81)]
