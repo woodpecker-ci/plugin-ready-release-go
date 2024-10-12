@@ -64,13 +64,3 @@ export default {
   commentOnReleasedPullRequests: false,
 };
 ```
-
-The plugin also supports executing custom hooks which can e.g. help to perform additional actions during a release (e.g. updating a helm chart's `appVersion` field):
-
-```ts
-export default {
-  beforePrepare: async ({ exec, nextVersion }) => {
-    await exec(`sed -i "s/^version:.*$/version: ${nextVersion}/g" Chart.yaml`);
-  },
-};
-```

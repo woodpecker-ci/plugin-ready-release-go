@@ -90,7 +90,6 @@ describe('index', () => {
     });
 
     expect(prepare).toHaveBeenCalledWith({
-      exec: expect.anything(),
       config: expect.anything(),
       forge: expect.anything(),
       git: expect.anything(),
