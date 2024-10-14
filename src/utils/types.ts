@@ -5,10 +5,7 @@ import type { SimpleGit } from 'simple-git';
 
 export type PromiseOrValue<T> = Promise<T> | T;
 
-export type Exec = ExecFunction;
-
 export type CommandContext = {
-  exec: Exec;
   config: Config;
   forge: Forge;
   git: SimpleGit;
@@ -29,7 +26,6 @@ export type Change = {
 };
 
 export type HookContext = {
-  exec: Exec;
   latestVersion?: string;
   nextVersion?: string;
   changes?: Change[];

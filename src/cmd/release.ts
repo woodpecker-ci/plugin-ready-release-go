@@ -4,7 +4,6 @@ import c from 'picocolors';
 
 export async function release({
   config,
-  exec,
   forge,
   changes,
   useVersionPrefixV,
@@ -13,7 +12,6 @@ export async function release({
   shouldBeRC,
 }: CommandContext) {
   const hookCtx: HookContext = {
-    exec,
     latestVersion,
     nextVersion,
     changes,

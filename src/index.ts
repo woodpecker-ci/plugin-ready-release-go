@@ -1,4 +1,3 @@
-import shelljs from 'shelljs';
 import c from 'picocolors';
 import type { SimpleGit } from 'simple-git';
 import semver from 'semver';
@@ -16,9 +15,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
     process.env.DEBUG = 'simple-git';
   }
 
-  const hookCtx: HookContext = {
-    exec: shelljs.exec,
-  };
+  const hookCtx: HookContext = {};
 
   if (config.ci.isCI) {
     console.log('# CI detected 🤖');
@@ -195,7 +192,6 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
     useVersionPrefixV,
     pullRequestBranch,
     shouldBeRC,
-    exec: shelljs.exec,
   };
 
   // is "release" commit

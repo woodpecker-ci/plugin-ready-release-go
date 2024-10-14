@@ -5,23 +5,12 @@ import { updateChangelogSection, getChangeLogSection } from '../utils/change';
 import { promises as fs } from 'fs';
 
 export async function prepare(cmdCtx: CommandContext) {
-  const {
-    config,
-    forge,
-    git,
-    exec,
-    changes,
-    latestVersion,
-    nextVersion,
-    pullRequestBranch,
-    shouldBeRC,
-    useVersionPrefixV,
-  } = cmdCtx;
+  const { config, forge, git, changes, latestVersion, nextVersion, pullRequestBranch, shouldBeRC, useVersionPrefixV } =
+    cmdCtx;
 
   console.log('# Preparing release pull-request for version:', c.green(nextVersion), '...');
 
   const hookCtx: HookContext = {
-    exec,
     latestVersion,
     nextVersion,
     changes,
