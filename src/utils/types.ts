@@ -1,7 +1,7 @@
 import type { ExecFunction } from 'shelljs';
 import type { Forge } from '../forges/forge';
 import type { Config } from './config';
-import type { SimpleGit } from 'simple-git';
+import type { DefaultLogFields, LogResult, SimpleGit } from 'simple-git';
 
 export type PromiseOrValue<T> = Promise<T> | T;
 
@@ -111,3 +111,9 @@ export type UserConfig = Partial<{
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
+
+export type Commit = LogResult<DefaultLogFields>['all'][0];
+
+export type Analyser = {
+  getChangesFromCommits(commits: Commit[]): Promise<Change[]>;
+};
