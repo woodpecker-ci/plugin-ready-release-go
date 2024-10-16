@@ -108,6 +108,11 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+  /**
+   * PR commit suffix
+   * @default '[ci skip]'
+   */
+  skipCi: string;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
