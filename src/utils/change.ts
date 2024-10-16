@@ -57,8 +57,15 @@ export function getChangeLogSection(
   const defaultChangeType = config.user.changeTypes!.find((c) => c.default);
 
   const changeSections = changes.reduce((acc, change) => {
-    const changeType =
-      config.user.changeTypes!.find((c) => c.labels.some((l) => change.labels.includes(l))) ?? defaultChangeType;
+    let changeType = config.user.changeTypes!.find((c) => c.labels.some((l) => change.labels.includes(l)));
+
+    if (!changeType && config.user.groupByCommitMessage) {
+      changeType = config.user.changeTypes!.find((c) => c.commitMessage.some((msg) => change.title.startsWith(msg)));
+    }
+
+    if (!changeType) {
+      changeType = defaultChangeType;
+    }
 
     if (!changeType) {
       return acc;
@@ -78,7 +85,6 @@ export function getChangeLogSection(
       acc.get(changeType.title)?.changes.push(entry);
     }
 
-    acc.get(changeType.title)?.changes.push();
     return acc;
   }, new Map<string, { title: string; weight?: number; changes: string[]; default: boolean }>());
 
