@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-14
+## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-16
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -13,6 +13,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#210](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/210)]
 - chore(deps): update dependency typescript to v5.6.3 [[#209](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/209)]
 - chore(deps): update dependency @types/node to v20.16.11 [[#208](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/208)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5 [[#206](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/206)]
