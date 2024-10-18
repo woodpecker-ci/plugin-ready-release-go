@@ -1,10 +1,14 @@
 # Changelog
 
-## [2.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.1) - 2024-10-16
+## [2.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.0) - 2024-10-18
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@6543, @anbraten, @qwerty287
+@6543, @anbraten, @pat-s, @qwerty287
+
+### ✨ Features
+
+- Allow customization of `releasePrefix` [[#197](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/197)]
 
 ### 📚 Documentation
 
