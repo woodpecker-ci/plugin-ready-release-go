@@ -34,6 +34,7 @@
 
 ### Misc
 
+- chore: remove codeowner [[#216](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/216)]
 - [pre-commit.ci] pre-commit autoupdate [[#202](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/202)]
 - Add CODEOWNERS [[#200](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/200)]
 
