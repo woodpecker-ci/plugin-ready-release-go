@@ -13,7 +13,7 @@ importers:
         version: 21.0.2
       execa:
         specifier: ^9.0.0
-        version: 9.4.1
+        version: 9.5.0
       gitea-js:
         specifier: ^1.22.0
         version: 1.22.0
@@ -601,8 +601,8 @@ packages:
   estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
 
-  execa@9.4.1:
-    resolution: {integrity: sha512-5eo/BRqZm3GYce+1jqX/tJ7duA2AnE39i88fuedNFUV8XxGxUpF3aWkBRfbUcjV49gCkvS/pzc0YrCPhaIewdg==}
+  execa@9.5.0:
+    resolution: {integrity: sha512-t7vvYt+oKnMbF3O+S5+HkylsPrsUatwJSe4Cv+4017R0MCySjECxnVJ2eyDXVD/Xpj5H29YzyYn6eEpugG7GJA==}
     engines: {node: ^18.19.0 || >=20.5.0}
 
   fdir@6.4.2:
@@ -1383,7 +1383,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.6
 
-  execa@9.4.1:
+  execa@9.5.0:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       cross-spawn: 7.0.3
