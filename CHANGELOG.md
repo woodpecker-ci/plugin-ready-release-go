@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.0) - 2024-10-24
+## [2.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.0) - 2024-10-28
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -17,6 +17,7 @@
 
 ### 📦️ Dependency
 
+- fix(deps): update dependency tsx to v4.19.2 [[#218](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/218)]
 - chore(deps): lock file maintenance [[#217](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/217)]
 - fix(deps): update dependency picocolors to v1.1.1 [[#215](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/215)]
 - chore(deps): update dependency @types/node to v20.16.13 [[#211](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/211)]
