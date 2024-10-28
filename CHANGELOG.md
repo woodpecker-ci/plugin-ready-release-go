@@ -17,6 +17,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v20.17.1 [[#213](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/213)]
 - fix(deps): update dependency tsx to v4.19.2 [[#218](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/218)]
 - chore(deps): lock file maintenance [[#217](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/217)]
 - fix(deps): update dependency picocolors to v1.1.1 [[#215](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/215)]
