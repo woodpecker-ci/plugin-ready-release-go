@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.0) - 2024-10-30
+## [2.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.0) - 2024-11-02
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -17,6 +17,7 @@
 
 ### 📦️ Dependency
 
+- fix(deps): update dependency execa to v9.5.1 [[#221](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/221)]
 - chore(deps): lock file maintenance [[#220](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/220)]
 - fix(deps): update dependency execa to v9.5.1 [[#219](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/219)]
 - chore(deps): update dependency @types/node to v20.17.1 [[#213](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/213)]
