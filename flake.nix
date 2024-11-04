@@ -17,7 +17,7 @@
           buildInputs = with pkgs; [
             onefetch
 
-            nodejs_20
+            nodejs_22
             nodejs.pkgs.pnpm
 
             nodePackages.typescript
