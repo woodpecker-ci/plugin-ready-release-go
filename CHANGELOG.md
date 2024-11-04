@@ -17,6 +17,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update node.js to v22 [[#222](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/222)]
 - chore(deps): update dependency @types/node to v20.17.6 [[#223](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/223)]
 - chore(deps): update vitest monorepo to v2.1.4 [[#224](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/224)]
 - fix(deps): update dependency execa to v9.5.1 [[#221](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/221)]
