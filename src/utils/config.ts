@@ -75,10 +75,10 @@ export const defaultUserConfig: UserConfig = {
   commentOnReleasedPullRequests: true,
 };
 
-export async function getConfig(basePath?: string): Promise<Config> {
+export async function getConfig(): Promise<Config> {
   const userConfig: UserConfig = {};
 
-  const configFilePath = ciConfig.configFile || path.resolve(basePath ?? process.cwd(), 'release-config.ts');
+  const configFilePath = ciConfig.configFile || path.join(process.cwd(), 'release-config.ts');
   if (
     await fs
       .stat(configFilePath)

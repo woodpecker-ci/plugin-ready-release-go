@@ -51,12 +51,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
 
   const { releaseBranch } = config.ci;
 
-  try {
-    await git.fetch(['--unshallow', '--tags']);
-  } catch (error) {
-    console.error(c.yellow('# Error doing unshallow fetch'), error);
-    await git.fetch(['--tags']);
-  }
+  await git.fetch(['--unshallow', '--tags']);
   await git.checkout(releaseBranch);
   await git.branch(['--set-upstream-to', `origin/${releaseBranch}`]);
   await git.pull();
