@@ -91,22 +91,24 @@ export class GithubForge extends Forge {
     repo: string;
     commitHash: string;
   }): Promise<PullRequest | undefined> {
-    const pr = await this.octokit.repos.listPullRequestsAssociatedWithCommit({
+    const response = await this.octokit.repos.listPullRequestsAssociatedWithCommit({
       owner: options.owner,
       repo: options.repo,
       commit_sha: options.commitHash,
     });
 
-    if (pr.data.length === 0) {
+    const prs = response.data.filter((pr) => pr.merge_commit_sha === options.commitHash && pr.state === 'closed');
+
+    if (prs.length === 0) {
       return undefined;
     }
 
     return {
-      number: pr.data[0].number,
-      title: pr.data[0].title,
-      description: pr.data[0].body || '',
-      author: pr.data[0].user?.login || '',
-      labels: pr.data[0].labels.map((label) => label.name),
+      number: prs[0].number,
+      title: prs[0].title,
+      description: prs[0].body || '',
+      author: prs[0].user?.login || '',
+      labels: prs[0].labels.map((label) => label.name),
     };
   }
 
