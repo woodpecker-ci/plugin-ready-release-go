@@ -91,7 +91,7 @@ export class GithubForge extends Forge {
     repo: string;
     commitHash: string;
   }): Promise<PullRequest | undefined> {
-    let response = await this.octokit.repos.listPullRequestsAssociatedWithCommit({
+    const response = await this.octokit.repos.listPullRequestsAssociatedWithCommit({
       owner: options.owner,
       repo: options.repo,
       commit_sha: options.commitHash,
