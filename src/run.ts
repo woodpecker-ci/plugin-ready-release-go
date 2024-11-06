@@ -5,10 +5,12 @@ import { getForge } from './forges';
 import simpleGit from 'simple-git';
 
 async function main() {
+  const basePath = process.env.BASE; // Can be used for testing
+
   try {
-    const config = await getConfig();
+    const config = await getConfig(basePath);
     const forge = await getForge(config);
-    const git = simpleGit();
+    const git = simpleGit(basePath);
 
     await run({ git, forge, config });
   } catch (_error) {
