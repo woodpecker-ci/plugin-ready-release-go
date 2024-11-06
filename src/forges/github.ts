@@ -61,6 +61,7 @@ export class GithubForge extends Forge {
     name: string;
     description: string;
     prerelease?: boolean;
+    target: string;
   }): Promise<{ releaseLink: string }> {
     const release = await this.octokit.repos.createRelease({
       owner: options.owner,
@@ -69,6 +70,7 @@ export class GithubForge extends Forge {
       name: options.name,
       body: options.description,
       prerelease: options.prerelease,
+      target_commitish: options.target,
     });
 
     return { releaseLink: release.data.html_url };

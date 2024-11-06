@@ -46,6 +46,7 @@ export async function release({
     description: releaseDescription,
     name: nextVersion,
     prerelease: shouldBeRC,
+    target: config.ci.releaseBranch,
   });
 
   console.log(c.green('# Successfully created release:'), releaseLink);

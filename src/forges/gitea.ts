@@ -72,12 +72,14 @@ export class GiteaForge extends Forge {
     name: string;
     description: string;
     prerelease?: boolean;
+    target: string;
   }): Promise<{ releaseLink: string }> {
     const release = await this.api.repos.repoCreateRelease(options.owner, options.repo, {
       tag_name: options.tag,
       name: options.name,
       body: options.description,
       prerelease: options.prerelease,
+      target_commitish: options.target,
     });
 
     return { releaseLink: release.data.html_url! };
