@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.1) - 2024-11-06
+
+### ❤️ Thanks to all contributors! ❤️
+
+@anbraten
+
+### 🐛 Bug Fixes
+
+- Create tag based on release branch [[#227](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/227)]
+
 ## [2.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.0) - 2024-11-05
 
 ### ❤️ Thanks to all contributors! ❤️
