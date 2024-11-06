@@ -33,6 +33,7 @@ export abstract class Forge {
     name: string;
     description: string;
     prerelease?: boolean;
+    target: string;
   }): Promise<{
     releaseLink: string;
   }>;
