@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.2) - 2024-11-08
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#229](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/229)]
+
 ## [2.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.1) - 2024-11-06
 
 ### ❤️ Thanks to all contributors! ❤️
