@@ -6,7 +6,7 @@ import semver from 'semver';
 import { prepare } from './cmd/prepare';
 import { release } from './cmd/release';
 import type { Config } from './utils/config';
-import type { Change, CommandContext, HookContext } from './utils/types';
+import type { CommandContext, HookContext } from './utils/types';
 import { extractVersionFromCommitMessage, getNextVersionFromLabels } from './utils/change';
 import { getReleaseOptions } from './utils/pr';
 import { Forge } from './forges/forge';
