@@ -15,8 +15,8 @@ const ciConfig = {
   repoOwner: process.env.CI_REPO_OWNER,
   repoName: process.env.CI_REPO_NAME,
   pullRequestBranchPrefix: process.env.PLUGIN_PULL_REQUEST_BRANCH_PREFIX || 'next-release/',
-  releasePrefix: '🎉 Release',
   debug: process.env.PLUGIN_DEBUG === 'true',
+  releasePrefix: process.env.PLUGIN_RELEASE_PREFIX || '🎉 Release',
 };
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
@@ -75,10 +75,10 @@ export const defaultUserConfig: UserConfig = {
   commentOnReleasedPullRequests: true,
 };
 
-export async function getConfig(): Promise<Config> {
+export async function getConfig(basePath?: string): Promise<Config> {
   const userConfig: UserConfig = {};
 
-  const configFilePath = ciConfig.configFile || path.join(process.cwd(), 'release-config.ts');
+  const configFilePath = ciConfig.configFile || path.resolve(basePath ?? process.cwd(), 'release-config.ts');
   if (
     await fs
       .stat(configFilePath)

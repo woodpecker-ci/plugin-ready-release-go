@@ -74,8 +74,8 @@ const config: Config = {
     forgeURL: '',
     pullRequestBranchPrefix: 'next-release/',
     isCI: true,
-    releasePrefix: '🎉 Release',
     debug: false,
+    releasePrefix: '🎉 Release',
   },
   user: defaultUserConfig,
 };

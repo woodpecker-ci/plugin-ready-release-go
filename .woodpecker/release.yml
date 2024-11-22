@@ -1,5 +1,5 @@
 variables:
-  - &buildx-plugin 'woodpeckerci/plugin-docker-buildx:4.2.0'
+  - &buildx-plugin 'woodpeckerci/plugin-docker-buildx:5.0.0'
   - &repo 'woodpeckerci/plugin-ready-release-go'
   - &platforms 'linux/arm/v7,linux/arm64/v8,linux/amd64,linux/ppc64le'
 

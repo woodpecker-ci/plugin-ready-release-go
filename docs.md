@@ -54,6 +54,7 @@ There are two parts to configure the plugin:
 | `RELEASE_BRANCH`             | CI_REPO_DEFAULT_BRANCH | The branch used to merge the changelog to         |
 | `PULL_REQUEST_BRANCH_PREFIX` | `next-release/`        | The prefix used for release pull-request branches |
 | `DEBUG`                      | `false`                | Enable debug logging                              |
+| `RELEASE_PREFIX`             | 🎉 Release             | Prefix of the PR title                            |
 
 ### 2. Using a `release-config.ts` file in your repository
 

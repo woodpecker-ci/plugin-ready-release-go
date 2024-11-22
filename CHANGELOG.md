@@ -1,5 +1,66 @@
 # Changelog
 
+## [2.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.1) - 2024-11-06
+
+### ❤️ Thanks to all contributors! ❤️
+
+@anbraten
+
+### 🐛 Bug Fixes
+
+- Create tag based on release branch [[#227](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/227)]
+
+## [2.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.0) - 2024-11-05
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @anbraten, @pat-s, @qwerty287
+
+### ✨ Features
+
+- Allow customization of `releasePrefix` [[#197](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/197)]
+
+### 🐛 Bug Fixes
+
+- Enhance github pr search based on sha [[#225](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/225)]
+
+### 📚 Documentation
+
+- Update plugin documentation [[#190](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/190)]
+- Use the general setting for github token example [[#183](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/183)]
+
+### 📦️ Dependency
+
+- chore(deps): update node.js to v22 [[#222](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/222)]
+- chore(deps): update dependency @types/node to v20.17.6 [[#223](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/223)]
+- chore(deps): update vitest monorepo to v2.1.4 [[#224](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/224)]
+- fix(deps): update dependency execa to v9.5.1 [[#221](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/221)]
+- chore(deps): lock file maintenance [[#220](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/220)]
+- fix(deps): update dependency execa to v9.5.1 [[#219](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/219)]
+- chore(deps): update dependency @types/node to v20.17.1 [[#213](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/213)]
+- fix(deps): update dependency tsx to v4.19.2 [[#218](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/218)]
+- chore(deps): lock file maintenance [[#217](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/217)]
+- fix(deps): update dependency picocolors to v1.1.1 [[#215](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/215)]
+- chore(deps): update dependency @types/node to v20.16.13 [[#211](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/211)]
+- fix(deps): update dependency execa to v9.4.1 [[#212](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/212)]
+- chore(deps): lock file maintenance [[#210](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/210)]
+- chore(deps): update dependency typescript to v5.6.3 [[#209](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/209)]
+- chore(deps): update dependency @types/node to v20.16.11 [[#208](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/208)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5 [[#206](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/206)]
+- chore(deps): update pre-commit hook pre-commit/pre-commit-hooks to v5 [[#201](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/201)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2 [[#199](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/199)]
+- chore(deps): lock file maintenance [[#81](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/81)]
+- chore(deps): update vitest monorepo to v2 (major) [[#160](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/160)]
+- chore(deps): update vitest monorepo to v1.6.0 [[#154](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/154)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.42.0 [[#189](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/189)]
+- chore(deps): update dependency @types/node to v20.16.10 [[#188](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/188)]
+
+### Misc
+
+- chore: remove codeowner [[#216](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/216)]
+- [pre-commit.ci] pre-commit autoupdate [[#202](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/202)]
+- Add CODEOWNERS [[#200](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/200)]
+
 ## [2.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.0.0) - 2024-09-26
 
 ### ❤️ Thanks to all contributors! ❤️
