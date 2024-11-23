@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.9.3 [[#240](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/240)]
 - chore(deps): lock file maintenance [[#236](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/236)]
 - chore(deps): update dependency typescript to v5.7.2 [[#239](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/239)]
 - chore(deps): update dependency @types/node to v22.9.2 [[#238](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/238)]
