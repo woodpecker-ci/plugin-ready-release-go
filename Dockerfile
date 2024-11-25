@@ -13,13 +13,13 @@ FROM ${BASE_IMAGE}
 WORKDIR /app
 ENV NODE_ENV=production
 
-COPY --from=build "/app/node_modules" "./node_modules"
-COPY "tsconfig.json" "./tsconfig.json"
-COPY "src" "./src"
-
 RUN apt update \
 	&& apt install -y git git-lfs wget \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
+
+COPY --from=build "/app/node_modules" "./node_modules"
+COPY "tsconfig.json" "./tsconfig.json"
+COPY "src" "./src"
 
 CMD ["/app/node_modules/.bin/tsx", "/app/src/run.ts"]
