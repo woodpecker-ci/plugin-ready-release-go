@@ -8,6 +8,7 @@
 
 ### 📈 Enhancement
 
+- Add tests for changelog generation [[#245](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/245)]
 - Use separate build stage to install dependencies and share node_modules [[#244](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/244)]
 
 ### 📦️ Dependency
