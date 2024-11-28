@@ -129,13 +129,13 @@ describe('change', () => {
       const forge = new GithubForge('', '');
       const newSection = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
 
-      it('should handle empty/no changelog', () => {
+      it('should add a new section to an empty changelog', () => {
         const oldChangelog = '';
         const changelog = updateChangelogSection('0.0.0', '1.0.0', oldChangelog, newSection);
         expect(changelog).toBe(`# Changelog\n\n${newSection}\n`);
       });
 
-      it('should handle changelog without pretext', () => {
+      it('should update an existing changelog section', () => {
         const oldChangelog = `# Changelog
 
 ## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
