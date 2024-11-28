@@ -1,10 +1,14 @@
 # Changelog
 
-## [2.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.2) - 2024-11-28
+## [2.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.2.0) - 2024-11-28
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@anbraten
+@6543, @anbraten
+
+### 📈 Enhancement
+
+- Use separate build stage to install dependencies and share node_modules [[#244](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/244)]
 
 ### 📦️ Dependency
 
