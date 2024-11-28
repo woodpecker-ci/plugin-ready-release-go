@@ -23,6 +23,9 @@ steps:
       - corepack enable
       - pnpm format:check
 
+  editorconfig:
+    image: woodpeckerci/plugin-editorconfig-checker
+
 when:
   - event: pull_request
   - event: push
