@@ -1,6 +1,10 @@
 # Changelog
 
-## [2.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.2) - 2024-11-25
+## [2.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.2) - 2024-11-28
+
+### ❤️ Thanks to all contributors! ❤️
+
+@anbraten
 
 ### 📦️ Dependency
 
@@ -14,6 +18,10 @@
 - chore(deps): lock file maintenance [[#232](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/232)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2.1.1 [[#231](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/231)]
 - chore(deps): lock file maintenance [[#229](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/229)]
+
+### Misc
+
+- Separate pr-labels to changes code into an analyser [[#237](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/237)]
 
 ## [2.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.1) - 2024-11-06
 
