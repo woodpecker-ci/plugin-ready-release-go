@@ -1,0 +1,7 @@
+{
+  "Exclude": [
+    ".git",
+    "LICENSE",
+    "node_modules"
+  ]
+}
