@@ -125,32 +125,30 @@ describe('change', () => {
       expect(changelog).toMatchSnapshot();
     });
 
-    describe('changelog text management', () => {
-      const forge = new GithubForge('', '');
-      const newSection = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
+    const forge = new GithubForge('', '');
+    const newSection = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
 
-      it('should add a new section to an empty changelog', () => {
-        const oldChangelog = '';
-        const changelog = updateChangelogSection('0.0.0', '1.0.0', oldChangelog, newSection);
-        expect(changelog).toBe(`# Changelog\n\n${newSection}\n`);
-      });
+    it('should add a new section to an empty changelog', () => {
+      const oldChangelog = '';
+      const changelog = updateChangelogSection('0.0.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`# Changelog\n\n${newSection}\n`);
+    });
 
-      it('should update an existing changelog section', () => {
-        const oldChangelog = `# Changelog
+    it('should update an existing changelog section', () => {
+      const oldChangelog = `# Changelog
 
 ## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
 
 ### Features
 - Initial release\n`;
 
-        const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
-        expect(changelog).toBe(`# Changelog\n\n${newSection}
+      const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`# Changelog\n\n${newSection}
 
 ## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
 
 ### Features
 - Initial release\n`);
-      });
     });
 
     const changelogFiles = [
@@ -168,6 +166,7 @@ describe('change', () => {
       },
       {
         name: 'should remove versions newer than the latest released version',
+        // this happens if we bump the version in an existing release PR
         file: '__fixtures__/CHANGELOG_3.md',
         latestVersion: '2.0.1',
         nextVersion: '2.0.4',
