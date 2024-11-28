@@ -125,35 +125,34 @@ describe('change', () => {
       expect(changelog).toMatchSnapshot();
     });
 
-    describe('changelog text management', () => {
-      const forge = new GithubForge('', '');
-      const newSection = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
+    const forge = new GithubForge('', '');
+    const newSection = getChangeLogSection('1.0.0', 'v1.0.0', config, changes, forge, true);
 
-      it('should handle empty/no changelog', () => {
-        const oldChangelog = '';
-        const changelog = updateChangelogSection('0.0.0', '1.0.0', oldChangelog, newSection);
-        expect(changelog).toBe(`# Changelog\n\n${newSection}\n`);
-      });
+    it('should add a new section to an empty changelog', () => {
+      const oldChangelog = '';
+      const changelog = updateChangelogSection('0.0.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`# Changelog\n\n${newSection}\n`);
+    });
 
-      it('should handle changelog without pretext', () => {
-        const oldChangelog = `# Changelog
+    it('should update an existing changelog section', () => {
+      const oldChangelog = `# Changelog
 
 ## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
 
 ### Features
 - Initial release\n`;
 
-        const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
-        expect(changelog).toBe(`# Changelog\n\n${newSection}
+      const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`# Changelog\n\n${newSection}
 
 ## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
 
 ### Features
 - Initial release\n`);
-      });
+    });
 
-      it('should preserve content before changelog', () => {
-        const oldChangelog = `This is my awesome project!
+    it('should preserve content before changelog', () => {
+      const oldChangelog = `This is my awesome project!
 It does cool things.
 
 # Changelog
@@ -163,8 +162,8 @@ It does cool things.
 ### Features
 - Initial release`;
 
-        const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
-        expect(changelog).toBe(`This is my awesome project!
+      const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`This is my awesome project!
 It does cool things.
 
 # Changelog\n\n${newSection}
@@ -173,7 +172,6 @@ It does cool things.
 
 ### Features
 - Initial release\n`);
-      });
     });
 
     const changelogFiles = [
@@ -191,6 +189,7 @@ It does cool things.
       },
       {
         name: 'should remove versions newer than the latest released version',
+        // this happens if we bump the version in an existing release PR
         file: '__fixtures__/CHANGELOG_3.md',
         latestVersion: '2.0.1',
         nextVersion: '2.0.4',
@@ -214,7 +213,7 @@ It does cool things.
   });
 
   describe('version extraction', () => {
-    it('should extract version from various commit messages', () => {
+    it('should extract version from commit messages', () => {
       const tests = [
         {
           commitMessage: '🎉 Release 1.2.3',

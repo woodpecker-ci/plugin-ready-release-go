@@ -5,7 +5,6 @@ import { GithubForge } from './forges/github';
 import { SimpleGit, simpleGit } from 'simple-git';
 
 import { prepare } from './cmd/prepare';
-import { release } from './cmd/release';
 
 const config: Config = {
   ci: {
