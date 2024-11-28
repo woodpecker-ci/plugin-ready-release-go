@@ -121,9 +121,7 @@ export function updateChangelogSection(
   newSection: string,
 ) {
   const anchorMatch = _oldChangelog.match(CHANGELOG_ANCHOR);
-  let preservedPretext = anchorMatch
-    ? _oldChangelog.substring(0, anchorMatch.index).trim()
-    : '';
+  let preservedPretext = anchorMatch ? _oldChangelog.substring(0, anchorMatch.index).trim() : '';
 
   let oldChangelog = _oldChangelog.replace('# Changelog\n\n', '');
 
@@ -160,8 +158,8 @@ export function updateChangelogSection(
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
-  if (preservedPretext.length >0) {
-    preservedPretext += '\n\n'
+  if (preservedPretext.length > 0) {
+    preservedPretext += '\n\n';
   }
 
   return `${preservedPretext}# Changelog\n\n${sections.map((s) => s.section).join('\n\n')}\n`;
