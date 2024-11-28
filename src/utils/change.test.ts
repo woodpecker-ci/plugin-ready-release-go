@@ -190,7 +190,7 @@ describe('change', () => {
   });
 
   describe('version extraction', () => {
-    it('should extract version from various commit messages', () => {
+    it('should extract version from commit messages', () => {
       const tests = [
         {
           commitMessage: '🎉 Release 1.2.3',
