@@ -112,12 +112,19 @@ export function getChangeLogSection(
   return section;
 }
 
+const CHANGELOG_ANCHOR = /^#\s*Changelog/m;
+
 export function updateChangelogSection(
   latestVersion: string,
   nextVersion: string,
   _oldChangelog: string,
   newSection: string,
 ) {
+  const anchorMatch = _oldChangelog.match(CHANGELOG_ANCHOR);
+  let preservedPretext = anchorMatch
+    ? _oldChangelog.substring(0, anchorMatch.index).trim()
+    : '';
+
   let oldChangelog = _oldChangelog.replace('# Changelog\n\n', '');
 
   let sections: { version: string; section: string }[] = [];
@@ -153,7 +160,11 @@ export function updateChangelogSection(
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
-  return `# Changelog\n\n${sections.map((s) => s.section).join('\n\n')}\n`;
+  if (preservedPretext.length >0) {
+    preservedPretext += '\n\n'
+  }
+
+  return `${preservedPretext}# Changelog\n\n${sections.map((s) => s.section).join('\n\n')}\n`;
 }
 
 export function extractVersionFromCommitMessage(commitMessage: string) {
