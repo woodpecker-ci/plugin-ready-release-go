@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.2.0) - 2024-11-28
+## [2.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.2.0) - 2024-11-29
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -26,6 +26,7 @@
 
 ### Misc
 
+- Add release-please to readme [[#248](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/248)]
 - Separate pr-labels to changes code into an analyser [[#237](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/237)]
 
 ## [2.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.1) - 2024-11-06
