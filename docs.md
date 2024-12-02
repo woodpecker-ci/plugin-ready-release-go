@@ -62,7 +62,7 @@ Add a `release-config.ts` file to the root of your repository. Have a look at th
 
 ```ts
 export default {
-  commentOnReleasedPullRequests: false,
+  commentOnReleasedPullRequests: true,
 };
 ```
 
