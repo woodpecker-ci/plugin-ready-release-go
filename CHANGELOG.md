@@ -1,10 +1,14 @@
 # Changelog
 
-## [2.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.2.0) - 2024-12-02
+## [3.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.0) - 2024-12-02
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@6543, @anbraten
+@6543, @anbraten, @xoxys
+
+### 💥 Breaking changes
+
+- Disable commentOnReleasedPullRequests by default [[#253](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/253)]
 
 ### 📈 Enhancement
 
