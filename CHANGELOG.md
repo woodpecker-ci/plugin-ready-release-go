@@ -1,5 +1,42 @@
 # Changelog
 
+## [3.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.0) - 2024-12-02
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @anbraten, @xoxys
+
+### 💥 Breaking changes
+
+- Disable commentOnReleasedPullRequests by default [[#253](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/253)]
+
+### 📈 Enhancement
+
+- Add tests for changelog generation [[#245](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/245)]
+- Use separate build stage to install dependencies and share node_modules [[#244](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/244)]
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#252](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/252)]
+- chore(deps): update dependency prettier to v3.4.1 [[#251](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/251)]
+- chore(deps): update dependency @types/node to v22.10.1 [[#250](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/250)]
+- chore(deps): update vitest monorepo to v2.1.6 [[#249](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/249)]
+- chore(deps): lock file maintenance [[#243](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/243)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.43.0 [[#241](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/241)]
+- chore(deps): update dependency @types/node to v22.9.3 [[#240](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/240)]
+- chore(deps): lock file maintenance [[#236](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/236)]
+- chore(deps): update dependency typescript to v5.7.2 [[#239](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/239)]
+- chore(deps): update dependency @types/node to v22.9.2 [[#238](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/238)]
+- chore(deps): update vitest monorepo to v2.1.5 [[#235](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/235)]
+- chore(deps): lock file maintenance [[#232](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/232)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2.1.1 [[#231](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/231)]
+- chore(deps): lock file maintenance [[#229](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/229)]
+
+### Misc
+
+- Add release-please to readme [[#248](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/248)]
+- Separate pr-labels to changes code into an analyser [[#237](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/237)]
+
 ## [2.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/2.1.1) - 2024-11-06
 
 ### ❤️ Thanks to all contributors! ❤️

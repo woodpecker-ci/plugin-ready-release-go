@@ -6,10 +6,11 @@ import semver from 'semver';
 import { prepare } from './cmd/prepare';
 import { release } from './cmd/release';
 import type { Config } from './utils/config';
-import type { Change, CommandContext, HookContext } from './utils/types';
+import type { CommandContext, HookContext } from './utils/types';
 import { extractVersionFromCommitMessage, getNextVersionFromLabels } from './utils/change';
 import { getReleaseOptions } from './utils/pr';
 import { Forge } from './forges/forge';
+import { PRLabelAnalyser } from './utils/analyser/pr_labels';
 
 export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge; config: Config }) {
   if (config.ci.debug) {
@@ -143,37 +144,10 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   const useVersionPrefixV =
     config.user.useVersionPrefixV === undefined ? latestTag.startsWith('v') : config.user.useVersionPrefixV;
   const latestVersion = latestTag.replace(/^v/, '');
-  const changes: Change[] = [];
 
-  for await (const commit of unTaggedCommits.all) {
-    if (commit.message.startsWith(config.ci.releasePrefix)) {
-      continue;
-    }
-
-    const pr = await forge.getPullRequestFromCommit({
-      owner: config.ci.repoOwner!,
-      repo: config.ci.repoName!,
-      commitHash: commit.hash,
-    });
-
-    if (config.user.skipCommitsWithoutPullRequest && !pr) {
-      console.log(c.yellow('# No pull-request found for commit, skipping.'), `${commit.hash}: "${commit.message}"`);
-      continue;
-    }
-
-    if (pr?.labels.some((l) => config.user.skipLabels?.includes(l))) {
-      console.log(c.yellow('# Skipping commit / PR by label:'), `${commit.hash}: "${commit.message}"`);
-      continue;
-    }
-
-    changes.push({
-      commitHash: commit.hash,
-      author: pr?.author || commit.author_name,
-      title: pr?.title || commit.message,
-      labels: pr?.labels || [],
-      pullRequestNumber: pr?.number,
-    });
-  }
+  // TODO: support additional analysers
+  const analyser = new PRLabelAnalyser(forge, config);
+  const changes = await analyser.getChangesFromCommits([...unTaggedCommits.all]);
 
   if (config.ci.debug) {
     console.log(c.yellow('changes'), changes);
