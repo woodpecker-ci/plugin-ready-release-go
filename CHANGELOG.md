@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v2.1.8 [[#255](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/255)]
 - chore(deps): update dependency prettier to v3.4.2 [[#254](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/254)]
 
 ## [3.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.0) - 2024-12-02
