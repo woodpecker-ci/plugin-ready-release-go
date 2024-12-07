@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.1) - 2024-12-07
+
+### 📦️ Dependency
+
+- chore(deps): update dependency prettier to v3.4.2 [[#254](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/254)]
+
 ## [3.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.0) - 2024-12-02
 
 ### ❤️ Thanks to all contributors! ❤️
