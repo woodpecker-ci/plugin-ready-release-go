@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.1.0 [[#258](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/258)]
 - fix(deps): update dependency execa to v9.5.2 [[#259](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/259)]
 - chore(deps): update vitest monorepo to v2.1.8 [[#255](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/255)]
 - chore(deps): update dependency prettier to v3.4.2 [[#254](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/254)]
