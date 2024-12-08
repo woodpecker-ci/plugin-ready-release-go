@@ -118,7 +118,9 @@ export function updateChangelogSection(
   _oldChangelog: string,
   newSection: string,
 ) {
-  let oldChangelog = _oldChangelog.replace('# Changelog\n\n', '');
+  const changelogHeadline = '# Changelog\n\n';
+
+  let oldChangelog = _oldChangelog.replace(changelogHeadline, '');
 
   let sections: { version: string; section: string }[] = [];
 
@@ -153,7 +155,10 @@ export function updateChangelogSection(
 
   sections = sections.sort((a, b) => semver.compare(b.version, a.version));
 
-  return `# Changelog\n\n${sections.map((s) => s.section).join('\n\n')}\n`;
+  // Keep the preamble of the changelog
+  const preamble = _oldChangelog.substring(0, Math.max(_oldChangelog.indexOf(changelogHeadline), 0));
+
+  return `${preamble}${changelogHeadline}${sections.map((s) => s.section).join('\n\n')}\n`;
 }
 
 export function extractVersionFromCommitMessage(commitMessage: string) {
