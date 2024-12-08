@@ -4,11 +4,15 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@6543
+@6543, @anbraten
 
 ### ✨ Features
 
 - Keep text before changelog sections [[#246](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/246)]
+
+### 📈 Enhancement
+
+- Remove execa [[#260](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/260)]
 
 ### 📦️ Dependency
 
