@@ -151,6 +151,50 @@ describe('change', () => {
 - Initial release\n`);
     });
 
+    it('should preserve content before changelog', () => {
+      const oldChangelog = `This is my awesome project!
+It does cool things.
+
+# Changelog
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+### Features
+- Initial release`;
+
+      const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`This is my awesome project!
+It does cool things.
+
+# Changelog\n\n${newSection}
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+### Features
+- Initial release\n`);
+    });
+
+    it('should leave different sections untouched', () => {
+      const oldChangelog = `# Changelog
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+This is a special note that should not be touched.
+
+### Features
+- Initial release\n`;
+
+      const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`# Changelog\n\n${newSection}
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+This is a special note that should not be touched.
+
+### Features
+- Initial release\n`);
+    });
+
     const changelogFiles = [
       {
         name: 'should add new section',
