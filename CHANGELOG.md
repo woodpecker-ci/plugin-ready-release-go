@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.0) - 2024-12-08
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @anbraten
+
+### ✨ Features
+
+- Keep text before changelog sections [[#246](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/246)]
+
+### 📈 Enhancement
+
+- Remove execa [[#260](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/260)]
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.1.0 [[#258](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/258)]
+- fix(deps): update dependency execa to v9.5.2 [[#259](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/259)]
+- chore(deps): update vitest monorepo to v2.1.8 [[#255](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/255)]
+- chore(deps): update dependency prettier to v3.4.2 [[#254](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/254)]
+
 ## [3.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.0) - 2024-12-02
 
 ### ❤️ Thanks to all contributors! ❤️
