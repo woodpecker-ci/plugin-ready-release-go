@@ -1,6 +1,14 @@
 # Changelog
 
-## [3.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.1) - 2024-12-08
+## [3.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.0) - 2024-12-08
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### ✨ Features
+
+- Keep text before changelog sections [[#246](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/246)]
 
 ### 📦️ Dependency
 
