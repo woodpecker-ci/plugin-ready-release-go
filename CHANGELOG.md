@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.1) - 2024-12-08
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.0 [[#261](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/261)]
+
 ## [3.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.0) - 2024-12-08
 
 ### ❤️ Thanks to all contributors! ❤️
