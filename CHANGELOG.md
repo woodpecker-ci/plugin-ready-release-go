@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.1) - 2024-12-07
+## [3.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.1) - 2024-12-08
 
 ### 📦️ Dependency
 
+- fix(deps): update dependency execa to v9.5.2 [[#259](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/259)]
 - chore(deps): update vitest monorepo to v2.1.8 [[#255](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/255)]
 - chore(deps): update dependency prettier to v3.4.2 [[#254](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/254)]
 
