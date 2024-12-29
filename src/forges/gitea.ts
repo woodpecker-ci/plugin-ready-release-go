@@ -46,7 +46,7 @@ export class GiteaForge extends Forge {
       ),
     );
 
-    if (pullRequest?.data) {
+    if (pullRequest?.data && pullRequest.data.state === 'open') {
       const pr = await this.api.repos.repoEditPullRequest(options.owner, options.repo, pullRequest.data.number!, {
         title: options.title,
         body: options.description,
