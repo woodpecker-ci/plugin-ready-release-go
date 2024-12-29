@@ -1,6 +1,14 @@
 # Changelog
 
-## [3.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.1) - 2024-12-23
+## [3.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.1) - 2024-12-29
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 🐛 Bug Fixes
+
+- Make sure gitea PR is open [[#267](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/267)]
 
 ### 📦️ Dependency
 
