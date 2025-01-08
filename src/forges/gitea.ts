@@ -37,6 +37,14 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<{ pullRequestLink: string }> {
+
+    await this.handleApiErrors(
+      this.api.repos.repoCreateBranch(options.owner, options.repo, {
+        new_branch_name: options.sourceBranch,
+      }),
+      [409] // 409 Conflict indicates the branch already exists
+    );
+
     const pullRequest = await this.handleApiErrors(
       this.api.repos.repoGetPullRequestByBaseHead(
         options.owner,
