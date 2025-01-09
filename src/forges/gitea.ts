@@ -20,8 +20,17 @@ export class GiteaForge extends Forge {
   async handleApiErrors<T>(promise: Promise<T>, ignoreErrors = [404]): Promise<T | undefined> {
     return promise.catch((error) => {
       const status = (error as Response)?.status;
+      const errorMessage = {
+        status,
+        message: (error as Response)?.statusText,
+        url: (error as Response)?.url,
+        body: (error as Response)?.body,
+      };
+
       if (ignoreErrors.includes(status)) {
-        console.error('gitea error', error);
+        console.error('gitea error', errorMessage, 'but continuing as status code is explicity ignored');
+      } else {
+        throw new Error(`gitea error: ${JSON.stringify(errorMessage)}`);
       }
 
       return undefined;
@@ -37,32 +46,52 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<{ pullRequestLink: string }> {
-    const pullRequest = await this.handleApiErrors(
-      this.api.repos.repoGetPullRequestByBaseHead(
-        options.owner,
-        options.repo,
-        options.targetBranch,
-        options.sourceBranch,
-      ),
+    const pullRequestAll = await this.handleApiErrors(
+      this.api.repos.repoListPullRequests(options.owner, options.repo, { state: 'all' }),
     );
 
-    if (pullRequest?.data && pullRequest.data.state === 'open') {
-      const pr = await this.api.repos.repoEditPullRequest(options.owner, options.repo, pullRequest.data.number!, {
-        title: options.title,
-        body: options.description,
-      });
+    const filteredPullRequests = pullRequestAll?.data?.filter(
+      (prList) =>
+        prList.base?.ref === options.targetBranch &&
+        prList.head?.ref === options.sourceBranch &&
+        prList.state === 'open' &&
+        prList.title === options.title,
+    );
 
-      return { pullRequestLink: pr.data.html_url! };
+    let pullRequest = filteredPullRequests?.[0];
+
+    // FIXME: this endpoint only returns the first match (bug). When functional, it is preferred over the currently active method of listing all PRs and then filtering those
+    // const pullRequest = await this.handleApiErrors(
+    //   this.api.repos.repoGetPullRequestByBaseHead(
+    //     options.owner,
+    //     options.repo,
+    //     options.targetBranch,
+    //     options.sourceBranch,
+    //   ),
+    // );
+
+    if (pullRequest) {
+      const pr = await this.handleApiErrors(
+        this.api.repos.repoEditPullRequest(options.owner, options.repo, pullRequest.number!, {
+          title: options.title,
+          body: options.description,
+        }),
+      );
+      return { pullRequestLink: pr?.data.html_url! };
+    } else {
+      console.log(`# No open PR found for ${options.title}, attempting to open a new one.`);
     }
 
-    const pr = await this.api.repos.repoCreatePullRequest(options.owner, options.repo, {
-      title: options.title,
-      head: options.sourceBranch,
-      base: options.targetBranch,
-      body: options.description,
-    });
+    const pr = await this.handleApiErrors(
+      this.api.repos.repoCreatePullRequest(options.owner, options.repo, {
+        title: options.title,
+        head: options.sourceBranch,
+        base: options.targetBranch,
+        body: options.description,
+      }),
+    );
 
-    return { pullRequestLink: pr.data.html_url! };
+    return { pullRequestLink: pr?.data.html_url! };
   }
 
   async createRelease(options: {
