@@ -55,7 +55,6 @@ export class GiteaForge extends Forge {
         prList.base?.ref === options.targetBranch &&
         prList.head?.ref === options.sourceBranch &&
         prList.state === 'open' &&
-        prList.title === options.title,
     );
 
     let pullRequest = filteredPullRequests?.[0];
