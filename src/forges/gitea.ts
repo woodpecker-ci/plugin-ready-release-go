@@ -37,6 +37,28 @@ export class GiteaForge extends Forge {
     });
   }
 
+  async fetchAllPullRequests(owner: string, repo: string): Promise<any[]> {
+    let page = 1;
+    const perPage = 30;
+    let allPullRequests: any[] = [];
+    let hasMore = true;
+
+    while (hasMore) {
+      const pullRequests = await this.handleApiErrors(
+        this.api.repos.repoListPullRequests(owner, repo, { state: 'all', page, limit: perPage }),
+      );
+
+      if (pullRequests?.data?.length) {
+        allPullRequests = allPullRequests.concat(pullRequests.data);
+        page++;
+      } else {
+        hasMore = false;
+      }
+    }
+
+    return allPullRequests;
+  }
+
   async createOrUpdatePullRequest(options: {
     draft: boolean;
     title: string;
@@ -46,15 +68,10 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<{ pullRequestLink: string }> {
-    const pullRequestAll = await this.handleApiErrors(
-      this.api.repos.repoListPullRequests(options.owner, options.repo, { state: 'all' }),
-    );
+    const pullRequestAll = await this.fetchAllPullRequests(options.owner, options.repo);
 
-    const filteredPullRequests = pullRequestAll?.data?.filter(
-      (prList) =>
-        prList.base?.ref === options.targetBranch &&
-        prList.head?.ref === options.sourceBranch &&
-        prList.state === 'open' &&
+    const filteredPullRequests = pullRequestAll.filter(
+      (pr) => pr.base?.ref === options.targetBranch && pr.head?.ref === options.sourceBranch && pr.state === 'open',
     );
 
     let pullRequest = filteredPullRequests?.[0];
