@@ -13,7 +13,7 @@ importers:
         version: 21.1.0
       gitea-js:
         specifier: ^1.22.0
-        version: 1.22.0
+        version: 1.23.0
       picocolors:
         specifier: ^1.0.0
         version: 1.1.1
@@ -639,8 +639,8 @@ packages:
   get-tsconfig@4.8.1:
     resolution: {integrity: sha512-k9PN+cFBmaLWtVz29SkUoqU5O0slLuHJXt/2P+tMVFT+phsSGXGkp9t3rQIqdz0e+06EHNGs3oM6ZX1s2zHxRg==}
 
-  gitea-js@1.22.0:
-    resolution: {integrity: sha512-vG3yNU2NKX7vbsqHH5U3q0u3OmWWh3c4nvyWtx022jQEDJDZP47EoGurXCmOhzvD5AwgUV6r+lVAz+Fa1dazgg==}
+  gitea-js@1.23.0:
+    resolution: {integrity: sha512-f4+UPoWgDetZeZ+Awo5iI1nVdO5bjxA8+2QCeLo3oYWUYxKyzLfXgbW1EPD635wb8hLgS0DRBu5XhtiuYKEeUA==}
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
@@ -1339,7 +1339,7 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
-  gitea-js@1.22.0: {}
+  gitea-js@1.23.0: {}
 
   glob@7.2.3:
     dependencies:
