@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.3) - 2025-01-20
+
+### ❤️ Thanks to all contributors! ❤️
+
+@xoxys
+
+### Misc
+
+- Prevent invalid semver version 0.0.x [[#283](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/283)]
+
 ## [3.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.2) - 2025-01-20
 
 ### ❤️ Thanks to all contributors! ❤️
