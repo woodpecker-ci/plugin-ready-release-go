@@ -6,7 +6,7 @@
 
 @xoxys
 
-### Misc
+### 🐛 Bug Fixes
 
 - Prevent invalid semver version 0.0.x [[#283](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/283)]
 
