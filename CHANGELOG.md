@@ -8,6 +8,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v3 (major) [[#281](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/281)]
 - chore(deps): lock file maintenance [[#282](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/282)]
 - chore(deps): update dependency @types/node to v22.10.7 [[#279](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/279)]
 - fix(deps): update dependency gitea-js to v1.23.0 [[#280](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/280)]
