@@ -1,5 +1,5 @@
 import { Forge, PullRequest } from './forge';
-import { giteaApi, Api } from 'gitea-js';
+import { giteaApi, Api, PullRequest as GiteaPullRequest } from 'gitea-js';
 
 export class GiteaForge extends Forge {
   accessToken: string;
@@ -37,26 +37,37 @@ export class GiteaForge extends Forge {
     });
   }
 
-  async fetchAllPullRequests(owner: string, repo: string): Promise<any[]> {
+  async getPullRequestByHead(
+    owner: string,
+    repo: string,
+    targetBranch: string,
+    sourceBranch: string,
+  ): Promise<GiteaPullRequest | null> {
     let page = 1;
     const perPage = 30;
-    let allPullRequests: any[] = [];
     let hasMore = true;
 
     while (hasMore) {
       const pullRequests = await this.handleApiErrors(
-        this.api.repos.repoListPullRequests(owner, repo, { state: 'all', page, limit: perPage }),
+        this.api.repos.repoListPullRequests(owner, repo, { state: 'open', page, limit: perPage }),
       );
 
-      if (pullRequests?.data?.length) {
-        allPullRequests = allPullRequests.concat(pullRequests.data);
+      const filteredPullRequests = pullRequests?.data?.filter(
+        (pr) => pr.base?.ref === targetBranch && pr.head?.ref === sourceBranch && pr.state === 'open',
+      );
+
+      if (filteredPullRequests?.length === 1) {
+        return filteredPullRequests[0];
+      }
+
+      if (pullRequests?.data?.length && pullRequests?.data?.length >= perPage) {
         page++;
       } else {
-        hasMore = false;
+        break;
       }
     }
 
-    return allPullRequests;
+    return null;
   }
 
   async createOrUpdatePullRequest(options: {
@@ -68,13 +79,12 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<{ pullRequestLink: string }> {
-    const pullRequestAll = await this.fetchAllPullRequests(options.owner, options.repo);
-
-    const filteredPullRequests = pullRequestAll.filter(
-      (pr) => pr.base?.ref === options.targetBranch && pr.head?.ref === options.sourceBranch && pr.state === 'open',
+    const pullRequest = await this.getPullRequestByHead(
+      options.owner,
+      options.repo,
+      options.targetBranch,
+      options.sourceBranch,
     );
-
-    let pullRequest = filteredPullRequests?.[0];
 
     // FIXME: this endpoint only returns the first match (bug). When functional, it is preferred over the currently active method of listing all PRs and then filtering those
     // const pullRequest = await this.handleApiErrors(
