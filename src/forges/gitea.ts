@@ -1,5 +1,5 @@
 import { Forge, PullRequest } from './forge';
-import { giteaApi, Api } from 'gitea-js';
+import { giteaApi, Api, PullRequest as GiteaPullRequest } from 'gitea-js';
 
 export class GiteaForge extends Forge {
   accessToken: string;
@@ -20,12 +20,54 @@ export class GiteaForge extends Forge {
   async handleApiErrors<T>(promise: Promise<T>, ignoreErrors = [404]): Promise<T | undefined> {
     return promise.catch((error) => {
       const status = (error as Response)?.status;
+      const errorMessage = {
+        status,
+        message: (error as Response)?.statusText,
+        url: (error as Response)?.url,
+        body: (error as Response)?.body,
+      };
+
       if (ignoreErrors.includes(status)) {
-        console.error('gitea error', error);
+        console.error('gitea error', errorMessage, 'but continuing as status code is explicity ignored');
+      } else {
+        throw new Error(`gitea error: ${JSON.stringify(errorMessage)}`);
       }
 
       return undefined;
     });
+  }
+
+  async getPullRequestByHead(
+    owner: string,
+    repo: string,
+    targetBranch: string,
+    sourceBranch: string,
+  ): Promise<GiteaPullRequest | null> {
+    let page = 1;
+    const perPage = 30;
+    let hasMore = true;
+
+    while (hasMore) {
+      const pullRequests = await this.handleApiErrors(
+        this.api.repos.repoListPullRequests(owner, repo, { state: 'open', page, limit: perPage }),
+      );
+
+      const filteredPullRequests = pullRequests?.data?.filter(
+        (pr) => pr.base?.ref === targetBranch && pr.head?.ref === sourceBranch && pr.state === 'open',
+      );
+
+      if (filteredPullRequests?.length === 1) {
+        return filteredPullRequests[0];
+      }
+
+      if (pullRequests?.data?.length && pullRequests?.data?.length >= perPage) {
+        page++;
+      } else {
+        break;
+      }
+    }
+
+    return null;
   }
 
   async createOrUpdatePullRequest(options: {
@@ -37,32 +79,45 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<{ pullRequestLink: string }> {
-    const pullRequest = await this.handleApiErrors(
-      this.api.repos.repoGetPullRequestByBaseHead(
-        options.owner,
-        options.repo,
-        options.targetBranch,
-        options.sourceBranch,
-      ),
+    const pullRequest = await this.getPullRequestByHead(
+      options.owner,
+      options.repo,
+      options.targetBranch,
+      options.sourceBranch,
     );
 
-    if (pullRequest?.data && pullRequest.data.state === 'open') {
-      const pr = await this.api.repos.repoEditPullRequest(options.owner, options.repo, pullRequest.data.number!, {
-        title: options.title,
-        body: options.description,
-      });
+    // FIXME: this endpoint only returns the first match (bug). When functional, it is preferred over the currently active method of listing all PRs and then filtering those
+    // const pullRequest = await this.handleApiErrors(
+    //   this.api.repos.repoGetPullRequestByBaseHead(
+    //     options.owner,
+    //     options.repo,
+    //     options.targetBranch,
+    //     options.sourceBranch,
+    //   ),
+    // );
 
-      return { pullRequestLink: pr.data.html_url! };
+    if (pullRequest) {
+      const pr = await this.handleApiErrors(
+        this.api.repos.repoEditPullRequest(options.owner, options.repo, pullRequest.number!, {
+          title: options.title,
+          body: options.description,
+        }),
+      );
+      return { pullRequestLink: pr?.data.html_url! };
+    } else {
+      console.log(`# No open PR found for ${options.title}, attempting to open a new one.`);
     }
 
-    const pr = await this.api.repos.repoCreatePullRequest(options.owner, options.repo, {
-      title: options.title,
-      head: options.sourceBranch,
-      base: options.targetBranch,
-      body: options.description,
-    });
+    const pr = await this.handleApiErrors(
+      this.api.repos.repoCreatePullRequest(options.owner, options.repo, {
+        title: options.title,
+        head: options.sourceBranch,
+        base: options.targetBranch,
+        body: options.description,
+      }),
+    );
 
-    return { pullRequestLink: pr.data.html_url! };
+    return { pullRequestLink: pr?.data.html_url! };
   }
 
   async createRelease(options: {
