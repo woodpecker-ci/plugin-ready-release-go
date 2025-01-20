@@ -1,5 +1,68 @@
 # Changelog
 
+## [3.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.2) - 2025-01-20
+
+### ❤️ Thanks to all contributors! ❤️
+
+@OCram85, @pat-s
+
+### 📦️ Dependency
+
+- chore(deps): update vitest monorepo to v3 (major) [[#281](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/281)]
+- chore(deps): lock file maintenance [[#282](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/282)]
+- chore(deps): update dependency @types/node to v22.10.7 [[#279](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/279)]
+- fix(deps): update dependency gitea-js to v1.23.0 [[#280](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/280)]
+- fix(deps): update dependency @octokit/rest to v21.1.0 [[#277](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/277)]
+- chore(deps): update dependency typescript to v5.7.3 [[#276](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/276)]
+- chore(deps): lock file maintenance [[#272](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/272)]
+- chore(deps): update dependency @types/node to v22.10.5 [[#271](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/271)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.1 [[#268](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/268)]
+- chore(deps): lock file maintenance [[#269](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/269)]
+
+### Misc
+
+- adds default changeTypes in readme and docs [[#275](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/275)]
+- Refactor `gitea.ts` [[#274](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/274)]
+
+## [3.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.1) - 2024-12-29
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 🐛 Bug Fixes
+
+- Make sure gitea PR is open [[#267](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/267)]
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#266](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/266)]
+- chore(deps): lock file maintenance [[#265](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/265)]
+- chore(deps): update dependency @types/node to v22.10.2 [[#264](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/264)]
+- chore(deps): lock file maintenance [[#263](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/263)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.0 [[#261](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/261)]
+
+## [3.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.0) - 2024-12-08
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @anbraten
+
+### ✨ Features
+
+- Keep text before changelog sections [[#246](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/246)]
+
+### 📈 Enhancement
+
+- Remove execa [[#260](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/260)]
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.1.0 [[#258](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/258)]
+- fix(deps): update dependency execa to v9.5.2 [[#259](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/259)]
+- chore(deps): update vitest monorepo to v2.1.8 [[#255](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/255)]
+- chore(deps): update dependency prettier to v3.4.2 [[#254](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/254)]
+
 ## [3.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.0.0) - 2024-12-02
 
 ### ❤️ Thanks to all contributors! ❤️

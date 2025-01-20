@@ -13,6 +13,10 @@ export function getNextVersionFromLabels(
     return null;
   }
 
+  if (semver.major(lastVersion) === 0 && semver.minor(lastVersion) === 0) {
+    return semver.inc(lastVersion, 'minor');
+  }
+
   const changeLabels = config.changeTypes!.reduce(
     (acc, c) => {
       acc[c.bump].push(...c.labels);

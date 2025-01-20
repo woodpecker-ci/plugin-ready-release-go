@@ -116,6 +116,11 @@ describe('change', () => {
       const nextVersion = getNextVersionFromLabels('1.0.1-rc.2', config.user, changesWithMinor, true);
       expect(nextVersion).toBe('1.1.0-rc.0');
     });
+
+    it('should get 0.1.0 for first version with only bugfix', () => {
+      const nextVersion = getNextVersionFromLabels('0.0.0', config.user, changesWithPatch, false);
+      expect(nextVersion).toBe('0.1.0');
+    });
   });
 
   describe('changelog generation', () => {
