@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.2) - 2025-01-18
+## [3.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.2) - 2025-01-20
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#282](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/282)]
 - chore(deps): update dependency @types/node to v22.10.7 [[#279](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/279)]
 - fix(deps): update dependency gitea-js to v1.23.0 [[#280](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/280)]
 - fix(deps): update dependency @octokit/rest to v21.1.0 [[#277](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/277)]
