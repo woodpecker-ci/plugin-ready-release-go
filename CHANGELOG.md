@@ -21,7 +21,7 @@
 
 ### Misc
 
-- adds default changeTypes in  readme and docs [[#275](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/275)]
+- adds default changeTypes in readme and docs [[#275](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/275)]
 - Refactor `gitea.ts` [[#274](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/274)]
 
 ## [3.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.1) - 2024-12-29
