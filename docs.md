@@ -125,3 +125,11 @@ export default {
   },
 };
 ```
+
+To avoid Woodpecker workflow runs you should also consider adding an exclude condition. Otherwise the pull requests created and updates by this plugin triggers a workflow run itself. This could cause issues if your
+workflow contains plubishing steps based on your pull requests.
+
+To prevent this behavior you can add this evaluation condition in your steps or a complete workflow: 
+```yml
+evaluate: 'not (CI_COMMIT_SOURCE_BRANCH contains "next-release/")'
+```
