@@ -130,6 +130,7 @@ To avoid Woodpecker workflow runs you should also consider adding an exclude con
 workflow contains plubishing steps based on your pull requests.
 
 To prevent this behavior you can add this evaluation condition in your steps or a complete workflow:
+
 ```yml
 evaluate: 'not (CI_COMMIT_SOURCE_BRANCH contains "next-release/")'
 ```
