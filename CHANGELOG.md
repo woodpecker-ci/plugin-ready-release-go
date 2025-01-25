@@ -4,6 +4,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v3.0.4 [[#290](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/290)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.0 [[#294](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/294)]
 - chore(deps): update dependency @types/node to v22.10.10 [[#289](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/289)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.44.0 [[#292](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/292)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.3 [[#291](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/291)]
