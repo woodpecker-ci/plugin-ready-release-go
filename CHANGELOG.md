@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v3.0.5 [[#299](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/299)]
 - fix(deps): update dependency semver to v7.7.1 [[#301](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/301)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.1 [[#300](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/300)]
 - chore(deps): update dependency @types/node to v22.13.2 [[#298](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/298)]
