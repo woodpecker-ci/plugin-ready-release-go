@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.13.2 [[#298](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/298)]
 - chore(deps): update dependency prettier to v3.5.1 [[#302](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/302)]
 - fix(deps): update dependency semver to v7.7.0 [[#297](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/297)]
 - chore(deps): update dependency @types/node to v22.13.0 [[#296](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/296)]
