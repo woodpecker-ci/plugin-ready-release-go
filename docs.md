@@ -127,7 +127,7 @@ export default {
 ```
 
 To avoid Woodpecker workflow runs you should also consider adding an exclude condition. Otherwise the pull requests created and updates by this plugin triggers a workflow run itself. This could cause issues if your
-workflow contains plubishing steps based on your pull requests.
+workflow contains publishing steps based on your pull requests.
 
 To exclude workflows or steps from the plugin from being executed you can add a filter like: 
 
