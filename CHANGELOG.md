@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- fix(deps): update dependency tsx to v4.19.3 [[#309](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/309)]
 - chore(deps): update vitest monorepo to v3.0.6 [[#307](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/307)]
 - chore(deps): update dependency prettier to v3.5.2 [[#308](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/308)]
 - chore(deps): update dependency @types/node to v22.13.5 [[#306](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/306)]
