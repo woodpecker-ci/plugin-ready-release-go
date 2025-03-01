@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.13.8 [[#313](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/313)]
 - chore(deps): update vitest monorepo to v3.0.7 [[#311](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/311)]
 - chore(deps): update dependency typescript to v5.8.2 [[#312](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/312)]
 - chore(deps): update dependency @types/node to v22.13.7 [[#310](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/310)]
