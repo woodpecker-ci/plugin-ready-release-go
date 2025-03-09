@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.1.4](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.4) - 2025-03-08
+## [3.1.4](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.4) - 2025-03-09
 
 ### 📦️ Dependency
 
+- fix(deps): update dependency shelljs to ^0.9.0 [[#318](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/318)]
 - chore(deps): update dependency @types/node to v22.13.10 [[#317](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/317)]
 - chore(deps): update dependency @types/node to v22.13.9 [[#315](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/315)]
 - chore(deps): update vitest monorepo to v3.0.8 [[#316](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/316)]
