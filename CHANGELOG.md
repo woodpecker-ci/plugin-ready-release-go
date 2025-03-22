@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.13.11 [[#321](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/321)]
 - chore(deps): update vitest monorepo to v3.0.9 [[#322](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/322)]
 - chore(deps): lock file maintenance [[#320](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/320)]
 - chore(deps): lock file maintenance [[#319](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/319)]
