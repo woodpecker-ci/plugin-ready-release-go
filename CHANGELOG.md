@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.13.14 [[#325](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/325)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.4 [[#326](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/326)]
 
 ## [3.1.4](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.4) - 2025-03-25
