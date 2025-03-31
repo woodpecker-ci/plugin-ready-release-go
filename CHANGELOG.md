@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.5) - 2025-03-29
+## [3.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.5) - 2025-03-31
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#329](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/329)]
 - chore(deps): update dependency @types/semver to v7.7.0 [[#328](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/328)]
 - chore(deps): update dependency @types/node to v22.13.14 [[#325](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/325)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.4 [[#326](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/326)]
