@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency typescript to v5.8.3 [[#330](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/330)]
 - chore(deps): lock file maintenance [[#333](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/333)]
 - chore(deps): lock file maintenance [[#329](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/329)]
 - chore(deps): update dependency @types/semver to v7.7.0 [[#328](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/328)]
