@@ -6,6 +6,10 @@
 
 @JammingBen
 
+### 🐛 Bug Fixes
+
+- fix: getNextVersion not working [[#336](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/336)]
+
 ### 📦️ Dependency
 
 - chore(deps): update dependency typescript to v5.8.3 [[#330](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/330)]
