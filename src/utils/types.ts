@@ -108,6 +108,13 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Set the newly created release as latest.
+   * Note: This only has an effect for GitHub releases.
+   * @default true
+   */
+  isLatestRelease: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
