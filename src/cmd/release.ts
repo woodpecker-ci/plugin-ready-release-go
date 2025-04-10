@@ -38,6 +38,8 @@ export async function release({
     ? await config.user.getReleaseDescription(hookCtx)
     : newChangelogSection;
 
+  const isLatest = config.user.useLatestRelease ? await config.user.useLatestRelease(hookCtx) : true;
+
   console.log('# Creating release');
   const { releaseLink } = await forge.createRelease({
     owner: config.ci.repoOwner,
@@ -47,7 +49,7 @@ export async function release({
     name: nextVersion,
     prerelease: shouldBeRC,
     target: config.ci.releaseBranch,
-    isLatest: config.user.isLatestRelease,
+    isLatest,
   });
 
   console.log(c.green('# Successfully created release:'), releaseLink);
