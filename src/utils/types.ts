@@ -77,6 +77,13 @@ export type UserConfig = Partial<{
    */
   afterRelease: (ctx: HookContext) => PromiseOrValue<boolean | void>;
 
+  /**
+   * Determine if a release should be set as latest. Returns true by default.
+   *
+   * Note: This only has an effect for GitHub releases.
+   */
+  useLatestRelease: (ctx: HookContext) => PromiseOrValue<boolean>;
+
   changeTypes: {
     title: string;
     labels: string[];
