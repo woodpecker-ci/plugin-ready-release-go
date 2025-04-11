@@ -86,7 +86,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   console.log('# Should next version be a release candidate:', c.green(shouldBeRC ? 'yes' : 'no'));
 
   const tags = await git.tags(['--sort=-creatordate']);
-  let latestTag = tags.latest;
+  let latestTag = config.user.getLatestTag ? await config.user.getLatestTag(hookCtx) : tags.latest;
 
   if (tags.all.length > 0) {
     const sortedTags = semver.rsort(tags.all.filter((tag) => semver.valid(tag)));
@@ -99,7 +99,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   }
 
   latestTag = latestTag || '0.0.0';
-  if (tags.latest) {
+  if (latestTag) {
     console.log('# Lastest tag is:', c.green(latestTag));
   } else {
     console.log(c.green(`# No tags found. Starting with first tag: ${latestTag}`));
