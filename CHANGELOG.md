@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.5) - 2025-04-11
+
+### ❤️ Thanks to all contributors! ❤️
+
+@JammingBen
+
+### 🐛 Bug Fixes
+
+- fix: getNextVersion not working [[#336](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/336)]
+
+### 📦️ Dependency
+
+- chore(deps): update dependency typescript to v5.8.3 [[#330](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/330)]
+- chore(deps): lock file maintenance [[#333](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/333)]
+- chore(deps): lock file maintenance [[#329](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/329)]
+- chore(deps): update dependency @types/semver to v7.7.0 [[#328](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/328)]
+- chore(deps): update dependency @types/node to v22.13.14 [[#325](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/325)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.4 [[#326](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/326)]
+
+### Misc
+
+- feat: add user config for latest tag [[#337](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/337)]
+- feat: add config to set release as latest [[#334](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/334)]
+
 ## [3.1.4](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.4) - 2025-03-25
 
 ### 📦️ Dependency
