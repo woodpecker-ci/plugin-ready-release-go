@@ -84,6 +84,15 @@ export type UserConfig = Partial<{
    */
   useLatestRelease: (ctx: HookContext) => PromiseOrValue<boolean>;
 
+  /**
+   * Get the latest tag.
+   *
+   * Changes from potential newer tags will not be included in the release.
+   * This might be useful when working with backports and stable branches.
+   * Defaults to the latest tag in the repository.
+   */
+  getLatestTag: (ctx: HookContext) => PromiseOrValue<string>;
+
   changeTypes: {
     title: string;
     labels: string[];
