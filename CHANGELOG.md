@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.5) - 2025-04-10
+## [3.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.5) - 2025-04-11
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -21,6 +21,7 @@
 
 ### Misc
 
+- feat: add user config for latest tag [[#337](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/337)]
 - feat: add config to set release as latest [[#334](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/334)]
 
 ## [3.1.4](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.4) - 2025-03-25
