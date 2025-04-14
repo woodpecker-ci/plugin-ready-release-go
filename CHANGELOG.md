@@ -23,6 +23,7 @@
 
 ### Misc
 
+- fix: getLatestTag not always being respected [[#338](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/338)]
 - feat: add user config for latest tag [[#337](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/337)]
 - feat: add config to set release as latest [[#334](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/334)]
 
