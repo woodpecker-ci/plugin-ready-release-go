@@ -55,7 +55,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   try {
     await git.fetch(['--unshallow', '--tags']);
   } catch (error) {
-    console.error(c.yellow('# Error doing unshallow fetch'), error);
+    console.error(c.red('# Error doing unshallow fetch'), error);
     await git.fetch(['--tags']);
   }
   await git.checkout(releaseBranch);
@@ -88,21 +88,16 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   const tags = await git.tags(['--sort=-creatordate']);
   let latestTag = config.user.getLatestTag ? await config.user.getLatestTag(hookCtx) : tags.latest;
 
-  if (tags.all.length > 0) {
+  if (tags.all.length > 0 && !latestTag) {
     const sortedTags = semver.rsort(tags.all.filter((tag) => semver.valid(tag)));
     latestTag = sortedTags[0];
-  }
-
-  if (!latestTag && tags.all.length > 0) {
-    console.log(c.yellow('# Latest tag not found, but tags exist, skipping.'));
-    return;
   }
 
   latestTag = latestTag || '0.0.0';
   if (latestTag) {
     console.log('# Lastest tag is:', c.green(latestTag));
   } else {
-    console.log(c.green(`# No tags found. Starting with first tag: ${latestTag}`));
+    console.log(`# No tags found. Starting with first tag: ${c.green(latestTag)}`);
   }
 
   let unTaggedCommits = await git.log(
@@ -150,7 +145,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   const changes = await analyser.getChangesFromCommits([...unTaggedCommits.all]);
 
   if (config.ci.debug) {
-    console.log(c.yellow('changes'), changes);
+    console.log({ changes });
   }
 
   if (!isReleaseCommit) {
@@ -164,7 +159,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
     return;
   }
 
-  console.log('# Next version will be:', c.green(nextVersion));
+  console.log('# 🏷️ Next version will be:', c.green(nextVersion));
 
   const commandCtx: CommandContext = {
     config,
@@ -182,11 +177,11 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   // is "release" commit
   if (isReleaseCommit) {
     console.log(c.green('# Release commit detected.'));
-    console.log('# Now releasing version:', c.green(nextVersion));
+    console.log('# 🚀 Now releasing version:', c.green(nextVersion));
 
     await release(commandCtx);
 
-    console.log('# Successfully released version:', c.green(nextVersion));
+    console.log('# ✅ Successfully released version:', c.green(nextVersion));
 
     return;
   }
