@@ -1,10 +1,16 @@
+when:
+  - event: [pull_request, tag, cron]
+  - event: push
+    branch:
+      - ${CI_REPO_DEFAULT_BRANCH}
+
 variables:
   - &buildx-plugin 'docker.io/woodpeckerci/plugin-docker-buildx:5.0.0'
   - &repo 'woodpeckerci/plugin-ready-release-go'
   - &platforms 'linux/arm/v7,linux/arm64/v8,linux/amd64,linux/ppc64le'
 
 steps:
-  dryrun:
+  - name: dryrun
     image: *buildx-plugin
     settings:
       dry_run: true
@@ -14,7 +20,7 @@ steps:
     when:
       event: pull_request
 
-  publish-next:
+  - name: publish-next
     image: *buildx-plugin
     settings:
       repo: *repo
@@ -27,7 +33,7 @@ steps:
       branch: main
       event: push
 
-  publish-tag:
+  - name: publish-tag
     image: *buildx-plugin
     settings:
       repo: *repo
@@ -38,6 +44,3 @@ steps:
         from_secret: docker_password
     when:
       event: tag
-
-depends_on:
-  - test
