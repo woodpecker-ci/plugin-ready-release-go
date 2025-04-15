@@ -18,7 +18,7 @@ steps:
       platforms: *platforms
       tag: test
     when:
-      event: pull_request
+      - event: pull_request
 
   - name: publish-next
     image: *buildx-plugin
@@ -30,8 +30,8 @@ steps:
       password:
         from_secret: docker_password
     when:
-      branch: main
-      event: push
+      - branch: ${CI_REPO_DEFAULT_BRANCH}
+        event: push
 
   - name: publish-tag
     image: *buildx-plugin
@@ -43,4 +43,4 @@ steps:
       password:
         from_secret: docker_password
     when:
-      event: tag
+      - event: tag
