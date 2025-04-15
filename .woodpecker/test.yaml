@@ -1,0 +1,33 @@
+variables:
+  - &node_image 'docker.io/node:22-slim'
+
+when:
+  - event: pull_request
+  - event: push
+    branch: main
+  - event: tag
+
+steps:
+  - name: install
+    image: *node_image
+    commands:
+      - corepack enable
+      - pnpm i
+
+  - name: unit-test
+    image: *node_image
+    commands:
+      - corepack enable
+      - pnpm test
+
+  - name: typecheck
+    image: *node_image
+    commands:
+      - corepack enable
+      - pnpm typecheck
+
+  - name: format
+    image: *node_image
+    commands:
+      - corepack enable
+      - pnpm format:check
