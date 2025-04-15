@@ -1,11 +1,11 @@
+variables:
+  - &node_image 'docker.io/node:22-slim'
+
 when:
   - event: pull_request
   - event: push
     branch: ${CI_REPO_DEFAULT_BRANCH}
   - event: tag
-
-variables:
-  - &node_image 'docker.io/node:22-slim'
 
 steps:
   - name: install

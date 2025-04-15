@@ -1,13 +1,13 @@
+variables:
+  - &buildx-plugin 'docker.io/woodpeckerci/plugin-docker-buildx:5.0.0'
+  - &repo 'woodpeckerci/plugin-ready-release-go'
+  - &platforms 'linux/arm/v7,linux/arm64/v8,linux/amd64,linux/ppc64le'
+
 when:
   - event: [pull_request, tag, cron]
   - event: push
     branch:
       - ${CI_REPO_DEFAULT_BRANCH}
-
-variables:
-  - &buildx-plugin 'docker.io/woodpeckerci/plugin-docker-buildx:5.0.0'
-  - &repo 'woodpeckerci/plugin-ready-release-go'
-  - &platforms 'linux/arm/v7,linux/arm64/v8,linux/amd64,linux/ppc64le'
 
 steps:
   - name: dryrun
