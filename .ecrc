@@ -2,6 +2,7 @@
   "Exclude": [
     ".git",
     "LICENSE",
-    "node_modules"
+    "node_modules",
+    "Makefile"
   ]
 }
