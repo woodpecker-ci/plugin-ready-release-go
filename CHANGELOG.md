@@ -1,10 +1,14 @@
 # Changelog
 
-## [3.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.5) - 2025-04-14
+## [3.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.2.0) - 2025-04-15
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@JammingBen
+@JammingBen, @anbraten
+
+### 📈 Enhancement
+
+- Improve log messages [[#340](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/340)]
 
 ### 🐛 Bug Fixes
 
