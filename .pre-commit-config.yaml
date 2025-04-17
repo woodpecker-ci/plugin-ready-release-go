@@ -18,10 +18,6 @@ repos:
     hooks:
       - id: markdownlint
         exclude: '^(CHANGELOG.md|src/utils/__fixtures__/.*)$'
-  - repo: https://github.com/mrtazz/checkmake
-    rev: 0.2.2
-    hooks:
-      - id: checkmake
   - repo: https://github.com/hadolint/hadolint
     rev: v2.13.1-beta
     hooks:
