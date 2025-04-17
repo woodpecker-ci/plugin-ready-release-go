@@ -14,9 +14,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 RUN apt update \
-	&& apt install -y git git-lfs wget \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/*
+  && apt install -y git git-lfs wget \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build "/app/node_modules" "./node_modules"
 COPY "tsconfig.json" "./tsconfig.json"

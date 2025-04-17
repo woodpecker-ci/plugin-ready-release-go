@@ -1,88 +1,9 @@
-# Ready release go :rocket:
+# plugin-ready-release-go :rocket:
 
-This plugin can be executed on every push to your release branch (e.g. default branch) and will create a new release pull-request with an updated changelog as preparation for the next release. After merging the "release"-pull-request, a new release / tag will be created for you.
+[![Build status](https://ci.woodpecker-ci.org/api/badges/woodpecker-ci/plugin-ready-release-go/status.svg)](https://ci.woodpecker-ci.org/woodpecker-ci/plugin-ready-release-go)
+[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/woodpeckerci/plugin-ready-release-go?label=DockerHub%20latest%20version&sort=semver)](https://hub.docker.com/r/woodpeckerci/plugin-ready-release-go/tags)
 
-## Usage
-
-### Woodpecker CI
-
-Create a new workflow like `.woodpecker/release-helper.yml`:
-
-```yaml
-when:
-  event: push
-  branch: ${CI_REPO_DEFAULT_BRANCH}
-
-steps:
-  release-helper:
-    image: woodpeckerci/plugin-ready-release-go:<version>
-    settings:
-      git_email: my-email@example.org
-      forge_token:
-        from_secret: GITHUB_TOKEN
-      # release_branch: 'custom-release-branch' # default: main
-      # pull_request_branch_prefix: 'next-release/'
-      # debug: true
-```
-
-## Configuring PR label categorization
-
-The plugin automatically categorizes every pull-request based on it's labels.
-The default labels are defined [here](https://github.com/woodpecker-ci/plugin-ready-release-go/blob/main/src/utils/config.ts#L25).
-To change it, create a `release-config.ts` at the repository root and overwrite the `changeTypes` property:
-
-```ts
-export default {
-  changeTypes: [
-    {
-      title: '💥 Breaking changes',
-      labels: ['breaking'],
-      bump: 'major',
-      weight: 3,
-    },
-    {
-      title: '🔒 Security',
-      labels: ['security'],
-      bump: 'patch',
-      weight: 2,
-    },
-    {
-      title: '✨ Features',
-      labels: ['feature', 'feature 🚀️'],
-      bump: 'minor',
-      weight: 1,
-    },
-    {
-      title: '📈 Enhancement',
-      labels: ['enhancement', 'refactor', 'enhancement 👆️'],
-      bump: 'minor',
-    },
-    {
-      title: '🐛 Bug Fixes',
-      labels: ['bug', 'bug 🐛️'],
-      bump: 'patch',
-    },
-    {
-      title: '📚 Documentation',
-      labels: ['docs', 'documentation', 'documentation 📖️'],
-      bump: 'patch',
-    },
-    {
-      title: '📦️ Dependency',
-      labels: ['dependency', 'dependencies'],
-      bump: 'patch',
-      weight: -1,
-    },
-    {
-      title: 'Misc',
-      labels: ['misc', 'chore 🧰'],
-      bump: 'patch',
-      default: true,
-      weight: -2,
-    },
-  ],
-};
-```
+Woodpecker plugin that can be executed on every push to your release branch (e.g. default branch) and will create a new release pull-request with an updated changelog as preparation for the next release. After merging the "release"-pull-request, a new release / tag will be created for you.
 
 ## Workflow
 
@@ -99,6 +20,14 @@ export default {
 - get all labels of those prs
 - get next version based on labels of PRs
 - get changelog based on labels of PRs
+
+## Build
+
+Build the Docker image with the following command:
+
+```sh
+docker build -f Dockerfile -t woodpeckerci/plugin-ready-release-go:next .
+```
 
 ## Roadmap
 
