@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.2.1) - 2025-04-19
+## [3.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.2.1) - 2025-04-21
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#344](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/344)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.2.0 [[#342](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/342)]
 
 ## [3.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.2.0) - 2025-04-15
