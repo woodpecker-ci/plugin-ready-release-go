@@ -1,6 +1,14 @@
 # Changelog
 
-## [3.2.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.2.1) - 2025-04-21
+## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-04-25
+
+### ❤️ Thanks to all contributors! ❤️
+
+@xoxys
+
+### 📈 Enhancement
+
+- Unify build stack for plugin [[#341](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/341)]
 
 ### 📦️ Dependency
 
