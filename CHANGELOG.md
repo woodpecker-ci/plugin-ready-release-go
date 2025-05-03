@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-04-28
+## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-05-03
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -12,6 +12,8 @@
 
 ### 📦️ Dependency
 
+- fix(deps): update dependency tsx to v4.19.4 [[#351](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/351)]
+- chore(deps): update dependency @types/node to v22.15.3 [[#350](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/350)]
 - chore(deps): lock file maintenance [[#349](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/349)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v5.2.2 [[#348](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/348)]
 - chore(deps): update vitest monorepo to v3.1.2 [[#346](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/346)]
