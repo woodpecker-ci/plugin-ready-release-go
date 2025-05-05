@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-05-04
+## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-05-05
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#355](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/355)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.1.6 [[#354](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/354)]
 - chore(deps): update pre-commit hook adrienverge/yamllint to v1.37.1 [[#353](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/353)]
 - fix(deps): update dependency tsx to v4.19.4 [[#351](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/351)]
