@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/shelljs to v0.8.16 [[#357](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/357)]
 - chore(deps): update dependency @types/node to v22.15.17 [[#356](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/356)]
 - chore(deps): lock file maintenance [[#355](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/355)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.1.6 [[#354](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/354)]
