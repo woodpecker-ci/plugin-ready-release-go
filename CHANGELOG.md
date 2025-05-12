@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-05-10
+## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-05-12
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#359](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/359)]
 - fix(deps): update dependency shelljs to ^0.10.0 [[#358](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/358)]
 - chore(deps): update dependency @types/shelljs to v0.8.16 [[#357](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/357)]
 - chore(deps): update dependency @types/node to v22.15.17 [[#356](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/356)]
