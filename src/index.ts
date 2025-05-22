@@ -62,7 +62,8 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   await git.branch(['--set-upstream-to', `origin/${releaseBranch}`]);
   await git.pull();
 
-  const isReleaseCommit = config.ci.commitMessage?.startsWith(config.ci.releasePrefix);
+  const isReleaseCommit = config.ci.commitMessage?.startsWith(config.ci.releasePrefix) ||
+    config.ci.commitMessage?.startsWith(`Merge pull request '${config.ci.releasePrefix}`);
 
   const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
 
