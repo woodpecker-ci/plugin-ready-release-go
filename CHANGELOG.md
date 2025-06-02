@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-05-31
+## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-06-02
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#369](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/369)]
 - chore(deps): update dependency @types/node to v22.15.29 [[#367](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/367)]
 - chore(deps): lock file maintenance [[#366](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/366)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.45.0 [[#362](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/362)]
