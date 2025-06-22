@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v3.2.4 [[#377](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/377)]
 - chore(deps): update dependency @types/node to v22.15.32 [[#376](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/376)]
 - chore(deps): update vitest monorepo to v3.2.3 [[#374](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/374)]
 - fix(deps): update dependency tsx to v4.20.3 [[#375](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/375)]
