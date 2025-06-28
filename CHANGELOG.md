@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.15.34 [[#382](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/382)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.6.2 [[#381](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/381)]
 - chore(deps): update dependency @types/node to v22.15.33 [[#379](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/379)]
 - chore(deps): update dependency prettier to v3.6.2 [[#380](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/380)]
