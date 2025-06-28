@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.0 [[#383](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/383)]
 - chore(deps): update dependency @types/node to v22.15.34 [[#382](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/382)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.6.2 [[#381](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/381)]
 - chore(deps): update dependency @types/node to v22.15.33 [[#379](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/379)]
