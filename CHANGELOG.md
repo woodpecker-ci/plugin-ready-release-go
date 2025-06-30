@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-06-28
+## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-06-30
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#384](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/384)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.0 [[#383](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/383)]
 - chore(deps): update dependency @types/node to v22.15.34 [[#382](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/382)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.6.2 [[#381](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/381)]
