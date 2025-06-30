@@ -12,6 +12,8 @@
 
 ### 📦️ Dependency
 
+- fix(deps): update dependency @octokit/rest to v22 [[#368](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/368)]
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6 [[#352](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/352)]
 - chore(deps): lock file maintenance [[#384](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/384)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.0 [[#383](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/383)]
 - chore(deps): update dependency @types/node to v22.15.34 [[#382](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/382)]
