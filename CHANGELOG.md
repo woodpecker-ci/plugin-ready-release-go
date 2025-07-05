@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.3.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.1) - 2025-07-05
+
+### 📦️ Dependency
+
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.2 [[#386](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/386)]
+
 ## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-06-30
 
 ### ❤️ Thanks to all contributors! ❤️
