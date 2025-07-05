@@ -4,6 +4,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.1 [[#389](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/389)]
+- chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.1 [[#388](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/388)]
 - chore(deps): update dependency @types/shelljs to v0.8.17 [[#385](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/385)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.2 [[#386](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/386)]
 
