@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.3.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.1) - 2025-07-05
+## [3.3.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.1) - 2025-07-07
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#392](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/392)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.3.0 [[#391](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/391)]
 - chore(deps): update dependency @types/node to v22.16.0 [[#390](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/390)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.1 [[#389](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/389)]
