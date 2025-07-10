@@ -1,6 +1,14 @@
 # Changelog
 
-## [3.3.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.1) - 2025-07-07
+## [3.4.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.0) - 2025-07-10
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 📈 Enhancement
+
+- Fix categories order [[#393](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/393)]
 
 ### 📦️ Dependency
 
