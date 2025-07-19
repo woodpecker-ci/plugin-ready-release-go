@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.4.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.0) - 2025-07-19
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 📈 Enhancement
+
+- Fix categories order [[#393](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/393)]
+
+### 📦️ Dependency
+
+- chore(deps): update dependency @types/node to v22.16.5 [[#397](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/397)]
+- chore(deps): lock file maintenance [[#396](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/396)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.2 [[#395](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/395)]
+- chore(deps): update dependency @types/node to v22.16.3 [[#394](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/394)]
+- chore(deps): lock file maintenance [[#392](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/392)]
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.3.0 [[#391](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/391)]
+- chore(deps): update dependency @types/node to v22.16.0 [[#390](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/390)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.1 [[#389](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/389)]
+- chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.1 [[#388](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/388)]
+- chore(deps): update dependency @types/shelljs to v0.8.17 [[#385](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/385)]
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.2 [[#386](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/386)]
+
 ## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-06-30
 
 ### ❤️ Thanks to all contributors! ❤️
