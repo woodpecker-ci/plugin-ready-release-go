@@ -3,6 +3,9 @@ import c from 'picocolors';
 import { CommandContext, HookContext } from '../utils/types';
 import { updateChangelogSection, getChangeLogSection } from '../utils/change';
 import { promises as fs } from 'fs';
+import { SimpleGit } from 'simple-git';
+
+const CHANGELOG_FILE = 'CHANGELOG.md';
 
 export async function prepare(cmdCtx: CommandContext) {
   const {
@@ -65,18 +68,19 @@ export async function prepare(cmdCtx: CommandContext) {
   const tag = useVersionPrefixV && !nextVersion.startsWith('v') ? `v${nextVersion}` : nextVersion;
 
   let oldChangelog = '';
-  if (await fs.stat('CHANGELOG.md').catch(() => false)) {
-    oldChangelog = await fs.readFile('CHANGELOG.md', 'utf-8');
+  if (await fs.stat(CHANGELOG_FILE).catch(() => false)) {
+    oldChangelog = await fs.readFile(CHANGELOG_FILE, 'utf-8');
   }
   const newChangelogSection = getChangeLogSection(nextVersion, tag, config, changes, forge, true);
   const changelog = updateChangelogSection(latestVersion, nextVersion, oldChangelog, newChangelogSection);
 
   console.log('# Updating CHANGELOG.md');
-  await fs.writeFile('CHANGELOG.md', changelog);
+  await fs.writeFile(CHANGELOG_FILE, changelog);
 
   const { isClean } = await git.status();
   if (!isClean()) {
-    await git.add('.');
+    await git.add(CHANGELOG_FILE);
+    await checkChangelogInGitStage(git);
     await git.commit(`${config.ci.releasePrefix} ${nextVersion}`);
     await git.push(['-u', 'origin', pullRequestBranch]);
   }
@@ -116,4 +120,17 @@ export async function prepare(cmdCtx: CommandContext) {
   console.log('# Successfully prepared release pull-request: ', pullRequestLink);
 
   console.log('# Pull-request created');
+}
+
+async function checkChangelogInGitStage(git: SimpleGit): Promise<void> {
+  const status = await git.status();
+  const isChangelogStaged = status.staged.some((file) => file === CHANGELOG_FILE);
+
+  if (!isChangelogStaged) {
+    throw new Error(
+      'CHANGELOG.md was not staged for commit. This likely means the file is excluded by .gitignore ' +
+        'or another Git exclusion mechanism. Please check your Git configuration and ensure CHANGELOG.md ' +
+        'can be committed.',
+    );
+  }
 }
