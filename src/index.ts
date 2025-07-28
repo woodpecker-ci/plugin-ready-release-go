@@ -25,7 +25,7 @@ function isReleaseCommit(config: Config): boolean {
   }
 
   if (config.ci.forgeType === 'gitea' || config.ci.forgeType === 'forgejo') {
-    normalizedCommitMessage = normalizedCommitMessage.replace(/^Merge pull request/, '').trim();
+    normalizedCommitMessage = normalizedCommitMessage.replace(/^Merge pull request/, '');
   }
 
   return normalizedCommitMessage.trim().startsWith(config.ci.releasePrefix);
