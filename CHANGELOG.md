@@ -4,10 +4,11 @@
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@qwerty287
+@deanpcmad, @qwerty287
 
 ### 📈 Enhancement
 
+- Add 'Merge pull request' to the commit message isRelease check [[#285](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/285)]
 - Fix categories order [[#393](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/393)]
 
 ### 📦️ Dependency
