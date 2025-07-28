@@ -68,7 +68,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
 
   let shouldBeRC = false;
-  let nextVersion: string | null = config.user.getNextVersion ? await config.user.getNextVersion(hookCtx) : null;
+  let nextVersion: string | null = null;
 
   if (isReleaseCommit) {
     // use commit message for release runs as the pull-request is not available (closed)
@@ -87,9 +87,9 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   console.log('# Should next version be a release candidate:', c.green(shouldBeRC ? 'yes' : 'no'));
 
   const tags = await git.tags(['--sort=-creatordate']);
-  let latestTag = tags.latest;
+  let latestTag = config.user.getLatestTag ? await config.user.getLatestTag(hookCtx) : tags.latest;
 
-  if (tags.all.length > 0) {
+  if (tags.all.length > 0 && !config.user.getLatestTag) {
     const sortedTags = semver.rsort(tags.all.filter((tag) => semver.valid(tag)));
     latestTag = sortedTags[0];
   }
@@ -100,7 +100,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   }
 
   latestTag = latestTag || '0.0.0';
-  if (tags.latest) {
+  if (latestTag) {
     console.log('# Lastest tag is:', c.green(latestTag));
   } else {
     console.log(c.green(`# No tags found. Starting with first tag: ${latestTag}`));
@@ -155,7 +155,9 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   }
 
   if (!isReleaseCommit) {
-    nextVersion = getNextVersionFromLabels(latestVersion, config.user, changes, shouldBeRC);
+    nextVersion = config.user.getNextVersion
+      ? await config.user.getNextVersion(hookCtx)
+      : getNextVersionFromLabels(latestVersion, config.user, changes, shouldBeRC);
   }
 
   if (!nextVersion) {
