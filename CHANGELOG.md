@@ -13,6 +13,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.3.1 [[#403](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/403)]
 - chore(deps): update dependency typescript to v5.9.2 [[#402](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/402)]
 - chore(deps): update dependency @types/node to v22.17.0 [[#401](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/401)]
 - chore(deps): lock file maintenance [[#400](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/400)]
