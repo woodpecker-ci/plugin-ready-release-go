@@ -4,6 +4,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.4.0 [[#412](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/412)]
+- fix(deps): update dependency tsx to v4.20.4 [[#411](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/411)]
 - chore(deps): update dependency @types/node to v22.17.2 [[#410](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/410)]
 - chore(deps): lock file maintenance [[#409](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/409)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.4.0 [[#406](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/406)]
