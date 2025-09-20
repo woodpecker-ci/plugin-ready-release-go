@@ -1,5 +1,27 @@
 # Changelog
 
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-09-20
+
+### 📦️ Dependency
+
+- chore(deps): update dependency @types/node to v22.18.6 [[#422](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/422)]
+- chore(deps): lock file maintenance [[#421](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/421)]
+- chore(deps): update dependency @types/node to v22.18.3 [[#420](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/420)]
+- chore(deps): lock file maintenance [[#419](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/419)]
+- chore(deps): update dependency @types/semver to v7.7.1 [[#418](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/418)]
+- chore(deps): update dependency @types/node to v22.18.1 [[#417](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/417)]
+- chore(deps): update dependency @types/node to v22.18.0 [[#416](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/416)]
+- chore(deps): lock file maintenance [[#415](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/415)]
+- fix(deps): update dependency tsx to v4.20.5 [[#414](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/414)]
+- chore(deps): lock file maintenance [[#413](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/413)]
+- chore(deps): update pre-commit hook pre-commit/pre-commit-hooks to v6 [[#408](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/408)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.4.0 [[#412](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/412)]
+- fix(deps): update dependency tsx to v4.20.4 [[#411](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/411)]
+- chore(deps): update dependency @types/node to v22.17.2 [[#410](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/410)]
+- chore(deps): lock file maintenance [[#409](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/409)]
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.4.0 [[#406](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/406)]
+- chore(deps): update dependency @types/node to v22.17.1 [[#405](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/405)]
+
 ## [3.4.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.0) - 2025-08-04
 
 ### ❤️ Thanks to all contributors! ❤️
