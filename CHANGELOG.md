@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency tsx to v4.20.6 [[#425](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/425)]
 - chore(deps): update pre-commit hook hadolint/hadolint to v2.14.0 [[#426](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/426)]
 - chore(deps): lock file maintenance [[#424](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/424)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.5.0 [[#423](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/423)]
