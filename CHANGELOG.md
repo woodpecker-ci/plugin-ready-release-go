@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-09-27
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-09-29
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#427](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/427)]
 - chore(deps): update dependency tsx to v4.20.6 [[#425](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/425)]
 - chore(deps): update pre-commit hook hadolint/hadolint to v2.14.0 [[#426](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/426)]
 - chore(deps): lock file maintenance [[#424](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/424)]
