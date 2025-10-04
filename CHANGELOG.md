@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.3 [[#430](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/430)]
 - chore(deps): update dependency typescript to v5.9.3 [[#429](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/429)]
 - chore(deps): update dependency @types/node to v22.18.8 [[#428](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/428)]
 - chore(deps): lock file maintenance [[#427](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/427)]
