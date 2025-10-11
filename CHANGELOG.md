@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-10-06
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-10-11
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency semver to v7.7.3 [[#434](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/434)]
 - chore(deps): lock file maintenance [[#432](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/432)]
 - chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.2 [[#431](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/431)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.3 [[#430](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/430)]
