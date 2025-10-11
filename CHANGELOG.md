@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.18.9 [[#433](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/433)]
 - chore(deps): update dependency semver to v7.7.3 [[#434](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/434)]
 - chore(deps): lock file maintenance [[#432](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/432)]
 - chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.2 [[#431](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/431)]
