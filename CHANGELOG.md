@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-10-18
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-10-20
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#438](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/438)]
 - chore(deps): update dependency @types/node to v22.18.11 [[#437](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/437)]
 - chore(deps): lock file maintenance [[#436](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/436)]
 - chore(deps): update dependency @types/node to v22.18.10 [[#435](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/435)]
