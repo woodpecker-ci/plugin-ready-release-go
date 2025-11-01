@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.6.0 [[#446](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/446)]
 - chore(deps): update vitest monorepo to v4.0.6 [[#444](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/444)]
 - chore(deps): update dependency simple-git to v3.29.0 [[#445](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/445)]
 - chore(deps): update dependency @types/node to v22.18.13 [[#443](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/443)]
