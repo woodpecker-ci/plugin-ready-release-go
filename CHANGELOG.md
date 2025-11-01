@@ -1,9 +1,11 @@
 # Changelog
 
-## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-10-27
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-11-01
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v22.18.13 [[#443](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/443)]
+- chore(deps): update dependency @octokit/rest to v22.0.1 [[#442](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/442)]
 - chore(deps): update vitest monorepo to v4 (major) [[#440](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/440)]
 - chore(deps): lock file maintenance [[#441](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/441)]
 - chore(deps): update dependency @types/node to v22.18.12 [[#439](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/439)]
