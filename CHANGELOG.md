@@ -1,9 +1,10 @@
 # Changelog
 
-## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-11-02
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-11-03
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#450](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/450)]
 - chore(deps): update dependency simple-git to v3.30.0 [[#449](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/449)]
 - chore(deps): update node.js to v24 [[#448](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/448)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.6.0 [[#446](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/446)]
