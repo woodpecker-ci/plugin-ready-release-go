@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v4.0.9 [[#456](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/456)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.6.2 [[#455](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/455)]
 - chore(deps): update dependency @types/node to v22.19.1 [[#454](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/454)]
 - chore(deps): lock file maintenance [[#453](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/453)]
