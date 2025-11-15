@@ -32,7 +32,7 @@ export async function release({
 
   const tag = useVersionPrefixV && !nextVersion.startsWith('v') ? `v${nextVersion}` : nextVersion;
 
-  const newChangelogSection = getChangeLogSection(nextVersion, tag, config, changes, forge, true);
+  const newChangelogSection = getChangeLogSection(nextVersion, tag, config, changes, forge, config.user.includeContributors);
 
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
