@@ -1,9 +1,11 @@
 # Changelog
 
-## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-11-17
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-11-22
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.46.0 [[#459](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/459)]
+- chore(deps): update vitest monorepo to v4.0.13 [[#458](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/458)]
 - chore(deps): lock file maintenance [[#457](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/457)]
 - chore(deps): update vitest monorepo to v4.0.9 [[#456](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/456)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.6.2 [[#455](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/455)]
