@@ -1,9 +1,11 @@
 # Changelog
 
-## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-11-24
+## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2025-11-29
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency prettier to v3.7.2 [[#462](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/462)]
+- chore(deps): update vitest monorepo to v4.0.14 [[#461](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/461)]
 - chore(deps): lock file maintenance [[#460](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/460)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.46.0 [[#459](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/459)]
 - chore(deps): update vitest monorepo to v4.0.13 [[#458](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/458)]
