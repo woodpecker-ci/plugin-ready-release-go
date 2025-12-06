@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit non-major [[#471](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/471)]
 - chore(deps): update vitest monorepo to v4.0.15 [[#470](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/470)]
 - chore(deps): update dependency prettier to v3.7.4 [[#469](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/469)]
 - chore(deps): lock file maintenance [[#468](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/468)]
