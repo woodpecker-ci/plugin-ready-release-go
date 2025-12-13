@@ -4,6 +4,9 @@
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#473](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/473)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.47.0 [[#476](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/476)]
+- chore(deps): update dependency @types/shelljs to ^0.10.0 [[#475](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/475)]
 - chore(deps): update dependency @types/node to v22.19.2 [[#474](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/474)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.7.2 [[#472](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/472)]
 - chore(deps): update pre-commit non-major [[#471](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/471)]
