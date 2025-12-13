@@ -25,7 +25,7 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/semver": "^7.5.0",
-    "@types/shelljs": "^0.8.11",
+    "@types/shelljs": "^0.10.0",
     "@vitest/ui": "^4.0.0",
     "prettier": "^3.3.3",
     "typescript": "^5.3.2",
