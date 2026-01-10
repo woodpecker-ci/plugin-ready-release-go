@@ -16,6 +16,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v24.10.7 [[#489](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/489)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.8.0 [[#488](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/488)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.4.1 [[#487](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/487)]
 - chore(deps): update dependency @types/node to v24.10.6 [[#486](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/486)]
