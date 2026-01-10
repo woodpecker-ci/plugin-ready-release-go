@@ -71,7 +71,14 @@ export async function prepare(cmdCtx: CommandContext) {
   if (await fs.stat(CHANGELOG_FILE).catch(() => false)) {
     oldChangelog = await fs.readFile(CHANGELOG_FILE, 'utf-8');
   }
-  const newChangelogSection = getChangeLogSection(nextVersion, tag, config, changes, forge, true);
+  const newChangelogSection = getChangeLogSection(
+    nextVersion,
+    tag,
+    config,
+    changes,
+    forge,
+    config.user.includeContributors ?? true,
+  );
   const changelog = updateChangelogSection(latestVersion, nextVersion, oldChangelog, newChangelogSection);
 
   console.log('# Updating CHANGELOG.md');

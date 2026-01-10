@@ -1,23 +1,43 @@
+# cSpell:ignore checkmake hadolint autofix autoupdate
 repos:
   - repo: meta
     hooks:
       - id: check-hooks-apply
       - id: check-useless-excludes
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
-      - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
+  - repo: https://github.com/golangci/golangci-lint
+    rev: v2.8.0
+    hooks:
+      - id: golangci-lint
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.43.0
+    rev: v0.47.0
     hooks:
       - id: markdownlint
         exclude: '^(CHANGELOG.md|src/utils/__fixtures__/.*)$'
   - repo: https://github.com/hadolint/hadolint
-    rev: v2.13.1-beta
+    rev: v2.14.0
     hooks:
       - id: hadolint
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.7.4
+    hooks:
+      - id: prettier
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        args: [--strict, -c=.yamllint.yaml]
+  - repo: local
+    hooks:
+      - id: yaml-file-extension
+        name: Check if YAML files has *.yaml extension.
+        entry: YAML filenames must have .yaml extension.
+        language: fail
+        files: .yml$
 
 ci:
   autofix_commit_msg: |
@@ -27,7 +47,7 @@ ci:
   autofix_prs: true
   autoupdate_branch: ''
   autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
-  autoupdate_schedule: monthly
+  autoupdate_schedule: quarterly
   # NB: hadolint not included in pre-commit.ci
-  skip: [check-hooks-apply, check-useless-excludes, hadolint]
+  skip: [check-hooks-apply, check-useless-excludes, hadolint, prettier, golangci-lint]
   submodules: false

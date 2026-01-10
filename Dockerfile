@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=node:22-slim
+ARG BASE_IMAGE=node:24-slim
 
 FROM --platform=$BUILDPLATFORM ${BASE_IMAGE} AS build
 WORKDIR /app
@@ -14,9 +14,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 RUN apt update \
-	&& apt install -y git git-lfs wget \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/*
+  && apt install -y git git-lfs wget \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build "/app/node_modules" "./node_modules"
 COPY "tsconfig.json" "./tsconfig.json"

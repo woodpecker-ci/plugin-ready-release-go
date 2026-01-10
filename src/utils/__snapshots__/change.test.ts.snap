@@ -17,14 +17,14 @@ exports[`change > changelog generation > 'should add new section' 1`] = `
 
 - Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
 
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
 ### 🐛 Bug Fixes
 
 - Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
 - Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
-
-### 📈 Enhancement
-
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
 
 ### Misc
 
@@ -68,14 +68,14 @@ exports[`change > changelog generation > 'should remove previous prerelease ver�
 
 - Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
 
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
 ### 🐛 Bug Fixes
 
 - Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
 - Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
-
-### 📈 Enhancement
-
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
 
 ### Misc
 
@@ -118,14 +118,14 @@ exports[`change > changelog generation > 'should remove versions newer than the�
 
 - Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
 
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
 ### 🐛 Bug Fixes
 
 - Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
 - Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
-
-### 📈 Enhancement
-
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
 
 ### Misc
 
@@ -165,14 +165,14 @@ exports[`change > changelog generation > 'should update existing changelog sect�
 
 - Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
 
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
 ### 🐛 Bug Fixes
 
 - Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
 - Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
-
-### 📈 Enhancement
-
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
 
 ### Misc
 
@@ -274,14 +274,14 @@ exports[`change > changelog generation > should generate a changelog section 1`]
 
 - Add new feature [[#1338](https://github.com/woodpecker-ci/woodpecker/pull/1338)]
 
+### 📈 Enhancement
+
+- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
+
 ### 🐛 Bug Fixes
 
 - Fix random UI bug [[#1337](https://github.com/woodpecker-ci/woodpecker/pull/1337)]
 - Fix another bug ([abc](https://github.com/woodpecker-ci/woodpecker/commit/abc))
-
-### 📈 Enhancement
-
-- Update README ([def](https://github.com/woodpecker-ci/woodpecker/commit/def))
 
 ### Misc
 

@@ -32,11 +32,20 @@ export async function release({
 
   const tag = useVersionPrefixV && !nextVersion.startsWith('v') ? `v${nextVersion}` : nextVersion;
 
-  const newChangelogSection = getChangeLogSection(nextVersion, tag, config, changes, forge, true);
+  const newChangelogSection = getChangeLogSection(
+    nextVersion,
+    tag,
+    config,
+    changes,
+    forge,
+    config.user.includeContributors ?? true,
+  );
 
   const releaseDescription = config.user.getReleaseDescription
     ? await config.user.getReleaseDescription(hookCtx)
     : newChangelogSection;
+
+  const isLatest = config.user.useLatestRelease ? await config.user.useLatestRelease(hookCtx) : true;
 
   console.log('# Creating release');
   const { releaseLink } = await forge.createRelease({
@@ -47,6 +56,7 @@ export async function release({
     name: nextVersion,
     prerelease: shouldBeRC,
     target: config.ci.releaseBranch,
+    isLatest,
   });
 
   console.log(c.green('# Successfully created release:'), releaseLink);

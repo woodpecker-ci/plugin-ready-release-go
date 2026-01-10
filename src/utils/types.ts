@@ -77,6 +77,21 @@ export type UserConfig = Partial<{
    */
   afterRelease: (ctx: HookContext) => PromiseOrValue<boolean | void>;
 
+  /**
+   * Determine if a release should be set as latest. Returns true by default.
+   *
+   * Note: This only has an effect for GitHub releases.
+   */
+  useLatestRelease: (ctx: HookContext) => PromiseOrValue<boolean>;
+
+  /**
+   * Get the latest tag for determining unreleased changes relative to the release branch.
+   *
+   * This might be useful when working with backports and stable branches to ignore changes from newer tags.
+   * Defaults to the latest tag in the repository.
+   */
+  getLatestTag: (ctx: HookContext) => PromiseOrValue<string>;
+
   changeTypes: {
     title: string;
     labels: string[];
@@ -108,6 +123,12 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Include the 'Thanks to all contributors' section with a list of contributors
+   * @default true
+   */
+  includeContributors: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
