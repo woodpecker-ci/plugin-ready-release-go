@@ -34,6 +34,7 @@ export abstract class Forge {
     description: string;
     prerelease?: boolean;
     target: string;
+    isLatest?: boolean;
   }): Promise<{
     releaseLink: string;
   }>;

@@ -17,6 +17,7 @@ const ciConfig = {
   pullRequestBranchPrefix: process.env.PLUGIN_PULL_REQUEST_BRANCH_PREFIX || 'next-release/',
   debug: process.env.PLUGIN_DEBUG === 'true',
   releasePrefix: process.env.PLUGIN_RELEASE_PREFIX || '🎉 Release',
+  includeContributors: process.env.PLUGIN_INCLUDE_CONTRIBUTORS !== 'false',
 };
 
 export type Config = { user: UserConfig; ci: typeof ciConfig };
@@ -27,34 +28,37 @@ export const defaultUserConfig: UserConfig = {
       title: '💥 Breaking changes',
       labels: ['breaking'],
       bump: 'major',
-      weight: 3,
+      weight: 5,
     },
     {
       title: '🔒 Security',
       labels: ['security'],
       bump: 'patch',
-      weight: 2,
+      weight: 4,
     },
     {
       title: '✨ Features',
       labels: ['feature', 'feature 🚀️'],
       bump: 'minor',
-      weight: 1,
+      weight: 3,
     },
     {
       title: '📈 Enhancement',
       labels: ['enhancement', 'refactor', 'enhancement 👆️'],
       bump: 'minor',
+      weight: 2,
     },
     {
       title: '🐛 Bug Fixes',
       labels: ['bug', 'bug 🐛️'],
       bump: 'patch',
+      weight: 1,
     },
     {
       title: '📚 Documentation',
       labels: ['docs', 'documentation', 'documentation 📖️'],
       bump: 'patch',
+      weight: 0,
     },
     {
       title: '📦️ Dependency',
@@ -73,6 +77,7 @@ export const defaultUserConfig: UserConfig = {
   skipLabels: ['skip-release', 'skip-changelog', 'regression'],
   skipCommitsWithoutPullRequest: true,
   commentOnReleasedPullRequests: false,
+  includeContributors: true,
 };
 
 export async function getConfig(basePath?: string): Promise<Config> {
