@@ -76,6 +76,7 @@ const config: Config = {
     isCI: true,
     debug: false,
     releasePrefix: '🎉 Release',
+    includeContributors: true,
   },
   user: defaultUserConfig,
 };

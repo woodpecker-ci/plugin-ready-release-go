@@ -123,6 +123,12 @@ export type UserConfig = Partial<{
    * @default true
    */
   commentOnReleasedPullRequests: boolean;
+
+  /**
+   * Include the 'Thanks to all contributors' section with a list of contributors
+   * @default true
+   */
+  includeContributors: boolean;
 }>;
 
 export const defineConfig = (config: UserConfig) => config;
