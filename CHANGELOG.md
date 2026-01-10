@@ -6,6 +6,10 @@
 
 - chore(deps): update node.js to v24 [[#447](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/447)]
 
+### 📦️ Dependency
+
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.4 [[#484](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/484)]
+
 ## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2026-01-10
 
 ### 📦️ Dependency
