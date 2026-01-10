@@ -8,6 +8,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.4.1 [[#487](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/487)]
 - chore(deps): update dependency @types/node to v24.10.6 [[#486](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/486)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.4 [[#484](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/484)]
 
