@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.0.0) - 2026-01-10
+
+### 💥 Breaking changes
+
+- chore(deps): update node.js to v24 [[#447](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/447)]
+
 ## [3.4.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.1) - 2026-01-10
 
 ### 📦️ Dependency
