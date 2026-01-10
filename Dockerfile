@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=node:22-slim
+ARG BASE_IMAGE=node:24-slim
 
 FROM --platform=$BUILDPLATFORM ${BASE_IMAGE} AS build
 WORKDIR /app
