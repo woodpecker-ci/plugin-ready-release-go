@@ -25,6 +25,7 @@ const config: Config = {
     isCI: true,
     releasePrefix: '🎉 Release',
     debug: false,
+    includeContributors: true,
   },
   user: defaultUserConfig,
 };
