@@ -12,7 +12,7 @@
 
 ### ✨ Features
 
-- Add `includeContributors` option  [[#286](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/286)]
+- Add `includeContributors` option [[#286](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/286)]
 
 ### 📦️ Dependency
 
