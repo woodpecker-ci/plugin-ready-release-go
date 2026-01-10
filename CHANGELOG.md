@@ -1,5 +1,162 @@
 # Changelog
 
+## [3.4.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.4.0) - 2025-08-04
+
+### ❤️ Thanks to all contributors! ❤️
+
+@deanpcmad, @qwerty287
+
+### 📈 Enhancement
+
+- Add 'Merge pull request' to the commit message isRelease check [[#285](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/285)]
+- Use fixed order for default categories [[#393](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/393)]
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#404](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/404)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.3.1 [[#403](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/403)]
+- chore(deps): update dependency typescript to v5.9.2 [[#402](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/402)]
+- chore(deps): update dependency @types/node to v22.17.0 [[#401](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/401)]
+- chore(deps): lock file maintenance [[#400](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/400)]
+- chore(deps): lock file maintenance [[#398](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/398)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.3.0 [[#399](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/399)]
+- chore(deps): update dependency @types/node to v22.16.5 [[#397](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/397)]
+- chore(deps): lock file maintenance [[#396](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/396)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.2 [[#395](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/395)]
+- chore(deps): update dependency @types/node to v22.16.3 [[#394](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/394)]
+- chore(deps): lock file maintenance [[#392](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/392)]
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.3.0 [[#391](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/391)]
+- chore(deps): update dependency @types/node to v22.16.0 [[#390](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/390)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.1 [[#389](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/389)]
+- chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.1 [[#388](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/388)]
+- chore(deps): update dependency @types/shelljs to v0.8.17 [[#385](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/385)]
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.2 [[#386](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/386)]
+
+## [3.3.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.3.0) - 2025-06-30
+
+### ❤️ Thanks to all contributors! ❤️
+
+@xoxys
+
+### 📈 Enhancement
+
+- Unify build stack for plugin [[#341](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/341)]
+
+### 📦️ Dependency
+
+- fix(deps): update dependency @octokit/rest to v22 [[#368](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/368)]
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6 [[#352](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/352)]
+- chore(deps): lock file maintenance [[#384](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/384)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.2.0 [[#383](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/383)]
+- chore(deps): update dependency @types/node to v22.15.34 [[#382](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/382)]
+- chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.6.2 [[#381](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/381)]
+- chore(deps): update dependency @types/node to v22.15.33 [[#379](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/379)]
+- chore(deps): update dependency prettier to v3.6.2 [[#380](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/380)]
+- chore(deps): lock file maintenance [[#378](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/378)]
+- chore(deps): update vitest monorepo to v3.2.4 [[#377](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/377)]
+- chore(deps): update dependency @types/node to v22.15.32 [[#376](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/376)]
+- chore(deps): update vitest monorepo to v3.2.3 [[#374](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/374)]
+- fix(deps): update dependency tsx to v4.20.3 [[#375](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/375)]
+- chore(deps): update dependency @types/node to v22.15.31 [[#373](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/373)]
+- fix(deps): update dependency simple-git to v3.28.0 [[#372](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/372)]
+- chore(deps): update vitest monorepo to v3.2.2 [[#371](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/371)]
+- chore(deps): update dependency @types/node to v22.15.30 [[#370](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/370)]
+- chore(deps): lock file maintenance [[#369](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/369)]
+- chore(deps): update dependency @types/node to v22.15.29 [[#367](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/367)]
+- chore(deps): lock file maintenance [[#366](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/366)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.45.0 [[#362](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/362)]
+- chore(deps): update vitest monorepo to v3.1.4 [[#365](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/365)]
+- chore(deps): update dependency @types/node to v22.15.21 [[#364](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/364)]
+- chore(deps): lock file maintenance [[#363](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/363)]
+- fix(deps): update dependency semver to v7.7.2 [[#361](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/361)]
+- chore(deps): update dependency @types/node to v22.15.18 [[#360](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/360)]
+- chore(deps): lock file maintenance [[#359](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/359)]
+- fix(deps): update dependency shelljs to ^0.10.0 [[#358](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/358)]
+- chore(deps): update dependency @types/shelljs to v0.8.16 [[#357](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/357)]
+- chore(deps): update dependency @types/node to v22.15.17 [[#356](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/356)]
+- chore(deps): lock file maintenance [[#355](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/355)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.1.6 [[#354](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/354)]
+- chore(deps): update pre-commit hook adrienverge/yamllint to v1.37.1 [[#353](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/353)]
+- fix(deps): update dependency tsx to v4.19.4 [[#351](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/351)]
+- chore(deps): update dependency @types/node to v22.15.3 [[#350](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/350)]
+- chore(deps): lock file maintenance [[#349](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/349)]
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v5.2.2 [[#348](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/348)]
+- chore(deps): update vitest monorepo to v3.1.2 [[#346](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/346)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.1.5 [[#345](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/345)]
+- chore(deps): lock file maintenance [[#344](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/344)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.2.0 [[#342](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/342)]
+
+## [3.2.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.2.0) - 2025-04-15
+
+### ❤️ Thanks to all contributors! ❤️
+
+@JammingBen, @anbraten
+
+### ✨ Features
+
+- feat: add user config for latest tag [[#337](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/337)]
+- feat: add config to set release as latest [[#334](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/334)]
+
+### 📈 Enhancement
+
+- Improve log messages [[#340](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/340)]
+
+### 🐛 Bug Fixes
+
+- fix: getLatestTag not always being respected [[#338](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/338)]
+- fix: getNextVersion not working [[#336](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/336)]
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#339](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/339)]
+- chore(deps): update dependency @types/node to v22.14.1 [[#331](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/331)]
+- chore(deps): update dependency typescript to v5.8.3 [[#330](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/330)]
+- chore(deps): lock file maintenance [[#333](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/333)]
+- chore(deps): lock file maintenance [[#329](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/329)]
+- chore(deps): update dependency @types/semver to v7.7.0 [[#328](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/328)]
+- chore(deps): update dependency @types/node to v22.13.14 [[#325](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/325)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.4 [[#326](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/326)]
+
+## [3.1.4](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.4) - 2025-03-25
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.2 [[#323](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/323)]
+- chore(deps): lock file maintenance [[#324](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/324)]
+- chore(deps): update dependency @types/node to v22.13.11 [[#321](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/321)]
+- chore(deps): update vitest monorepo to v3.0.9 [[#322](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/322)]
+- chore(deps): lock file maintenance [[#320](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/320)]
+- chore(deps): lock file maintenance [[#319](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/319)]
+- fix(deps): update dependency shelljs to ^0.9.0 [[#318](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/318)]
+- chore(deps): update dependency @types/node to v22.13.10 [[#317](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/317)]
+- chore(deps): update dependency @types/node to v22.13.9 [[#315](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/315)]
+- chore(deps): update vitest monorepo to v3.0.8 [[#316](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/316)]
+- chore(deps): lock file maintenance [[#314](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/314)]
+- chore(deps): update dependency @types/node to v22.13.8 [[#313](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/313)]
+- chore(deps): update vitest monorepo to v3.0.7 [[#311](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/311)]
+- chore(deps): update dependency typescript to v5.8.2 [[#312](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/312)]
+- chore(deps): update dependency @types/node to v22.13.7 [[#310](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/310)]
+- fix(deps): update dependency tsx to v4.19.3 [[#309](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/309)]
+- chore(deps): update vitest monorepo to v3.0.6 [[#307](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/307)]
+- chore(deps): update dependency prettier to v3.5.2 [[#308](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/308)]
+- chore(deps): update dependency @types/node to v22.13.5 [[#306](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/306)]
+- chore(deps): lock file maintenance [[#305](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/305)]
+- chore(deps): update dependency @types/node to v22.13.4 [[#303](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/303)]
+- fix(deps): update dependency @octokit/rest to v21.1.1 [[#304](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/304)]
+- chore(deps): update vitest monorepo to v3.0.5 [[#299](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/299)]
+- fix(deps): update dependency semver to v7.7.1 [[#301](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/301)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.1 [[#300](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/300)]
+- chore(deps): update dependency @types/node to v22.13.2 [[#298](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/298)]
+- chore(deps): update dependency prettier to v3.5.1 [[#302](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/302)]
+- fix(deps): update dependency semver to v7.7.0 [[#297](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/297)]
+- chore(deps): update dependency @types/node to v22.13.0 [[#296](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/296)]
+- chore(deps): lock file maintenance [[#295](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/295)]
+- chore(deps): update vitest monorepo to v3.0.4 [[#290](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/290)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.0 [[#294](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/294)]
+- chore(deps): update dependency @types/node to v22.10.10 [[#289](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/289)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.44.0 [[#292](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/292)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.3 [[#291](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/291)]
+
 ## [3.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/3.1.3) - 2025-01-20
 
 ### ❤️ Thanks to all contributors! ❤️

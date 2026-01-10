@@ -1,0 +1,16 @@
+when:
+  - event: pull_request
+
+steps:
+  - name: lint-editorconfig
+    image: docker.io/woodpeckerci/plugin-editorconfig-checker:0.3.3
+    depends_on: []
+    when:
+      - event: pull_request
+
+  - name: prettier
+    image: docker.io/woodpeckerci/plugin-prettier:next
+    pull: true
+    depends_on: []
+    settings:
+      version: 3.3.5

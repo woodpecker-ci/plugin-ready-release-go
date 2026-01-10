@@ -12,6 +12,25 @@ import { getReleaseOptions } from './utils/pr';
 import { Forge } from './forges/forge';
 import { PRLabelAnalyser } from './utils/analyser/pr_labels';
 
+function isReleaseCommit(config: Config): boolean {
+  if (!config.ci.commitMessage) return false;
+
+  let normalizedCommitMessage = config.ci.commitMessage
+    .replace(/['"]/g, '') // remove quotes
+    .replace(/[\n\r]/g, ' ') // replace newlines with spaces
+    .trim();
+
+  if (config.ci.forgeType === 'github') {
+    normalizedCommitMessage = normalizedCommitMessage.replace(/^Merge pull request #\d+ from [^\s]+/, '');
+  }
+
+  if (config.ci.forgeType === 'gitea' || config.ci.forgeType === 'forgejo') {
+    normalizedCommitMessage = normalizedCommitMessage.replace(/^Merge pull request/, '');
+  }
+
+  return normalizedCommitMessage.trim().startsWith(config.ci.releasePrefix);
+}
+
 export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge; config: Config }) {
   if (config.ci.debug) {
     process.env.DEBUG = 'simple-git';
@@ -55,21 +74,21 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   try {
     await git.fetch(['--unshallow', '--tags']);
   } catch (error) {
-    console.error(c.yellow('# Error doing unshallow fetch'), error);
+    console.error(c.red('# Error doing unshallow fetch'), error);
     await git.fetch(['--tags']);
   }
   await git.checkout(releaseBranch);
   await git.branch(['--set-upstream-to', `origin/${releaseBranch}`]);
   await git.pull();
 
-  const isReleaseCommit = config.ci.commitMessage?.startsWith(config.ci.releasePrefix);
+  const _isReleaseCommit = isReleaseCommit(config);
 
   const pullRequestBranch = `${config.ci.pullRequestBranchPrefix}${releaseBranch}`;
 
   let shouldBeRC = false;
-  let nextVersion: string | null = config.user.getNextVersion ? await config.user.getNextVersion(hookCtx) : null;
+  let nextVersion: string | null = null;
 
-  if (isReleaseCommit) {
+  if (_isReleaseCommit) {
     // use commit message for release runs as the pull-request is not available (closed)
     nextVersion = extractVersionFromCommitMessage(config.ci.commitMessage!);
     shouldBeRC = semver.prerelease(nextVersion) !== null;
@@ -86,23 +105,18 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   console.log('# Should next version be a release candidate:', c.green(shouldBeRC ? 'yes' : 'no'));
 
   const tags = await git.tags(['--sort=-creatordate']);
-  let latestTag = tags.latest;
+  let latestTag = config.user.getLatestTag ? await config.user.getLatestTag(hookCtx) : tags.latest;
 
-  if (tags.all.length > 0) {
+  if (tags.all.length > 0 && !config.user.getLatestTag) {
     const sortedTags = semver.rsort(tags.all.filter((tag) => semver.valid(tag)));
     latestTag = sortedTags[0];
   }
 
-  if (!latestTag && tags.all.length > 0) {
-    console.log(c.yellow('# Latest tag not found, but tags exist, skipping.'));
-    return;
-  }
-
   latestTag = latestTag || '0.0.0';
-  if (tags.latest) {
+  if (latestTag) {
     console.log('# Lastest tag is:', c.green(latestTag));
   } else {
-    console.log(c.green(`# No tags found. Starting with first tag: ${latestTag}`));
+    console.log(`# No tags found. Starting with first tag: ${c.green(latestTag)}`);
   }
 
   let unTaggedCommits = await git.log(
@@ -150,11 +164,13 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   const changes = await analyser.getChangesFromCommits([...unTaggedCommits.all]);
 
   if (config.ci.debug) {
-    console.log(c.yellow('changes'), changes);
+    console.log({ changes });
   }
 
-  if (!isReleaseCommit) {
-    nextVersion = getNextVersionFromLabels(latestVersion, config.user, changes, shouldBeRC);
+  if (!_isReleaseCommit) {
+    nextVersion = config.user.getNextVersion
+      ? await config.user.getNextVersion(hookCtx)
+      : getNextVersionFromLabels(latestVersion, config.user, changes, shouldBeRC);
   }
 
   if (!nextVersion) {
@@ -162,7 +178,7 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
     return;
   }
 
-  console.log('# Next version will be:', c.green(nextVersion));
+  console.log('# 🏷️ Next version will be:', c.green(nextVersion));
 
   const commandCtx: CommandContext = {
     config,
@@ -178,13 +194,13 @@ export async function run({ git, forge, config }: { git: SimpleGit; forge: Forge
   };
 
   // is "release" commit
-  if (isReleaseCommit) {
+  if (_isReleaseCommit) {
     console.log(c.green('# Release commit detected.'));
-    console.log('# Now releasing version:', c.green(nextVersion));
+    console.log('# 🚀 Now releasing version:', c.green(nextVersion));
 
     await release(commandCtx);
 
-    console.log('# Successfully released version:', c.green(nextVersion));
+    console.log('# ✅ Successfully released version:', c.green(nextVersion));
 
     return;
   }
