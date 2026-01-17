@@ -16,6 +16,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency prettier to v3.8.0 [[#493](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/493)]
+- chore(deps): update vitest monorepo to v4.0.17 [[#492](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/492)]
 - chore(deps): update dependency @types/node to v24.10.9 [[#491](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/491)]
 - chore(deps): lock file maintenance [[#490](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/490)]
 - chore(deps): update dependency @types/node to v24.10.7 [[#489](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/489)]
