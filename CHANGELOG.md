@@ -16,6 +16,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v4.0.18 [[#497](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/497)]
 - chore(deps): update dependency prettier to v3.8.1 [[#495](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/495)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.8.1 [[#496](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/496)]
 - chore(deps): update pre-commit non-major [[#494](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/494)]
