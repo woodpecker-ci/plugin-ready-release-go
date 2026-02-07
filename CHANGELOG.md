@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.0.0) - 2026-02-02
+## [4.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.0.0) - 2026-02-07
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -16,6 +16,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v24.10.11 [[#499](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/499)]
 - chore(deps): lock file maintenance [[#498](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/498)]
 - chore(deps): update vitest monorepo to v4.0.18 [[#497](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/497)]
 - chore(deps): update dependency prettier to v3.8.1 [[#495](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/495)]
