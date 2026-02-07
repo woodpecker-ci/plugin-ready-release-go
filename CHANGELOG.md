@@ -16,6 +16,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency semver to v7.7.4 [[#500](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/500)]
 - chore(deps): update dependency @types/node to v24.10.11 [[#499](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/499)]
 - chore(deps): lock file maintenance [[#498](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/498)]
 - chore(deps): update vitest monorepo to v4.0.18 [[#497](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/497)]
