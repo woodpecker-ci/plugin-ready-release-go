@@ -16,6 +16,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency simple-git to v3.32.0 [[#507](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/507)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.10.1 [[#506](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/506)]
 - chore(deps): update dependency simple-git to v3.31.1 [[#505](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/505)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.9.0 [[#504](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/504)]
