@@ -115,12 +115,14 @@ export async function prepare(cmdCtx: CommandContext) {
     targetBranch: releaseBranch,
   });
 
+  const cleanedPullRequestLink = typeof pullRequestLink === 'string' ? pullRequestLink.replace(/'/g, '') : pullRequestLink;
+
   if (config.user.afterPrepare) {
     console.log('# Running afterPrepare hook');
     await config.user.afterPrepare(hookCtx);
   }
 
-  console.log('# Successfully prepared release pull-request: ', pullRequestLink);
+  console.log('# Successfully prepared release pull-request: ', cleanedPullRequestLink);
 
   console.log('# Pull-request created');
 }
