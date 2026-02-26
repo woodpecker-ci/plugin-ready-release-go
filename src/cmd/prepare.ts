@@ -109,7 +109,7 @@ export async function prepare(cmdCtx: CommandContext) {
       getChangeLogSection(nextVersion, tag, config, changes, forge, false);
 
   console.log('# Creating release pull-request');
-  const pullRequestLink = await forge.createOrUpdatePullRequest({
+  const { pullRequestLink } = await forge.createOrUpdatePullRequest({
     owner: config.ci.repoOwner,
     repo: config.ci.repoName,
     title: `${config.ci.releasePrefix} ${nextVersion}`,
