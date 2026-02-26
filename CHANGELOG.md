@@ -1,10 +1,10 @@
 # Changelog
 
-## [4.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.0.0) - 2026-02-23
+## [4.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.0.0) - 2026-02-26
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@deanpcmad
+@6543, @deanpcmad
 
 ### 💥 Breaking changes
 
@@ -13,6 +13,10 @@
 ### ✨ Features
 
 - Add `includeContributors` option [[#286](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/286)]
+
+### 🐛 Bug Fixes
+
+- Remove ' from pull link [[#511](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/511)]
 
 ### 📦️ Dependency
 
