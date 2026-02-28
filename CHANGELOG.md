@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v24.11.0 [[#515](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/515)]
 - chore(deps): update dependency simple-git to v3.32.3 [[#513](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/513)]
 - chore(deps): update dependency @types/node to v24.10.15 [[#512](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/512)]
 
