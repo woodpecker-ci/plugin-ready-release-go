@@ -1,6 +1,14 @@
 # Changelog
 
-## [4.0.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.0.1) - 2026-03-23
+## [4.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.0) - 2026-03-26
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 📈 Enhancement
+
+- Add tests category [[#528](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/528)]
 
 ### 📦️ Dependency
 
