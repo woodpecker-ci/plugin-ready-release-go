@@ -1,5 +1,36 @@
 # Changelog
 
+## [4.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.0) - 2026-03-26
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 📈 Enhancement
+
+- Add tests category [[#528](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/528)]
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#527](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/527)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.11.4 [[#526](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/526)]
+- chore(deps): update vitest monorepo to v4.1.0 [[#524](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/524)]
+- chore(deps): update dependency simple-git to v3.33.0 [[#523](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/523)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.11.3 [[#522](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/522)]
+- chore(deps): lock file maintenance [[#521](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/521)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.11.2 [[#520](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/520)]
+- chore(deps): update pre-commit non-major [[#519](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/519)]
+- chore(deps): update dependency @types/node to v24.12.0 [[#518](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/518)]
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4 [[#516](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/516)]
+- chore(deps): lock file maintenance [[#517](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/517)]
+- chore(deps): update dependency @types/node to v24.11.0 [[#515](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/515)]
+- chore(deps): update dependency simple-git to v3.32.3 [[#513](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/513)]
+- chore(deps): update dependency @types/node to v24.10.15 [[#512](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/512)]
+
+### Misc
+
+- chore(deps): lock file maintenance [[#525](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/525)]
+
 ## [4.0.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.0.0) - 2026-02-26
 
 ### ❤️ Thanks to all contributors! ❤️
