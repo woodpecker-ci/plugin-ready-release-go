@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-03-28
+
+### 📦️ Dependency
+
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.0 [[#530](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/530)]
+- chore(deps): update vitest monorepo to v4.1.2 [[#529](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/529)]
+
 ## [4.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.0) - 2026-03-26
 
 ### ❤️ Thanks to all contributors! ❤️
