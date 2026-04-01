@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-03-30
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-01
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency typescript to v6 [[#532](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/532)]
 - chore(deps): lock file maintenance [[#533](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/533)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.0 [[#530](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/530)]
 - chore(deps): update vitest monorepo to v4.1.2 [[#529](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/529)]
