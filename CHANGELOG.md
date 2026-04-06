@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-04
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-06
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#535](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/535)]
 - chore(deps): update dependency @types/node to v24.12.2 [[#534](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/534)]
 - chore(deps): update dependency typescript to v6 [[#532](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/532)]
 - chore(deps): lock file maintenance [[#533](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/533)]
