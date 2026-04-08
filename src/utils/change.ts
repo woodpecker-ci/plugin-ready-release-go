@@ -3,6 +3,29 @@ import { Change, UserConfig } from './types';
 import { Config } from './config';
 import { Forge } from '../forges/forge';
 
+/**
+ * Increment a version as a release candidate.
+ *
+ * If the last version is already an RC and the requested bump does not escalate
+ * the base version (e.g. patch-bumping 3.14.0-rc.0 still targets 3.14.0), we
+ * simply increment the RC counter (3.14.0-rc.0 → 3.14.0-rc.1).
+ * Only when the bump would move to a genuinely higher base (e.g. a major bump
+ * on 3.14.0-rc.0 targets 4.0.0) do we start a fresh RC series.
+ */
+function incRC(lastVersion: string, bump: 'major' | 'minor' | 'patch'): string | null {
+  if (semver.prerelease(lastVersion) !== null) {
+    // semver.inc with a release-type on a pre-release strips the pre tag and
+    // bumps accordingly, giving us the would-be full release version.
+    const bumpedBase = semver.inc(lastVersion, bump);
+    const currentBase = `${semver.major(lastVersion)}.${semver.minor(lastVersion)}.${semver.patch(lastVersion)}`;
+    if (bumpedBase === currentBase) {
+      // Bump stays within the current base → just increment the RC counter.
+      return semver.inc(lastVersion, 'prerelease', 'rc');
+    }
+  }
+  return semver.inc(lastVersion, `pre${bump}`, 'rc');
+}
+
 export function getNextVersionFromLabels(
   lastVersion: string,
   config: UserConfig,
@@ -29,7 +52,7 @@ export function getNextVersionFromLabels(
 
   if (changeLabels['major'].some((l) => labels.includes(l))) {
     if (shouldBeRC) {
-      return semver.inc(lastVersion, 'premajor', 'rc');
+      return incRC(lastVersion, 'major');
     }
 
     return semver.inc(lastVersion, 'major');
@@ -37,14 +60,14 @@ export function getNextVersionFromLabels(
 
   if (changeLabels['minor'].some((l) => labels.includes(l))) {
     if (shouldBeRC) {
-      return semver.inc(lastVersion, 'preminor', 'rc');
+      return incRC(lastVersion, 'minor');
     }
 
     return semver.inc(lastVersion, 'minor');
   }
 
   if (shouldBeRC) {
-    return semver.inc(lastVersion, 'prepatch', 'rc');
+    return incRC(lastVersion, 'patch');
   }
 
   return semver.inc(lastVersion, 'patch');
