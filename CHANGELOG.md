@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-08
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-11
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency prettier to v3.8.2 [[#539](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/539)]
 - chore(deps): lock file maintenance [[#535](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/535)]
 - chore(deps): update dependency @types/node to v24.12.2 [[#534](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/534)]
 - chore(deps): update dependency typescript to v6 [[#532](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/532)]
