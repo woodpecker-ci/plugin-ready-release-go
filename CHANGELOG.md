@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-11
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-12
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency simple-git to v3.36.0 [[#543](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/543)]
 - chore(deps): update dependency simple-git to v3.35.2 [[#542](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/542)]
 - chore(deps): update vitest monorepo to v4.1.4 [[#541](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/541)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.8.2 [[#540](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/540)]
