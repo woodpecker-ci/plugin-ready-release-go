@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-12
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-13
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#544](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/544)]
 - chore(deps): update dependency simple-git to v3.36.0 [[#543](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/543)]
 - chore(deps): update dependency simple-git to v3.35.2 [[#542](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/542)]
 - chore(deps): update vitest monorepo to v4.1.4 [[#541](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/541)]
