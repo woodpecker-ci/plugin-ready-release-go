@@ -139,7 +139,6 @@ describe('change', () => {
     });
 
     it('should start a new rc series when minor bump escalates the base from an existing rc', () => {
-      // 3.14.1-rc.0 + minor escalates to 3.15.0
       const nextVersion = getNextVersionFromLabels('3.14.1-rc.0', config.user, changesWithMinor, true);
       expect(nextVersion).toBe('3.15.0-rc.0');
     });
