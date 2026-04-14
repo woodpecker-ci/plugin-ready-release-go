@@ -1,6 +1,14 @@
 # Changelog
 
-## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-13
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-14
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 🐛 Bug Fixes
+
+- Fix second RC to have correct version [[#538](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/538)]
 
 ### 📦️ Dependency
 
