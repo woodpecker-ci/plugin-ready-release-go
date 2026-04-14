@@ -122,6 +122,31 @@ describe('change', () => {
       const nextVersion = getNextVersionFromLabels('0.0.0', config.user, changesWithPatch, false);
       expect(nextVersion).toBe('0.1.0');
     });
+
+    it('should increment rc counter when last release was an rc (patch changes)', () => {
+      const nextVersion = getNextVersionFromLabels('3.14.0-rc.0', config.user, changesWithPatch, true);
+      expect(nextVersion).toBe('3.14.0-rc.1');
+    });
+
+    it('should increment rc counter when last release was an rc (minor changes)', () => {
+      const nextVersion = getNextVersionFromLabels('3.14.0-rc.0', config.user, changesWithMinor, true);
+      expect(nextVersion).toBe('3.14.0-rc.1');
+    });
+
+    it('should start a new rc series when major bump escalates the base from an existing rc', () => {
+      const nextVersion = getNextVersionFromLabels('3.14.0-rc.0', config.user, changesWithMajor, true);
+      expect(nextVersion).toBe('4.0.0-rc.0');
+    });
+
+    it('should start a new rc series when minor bump escalates the base from an existing rc', () => {
+      const nextVersion = getNextVersionFromLabels('3.14.1-rc.0', config.user, changesWithMinor, true);
+      expect(nextVersion).toBe('3.15.0-rc.0');
+    });
+
+    it('should increment rc counter when patch changes stay within the same base (rc.2 → rc.3)', () => {
+      const nextVersion = getNextVersionFromLabels('1.0.0-rc.2', config.user, changesWithPatch, true);
+      expect(nextVersion).toBe('1.0.0-rc.3');
+    });
   });
 
   describe('changelog generation', () => {
