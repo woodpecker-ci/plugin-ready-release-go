@@ -14,16 +14,11 @@
 
 - chore(deps): lock file maintenance [[#544](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/544)]
 - chore(deps): update dependency simple-git to v3.36.0 [[#543](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/543)]
-- chore(deps): update dependency simple-git to v3.35.2 [[#542](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/542)]
 - chore(deps): update vitest monorepo to v4.1.4 [[#541](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/541)]
-- chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.8.2 [[#540](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/540)]
-- chore(deps): update dependency prettier to v3.8.2 [[#539](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/539)]
 - chore(deps): lock file maintenance [[#535](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/535)]
 - chore(deps): update dependency @types/node to v24.12.2 [[#534](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/534)]
 - chore(deps): update dependency typescript to v6 [[#532](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/532)]
 - chore(deps): lock file maintenance [[#533](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/533)]
-- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.0 [[#530](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/530)]
-- chore(deps): update vitest monorepo to v4.1.2 [[#529](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/529)]
 
 ## [4.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.0) - 2026-03-26
 
