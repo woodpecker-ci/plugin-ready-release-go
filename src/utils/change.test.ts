@@ -123,9 +123,6 @@ describe('change', () => {
       expect(nextVersion).toBe('0.1.0');
     });
 
-    // RC-to-RC bump: the last release was already an RC and the user requests
-    // another RC.  The base version must NOT change; only the RC counter should
-    // be incremented.
     it('should increment rc counter when last release was an rc (patch changes)', () => {
       const nextVersion = getNextVersionFromLabels('3.14.0-rc.0', config.user, changesWithPatch, true);
       expect(nextVersion).toBe('3.14.0-rc.1');
