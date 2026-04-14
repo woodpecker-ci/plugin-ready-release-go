@@ -10,6 +10,7 @@
     "build": "tsx src/run.ts --out-dir dist",
     "test": "vitest run",
     "test:watch": "vitest --ui --open=false",
+    "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit"
   },
