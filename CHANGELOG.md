@@ -1,5 +1,25 @@
 # Changelog
 
+## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-14
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 🐛 Bug Fixes
+
+- Fix second RC to have correct version [[#538](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/538)]
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#544](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/544)]
+- chore(deps): update dependency simple-git to v3.36.0 [[#543](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/543)]
+- chore(deps): update vitest monorepo to v4.1.4 [[#541](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/541)]
+- chore(deps): lock file maintenance [[#535](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/535)]
+- chore(deps): update dependency @types/node to v24.12.2 [[#534](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/534)]
+- chore(deps): update dependency typescript to v6 [[#532](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/532)]
+- chore(deps): lock file maintenance [[#533](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/533)]
+
 ## [4.1.0](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.0) - 2026-03-26
 
 ### ❤️ Thanks to all contributors! ❤️
