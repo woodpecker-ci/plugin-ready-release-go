@@ -5,15 +5,16 @@ import { Forge } from '../forges/forge';
 
 function incRC(lastVersion: string, bump: 'major' | 'minor' | 'patch'): string | null {
   if (semver.prerelease(lastVersion) === null) {
-     return semver.inc(lastVersion, `pre${bump}`, 'rc');
+    return semver.inc(lastVersion, `pre${bump}`, 'rc');
   }
 
   const bumpedBase = semver.inc(lastVersion, bump);
   const parsed = semver.parse(lastVersion);
   const currentBase = `${parsed.major}.${parsed.minor}.${parsed.patch}`;
   if (bumpedBase === currentBase) {
-      return semver.inc(lastVersion, 'prerelease', 'rc');
-    }
+    return semver.inc(lastVersion, 'prerelease', 'rc');
+  } else {
+    return semver.inc(lastVersion, `pre${bump}`, 'rc');
   }
 }
 
