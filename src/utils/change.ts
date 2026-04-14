@@ -12,7 +12,6 @@ function incRC(lastVersion: string, bump: 'major' | 'minor' | 'patch'): string |
   const parsed = semver.parse(lastVersion);
   const currentBase = `${parsed.major}.${parsed.minor}.${parsed.patch}`;
   if (bumpedBase === currentBase) {
-      // Keep the base and increment the RC counter
       return semver.inc(lastVersion, 'prerelease', 'rc');
     }
   }
