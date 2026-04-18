@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-04-18
+
+### Misc
+
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.1 (#547) ([8fb564e](https://github.com/woodpecker-ci/plugin-ready-release-go/commit/8fb564e715394d8e2eb6a2f2149a235dc42a20c3))
+
 ## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-14
 
 ### ❤️ Thanks to all contributors! ❤️
