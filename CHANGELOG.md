@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-04-20
+
+### 📦️ Dependency
+
+- chore(deps): lock file maintenance [[#550](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/550)]
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.1 [[#547](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/547)]
+
 ## [4.1.1](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.1) - 2026-04-14
 
 ### ❤️ Thanks to all contributors! ❤️
