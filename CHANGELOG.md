@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency semver to v7.8.0 [[#559](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/559)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.12.2 [[#558](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/558)]
 - chore(deps): update dependency @types/node to v24.12.3 [[#557](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/557)]
 - chore(deps): lock file maintenance [[#556](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/556)]
