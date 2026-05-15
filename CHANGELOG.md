@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-05-11
+## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-05-15
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v11 [[#561](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/561)]
 - chore(deps): lock file maintenance [[#562](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/562)]
 - chore(deps): update dependency semver to v7.8.0 [[#559](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/559)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.12.2 [[#558](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/558)]
