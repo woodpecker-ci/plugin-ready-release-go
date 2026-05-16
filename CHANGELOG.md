@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency tsx to v4.22.0 [[#565](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/565)]
 - chore(deps): update vitest monorepo to v4.1.6 [[#564](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/564)]
 - chore(deps): update dependency @types/node to v24.12.4 [[#563](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/563)]
 - chore(deps): update pnpm to v11 [[#561](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/561)]
