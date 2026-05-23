@@ -28,7 +28,7 @@ importers:
         version: 3.36.0
       tsx:
         specifier: ^4.3.0
-        version: 4.22.0
+        version: 4.22.3
     devDependencies:
       '@types/node':
         specifier: ^24.0.0
@@ -50,7 +50,7 @@ importers:
         version: 6.0.3
       vitest:
         specifier: ^4.0.0
-        version: 4.1.6(@types/node@24.12.4)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0))
+        version: 4.1.6(@types/node@24.12.4)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3))
 
 packages:
 
@@ -728,8 +728,8 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
-  postcss@8.5.14:
-    resolution: {integrity: sha512-SoSL4+OSEtR99LHFZQiJLkT59C5B1amGO1NzTwj7TT1qCUgUO6hxOvzkOYxD+vMrXBM3XJIKzokoERdqQq/Zmg==}
+  postcss@8.5.15:
+    resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
     engines: {node: ^10 || ^12 || >=14}
 
   prettier@3.8.3:
@@ -822,8 +822,8 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  tsx@4.22.0:
-    resolution: {integrity: sha512-8ccZMPD69s1AbKXx0C5ddTNZfNjwV04iIKgjZmKfKxMynEtSYcK0Lh7iQFh53fI5Yu4pb9usgAiqyPmEONaALg==}
+  tsx@4.22.3:
+    resolution: {integrity: sha512-mdoNxBC/cSQObGGVQ5Bpn5i+yv7j68gk3Nfm3wFjcJg3Z0Mix9jzAFfP12prmm5eVGmDKtp0yyArrs0Q+8gZHg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -1218,13 +1218,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.6(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0))':
+  '@vitest/mocker@4.1.6(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3))':
     dependencies:
       '@vitest/spy': 4.1.6
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0)
+      vite: 8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3)
 
   '@vitest/pretty-format@4.1.6':
     dependencies:
@@ -1253,7 +1253,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vitest: 4.1.6(@types/node@24.12.4)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0))
+      vitest: 4.1.6(@types/node@24.12.4)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3))
 
   '@vitest/utils@4.1.6':
     dependencies:
@@ -1479,7 +1479,7 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  postcss@8.5.14:
+  postcss@8.5.15:
     dependencies:
       nanoid: 3.3.12
       picocolors: 1.1.1
@@ -1577,7 +1577,7 @@ snapshots:
   tslib@2.8.1:
     optional: true
 
-  tsx@4.22.0:
+  tsx@4.22.3:
     dependencies:
       esbuild: 0.28.0
     optionalDependencies:
@@ -1589,23 +1589,23 @@ snapshots:
 
   universal-user-agent@7.0.3: {}
 
-  vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0):
+  vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
-      postcss: 8.5.14
+      postcss: 8.5.15
       rolldown: 1.0.1
       tinyglobby: 0.2.16
     optionalDependencies:
       '@types/node': 24.12.4
       esbuild: 0.28.0
       fsevents: 2.3.3
-      tsx: 4.22.0
+      tsx: 4.22.3
 
-  vitest@4.1.6(@types/node@24.12.4)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0)):
+  vitest@4.1.6(@types/node@24.12.4)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3)):
     dependencies:
       '@vitest/expect': 4.1.6
-      '@vitest/mocker': 4.1.6(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0))
+      '@vitest/mocker': 4.1.6(vite@8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3))
       '@vitest/pretty-format': 4.1.6
       '@vitest/runner': 4.1.6
       '@vitest/snapshot': 4.1.6
@@ -1622,7 +1622,7 @@ snapshots:
       tinyexec: 1.1.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vite: 8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.0)
+      vite: 8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(tsx@4.22.3)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.12.4
