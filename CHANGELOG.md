@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-05-30
+## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-06-01
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency tsx to v4.22.4 [[#575](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/575)]
 - chore(deps): update pnpm to v11.5.0 [[#574](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/574)]
 - chore(deps): lock file maintenance [[#573](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/573)]
 - chore(deps): update pnpm to v11.3.0 [[#572](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/572)]
