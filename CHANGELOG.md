@@ -4,6 +4,9 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v11.6.0 [[#584](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/584)]
+- chore(deps): update pre-commit non-major to v3.8.4 [[#583](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/583)]
+- chore(deps): update dependency @types/node to v24.13.2 [[#579](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/579)]
 - chore(deps): update dependency semver to v7.8.4 [[#582](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/582)]
 - chore(deps): update dependency prettier to v3.8.4 [[#581](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/581)]
 - chore(deps): lock file maintenance [[#580](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/580)]
