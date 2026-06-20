@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-06-15
+## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-06-20
 
 ### 📦️ Dependency
 
+- chore(deps): update vitest monorepo to v4.1.9 [[#587](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/587)]
 - chore(deps): lock file maintenance [[#585](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/585)]
 - chore(deps): update pnpm to v11.6.0 [[#584](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/584)]
 - chore(deps): update pre-commit non-major to v3.8.4 [[#583](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/583)]
