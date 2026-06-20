@@ -4,6 +4,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit non-major to v0.49.0 [[#589](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/589)]
+- chore(deps): update pnpm to v11.8.0 [[#588](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/588)]
 - chore(deps): update vitest monorepo to v4.1.9 [[#587](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/587)]
 - chore(deps): lock file maintenance [[#585](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/585)]
 - chore(deps): update pnpm to v11.6.0 [[#584](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/584)]
