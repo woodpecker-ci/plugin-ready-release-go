@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-06-28
+## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-06-29
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#595](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/595)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.9.1 [[#594](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/594)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.8.5 [[#593](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/593)]
 - chore(deps): update pnpm to v11.9.0 [[#592](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/592)]
