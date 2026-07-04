@@ -4,7 +4,7 @@
   "description": "",
   "license": "MIT",
   "author": "Woodpecker Maintainers",
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.10.0",
   "main": "dist/run.js",
   "scripts": {
     "start": "tsx src/run.ts",
