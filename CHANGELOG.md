@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency tsx to v4.23.0 [[#597](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/597)]
 - chore(deps): update pnpm to v11.10.0 [[#598](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/598)]
 - chore(deps): update dependency prettier to v3.9.4 [[#591](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/591)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.9.4 [[#596](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/596)]
