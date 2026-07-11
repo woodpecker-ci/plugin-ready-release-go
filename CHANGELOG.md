@@ -4,6 +4,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.9.5 [[#603](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/603)]
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.1.1 [[#602](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/602)]
 - chore(deps): update dependency prettier to v3.9.5 [[#601](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/601)]
 - chore(deps): update dependency @types/node to v24.13.3 [[#600](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/600)]
 - chore(deps): lock file maintenance [[#599](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/599)]
