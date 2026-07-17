@@ -4,10 +4,10 @@ import {
   getChangeLogSection,
   getNextVersionFromLabels,
   updateChangelogSection,
-} from './change';
-import { Change } from './types';
-import { Config, defaultUserConfig } from './config';
-import { GithubForge } from '../forges/github';
+} from './change.ts';
+import { Change } from './types.ts';
+import { Config, defaultUserConfig } from './config.ts';
+import { GithubForge } from '../forges/github.ts';
 import { promises as fs } from 'fs';
 import path from 'path';
 

@@ -1,7 +1,7 @@
 import semver from 'semver';
-import { Change, UserConfig } from './types';
-import { Config } from './config';
-import { Forge } from '../forges/forge';
+import { Change, UserConfig } from './types.ts';
+import { Config } from './config.ts';
+import { Forge } from '../forges/forge.ts';
 
 function incRC(lastVersion: string, bump: 'major' | 'minor' | 'patch'): string | null {
   if (semver.prerelease(lastVersion) === null) {
