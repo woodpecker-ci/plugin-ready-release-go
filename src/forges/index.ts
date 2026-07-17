@@ -1,7 +1,7 @@
-import { Config } from '../utils/config';
-import { Forge } from './forge';
-import { GithubForge } from './github';
-import { GiteaForge } from './gitea';
+import { Config } from '../utils/config.ts';
+import { Forge } from './forge.ts';
+import { GithubForge } from './github.ts';
+import { GiteaForge } from './gitea.ts';
 
 export async function getForge(config: Config): Promise<Forge> {
   if (!config.ci.gitEmail) {
