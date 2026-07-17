@@ -1,25 +1,31 @@
-ARG BASE_IMAGE=node:24-slim
+ARG DENO_VERSION=2.9.3
 
-FROM --platform=$BUILDPLATFORM ${BASE_IMAGE} AS build
+FROM denoland/deno:${DENO_VERSION} AS build
 WORKDIR /app
-ENV NODE_ENV=production
 
-COPY ["package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "./"]
+COPY ["package.json", "deno.json", "deno.lock", "./"]
+COPY src ./src
 
-RUN corepack enable
-RUN pnpm install --frozen-lockfile --package-import-method copy
+# Drop devDependencies so only runtime packages are embedded in the binary,
+# then let deno resolve and install the remaining npm dependencies.
+RUN deno eval 'const p = JSON.parse(Deno.readTextFileSync("package.json")); delete p.devDependencies; Deno.writeTextFileSync("package.json", JSON.stringify(p, null, 2));' \
+  && deno install
 
-FROM ${BASE_IMAGE}
+RUN deno task compile
+
+# A `FROM scratch` or alpine final stage is not possible: deno compile only
+# targets glibc (no musl denort exists), the produced binary is dynamically
+# linked, the plugin spawns the git CLI via simple-git, user-defined hooks run
+# through /bin/sh (shelljs) and the forge API clients need CA certificates.
+# bookworm-slim is the smallest base that provides all of that.
+FROM debian:bookworm-slim
 WORKDIR /app
-ENV NODE_ENV=production
 
-RUN apt update \
-  && apt install -y git git-lfs wget \
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends git git-lfs wget ca-certificates \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-COPY --from=build "/app/node_modules" "./node_modules"
-COPY "tsconfig.json" "./tsconfig.json"
-COPY "src" "./src"
+COPY --from=build /app/ready-release-go /usr/local/bin/ready-release-go
 
-CMD ["/app/node_modules/.bin/tsx", "/app/src/run.ts"]
+CMD ["/usr/local/bin/ready-release-go"]
