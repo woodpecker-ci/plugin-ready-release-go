@@ -21,8 +21,8 @@ RUN deno task compile
 FROM debian:bookworm-slim
 WORKDIR /app
 
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends git git-lfs wget ca-certificates \
+RUN apt update \
+  && apt install -y --no-install-recommends git git-lfs wget ca-certificates \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
