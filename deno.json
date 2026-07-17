@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUnusedLocals": true
+  },
+  "tasks": {
+    "start": "deno run --allow-all src/run.ts",
+    "test": "deno run --allow-all npm:vitest run",
+    "test:watch": "deno run --allow-all npm:vitest --ui --open=false",
+    "format": "deno run --allow-all npm:prettier --write .",
+    "format:check": "deno run --allow-all npm:prettier --check .",
+    "check": "deno check src/run.ts src/index.test.ts src/utils/change.test.ts src/utils/pr.test.ts release-config.ts",
+    "compile": "deno compile --no-check --allow-all --output ready-release-go src/run.ts"
+  }
+}

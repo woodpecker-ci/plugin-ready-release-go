@@ -1,5 +1,5 @@
 variables:
-  - &node_image 'docker.io/node:24-slim'
+  - &deno_image 'docker.io/denoland/deno:2.9.3'
 
 when:
   - event: pull_request
@@ -9,25 +9,21 @@ when:
 
 steps:
   - name: install
-    image: *node_image
+    image: *deno_image
     commands:
-      - corepack enable
-      - pnpm i
+      - deno install
 
   - name: unit-test
-    image: *node_image
+    image: *deno_image
     commands:
-      - corepack enable
-      - pnpm test
+      - deno task test
 
   - name: typecheck
-    image: *node_image
+    image: *deno_image
     commands:
-      - corepack enable
-      - pnpm typecheck
+      - deno task check
 
   - name: format
-    image: *node_image
+    image: *deno_image
     commands:
-      - corepack enable
-      - pnpm format:check
+      - deno task format:check

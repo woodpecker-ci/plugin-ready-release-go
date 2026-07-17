@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getCheckboxValueFromString } from './pr';
+import { getCheckboxValueFromString } from './pr.ts';
 
 describe('pr', () => {
   it('should check for the correct checkbox value', () => {

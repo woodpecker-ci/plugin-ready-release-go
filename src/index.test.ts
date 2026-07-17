@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeAll, afterEach, MockedFunction } from 'vitest';
-import { run } from './index';
-import { Config, defaultUserConfig } from './utils/config';
-import { GithubForge } from './forges/github';
+import { run } from './index.ts';
+import { Config, defaultUserConfig } from './utils/config.ts';
+import { GithubForge } from './forges/github.ts';
 import { SimpleGit, simpleGit } from 'simple-git';
-import { release } from './cmd/release';
-import { prepare } from './cmd/prepare';
+import { release } from './cmd/release.ts';
+import { prepare } from './cmd/prepare.ts';
 
 vi.mock('./cmd/prepare');
 vi.mock('./cmd/release');
