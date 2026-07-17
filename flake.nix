@@ -17,11 +17,7 @@
           buildInputs = with pkgs; [
             onefetch
 
-            nodejs_24
-            pnpm
-
-            typescript
-            typescript-language-server
+            deno
           ];
           shellHook = ''
             onefetch --number-of-authors 5
