@@ -3,6 +3,24 @@ import { Change, UserConfig } from './types';
 import { Config } from './config';
 import { Forge } from '../forges/forge';
 
+function incRC(lastVersion: string, bump: 'major' | 'minor' | 'patch'): string | null {
+  if (semver.prerelease(lastVersion) === null) {
+    return semver.inc(lastVersion, `pre${bump}`, 'rc');
+  }
+
+  const bumpedBase = semver.inc(lastVersion, bump);
+  const parsed = semver.parse(lastVersion);
+  if (parsed === null) {
+    throw new Error(`Can't parse version`);
+  }
+  const currentBase = `${parsed.major}.${parsed.minor}.${parsed.patch}`;
+  if (bumpedBase === currentBase) {
+    return semver.inc(lastVersion, 'prerelease', 'rc');
+  } else {
+    return semver.inc(lastVersion, `pre${bump}`, 'rc');
+  }
+}
+
 export function getNextVersionFromLabels(
   lastVersion: string,
   config: UserConfig,
@@ -29,7 +47,7 @@ export function getNextVersionFromLabels(
 
   if (changeLabels['major'].some((l) => labels.includes(l))) {
     if (shouldBeRC) {
-      return semver.inc(lastVersion, 'premajor', 'rc');
+      return incRC(lastVersion, 'major');
     }
 
     return semver.inc(lastVersion, 'major');
@@ -37,14 +55,14 @@ export function getNextVersionFromLabels(
 
   if (changeLabels['minor'].some((l) => labels.includes(l))) {
     if (shouldBeRC) {
-      return semver.inc(lastVersion, 'preminor', 'rc');
+      return incRC(lastVersion, 'minor');
     }
 
     return semver.inc(lastVersion, 'minor');
   }
 
   if (shouldBeRC) {
-    return semver.inc(lastVersion, 'prepatch', 'rc');
+    return incRC(lastVersion, 'patch');
   }
 
   return semver.inc(lastVersion, 'patch');
