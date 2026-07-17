@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUnusedLocals": true
+  },
+  "tasks": {
+    "compile": "deno compile --no-check --allow-all --output ready-release-go src/run.ts"
+  }
+}

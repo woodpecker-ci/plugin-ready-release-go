@@ -29,6 +29,18 @@ Build the Docker image with the following command:
 docker build -f Dockerfile -t woodpeckerci/plugin-ready-release-go:next .
 ```
 
+### Single binary
+
+The plugin can be compiled into a single self-contained binary with
+[Deno](https://deno.com/) (>= 2.1). Install production dependencies first so
+only runtime packages are embedded:
+
+```sh
+pnpm install --prod
+deno task compile
+./ready-release-go
+```
+
 ## Roadmap
 
 - [x] Automatically create release pull-request
