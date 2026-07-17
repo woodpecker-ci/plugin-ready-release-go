@@ -4,33 +4,19 @@
   "description": "",
   "license": "MIT",
   "author": "Woodpecker Maintainers",
-  "packageManager": "pnpm@11.12.0",
-  "main": "dist/run.js",
-  "scripts": {
-    "start": "tsx src/run.ts",
-    "build": "tsx src/run.ts --out-dir dist",
-    "test": "vitest run",
-    "test:watch": "vitest --ui --open=false",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit"
-  },
   "dependencies": {
     "@octokit/rest": "^22.0.0",
     "gitea-js": "^1.22.0",
     "picocolors": "^1.0.0",
     "semver": "^7.5.3",
     "shelljs": "^0.10.0",
-    "simple-git": "^3.21.0",
-    "tsx": "^4.3.0"
+    "simple-git": "^3.21.0"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
     "@types/semver": "^7.5.0",
     "@types/shelljs": "^0.10.0",
     "@vitest/ui": "^4.0.0",
     "prettier": "^3.3.3",
-    "typescript": "^7.0.0",
     "vitest": "^4.0.0"
   }
 }
