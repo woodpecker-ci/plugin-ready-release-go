@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v11.14.0 [[#615](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/615)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.49.1 [[#614](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/614)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.2 [[#612](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/612)]
 - chore(deps): update dependency tsx to v4.23.1 [[#611](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/611)]
