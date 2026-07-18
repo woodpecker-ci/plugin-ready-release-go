@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-07-18
+
+### 📦️ Dependency
+
+- chore(deps): update dependency tsx to v4.23.1 [[#611](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/611)]
+
+### Misc
+
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.2 (#612) ([94738fd](https://github.com/woodpecker-ci/plugin-ready-release-go/commit/94738fda6ba2420093309c7598254c319ce99ad5))
+
 ## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-07-17
 
 ### 📦️ Dependency
