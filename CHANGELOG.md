@@ -1,9 +1,11 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-07-27
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-08-01
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook hadolint/hadolint to v2.15.1 [[#623](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/623)]
+- chore(deps): update pnpm to v11.18.0 [[#622](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/622)]
 - chore(deps): lock file maintenance [[#621](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/621)]
 - chore(deps): update pnpm to v11.17.0 [[#620](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/620)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.9.6 [[#619](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/619)]
