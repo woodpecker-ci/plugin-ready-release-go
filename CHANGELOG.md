@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/semver to v7.8.0 [[#624](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/624)]
 - chore(deps): update pnpm to v11.20.0 [[#627](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/627)]
 - chore(deps): lock file maintenance [[#626](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/626)]
 - chore(deps): update pre-commit hook hadolint/hadolint to v2.15.1 [[#623](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/623)]
