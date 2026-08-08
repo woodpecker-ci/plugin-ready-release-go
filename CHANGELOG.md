@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-08-03
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-08-08
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v11.20.0 [[#627](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/627)]
 - chore(deps): lock file maintenance [[#626](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/626)]
 - chore(deps): update pre-commit hook hadolint/hadolint to v2.15.1 [[#623](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/623)]
 - chore(deps): update pnpm to v11.18.0 [[#622](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/622)]
