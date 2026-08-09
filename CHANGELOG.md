@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency tsx to v4.23.11 [[#625](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/625)]
 - chore(deps): update pnpm to v11.21.0 [[#628](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/628)]
 - chore(deps): update dependency @types/semver to v7.8.0 [[#624](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/624)]
 - chore(deps): update pnpm to v11.20.0 [[#627](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/627)]
