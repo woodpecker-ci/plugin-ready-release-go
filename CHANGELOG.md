@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-08-08
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-08-09
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v11.21.0 [[#628](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/628)]
 - chore(deps): update dependency @types/semver to v7.8.0 [[#624](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/624)]
 - chore(deps): update pnpm to v11.20.0 [[#627](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/627)]
 - chore(deps): lock file maintenance [[#626](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/626)]
