@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-08-23
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-08-24
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#636](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/636)]
 - chore(deps): update pnpm to v11.23.0 [[#635](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/635)]
 - chore(deps): update pre-commit hook golangci/golangci-lint to v2.13.1 [[#634](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/634)]
 - chore(deps): update vitest monorepo to v4.1.11 [[#633](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/633)]
