@@ -1,8 +1,8 @@
 import c from 'picocolors';
 
-import { Forge } from '../../forges/forge';
-import { Config } from '../config';
-import { Analyser, Change, Commit } from '../types';
+import { Forge } from '../../forges/forge.ts';
+import { Config } from '../config.ts';
+import { Analyser, Change, Commit } from '../types.ts';
 
 export class PRLabelAnalyser implements Analyser {
   forge: Forge;

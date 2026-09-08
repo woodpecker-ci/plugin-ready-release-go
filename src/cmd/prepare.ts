@@ -1,7 +1,7 @@
 import c from 'picocolors';
 
-import { CommandContext, HookContext } from '../utils/types';
-import { updateChangelogSection, getChangeLogSection } from '../utils/change';
+import { CommandContext, HookContext } from '../utils/types.ts';
+import { updateChangelogSection, getChangeLogSection } from '../utils/change.ts';
 import { promises as fs } from 'fs';
 
 export async function prepare(cmdCtx: CommandContext) {

@@ -5,6 +5,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   }
 }

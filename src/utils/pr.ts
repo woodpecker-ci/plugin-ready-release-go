@@ -1,4 +1,4 @@
-import { PullRequest } from '../forges/forge';
+import { PullRequest } from '../forges/forge.ts';
 
 export function getCheckboxValueFromString(description: string, label: string) {
   return description.match(new RegExp(`-\\s\\[(.)\\]\\s${label}`, 'i'))?.[1] === 'x';
