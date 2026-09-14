@@ -1,5 +1,5 @@
-import { getChangeLogSection } from '../utils/change';
-import { CommandContext, HookContext } from '../utils/types';
+import { getChangeLogSection } from '../utils/change.ts';
+import { CommandContext, HookContext } from '../utils/types.ts';
 import c from 'picocolors';
 
 export async function release({

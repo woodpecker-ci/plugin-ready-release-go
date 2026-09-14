@@ -1,4 +1,4 @@
-import type { UserConfig } from './src/utils/types';
+import type { UserConfig } from './src/utils/types.ts';
 
 export default {
   skipCommitsWithoutPullRequest: false,
