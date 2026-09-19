@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.9.8 [[#651](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/651)]
 - chore(deps): update dependency prettier to v3.9.8 [[#650](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/650)]
 - chore(deps): lock file maintenance [[#648](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/648)]
 - chore(deps): update pnpm to v11.27.0 [[#647](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/647)]
