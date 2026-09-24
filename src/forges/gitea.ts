@@ -1,6 +1,33 @@
 import { Forge, PullRequest } from './forge';
 import { giteaApi, Api, PullRequest as GiteaPullRequest } from 'gitea-js';
 
+const statusHints: Record<number, string> = {
+  401: 'the `forge_token` is invalid or expired',
+  403: 'the `forge_token` lacks the `write:repository` scope or its user has no write access to the repository',
+  404: 'the repository does not exist, the `forge_token` cannot access it, or the required unit (Releases, Pull Requests) is disabled in the repository settings',
+  409: 'the resource already exists (e.g. a release for this tag)',
+};
+
+// gitea-js rejects with the fetch Response, carrying the parsed JSON body in `error`.
+type GiteaErrorResponse = { status: number; statusText?: string; url?: string; error?: { message?: string } | null };
+
+function isGiteaErrorResponse(error: unknown): error is GiteaErrorResponse {
+  return typeof error === 'object' && error !== null && typeof (error as GiteaErrorResponse).status === 'number';
+}
+
+export function formatGiteaError(action: string, error: unknown): Error {
+  if (!isGiteaErrorResponse(error)) {
+    const message = error instanceof Error ? error.message : String(error);
+    return new Error(`Failed to ${action}: ${message}`, { cause: error });
+  }
+
+  const status = [error.status, error.statusText].filter(Boolean).join(' ');
+  const forgeMessage = error.error?.message ? `: ${error.error.message}` : '';
+  const hint = statusHints[error.status] ? `\nHint: ${statusHints[error.status]}` : '';
+
+  return new Error(`Failed to ${action}: ${status} (${error.url})${forgeMessage}${hint}`);
+}
+
 export class GiteaForge extends Forge {
   accessToken: string;
   email: string;
@@ -24,13 +51,13 @@ export class GiteaForge extends Forge {
         status,
         message: (error as Response)?.statusText,
         url: (error as Response)?.url,
-        body: (error as Response)?.body,
+        body: (error as GiteaErrorResponse)?.error,
       };
 
       if (ignoreErrors.includes(status)) {
         console.error('gitea error', errorMessage, 'but continuing as status code is explicity ignored');
       } else {
-        throw new Error(`gitea error: ${JSON.stringify(errorMessage)}`);
+        throw formatGiteaError('call gitea api', error);
       }
 
       return undefined;
@@ -129,13 +156,17 @@ export class GiteaForge extends Forge {
     prerelease?: boolean;
     target: string;
   }): Promise<{ releaseLink: string }> {
-    const release = await this.api.repos.repoCreateRelease(options.owner, options.repo, {
-      tag_name: options.tag,
-      name: options.name,
-      body: options.description,
-      prerelease: options.prerelease,
-      target_commitish: options.target,
-    });
+    const release = await this.api.repos
+      .repoCreateRelease(options.owner, options.repo, {
+        tag_name: options.tag,
+        name: options.name,
+        body: options.description,
+        prerelease: options.prerelease,
+        target_commitish: options.target,
+      })
+      .catch((error) => {
+        throw formatGiteaError('create release', error);
+      });
 
     return { releaseLink: release.data.html_url! };
   }
@@ -210,9 +241,13 @@ export class GiteaForge extends Forge {
     pullRequestNumber: number;
     comment: string;
   }): Promise<void> {
-    await this.api.repos.issueCreateComment(options.owner, options.repo, options.pullRequestNumber, {
-      body: options.comment,
-    });
+    await this.api.repos
+      .issueCreateComment(options.owner, options.repo, options.pullRequestNumber, {
+        body: options.comment,
+      })
+      .catch((error) => {
+        throw formatGiteaError(`comment on pull request #${options.pullRequestNumber}`, error);
+      });
   }
 
   getRepoUrl(owner: string, repo: string): string {
