@@ -164,11 +164,31 @@ export class GiteaForge extends Forge {
         prerelease: options.prerelease,
         target_commitish: options.target,
       })
-      .catch((error) => {
-        throw formatGiteaError('create release', error);
+      .catch(async (error) => {
+        throw await this.explainCreateReleaseError(error, options.owner, options.repo);
       });
 
     return { releaseLink: release.data.html_url! };
+  }
+
+  // A disabled Releases unit returns the same 404 as a missing repository,
+  // so ask the forge which one it is before reporting.
+  private async explainCreateReleaseError(error: unknown, owner: string, repo: string): Promise<Error> {
+    if (isGiteaErrorResponse(error) && error.status === 404) {
+      const repository = await this.api.repos
+        .repoGet(owner, repo)
+        .then((res) => res.data)
+        .catch(() => undefined);
+
+      if (repository?.has_releases === false) {
+        return new Error(
+          `Failed to create release: the Releases unit is disabled for ${owner}/${repo}. ` +
+            `Enable it in the repository settings: ${this.getRepoUrl(owner, repo)}/settings`,
+        );
+      }
+    }
+
+    return formatGiteaError('create release', error);
   }
 
   async getGitCredentials(): Promise<{

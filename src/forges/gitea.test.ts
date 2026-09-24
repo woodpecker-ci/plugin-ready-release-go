@@ -73,3 +73,50 @@ describe('GiteaForge', () => {
     ).rejects.toThrow(/403 Forbidden.*token does not have scope/s);
   });
 });
+
+describe('GiteaForge.createRelease 404 diagnosis', () => {
+  function forgeWith(repoGet: GiteaForge['api']['repos']['repoGet']) {
+    const forge = new GiteaForge('https://codeberg.org', 'token', 'ci@example.com');
+    forge.api.repos.repoCreateRelease = vi.fn().mockRejectedValue(giteaResponse(404, 'Not Found', releaseUrl));
+    forge.api.repos.repoGet = repoGet;
+    return forge;
+  }
+  const createRelease = (forge: GiteaForge) =>
+    forge.createRelease({
+      owner: 'owner',
+      repo: 'repo',
+      tag: 'v1.0.0',
+      name: '1.0.0',
+      description: '',
+      target: 'main',
+    });
+
+  it('names the disabled Releases unit and where to enable it', async () => {
+    const forge = forgeWith(vi.fn().mockResolvedValue({ data: { has_releases: false } }));
+
+    await expect(createRelease(forge)).rejects.toThrow(
+      /Releases unit is disabled.*https:\/\/codeberg\.org\/owner\/repo\/settings/s,
+    );
+  });
+
+  it('falls back to the generic hint when releases are enabled', async () => {
+    const forge = forgeWith(vi.fn().mockResolvedValue({ data: { has_releases: true } }));
+
+    await expect(createRelease(forge)).rejects.toThrow(/404 Not Found.*Hint:/s);
+  });
+
+  it('falls back to the generic hint when the repository lookup fails', async () => {
+    const forge = forgeWith(vi.fn().mockRejectedValue(giteaResponse(404, 'Not Found', 'x')));
+
+    await expect(createRelease(forge)).rejects.toThrow(`404 Not Found (${releaseUrl})`);
+  });
+
+  it('does not look up the repository for other statuses', async () => {
+    const repoGet = vi.fn();
+    const forge = forgeWith(repoGet);
+    forge.api.repos.repoCreateRelease = vi.fn().mockRejectedValue(giteaResponse(409, 'Conflict', releaseUrl));
+
+    await expect(createRelease(forge)).rejects.toThrow(/409/);
+    expect(repoGet).not.toHaveBeenCalled();
+  });
+});
