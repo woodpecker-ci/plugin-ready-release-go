@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v11.28.0 [[#660](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/660)]
 - chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.4 [[#658](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/658)]
 - chore(deps): update dependency tsx to v4.23.15 [[#652](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/652)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.1.2 [[#657](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/657)]
