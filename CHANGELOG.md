@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.4 [[#658](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/658)]
 - chore(deps): update dependency tsx to v4.23.15 [[#652](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/652)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.1.2 [[#657](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/657)]
 - chore(deps): update dependency prettier to v3.9.9 [[#656](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/656)]
