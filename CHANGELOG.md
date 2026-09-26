@@ -1,5 +1,55 @@
 # Changelog
 
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-09-26
+
+### 📦️ Dependency
+
+- chore(deps): update pre-commit non-major [[#661](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/661)]
+- chore(deps): update pnpm to v11.28.0 [[#660](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/660)]
+- chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.4 [[#658](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/658)]
+- chore(deps): update dependency tsx to v4.23.15 [[#652](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/652)]
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.1.2 [[#657](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/657)]
+- chore(deps): update dependency prettier to v3.9.9 [[#656](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/656)]
+- chore(deps): lock file maintenance [[#654](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/654)]
+- chore(deps): update dependency @types/node to v24.13.6 [[#649](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/649)]
+- chore(deps): update pnpm to v11.27.1 [[#653](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/653)]
+- chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.9.8 [[#651](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/651)]
+- chore(deps): update dependency prettier to v3.9.8 [[#650](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/650)]
+- chore(deps): lock file maintenance [[#648](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/648)]
+- chore(deps): update pnpm to v11.27.0 [[#647](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/647)]
+- chore(deps): update pnpm to v11.26.0 [[#646](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/646)]
+- chore(deps): update dependency @types/node to v24.13.4 [[#645](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/645)]
+- chore(deps): lock file maintenance [[#644](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/644)]
+- chore(deps): update pnpm to v11.25.0 [[#641](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/641)]
+- chore(deps): lock file maintenance [[#640](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/640)]
+- chore(deps): update pnpm to v11.24.0 [[#638](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/638)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.13.2 [[#637](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/637)]
+- chore(deps): lock file maintenance [[#636](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/636)]
+- chore(deps): update pnpm to v11.23.0 [[#635](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/635)]
+- chore(deps): update pre-commit hook golangci/golangci-lint to v2.13.1 [[#634](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/634)]
+- chore(deps): update vitest monorepo to v4.1.11 [[#633](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/633)]
+- chore(deps): lock file maintenance [[#632](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/632)]
+- chore(deps): update pnpm to v11.22.0 [[#631](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/631)]
+- chore(deps): update dependency tsx to v4.23.12 [[#630](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/630)]
+- chore(deps): lock file maintenance [[#629](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/629)]
+- chore(deps): update dependency tsx to v4.23.11 [[#625](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/625)]
+- chore(deps): update pnpm to v11.21.0 [[#628](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/628)]
+- chore(deps): update dependency @types/semver to v7.8.0 [[#624](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/624)]
+- chore(deps): update pnpm to v11.20.0 [[#627](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/627)]
+- chore(deps): lock file maintenance [[#626](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/626)]
+- chore(deps): update pre-commit hook hadolint/hadolint to v2.15.1 [[#623](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/623)]
+- chore(deps): update pnpm to v11.18.0 [[#622](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/622)]
+- chore(deps): lock file maintenance [[#621](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/621)]
+- chore(deps): update pnpm to v11.17.0 [[#620](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/620)]
+- chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.9.6 [[#619](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/619)]
+- chore(deps): update dependency prettier to v3.9.6 [[#618](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/618)]
+- chore(deps): update pnpm to v11.15.1 [[#617](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/617)]
+- chore(deps): update pnpm to v11.15.0 [[#616](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/616)]
+- chore(deps): update pnpm to v11.14.0 [[#615](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/615)]
+- chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.49.1 [[#614](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/614)]
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.2 [[#612](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/612)]
+- chore(deps): update dependency tsx to v4.23.1 [[#611](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/611)]
+
 ## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-07-17
 
 ### 📦️ Dependency
