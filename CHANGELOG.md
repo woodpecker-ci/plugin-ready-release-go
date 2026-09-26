@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-09-21
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-09-26
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency prettier to v3.9.9 [[#656](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/656)]
 - chore(deps): lock file maintenance [[#654](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/654)]
 - chore(deps): update dependency @types/node to v24.13.6 [[#649](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/649)]
 - chore(deps): update pnpm to v11.27.1 [[#653](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/653)]
