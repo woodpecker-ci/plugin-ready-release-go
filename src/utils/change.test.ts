@@ -226,6 +226,44 @@ This is a special note that should not be touched.
 - Initial release\n`);
     });
 
+    it('should drop sections without a version', () => {
+      const oldChangelog = `# Changelog
+
+## [Unreleased]
+
+- Work in progress
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+### Features
+- Initial release\n`;
+
+      const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`# Changelog\n\n${newSection}
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+### Features
+- Initial release\n`);
+    });
+
+    it('should not split sections at subheadings starting with a link', () => {
+      const oldChangelog = `# Changelog
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+### [Docs](https://example.com/docs)
+- Initial release\n`;
+
+      const changelog = updateChangelogSection('0.1.0', '1.0.0', oldChangelog, newSection);
+      expect(changelog).toBe(`# Changelog\n\n${newSection}
+
+## [0.1.0](https://example.com/releases/tag/0.1.0) - 2024-01-01
+
+### [Docs](https://example.com/docs)
+- Initial release\n`);
+    });
+
     const changelogFiles = [
       {
         name: 'should add new section',
