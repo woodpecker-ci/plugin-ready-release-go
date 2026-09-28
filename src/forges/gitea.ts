@@ -158,26 +158,26 @@ export class GiteaForge extends Forge {
     sourceBranch: string;
     targetBranch: string;
   }): Promise<PullRequest | undefined> {
-    const pullRequest = await this.handleApiErrors(
-      this.api.repos.repoGetPullRequestByBaseHead(
-        options.owner,
-        options.repo,
-        options.targetBranch,
-        options.sourceBranch,
-      ),
+    // repoGetPullRequestByBaseHead also returns closed / merged pull requests, so a
+    // reused release branch would resolve to an old release pull request
+    const pullRequest = await this.getPullRequestByHead(
+      options.owner,
+      options.repo,
+      options.targetBranch,
+      options.sourceBranch,
     );
 
-    if (!pullRequest?.data) {
+    if (!pullRequest) {
       return undefined;
     }
 
     return {
       // TODO: check if those fields are always present and we can safely use ! here
-      title: pullRequest.data.title!,
-      author: pullRequest.data.user?.login!,
-      number: pullRequest.data.number!,
-      labels: pullRequest.data.labels?.map((label) => label.name!) ?? [],
-      description: pullRequest.data.body!,
+      title: pullRequest.title!,
+      author: pullRequest.user?.login!,
+      number: pullRequest.number!,
+      labels: pullRequest.labels?.map((label) => label.name!) ?? [],
+      description: pullRequest.body!,
     };
   }
 
