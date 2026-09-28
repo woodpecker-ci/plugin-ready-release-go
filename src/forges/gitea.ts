@@ -156,35 +156,36 @@ export class GiteaForge extends Forge {
     prerelease?: boolean;
     target: string;
   }): Promise<{ releaseLink: string }> {
-    const release = await this.api.repos
-      .repoCreateRelease(options.owner, options.repo, {
+    try {
+      const release = await this.api.repos.repoCreateRelease(options.owner, options.repo, {
         tag_name: options.tag,
         name: options.name,
         body: options.description,
         prerelease: options.prerelease,
         target_commitish: options.target,
-      })
-      .catch(async (error) => {
-        throw await this.explainCreateReleaseError(error, options.owner, options.repo);
       });
 
-    return { releaseLink: release.data.html_url! };
+      return { releaseLink: release.data.html_url! };
+    } catch (error) {
+      throw await this.explainCreateReleaseError(error, options.owner, options.repo);
+    }
   }
 
   // A disabled Releases unit returns the same 404 as a missing repository,
   // so ask the forge which one it is before reporting.
   private async explainCreateReleaseError(error: unknown, owner: string, repo: string): Promise<Error> {
     if (isGiteaErrorResponse(error) && error.status === 404) {
-      const repository = await this.api.repos
-        .repoGet(owner, repo)
-        .then((res) => res.data)
-        .catch(() => undefined);
+      try {
+        const { data: repository } = await this.api.repos.repoGet(owner, repo);
 
-      if (repository?.has_releases === false) {
-        return new Error(
-          `Failed to create release: the Releases unit is disabled for ${owner}/${repo}. ` +
-            `Enable it in the repository settings: ${this.getRepoUrl(owner, repo)}/settings`,
-        );
+        if (repository.has_releases === false) {
+          return new Error(
+            `Failed to create release: the Releases unit is disabled for ${owner}/${repo}. ` +
+              `Enable it in the repository settings: ${this.getRepoUrl(owner, repo)}/settings`,
+          );
+        }
+      } catch {
+        // repository lookup failed, fall back to the generic error below
       }
     }
 
@@ -261,13 +262,13 @@ export class GiteaForge extends Forge {
     pullRequestNumber: number;
     comment: string;
   }): Promise<void> {
-    await this.api.repos
-      .issueCreateComment(options.owner, options.repo, options.pullRequestNumber, {
+    try {
+      await this.api.repos.issueCreateComment(options.owner, options.repo, options.pullRequestNumber, {
         body: options.comment,
-      })
-      .catch((error) => {
-        throw formatGiteaError(`comment on pull request #${options.pullRequestNumber}`, error);
       });
+    } catch (error) {
+      throw formatGiteaError(`comment on pull request #${options.pullRequestNumber}`, error);
+    }
   }
 
   getRepoUrl(owner: string, repo: string): string {
