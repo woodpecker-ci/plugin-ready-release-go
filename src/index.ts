@@ -3,14 +3,14 @@ import c from 'picocolors';
 import type { SimpleGit } from 'simple-git';
 import semver from 'semver';
 
-import { prepare } from './cmd/prepare';
-import { release } from './cmd/release';
-import type { Config } from './utils/config';
-import type { CommandContext, HookContext } from './utils/types';
-import { extractVersionFromCommitMessage, getNextVersionFromLabels } from './utils/change';
-import { getReleaseOptions } from './utils/pr';
-import { Forge } from './forges/forge';
-import { PRLabelAnalyser } from './utils/analyser/pr_labels';
+import { prepare } from './cmd/prepare.ts';
+import { release } from './cmd/release.ts';
+import type { Config } from './utils/config.ts';
+import type { CommandContext, HookContext } from './utils/types.ts';
+import { extractVersionFromCommitMessage, getNextVersionFromLabels } from './utils/change.ts';
+import { getReleaseOptions } from './utils/pr.ts';
+import { Forge } from './forges/forge.ts';
+import { PRLabelAnalyser } from './utils/analyser/pr_labels.ts';
 
 function isReleaseCommit(config: Config): boolean {
   if (!config.ci.commitMessage) return false;
