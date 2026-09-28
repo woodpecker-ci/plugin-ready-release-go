@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-09-26
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-09-28
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#663](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/663)]
 - chore(deps): update pre-commit non-major [[#661](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/661)]
 - chore(deps): update pnpm to v11.28.0 [[#660](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/660)]
 - chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.4 [[#658](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/658)]
