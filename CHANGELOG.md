@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v24.19.1 [[#659](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/659)]
 - chore(deps): update pnpm to v12.8.1 [[#667](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/667)]
 - chore(deps): update pnpm to v12 [[#643](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/643)]
 - chore(deps): lock file maintenance [[#663](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/663)]
