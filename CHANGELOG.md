@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-10-05
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-10-10
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v12.10.1 [[#671](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/671)]
 - chore(deps): lock file maintenance [[#669](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/669)]
 - chore(deps): update pnpm to v12.9.1 [[#668](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/668)]
 - chore(deps): update dependency @types/node to v24.19.1 [[#659](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/659)]
