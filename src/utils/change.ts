@@ -142,17 +142,14 @@ export function updateChangelogSection(
 ) {
   const changelogHeadline = '# Changelog\n\n';
 
-  let oldChangelog = _oldChangelog.replace(changelogHeadline, '');
+  const oldChangelog = _oldChangelog.replace(changelogHeadline, '');
 
   let sections: { version: string; section: string }[] = [];
 
-  const sectionBegin = `## [`;
-  while (oldChangelog.includes(sectionBegin)) {
-    const start = oldChangelog.indexOf(sectionBegin);
-    let end = oldChangelog.indexOf(sectionBegin, start + 1);
-    if (end === -1) {
-      end = oldChangelog.length;
-    }
+  // only level-2 headings start a section, not e.g. `### [Docs](...)`
+  const sectionStarts = Array.from(oldChangelog.matchAll(/^## \[/gm), (match) => match.index);
+  sectionStarts.forEach((start, i) => {
+    const end = sectionStarts[i + 1] ?? oldChangelog.length;
 
     const section = oldChangelog.slice(start, end).trim();
     const version = section.match(/\[(.*?)\]/)?.[1];
@@ -160,11 +157,10 @@ export function updateChangelogSection(
       throw new Error('Could not find version in changelog section');
     }
     sections.push({ version, section });
-
-    oldChangelog = oldChangelog.slice(end);
-  }
+  });
 
   sections = sections
+    .filter((s) => semver.valid(s.version) !== null) // drop sections without a version (e.g. "Unreleased"), the new release replaces them
     .filter((s) => s.version !== nextVersion) // filter out the new section
     .filter((s) => semver.compare(s.version, latestVersion) !== 1) // filter out sections that are older than the latest version as they are not released and should not be in the changelog
     .filter(
