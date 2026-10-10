@@ -89,7 +89,7 @@ export const defaultUserConfig: UserConfig = {
 export async function getConfig(basePath?: string): Promise<Config> {
   const userConfig: UserConfig = {};
 
-  const configFilePath = ciConfig.configFile || path.resolve(basePath ?? process.cwd(), 'release-config.ts');
+  const configFilePath = path.resolve(basePath ?? process.cwd(), ciConfig.configFile || 'release-config.ts');
   if (
     await fs
       .stat(configFilePath)
