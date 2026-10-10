@@ -1,5 +1,5 @@
 import path from 'path';
-import { UserConfig } from './types';
+import { UserConfig } from './types.ts';
 import { promises as fs } from 'fs';
 
 const ciConfig = {
