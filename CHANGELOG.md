@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update node.js to v26 [[#686](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/686)]
 - chore(deps): update pnpm to v12.16.1 [[#684](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/684)]
 - chore(deps): lock file maintenance [[#682](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/682)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.50.0 [[#681](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/681)]
