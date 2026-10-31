@@ -6,23 +6,12 @@
 
 - chore(deps): update node.js to v26 [[#686](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/686)]
 - chore(deps): update pnpm to v12.16.1 [[#684](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/684)]
-- chore(deps): update vitest monorepo to v4.1.12 [[#676](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/676)]
-- chore(deps): update dependency prettier to v3.9.10 [[#672](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/672)]
-- chore(deps): update dependency @types/node to v24.19.2 [[#670](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/670)]
-- chore(deps): update dependency @types/node to v24.19.1 [[#659](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/659)]
 - chore(deps): update docker.io/woodpeckerci/plugin-editorconfig-checker docker tag to v0.3.4 [[#658](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/658)]
 - chore(deps): update dependency tsx to v4.23.15 [[#652](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/652)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.1.2 [[#657](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/657)]
-- chore(deps): update dependency prettier to v3.9.9 [[#656](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/656)]
-- chore(deps): update dependency @types/node to v24.13.6 [[#649](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/649)]
 - chore(deps): update dependency prettier to v3.9.8 [[#650](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/650)]
-- chore(deps): update dependency @types/node to v24.13.4 [[#645](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/645)]
 - chore(deps): update vitest monorepo to v4.1.11 [[#633](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/633)]
-- chore(deps): update dependency tsx to v4.23.12 [[#630](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/630)]
-- chore(deps): update dependency tsx to v4.23.11 [[#625](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/625)]
 - chore(deps): update dependency @types/semver to v7.8.0 [[#624](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/624)]
-- chore(deps): update dependency prettier to v3.9.6 [[#618](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/618)]
-- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.2 [[#612](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/612)]
 - chore(deps): update dependency tsx to v4.23.1 [[#611](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/611)]
 
 ## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-07-17
