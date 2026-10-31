@@ -1,7 +1,7 @@
 variables:
   - &node_image 'docker.io/node:26-slim'
   # Node 25+ no longer ships corepack, so install the pnpm version pinned in package.json
-  - &install_pnpm npm i -g $(npm pkg get packageManager | tr -d '"')
+  - &install_pnpm npm i -g $(node -p 'require("./package.json").packageManager')
 
 when:
   - event: pull_request
