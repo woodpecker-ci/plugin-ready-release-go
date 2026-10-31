@@ -1,9 +1,10 @@
 # Changelog
 
-## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-10-26
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-10-31
 
 ### 📦️ Dependency
 
+- chore(deps): update pnpm to v12.16.1 [[#684](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/684)]
 - chore(deps): lock file maintenance [[#682](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/682)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.50.0 [[#681](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/681)]
 - chore(deps): update pnpm to v12.15.0 [[#680](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/680)]
