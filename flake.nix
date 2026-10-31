@@ -26,6 +26,7 @@
           shellHook = ''
             onefetch --number-of-authors 5
           '';
+          pnpm_config_pm_on_fail = "ignore";
         };
       }
     );
