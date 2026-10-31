@@ -17,7 +17,7 @@
           buildInputs = with pkgs; [
             onefetch
 
-            nodejs_24
+            nodejs_26
             pnpm
 
             typescript
@@ -26,6 +26,7 @@
           shellHook = ''
             onefetch --number-of-authors 5
           '';
+          pnpm_config_pm_on_fail = "ignore";
         };
       }
     );
