@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): lock file maintenance [[#691](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/691)]
 - chore(deps): update dependency semver to v7.8.6 [[#689](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/689)]
 - chore(deps): update dependency prettier to v3.10.1 [[#690](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/690)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.3 [[#687](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/687)]
