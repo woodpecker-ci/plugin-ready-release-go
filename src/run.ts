@@ -2,7 +2,7 @@ import c from 'picocolors';
 import { run } from './index';
 import { getConfig } from './utils/config';
 import { getForge } from './forges';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 
 async function main() {
   const basePath = process.env.BASE; // Can be used for testing
