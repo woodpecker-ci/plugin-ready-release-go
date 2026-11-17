@@ -1,4 +1,5 @@
 import c from 'picocolors';
+import { inspect } from 'node:util';
 import { run } from './index';
 import { getConfig } from './utils/config';
 import { getForge } from './forges';
@@ -14,7 +15,11 @@ async function main() {
 
     await run({ git, forge, config });
   } catch (_error) {
-    const error = _error as Error;
+    if (!(_error instanceof Error)) {
+      console.error(c.red(`Error: ${inspect(_error)}`));
+      process.exit(1);
+    }
+    const error = _error;
     console.error(
       c.red(
         `Error: ${error.name}` +
