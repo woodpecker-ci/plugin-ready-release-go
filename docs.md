@@ -55,6 +55,7 @@ There are two parts to configure the plugin:
 | `PULL_REQUEST_BRANCH_PREFIX` | `next-release/`        | The prefix used for release pull-request branches |
 | `DEBUG`                      | `false`                | Enable debug logging                              |
 | `RELEASE_PREFIX`             | 🎉 Release             | Prefix of the PR title                            |
+| `CONFIG_FILE`                | `release-config.ts`    | Path to the config file, relative to the repo     |
 
 ### 2. Using a `release-config.ts` file in your repository
 
