@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.1.4](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.4) - 2026-11-17
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 🐛 Bug Fixes
+
+- fix gitea ignoring merged release pull requests [[#665](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/665)]
+
+### 📦️ Dependency
+
+- fix(deps): update dependency simple-git to v4 [[#662](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/662)]
+- chore(deps): lock file maintenance [[#691](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/691)]
+- chore(deps): update dependency semver to v7.8.6 [[#689](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/689)]
+- chore(deps): update dependency prettier to v3.10.1 [[#690](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/690)]
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.3 [[#687](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/687)]
+
 ## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-10-31
 
 ### 📦️ Dependency
