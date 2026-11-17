@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=node:24-slim
+ARG BASE_IMAGE=node:26-slim
 
 FROM --platform=$BUILDPLATFORM ${BASE_IMAGE} AS build
 WORKDIR /app
@@ -6,8 +6,10 @@ ENV NODE_ENV=production
 
 COPY ["package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "./"]
 
-RUN corepack enable
-RUN pnpm install --frozen-lockfile --package-import-method copy
+# Node 25+ no longer ships corepack, so install the pnpm version pinned in package.json
+# hadolint ignore=DL3016
+RUN npm i -g "$(node -p 'require("./package.json").packageManager')" \
+  && pnpm install --frozen-lockfile --package-import-method copy
 
 FROM ${BASE_IMAGE}
 WORKDIR /app

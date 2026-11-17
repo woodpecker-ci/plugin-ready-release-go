@@ -4,7 +4,7 @@
   "description": "",
   "license": "MIT",
   "author": "Woodpecker Maintainers",
-  "packageManager": "pnpm@12.6.0",
+  "packageManager": "pnpm@12.16.1",
   "main": "dist/run.js",
   "scripts": {
     "start": "tsx src/run.ts",
@@ -21,11 +21,11 @@
     "picocolors": "^1.0.0",
     "semver": "^7.5.3",
     "shelljs": "^0.10.0",
-    "simple-git": "^3.21.0",
+    "simple-git": "^4.0.0",
     "tsx": "^4.3.0"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.0.0",
     "@types/semver": "^7.5.0",
     "@types/shelljs": "^0.10.0",
     "@vitest/ui": "^4.0.0",

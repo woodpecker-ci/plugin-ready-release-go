@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.3](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.3) - 2026-10-31
+
+### 📦️ Dependency
+
+- chore(deps): update node.js to v26 [[#686](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/686)]
+- chore(deps): update pnpm to v12.16.1 [[#684](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/684)]
+- chore(deps): update dependency tsx to v4.23.15 [[#652](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/652)]
+
 ## [4.1.2](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.2) - 2026-07-17
 
 ### 📦️ Dependency
