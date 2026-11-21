@@ -4,6 +4,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.10.1 [[#696](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/696)]
+- chore(deps): update pnpm to v12.21.0 [[#695](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/695)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.4 [[#692](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/692)]
 - chore(deps): update dependency simple-git to v4.1.0 [[#693](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/693)]
 
