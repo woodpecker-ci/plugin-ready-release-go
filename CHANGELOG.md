@@ -1,9 +1,11 @@
 # Changelog
 
-## [4.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.5) - 2026-11-23
+## [4.1.5](https://github.com/woodpecker-ci/plugin-ready-release-go/releases/tag/4.1.5) - 2026-11-28
 
 ### 📦️ Dependency
 
+- chore(deps): update dependency @types/node to v26.6.11 [[#699](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/699)]
+- chore(deps): update pnpm to v12.23.0 [[#700](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/700)]
 - chore(deps): lock file maintenance [[#698](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/698)]
 - chore(deps): update pre-commit hook igorshubovych/markdownlint-cli to v0.50.1 [[#697](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/697)]
 - chore(deps): update pre-commit hook rbubley/mirrors-prettier to v3.10.1 [[#696](https://github.com/woodpecker-ci/plugin-ready-release-go/pull/696)]
